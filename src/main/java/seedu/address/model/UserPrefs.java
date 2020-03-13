@@ -14,8 +14,6 @@ import seedu.address.commons.core.GuiSettings;
 public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
-    private Path internshipDiaryFilePath = Paths.get("data", "internshipdiary.json");
-    // Old AB code
     private Path addressBookFilePath = Paths.get("data" , "addressbook.json");
 
     /**
@@ -37,7 +35,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     public void resetData(ReadOnlyUserPrefs newUserPrefs) {
         requireNonNull(newUserPrefs);
         setGuiSettings(newUserPrefs.getGuiSettings());
-        setInternshipDiaryFilePath(newUserPrefs.getInternshipDiaryFilePath());
+        setAddressBookFilePath(newUserPrefs.getAddressBookFilePath());
     }
 
     public GuiSettings getGuiSettings() {
@@ -49,13 +47,13 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.guiSettings = guiSettings;
     }
 
-    public Path getInternshipDiaryFilePath() {
-        return internshipDiaryFilePath;
+    public Path getAddressBookFilePath() {
+        return addressBookFilePath;
     }
 
-    public void setInternshipDiaryFilePath(Path internshipDiaryFilePath) {
-        requireNonNull(internshipDiaryFilePath);
-        this.internshipDiaryFilePath = internshipDiaryFilePath;
+    public void setAddressBookFilePath(Path addressBookFilePath) {
+        requireNonNull(addressBookFilePath);
+        this.addressBookFilePath = addressBookFilePath;
     }
 
     @Override
@@ -70,29 +68,20 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         UserPrefs o = (UserPrefs) other;
 
         return guiSettings.equals(o.guiSettings)
-                && internshipDiaryFilePath.equals(o.internshipDiaryFilePath);
+                && addressBookFilePath.equals(o.addressBookFilePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, internshipDiaryFilePath);
+        return Objects.hash(guiSettings, addressBookFilePath);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Gui Settings : " + guiSettings);
-        sb.append("\nLocal data file location : " + internshipDiaryFilePath);
+        sb.append("\nLocal data file location : " + addressBookFilePath);
         return sb.toString();
     }
 
-    //============== Old Code ================================================================================
-    public Path getAddressBookFilePath() {
-        return addressBookFilePath;
-    }
-
-    public void setAddressBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        this.addressBookFilePath = addressBookFilePath;
-    }
 }

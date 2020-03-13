@@ -7,21 +7,21 @@ import java.util.logging.Logger;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyInternshipDiary;
+import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 
 /**
- * Manages storage of InternshipDiary data in local storage.
+ * Manages storage of AddressBook data in local storage.
  */
 public class StorageManager implements Storage {
 
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
-    private InternshipDiaryStorage addressBookStorage;
+    private AddressBookStorage addressBookStorage;
     private UserPrefsStorage userPrefsStorage;
 
 
-    public StorageManager(InternshipDiaryStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
+    public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
         super();
         this.addressBookStorage = addressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
@@ -45,34 +45,33 @@ public class StorageManager implements Storage {
     }
 
 
-    // ================ InternshipDiary methods ==============================
+    // ================ AddressBook methods ==============================
 
     @Override
-    public Path getInternshipDiaryFilePath() {
-        return addressBookStorage.getInternshipDiaryFilePath();
+    public Path getAddressBookFilePath() {
+        return addressBookStorage.getAddressBookFilePath();
     }
 
     @Override
-    public Optional<ReadOnlyInternshipDiary> readInternshipDiary() throws DataConversionException, IOException {
-        return readInternshipDiary(addressBookStorage.getInternshipDiaryFilePath());
+    public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
+        return readAddressBook(addressBookStorage.getAddressBookFilePath());
     }
 
     @Override
-    public Optional<ReadOnlyInternshipDiary> readInternshipDiary(Path filePath)
-            throws DataConversionException, IOException {
+    public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException {
         logger.fine("Attempting to read data from file: " + filePath);
-        return addressBookStorage.readInternshipDiary(filePath);
+        return addressBookStorage.readAddressBook(filePath);
     }
 
     @Override
-    public void saveInternshipDiary(ReadOnlyInternshipDiary addressBook) throws IOException {
-        saveInternshipDiary(addressBook, addressBookStorage.getInternshipDiaryFilePath());
+    public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
+        saveAddressBook(addressBook, addressBookStorage.getAddressBookFilePath());
     }
 
     @Override
-    public void saveInternshipDiary(ReadOnlyInternshipDiary addressBook, Path filePath) throws IOException {
+    public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        addressBookStorage.saveInternshipDiary(addressBook, filePath);
+        addressBookStorage.saveAddressBook(addressBook, filePath);
     }
 
 }

@@ -15,15 +15,15 @@ import seedu.address.commons.util.ConfigUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
-import seedu.address.model.InternshipDiary;
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
-import seedu.address.model.ReadOnlyInternshipDiary;
+import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
-import seedu.address.storage.InternshipDiaryStorage;
-import seedu.address.storage.JsonInternshipDiaryStorage;
+import seedu.address.storage.AddressBookStorage;
+import seedu.address.storage.JsonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.Storage;
 import seedu.address.storage.StorageManager;
@@ -48,7 +48,7 @@ public class MainApp extends Application {
 
     @Override
     public void init() throws Exception {
-        logger.info("=============================[ Initializing InternshipDiary ]===========================");
+        logger.info("=============================[ Initializing AddressBook ]===========================");
         super.init();
 
         AppParameters appParameters = AppParameters.parse(getParameters());
@@ -56,9 +56,8 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        InternshipDiaryStorage internshipDiaryStorage =
-                new JsonInternshipDiaryStorage(userPrefs.getInternshipDiaryFilePath());
-        storage = new StorageManager(internshipDiaryStorage, userPrefsStorage);
+        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
+        storage = new StorageManager(addressBookStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -75,20 +74,20 @@ public class MainApp extends Application {
      * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        Optional<ReadOnlyInternshipDiary> internshipDiaryOptional;
-        ReadOnlyInternshipDiary initialData;
+        Optional<ReadOnlyAddressBook> addressBookOptional;
+        ReadOnlyAddressBook initialData;
         try {
-            internshipDiaryOptional = storage.readInternshipDiary();
-            if (!internshipDiaryOptional.isPresent()) {
-                logger.info("Data file not found. Will be starting with a sample InternshipDiary");
+            addressBookOptional = storage.readAddressBook();
+            if (!addressBookOptional.isPresent()) {
+                logger.info("Data file not found. Will be starting with a sample AddressBook");
             }
-            initialData = internshipDiaryOptional.orElseGet(SampleDataUtil::getSampleInternshipDiary);
+            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
         } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with an empty InternshipDiary");
-            initialData = new InternshipDiary();
+            logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
+            initialData = new AddressBook();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty InternshipDiary");
-            initialData = new InternshipDiary();
+            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
+            initialData = new AddressBook();
         }
 
         return new ModelManager(initialData, userPrefs);
@@ -152,7 +151,7 @@ public class MainApp extends Application {
                     + "Using default user prefs");
             initializedPrefs = new UserPrefs();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty InternshipDiary");
+            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
             initializedPrefs = new UserPrefs();
         }
 
@@ -168,13 +167,13 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        logger.info("Starting InternshipDiary " + MainApp.VERSION);
+        logger.info("Starting AddressBook " + MainApp.VERSION);
         ui.start(primaryStage);
     }
 
     @Override
     public void stop() {
-        logger.info("============================ [ Stopping InternshipDiary ] =============================");
+        logger.info("============================ [ Stopping Address Book ] =============================");
         try {
             storage.saveUserPrefs(model.getUserPrefs());
         } catch (IOException e) {

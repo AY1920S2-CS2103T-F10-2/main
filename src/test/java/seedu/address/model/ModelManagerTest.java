@@ -3,11 +3,10 @@ package seedu.address.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_INTERNSHIPS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static seedu.address.testutil.Assert.assertThrows;
-
-import static seedu.address.testutil.TypicalInternshipApplications.FACEBOOK;
-import static seedu.address.testutil.TypicalInternshipApplications.GOOGLE;
+import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.BENSON;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,8 +15,8 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.internship.CompanyContainsKeywordsPredicate;
-import seedu.address.testutil.InternshipDiaryBuilder;
+import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.testutil.AddressBookBuilder;
 
 public class ModelManagerTest {
 
@@ -27,7 +26,7 @@ public class ModelManagerTest {
     public void constructor() {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
-        assertEquals(new InternshipDiary(), new InternshipDiary(modelManager.getInternshipDiary()));
+        assertEquals(new AddressBook(), new AddressBook(modelManager.getAddressBook()));
     }
 
     @Test
@@ -38,14 +37,14 @@ public class ModelManagerTest {
     @Test
     public void setUserPrefs_validUserPrefs_copiesUserPrefs() {
         UserPrefs userPrefs = new UserPrefs();
-        userPrefs.setInternshipDiaryFilePath(Paths.get("internship-diary/file/path"));
+        userPrefs.setAddressBookFilePath(Paths.get("address/book/file/path"));
         userPrefs.setGuiSettings(new GuiSettings(1, 2, 3, 4));
         modelManager.setUserPrefs(userPrefs);
         assertEquals(userPrefs, modelManager.getUserPrefs());
 
         // Modifying userPrefs should not modify modelManager's userPrefs
         UserPrefs oldUserPrefs = new UserPrefs(userPrefs);
-        userPrefs.setInternshipDiaryFilePath(Paths.get("internship-diary/file/path"));
+        userPrefs.setAddressBookFilePath(Paths.get("new/address/book/file/path"));
         assertEquals(oldUserPrefs, modelManager.getUserPrefs());
     }
 
@@ -62,51 +61,47 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void setInternshipDiaryFilePath_nullPath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> modelManager.setInternshipDiaryFilePath(null));
+    public void setAddressBookFilePath_nullPath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> modelManager.setAddressBookFilePath(null));
     }
 
     @Test
-    public void setInternshipDiaryFilePath_validPath_setsInternshipDiaryFilePath() {
-        Path path = Paths.get("internship-diary/file/path");
-        modelManager.setInternshipDiaryFilePath(path);
-        assertEquals(path, modelManager.getInternshipDiaryFilePath());
+    public void setAddressBookFilePath_validPath_setsAddressBookFilePath() {
+        Path path = Paths.get("address/book/file/path");
+        modelManager.setAddressBookFilePath(path);
+        assertEquals(path, modelManager.getAddressBookFilePath());
     }
 
     @Test
-    public void hasInternshipApplication_nullPerson_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> modelManager.hasInternshipApplication(null));
+    public void hasPerson_nullPerson_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> modelManager.hasPerson(null));
     }
 
     @Test
-    public void hasInternshipApplication_internshipApplicationNotInInternshipDiary_returnsFalse() {
-        assertFalse(modelManager.hasInternshipApplication(GOOGLE));
+    public void hasPerson_personNotInAddressBook_returnsFalse() {
+        assertFalse(modelManager.hasPerson(ALICE));
     }
 
     @Test
-    public void hasInternshipApplication_internshipApplicationInInternshipDiary_returnsTrue() {
-        modelManager.addInternshipApplication(GOOGLE);
-        assertTrue(modelManager.hasInternshipApplication(GOOGLE));
+    public void hasPerson_personInAddressBook_returnsTrue() {
+        modelManager.addPerson(ALICE);
+        assertTrue(modelManager.hasPerson(ALICE));
     }
 
     @Test
-    public void getFilteredInternshipApplicationList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, () ->
-                modelManager.getFilteredInternshipApplicationList().remove(0));
+    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredPersonList().remove(0));
     }
 
     @Test
     public void equals() {
-        InternshipDiary diary = new InternshipDiaryBuilder()
-                .withInternshipApplication(GOOGLE)
-                .withInternshipApplication(FACEBOOK)
-                .build();
-        InternshipDiary differentDiary = new InternshipDiary();
+        AddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        AddressBook differentAddressBook = new AddressBook();
         UserPrefs userPrefs = new UserPrefs();
 
         // same values -> returns true
-        modelManager = new ModelManager(diary, userPrefs);
-        ModelManager modelManagerCopy = new ModelManager(diary, userPrefs);
+        modelManager = new ModelManager(addressBook, userPrefs);
+        ModelManager modelManagerCopy = new ModelManager(addressBook, userPrefs);
         assertTrue(modelManager.equals(modelManagerCopy));
 
         // same object -> returns true
@@ -119,20 +114,19 @@ public class ModelManagerTest {
         assertFalse(modelManager.equals(5));
 
         // different addressBook -> returns false
-        assertFalse(modelManager.equals(new ModelManager(differentDiary, userPrefs)));
+        assertFalse(modelManager.equals(new ModelManager(differentAddressBook, userPrefs)));
 
         // different filteredList -> returns false
-        String[] keywords = GOOGLE.getCompany().fullCompany.split("\\s+");
-        modelManager.updateFilteredInternshipApplicationList(
-                new CompanyContainsKeywordsPredicate(Arrays.asList(keywords)));
-        assertFalse(modelManager.equals(new ModelManager(diary, userPrefs)));
+        String[] keywords = ALICE.getName().fullName.split("\\s+");
+        modelManager.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
+        assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
-        modelManager.updateFilteredInternshipApplicationList(PREDICATE_SHOW_ALL_INTERNSHIPS);
+        modelManager.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
         // different userPrefs -> returns false
         UserPrefs differentUserPrefs = new UserPrefs();
-        differentUserPrefs.setInternshipDiaryFilePath(Paths.get("differentFilePath"));
-        assertFalse(modelManager.equals(new ModelManager(diary, differentUserPrefs)));
+        differentUserPrefs.setAddressBookFilePath(Paths.get("differentFilePath"));
+        assertFalse(modelManager.equals(new ModelManager(addressBook, differentUserPrefs)));
     }
 }

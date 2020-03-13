@@ -11,44 +11,21 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.internship.InternshipApplication;
 import seedu.address.model.person.Person;
 
 /**
- * Represents the in-memory model of the internship diary data.
+ * Represents the in-memory model of the address book data.
  */
 public class ModelManager implements Model {
-
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private InternshipDiary internshipDiary = new InternshipDiary();
+    private final AddressBook addressBook;
     private final UserPrefs userPrefs;
-    private FilteredList<InternshipApplication> filteredInternshipApplications =
-            new FilteredList<>(internshipDiary.getInternshipList());
-
-    //Old AB code
-    private AddressBook addressBook = new AddressBook();
-    private FilteredList<Person> filteredPersons = new FilteredList<>(addressBook.getPersonList());
+    private final FilteredList<Person> filteredPersons;
 
     /**
-     * Initializes a ModelManager with the given internshipDiary and userPrefs.
+     * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyInternshipDiary internshipDiary, ReadOnlyUserPrefs userPrefs) {
-        super();
-        requireAllNonNull(internshipDiary, userPrefs);
-
-        logger.fine("Initializing with internship diary: " + internshipDiary + " and user prefs " + userPrefs);
-
-        this.internshipDiary = new InternshipDiary(internshipDiary);
-        this.userPrefs = new UserPrefs(userPrefs);
-        filteredInternshipApplications = new FilteredList<>(this.internshipDiary.getInternshipList());
-    }
-
-    public ModelManager() {
-        this(new InternshipDiary(), new UserPrefs());
-    }
-
-    // Old AB3 Constructor
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(addressBook, userPrefs);
@@ -58,6 +35,10 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+    }
+
+    public ModelManager() {
+        this(new AddressBook(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -83,93 +64,6 @@ public class ModelManager implements Model {
         requireNonNull(guiSettings);
         userPrefs.setGuiSettings(guiSettings);
     }
-
-    @Override
-    public Path getInternshipDiaryFilePath() {
-        return userPrefs.getInternshipDiaryFilePath();
-    }
-
-    @Override
-    public void setInternshipDiaryFilePath(Path internshipDiaryFilePath) {
-        requireNonNull(internshipDiaryFilePath);
-        userPrefs.setInternshipDiaryFilePath(internshipDiaryFilePath);
-    }
-
-    //=========== InternshipDiary ============================================================================
-
-    @Override
-    public void setInternshipDiary(ReadOnlyInternshipDiary internshipDiary) {
-        this.internshipDiary.resetData(internshipDiary);
-    }
-
-    @Override
-    public ReadOnlyInternshipDiary getInternshipDiary() {
-        return internshipDiary;
-    }
-
-    @Override
-    public boolean hasInternshipApplication(InternshipApplication internshipApplication) {
-        requireNonNull(internshipApplication);
-        return internshipDiary.hasInternship(internshipApplication);
-    }
-
-    @Override
-    public void deleteInternshipApplication(InternshipApplication target) {
-        internshipDiary.removeInternship(target);
-    }
-
-    @Override
-    public void addInternshipApplication(InternshipApplication internshipApplication) {
-        internshipDiary.addInternshipApplication(internshipApplication);
-    }
-
-    @Override
-    public void setInternshipApplication(InternshipApplication target, InternshipApplication editedInternship) {
-        requireAllNonNull(target, editedInternship);
-
-        internshipDiary.setInternship(target, editedInternship);
-    }
-
-    //=========== Filtered Internship Application List Accessors =============================================
-
-    /**
-     * Returns an unmodifiable view of the list of {@code InternshipApplication}
-     * backed by the internal list of {@code versionedInternshipDiary}
-     */
-    @Override
-    public ObservableList<InternshipApplication> getFilteredInternshipApplicationList() {
-        return filteredInternshipApplications;
-    }
-
-    @Override
-    public void updateFilteredInternshipApplicationList(Predicate<InternshipApplication> predicate) {
-        requireNonNull(predicate);
-
-        filteredInternshipApplications.setPredicate(predicate);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        // short circuit if same object
-        if (obj == this) {
-            return true;
-        }
-
-        // instanceof handles nulls
-        if (!(obj instanceof ModelManager)) {
-            return false;
-        }
-
-        // state check
-        ModelManager other = (ModelManager) obj;
-        return internshipDiary.equals(other.internshipDiary)
-                && userPrefs.equals(other.userPrefs)
-                && filteredInternshipApplications.equals(other.filteredInternshipApplications);
-    }
-
-    //============== Old Code ================================================================================
-
-    //=========== UserPrefs ==================================================================================
 
     @Override
     public Path getAddressBookFilePath() {
@@ -233,6 +127,25 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // short circuit if same object
+        if (obj == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(obj instanceof ModelManager)) {
+            return false;
+        }
+
+        // state check
+        ModelManager other = (ModelManager) obj;
+        return addressBook.equals(other.addressBook)
+                && userPrefs.equals(other.userPrefs)
+                && filteredPersons.equals(other.filteredPersons);
     }
 
 }
