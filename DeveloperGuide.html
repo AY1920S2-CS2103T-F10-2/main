@@ -24,7 +24,7 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#proposed-undo-redo-feature">4.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></li>
+<li><a href="#sort-command">4.2. Sort command</a></li>
 <li><a href="#interview-and-interview-commands">4.3. Interview and Interview Commands</a></li>
 <li><a href="#find-command">4.4. Find command</a></li>
 <li><a href="#archival-feature">4.5. Archival Feature</a></li>
@@ -56,7 +56,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(to be inserted)</p>
+<p>Internship Diary is an application to assist students in managing their internship applications. The Internship Diary
+will be able to help you in tracking, tagging and reviewing all your internship applications. Additionally, Internship
+Diary is optimized for those who prefer to work with a Command Line Interface (CLI), while still having the benefits
+of a Graphical User Interface (GUI).</p>
 </div>
 </div>
 </div>
@@ -557,15 +560,110 @@ If the <code>currentStatePointer</code> is at index <code>internshipDiaryStateLi
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></h3>
+<h3 id="sort-command"><a class="link" href="#sort-command">4.2. Sort command</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The find command allows the user to sort the currently visible list of internship applications. The following sequence
+diagram will illustrate the process of invocation for the command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortSequenceDiagram.png" alt="SortSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following subsections will go through the general implementations of the sort command.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The find command is implemented in the class <code>SortCommand</code> and uses the <code>SortCommandParser</code> class to parse the
+arguments for the command.</p>
+</div>
+<div class="paragraph">
+<p>To facilitate the sort command, several comparator classes implementing <code>Comparator&lt;InternshipApplication&gt;</code> are used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ApplicationDateComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>ApplicationDate</code> field
+in chronological order.</p>
+</li>
+<li>
+<p><code>CompanyComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Company</code> field
+in lexicographical order.</p>
+</li>
+<li>
+<p><code>PriorityComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Priority</code> field
+in ascending order.</p>
+</li>
+<li>
+<p><code>StatusComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Status</code> field
+by the order which they are declared in the Status Enum class.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>SortCommandParser</code> looks for a acceptable prefix in the command, and passes the corresponding comparator to <code>SortCommand</code>.
+If the number of such prefixes found is not exactly one, <code>SortCommandParser</code> throws a <code>ParseException</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reverse-sort"><a class="link" href="#reverse-sort">4.2.2. Reverse sort</a></h4>
+<div class="paragraph">
+<p>This version of the command is invoked when the user enters the command with <code>reverse</code> as the
+preamble text in the parameter, e.g. <code>sort reverse c/</code>. After retrieving the correct <code>comparator</code> to use,
+the parser would pass <code>comparator.reversed()</code> to the constructor of <code>SortCommand</code> instead of <code>comparator</code>.
+This would reverse the order in which the currently visible list of internship applications is sorted in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-sort-by-multiple-fields"><a class="link" href="#aspect-how-to-sort-by-multiple-fields">Aspect: How to sort by multiple fields</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Accept only one field to sort by when using SortCommand.
+This works as the list uses stable sort.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More streamlined, less complex.<br>
+<code>EnteredCommandsHistory</code> allows the user to get the sort command template back
+in just one press of the up arrow key so there is little hassle.<br>
+Users do not have to remember the order to place the arguments to get the sort they want.</p>
+</li>
+<li>
+<p>Cons: Feels a little restrictive.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Allow multiple fields to sort by.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Two less key presses.</p>
+</li>
+<li>
+<p>Cons: Code becomes much more complex.<br>
+Users has to remember the order to place the arguments to get the sort they want.<br>
+Users are highly unlikely to use this feature, as sorting one field by one feels more natural.<br>
+Harder to implement reverse sorting.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">4.3. Interview and Interview Commands</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The implementation of interviews will be facilitated by two overarching components, the Model Class <code>Interview</code>
 which is associated to an <code>InternshipApplication</code> (see Model Diagram <a href="#Design-Model">Section 3.4, &#8220;Model component&#8221;</a> ) and the Logic Classes <code>InterviewCommandParser</code> and <code>InterviewCommand</code>.</p>
@@ -620,7 +718,7 @@ which is the primary logic parser for user input. The following sequence diagram
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">Aspect: How to implement different interview commands</a></h5>
 <div class="ulist">
@@ -674,7 +772,7 @@ diagram will illustrate the process of invocation for the command:</p>
 versions of the command, find any match, and find match by fields.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.4.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The find command is implemented in the class <code>FindCommand</code> and uses the <code>FindCommandParser</code> class to parse the
 arguments for the command.</p>
@@ -763,7 +861,7 @@ instance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.4. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">Aspect: How to implement the different versions of find command</a></h5>
 <div class="ulist">
@@ -824,7 +922,7 @@ This still requires user to remember the right words to invoke the different ver
 <p>The entire mechanism is driven by three commands: 1) <code>archival</code>, 2) <code>archive</code>, 3) <code>unarchive</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.5.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The following sequence diagrams illustrates how these commands are executed.</p>
 </div>
@@ -869,7 +967,7 @@ as well.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-the-internship-application-archival-mechanism"><a class="link" href="#aspect-how-to-implement-the-internship-application-archival-mechanism">Aspect: How to implement the internship application archival mechanism</a></h5>
 <div class="ulist">
@@ -923,7 +1021,7 @@ status category&#8201;&#8212;&#8201;<code>wishlist</code>, <code>applied</code>,
 <p>Users will be able to view those metrics from two areas on the application: 1) <code>StatisticsBarFooter</code>, and 2) <code>StatisticsWindow</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.6.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p><code>StatisticsBarFooter</code> serves as a quick view of the internship applications count. This bar footer is always visible to user
 and is attached to the <code>MainWindow</code> of the application.</p>
@@ -937,7 +1035,7 @@ application(s) in the form of a bar chart or pie chart.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-which-list-to-retrieve-data-from-to-generate-statistics"><a class="link" href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">Aspect: Which list to retrieve data from to generate statistics</a></h5>
 <div class="ulist">
@@ -1645,4 +1743,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-27 02:13:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 12:41:50 UTC</div></div></div></body></html>
