@@ -14,21 +14,22 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-an-internship-application-code-add-code">3.2. Adding an internship application: <code>add</code></a></li>
-<li><a href="#listing-all-internship-applications-code-list-code">3.3. Listing all internship applications : <code>list</code></a></li>
-<li><a href="#editing-an-internship-application-code-edit-code">3.4. Editing an internship application : <code>edit</code></a></li>
-<li><a href="#locating-an-internship-application-by-fields-code-find-code">3.5. Locating an internship application by fields: <code>find</code></a></li>
-<li><a href="#sorting-internship-companies-by-field-code-sort-code">3.6. Sorting internship companies by field : <code>sort</code></a></li>
-<li><a href="#deleting-an-internship-application-code-delete-code">3.7. Deleting an internship application : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.8. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#getting-deadline-reminders-code-reminder-code">3.9. Getting deadline reminders : <code>reminder</code></a></li>
-<li><a href="#getting-statistics-about-internship-applications-code-stats-code">3.10. Getting statistics about internship applications: <code>stats</code></a></li>
-<li><a href="#archiving-your-internship-applications-code-archive-code">3.11. Archiving your internship applications: <code>archive</code></a></li>
-<li><a href="#unarchiving-your-internship-applications-code-unarchive-code">3.12. Unarchiving your internship applications: <code>unarchive</code></a></li>
-<li><a href="#view-your-internship-applications-archival-code-archival-code">3.13. View your internship applications archival: <code>archival</code></a></li>
-<li><a href="#modifying-an-interview-in-an-internship-application-code-interview-code">3.14. Modifying an interview in an internship application : <code>interview</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#viewing-unarchived-internship-applications-code-list-code">3.2. Viewing unarchived internship applications : <code>list</code></a></li>
+<li><a href="#viewing-archived-internship-applications-code-archival-code">3.3. Viewing archived internship applications: <code>archival</code></a></li>
+<li><a href="#selecting-an-internship-application-to-display-code-select-code">3.4. Selecting an internship application to display: <code>select</code></a></li>
+<li><a href="#adding-an-internship-application-code-add-code">3.5. Adding an internship application: <code>add</code></a></li>
+<li><a href="#deleting-an-internship-application-code-delete-code">3.6. Deleting an internship application : <code>delete</code></a></li>
+<li><a href="#archiving-your-internship-applications-code-archive-code">3.7. Archiving your internship applications: <code>archive</code></a></li>
+<li><a href="#unarchiving-your-internship-applications-code-unarchive-code">3.8. Unarchiving your internship applications: <code>unarchive</code></a></li>
+<li><a href="#editing-an-internship-application-code-edit-code">3.9. Editing an internship application : <code>edit</code></a></li>
+<li><a href="#locating-an-internship-application-by-fields-code-find-code">3.10. Locating an internship application by fields: <code>find</code></a></li>
+<li><a href="#sorting-internship-companies-by-field-code-sort-code">3.11. Sorting internship companies by field : <code>sort</code></a></li>
+<li><a href="#modifying-an-interview-in-an-internship-application-code-interview-code">3.12. Modifying an interview in an internship application : <code>interview</code></a></li>
+<li><a href="#getting-deadline-reminders-code-reminder-code">3.13. Getting deadline reminders : <code>reminder</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#getting-statistics-about-internship-applications-code-stats-code">3.15. Getting statistics about internship applications: <code>stats</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.17. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -40,10 +41,9 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Internship Diary is an application to assist students in managing their internship applications. The Internship Diary
-will be able to help you in tracking, tagging and reviewing all your internship applications. Additionally, Internship
-Diary is optimized for those who prefer to work with a Command Line Interface (CLI), while still having the benefits
-of a Graphical User Interface (GUI).</p>
+<p>Internship Diary is a desktop application that assists university students in managing their internship applications.
+With the Internship Diary, you can leave behind your troubling times trying to to organize, track, and review all your past and upcoming internship applications.
+The application is designed and optimized for users who can type quickly, and provides an elegant design which is easy on the eyes.</p>
 </div>
 </div>
 </div>
@@ -116,7 +116,60 @@ acceptable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-internship-application-code-add-code"><a class="link" href="#adding-an-internship-application-code-add-code">3.2. Adding an internship application: <code>add</code></a></h3>
+<h3 id="viewing-unarchived-internship-applications-code-list-code"><a class="link" href="#viewing-unarchived-internship-applications-code-list-code">3.2. Viewing unarchived internship applications : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Displays internship applications in your unarchived list.</p>
+</div>
+<div class="paragraph">
+<p>This is also known as your "Main" list.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-archived-internship-applications-code-archival-code"><a class="link" href="#viewing-archived-internship-applications-code-archival-code">3.3. Viewing archived internship applications: <code>archival</code></a></h3>
+<div class="paragraph">
+<p>Displays internship applications in your archived list.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>archival</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-an-internship-application-to-display-code-select-code"><a class="link" href="#selecting-an-internship-application-to-display-code-select-code">3.4. Selecting an internship application to display: <code>select</code></a></h3>
+<div class="paragraph">
+<p>Selects an internship application to display on the right panel of the internship diary.<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Alternatively, you could use your mouse and click on a specific internship application
+in the left panel of the internship diary
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>select INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-internship-application-code-add-code"><a class="link" href="#adding-an-internship-application-code-add-code">3.5. Adding an internship application: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an internship application to the internship diary<br>
 Format: <code>add c/COMPANY r/ROLE d/DATE s/STATUS [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]</code></p>
@@ -136,14 +189,217 @@ Format: <code>add c/COMPANY r/ROLE d/DATE s/STATUS [p/PHONE] [e/EMAIL] [a/ADDRES
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-internship-applications-code-list-code"><a class="link" href="#listing-all-internship-applications-code-list-code">3.3. Listing all internship applications : <code>list</code></a></h3>
+<h3 id="deleting-an-internship-application-code-delete-code"><a class="link" href="#deleting-an-internship-application-code-delete-code">3.6. Deleting an internship application : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all internship applications that you have applied to.<br>
-Format: <code>list</code></p>
+<p>Deletes the specified internship application from the current list.<br></p>
+</div>
+<div class="paragraph">
+<p>Formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete INDEX</code></p>
+</li>
+<li>
+<p><code>delete INDEX, [INDEX], [INDEX], &#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>delete s/STATUS</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the application at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed internship application.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The index can be entered in any order.</p>
+</li>
+<li>
+<p>The status has to be a valid one.</p>
+</li>
+<li>
+<p>The command will work on both the main and archival list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd internship application in the main list.</p>
+</li>
+<li>
+<p><code>archival</code><br>
+<code>delete s/applied</code><br>
+Deletes all the internship applications with the <code>applied</code> status in the archival list.</p>
+</li>
+<li>
+<p><code>find Google</code><br>
+<code>delete 2, 1, 3</code><br>
+Deletes the 1st, 2nd, and 3rd internship application in the results of the <code>find</code> command.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-internship-application-code-edit-code"><a class="link" href="#editing-an-internship-application-code-edit-code">3.4. Editing an internship application : <code>edit</code></a></h3>
+<h3 id="archiving-your-internship-applications-code-archive-code"><a class="link" href="#archiving-your-internship-applications-code-archive-code">3.7. Archiving your internship applications: <code>archive</code></a></h3>
+<div class="paragraph">
+<p>Moves your internship applications from the main list to the archival list.<br></p>
+</div>
+<div class="paragraph">
+<p>Formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>archive INDEX</code></p>
+</li>
+<li>
+<p><code>archive INDEX, [INDEX], [INDEX], &#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>archive s/STATUS</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Archives the application at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed internship application.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The index can be entered in any order.</p>
+</li>
+<li>
+<p>The status has to be a valid one.</p>
+</li>
+<li>
+<p>The command will only work on the main list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>archive 3</code><br>
+Archives the 3rd internship application in the main list.</p>
+</li>
+<li>
+<p><code>find Google</code><br>
+<code>archive 2, 1, 3</code><br>
+Archives the 1st, 2nd, and 3rd internship application in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>find Van</code><br>
+<code>archive s/rejected</code><br>
+Archives all the internship applications with the <code>rejected</code> status in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unarchiving-your-internship-applications-code-unarchive-code"><a class="link" href="#unarchiving-your-internship-applications-code-unarchive-code">3.8. Unarchiving your internship applications: <code>unarchive</code></a></h3>
+<div class="paragraph">
+<p>Moves your internship applications from the archival list to the main list.<br></p>
+</div>
+<div class="paragraph">
+<p>Formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unarchive INDEX</code></p>
+</li>
+<li>
+<p><code>unarchive INDEX, [INDEX], [INDEX], &#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>unarchive s/STATUS</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Unarchives the application at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed internship application.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The index can be entered in any order.</p>
+</li>
+<li>
+<p>The status has to be a valid one.</p>
+</li>
+<li>
+<p>The command will only work on the archival list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>archival</code><br>
+<code>unarchive 2</code><br>
+Unarchives the 2nd internship application in the archival list.</p>
+</li>
+<li>
+<p><code>find IBM</code><br>
+<code>unarchive 2, 1, 3</code><br>
+Unarchives the 1st, 2nd, and 3rd internship application in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>find Van</code><br>
+<code>unarchive s/interview</code><br>
+Unarchives all the internship applications with the <code>interview</code> status in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-internship-application-code-edit-code"><a class="link" href="#editing-an-internship-application-code-edit-code">3.9. Editing an internship application : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an internship application in the internship diary.<br>
 Format: <code>edit INDEX [c/COMPANY] [r/ROLE] [d/DATE] [s/STATUS] [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]​</code></p>
@@ -178,7 +434,7 @@ Edits the status and role of the internship application to be <code>applied</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-an-internship-application-by-fields-code-find-code"><a class="link" href="#locating-an-internship-application-by-fields-code-find-code">3.5. Locating an internship application by fields: <code>find</code></a></h3>
+<h3 id="locating-an-internship-application-by-fields-code-find-code"><a class="link" href="#locating-an-internship-application-by-fields-code-find-code">3.10. Locating an internship application by fields: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Find internship application whose specified fields contain the given keywords.<br>
 Format: <code>find [KEYWORDS] [c/COMPANY] [r/ROLE] [a/ADDRESS] [p/PHONE] [e/EMAIL] [d/DATE] [w/PRIORITY] [s/STATUS]</code></p>
@@ -229,7 +485,7 @@ Returns internship applications with company <code>Google</code> and status <cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">3.6. Sorting internship companies by field : <code>sort</code></a></h3>
+<h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">3.11. Sorting internship companies by field : <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sort displayed internship companies based on a given FIELD.<br>
 Type <code>reverse</code> before <code>FIELD</code> to sort in the reverse order.
@@ -266,90 +522,7 @@ Returns a list of currently displayed companies sorted by company name.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-internship-application-code-delete-code"><a class="link" href="#deleting-an-internship-application-code-delete-code">3.7. Deleting an internship application : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified internship application from the diary.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the application at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed internship application.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd internship application in the list.</p>
-</li>
-<li>
-<p><code>find Google</code><br>
-<code>delete 1</code><br>
-Deletes the 1st internship application in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.8. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the Internship Diary.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="getting-deadline-reminders-code-reminder-code"><a class="link" href="#getting-deadline-reminders-code-reminder-code">3.9. Getting deadline reminders : <code>reminder</code></a></h3>
-<div class="paragraph">
-<p>Lists all deadlines/appointments from the Internship Diary in the next 7 days.<br>
-Format: <code>reminder</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="getting-statistics-about-internship-applications-code-stats-code"><a class="link" href="#getting-statistics-about-internship-applications-code-stats-code">3.10. Getting statistics about internship applications: <code>stats</code></a></h3>
-<div class="paragraph">
-<p>Displays the current statistics regarding your internship application<br>
-Format: <code>stats</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="archiving-your-internship-applications-code-archive-code"><a class="link" href="#archiving-your-internship-applications-code-archive-code">3.11. Archiving your internship applications: <code>archive</code></a></h3>
-<div class="paragraph">
-<p>Stores your internship applications into the archival.<br>
-Format: <code>archive INDEX</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="unarchiving-your-internship-applications-code-unarchive-code"><a class="link" href="#unarchiving-your-internship-applications-code-unarchive-code">3.12. Unarchiving your internship applications: <code>unarchive</code></a></h3>
-<div class="paragraph">
-<p>Moves your internship application from archival to main list.<br>
-Format: <code>unarchive INDEX</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="view-your-internship-applications-archival-code-archival-code"><a class="link" href="#view-your-internship-applications-archival-code-archival-code">3.13. View your internship applications archival: <code>archival</code></a></h3>
-<div class="paragraph">
-<p>Switches the view from main list to archival list.<br>
-Format: <code>archival</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="modifying-an-interview-in-an-internship-application-code-interview-code"><a class="link" href="#modifying-an-interview-in-an-internship-application-code-interview-code">3.14. Modifying an interview in an internship application : <code>interview</code></a></h3>
+<h3 id="modifying-an-interview-in-an-internship-application-code-interview-code"><a class="link" href="#modifying-an-interview-in-an-internship-application-code-interview-code">3.12. Modifying an interview in an internship application : <code>interview</code></a></h3>
 <div class="paragraph">
 <p>Add, list, edit or delete interviews within an internship application<br></p>
 </div>
@@ -452,14 +625,78 @@ Deletes the 1st interview in the 1st internship application in the list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="getting-deadline-reminders-code-reminder-code"><a class="link" href="#getting-deadline-reminders-code-reminder-code">3.13. Getting deadline reminders : <code>reminder</code></a></h3>
+<div class="paragraph">
+<p>Lists all deadlines/appointments from the Internship Diary in the next 7 days.<br>
+Format: <code>reminder</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the Internship Diary.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="getting-statistics-about-internship-applications-code-stats-code"><a class="link" href="#getting-statistics-about-internship-applications-code-stats-code">3.15. Getting statistics about internship applications: <code>stats</code></a></h3>
+<div class="paragraph">
+<p>Displays the current statistics regarding your internship application on the current list.<br></p>
+</div>
+<div class="paragraph">
+<p>It will open a new window that contains a bar chart and a pie chart.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The bar chart showcases:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the amount of internship application(s) under each status (wishlist, applied, interview, offered, rejected, ghosted)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The pie chart showcases:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the percentage of internship application(s) under a status (wishlist, applied, interview, offered, rejected, ghosted)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The statistics window will dynamically update the statistics as you refine the view of your list of internship applications</p>
+<div class="ulist">
+<ul>
+<li>
+<p>this includes any command that modifies your view (e.g. <code>add</code>, <code>delete</code>, <code>archive</code>, <code>unarchive</code>, <code>find</code>, <code>edit</code>, list`, <code>archival</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Internship Diary is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -490,6 +727,9 @@ e.g. <code>add c/Google r/Software engineer s/wishlist d/10 10 2010</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [c/COMPANY] [r/ROLE] [d/DATE] [s/STATUS] [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]</code><br>
@@ -550,4 +790,4 @@ e.g. <code>interview 1 delete 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 16:42:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:37:37 UTC</div></div></div></body></html>
