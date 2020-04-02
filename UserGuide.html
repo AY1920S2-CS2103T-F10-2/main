@@ -437,12 +437,43 @@ Edits the status and role of the internship application to be <code>applied</cod
 <div class="sect2">
 <h3 id="locating-an-internship-application-by-fields-code-find-code"><a class="link" href="#locating-an-internship-application-by-fields-code-find-code">3.10. Locating an internship application by fields: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Find internship application whose specified fields contain the given keywords.<br>
-Format: <code>find [KEYWORDS] [c/COMPANY] [r/ROLE] [a/ADDRESS] [p/PHONE] [e/EMAIL] [d/DATE] [w/PRIORITY] [s/STATUS]</code></p>
+<p>Finds all internship application(s) with the specified fields containing any of the given keywords.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 4.7619%;">
+<col style="width: 95.2381%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">💡</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The find parameters will appear at the bottom left of the internship diary</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p><strong>Format</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p><code>find [KEYWORDS] [c/COMPANY] [r/ROLE] [a/ADDRESS] [p/PHONE] [e/EMAIL] [d/DATE] [w/PRIORITY] [s/STATUS]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p><strong>More Information</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="ulist">
 <ul>
 <li>
 <p>The search is case insensitive. e.g <code>google</code> will match <code>Google</code></p>
@@ -451,39 +482,42 @@ Format: <code>find [KEYWORDS] [c/COMPANY] [r/ROLE] [a/ADDRESS] [p/PHONE] [e/EMAI
 <p>The order of the keywords does not matter. e.g. <code>AI Singapore</code> will match <code>Singapore AI</code></p>
 </li>
 <li>
-<p>Partial words will be matched e.g. <code>find a/Singapore</code> will match internship application with address field named
-<code>Singapores</code></p>
+<p>Companies matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>AI Singapore</code> will return <code>AISingapore</code>, <code>AI Malaysia</code></p>
 </li>
 <li>
-<p>If <code>[KEYWORDS]</code> is provided, find will look for match in any field based on <code>KEYWORDS</code>, regardless of whether other
-fields are specified</p>
+<p>Partial words will be matched e.g. <code>find a/Singapore</code> will match internship application with address field named <code>Singapores</code></p>
 </li>
 <li>
-<p>When fields are specified, only applications where all specified field match are returned (i.e. <code>AND</code> search). e
-.g.
-<code>find c/google r/software engineer</code> will return
-application with company being <code>Google</code> and role being <code>Software Engineer</code> but not company that is <code>Facebook</code> and
-role being <code>Software Engineer</code></p>
+<p>If <code>[KEYWORDS]</code> is provided, find will look for matches in any field except for application date based on <code>KEYWORDS</code>, regardless of whether other fields are specified.</p>
+</li>
+<li>
+<p>When fields are specified, only applications where all the specified fields match are returned (i.e. <code>AND</code> search).
+e.g. <code>find c/google r/software engineer</code> will return application with company being <code>Google</code> and role
+being <code>Software Engineer</code> but not company that is <code>Facebook</code> and role being <code>Software Engineer</code></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find Google</code><br>
-Returns internship applications with company <code>Google</code> and <code>Google Deepmind</code> or with email <code>alice@google.com</code></p>
-</li>
-<li>
-<p><code>find c/Google s/applied</code><br>
-Returns internship applications with company <code>Google</code> and status <code>APPLIED</code></p>
-</li>
-</ul>
-</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Usage Example(s)</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Outcome</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>find Google</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays internship application(s) with company <code>Google</code> OR <code>Google Deepmind</code> OR with email <code>alice@google.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>find c/Google s/applied</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays internship application(s) with company <code>Google</code> AND status <code>APPLIED</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">3.11. Sorting internship companies by field : <code>sort</code></a></h3>
@@ -800,4 +834,4 @@ e.g. <code>interview 1 delete 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:33:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:54:18 UTC</div></div></div></body></html>
