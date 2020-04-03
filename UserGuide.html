@@ -235,6 +235,26 @@ Format: <code>add c/COMPANY r/ROLE d/DATE s/STATUS [p/PHONE] [e/EMAIL] [a/ADDRES
 <li>
 <p>The command will work on both the main and archival list.</p>
 </li>
+<li>
+<p>Note that status holds a higher priority than index.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the application will delete according to status instead of index for the following command: <code>delete s/applied 1, 2, 3</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Note that duplicated index will be ignored and not affect the execution.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the duplicated index will not affect the execution for the following command: <code>delete 2, 2, 3</code></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -305,6 +325,26 @@ Deletes the 1st, 2nd, and 3rd internship application in the results of the <code
 <li>
 <p>The command will only work on the main list.</p>
 </li>
+<li>
+<p>Note that status holds a higher priority than index.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the application will archive according to status instead of index for the following command: <code>archive s/applied 1, 2, 3</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Note that duplicated index will be ignored and not affect the execution.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the duplicated index will not affect the execution for the following command: <code>archive 2, 2, 3</code></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -374,6 +414,26 @@ Archives all the internship applications with the <code>rejected</code> status i
 </li>
 <li>
 <p>The command will only work on the archival list.</p>
+</li>
+<li>
+<p>Note that status holds a higher priority than index.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the application will unarchive according to status instead of index for the following command: <code>unarchive s/applied 1, 2, 3</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Note that duplicated index will be ignored and not affect the execution.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the duplicated index will not affect the execution for the following command: <code>unarchive 2, 2, 3</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -721,7 +781,7 @@ Format: <code>clear</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>this includes any command that modifies your view (e.g. <code>add</code>, <code>delete</code>, <code>archive</code>, <code>unarchive</code>, <code>find</code>, <code>edit</code>, list`, <code>archival</code>)</p>
+<p>this includes any command that modifies your view (e.g. <code>add</code>, <code>delete</code>, <code>archive</code>, <code>unarchive</code>, <code>find</code>, <code>edit</code>, <code>list</code>, <code>archival</code>)</p>
 </li>
 </ul>
 </div>
@@ -771,14 +831,29 @@ There is no need to save manually.</p>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Archival</strong> : <code>archival</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code></p>
+</li>
+<li>
 <p><strong>Add</strong> <code>add c/COMPANY r/ROLE d/DATE s/STATUS [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]​</code><br>
 e.g. <code>add c/Google r/Software engineer s/wishlist d/10 10 2010</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Select</strong> : <code>select INDEX</code></p>
+<p><strong>Archive</strong> : <code>archive INDEX</code><br>
+e.g. <code>archive 3</code></p>
+</li>
+<li>
+<p><strong>Unarchive</strong> : <code>unarchive INDEX</code><br>
+e.g. <code>unarchive 3</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [c/COMPANY] [r/ROLE] [d/DATE] [s/STATUS] [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]</code><br>
@@ -789,22 +864,8 @@ e.g. <code>edit 2 c/Google s/applied</code></p>
 e.g. <code>find c/google r/engineer</code></p>
 </li>
 <li>
-<p><strong>Search</strong> : <code>search t/TAG</code><br>
-e.g. <code>search t/Product Management</code></p>
-</li>
-<li>
-<p><strong>sort</strong> : <code>sort FIELD</code><br>
+<p><strong>Sort</strong> : <code>sort FIELD</code><br>
 e.g. <code>sort c/</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Reminder</strong> : <code>reminder</code></p>
 </li>
 <li>
 <p><strong>Interview</strong> :</p>
@@ -834,9 +895,18 @@ e.g. <code>interview 1 delete 1</code></p>
 </div>
 </li>
 <li>
+<p><strong>Reminder</strong> : <code>reminder</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Statistics</strong> : <code>stats</code></p>
+</li>
+<li>
 <p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 15:53:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-03 01:54:06 UTC</div></div></div></body></html>
