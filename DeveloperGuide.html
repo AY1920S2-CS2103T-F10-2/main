@@ -1204,8 +1204,17 @@ and creating a HashMap with those status as the key and respective count as the 
 <div class="sect2">
 <h3 id="reminder-command"><a class="link" href="#reminder-command">4.8. Reminder Command</a></h3>
 <div class="paragraph">
-<p>The reminder command displays to users a list of internship applications which need to be submitted or have interviews
-scheduled in 7 days.</p>
+<p>The reminder command displays to users a list of internship applications which:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>have status <code>wishlist</code> and need to be submitted in 7 days</p>
+</li>
+<li>
+<p>have status <code>interview</code> and interviews scheduled in 7 days</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the command is executed:</p>
@@ -1216,9 +1225,6 @@ scheduled in 7 days.</p>
 </div>
 <div class="title">Figure 9. Sequence Diagram of <code>ReminderCommand</code></div>
 </div>
-<div class="paragraph">
-<p>The following subsections will go through the general implementations of the reminder command.</p>
-</div>
 <div class="sect3">
 <h4 id="implementation-8"><a class="link" href="#implementation-8">4.8.1. Implementation</a></h4>
 <div class="paragraph">
@@ -1226,7 +1232,7 @@ scheduled in 7 days.</p>
 <code>ApplicationDateDuePredicate</code> and <code>InterviewDateDuePredicate</code> with every call of the command.</p>
 </div>
 <div class="paragraph">
-<p>The two predicates classes implementing <code>Predicate&lt;InternshipApplication&gt;</code> are used as per follows:</p>
+<p>To facilitate the reminder command, several predicates classes implementing <code>Predicate&lt;InternshipApplication&gt;</code> are used:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1235,18 +1241,37 @@ scheduled in 7 days.</p>
 has a date of the current date or within 7 days of the current date.</p>
 </li>
 <li>
+<p><code>StatusIsWishlistPredicate</code>&#8201;&#8212;&#8201;Predicate to check whether the <code>Status</code> field of an internship application is
+<code>wishlist</code>.</p>
+</li>
+<li>
 <p><code>InterviewDateDuePredicate</code>&#8201;&#8212;&#8201;Predicate to check whether there is at least one interview in the <code>ArrayList&lt;Interview&gt;
 interviews</code> of an internship application that has a date of the current date or within 7 days from the current date.</p>
+</li>
+<li>
+<p><code>StatusIsInterviewPredicate</code>&#8201;&#8212;&#8201;Predicate to check whether the <code>Status</code> field of an internship application is
+<code>interview</code>.</p>
+</li>
+<li>
+<p><code>IsNotArchivedPredicate</code>&#8201;&#8212;&#8201;Predicate to check whether an internship application is not archived.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also used
-to sort internship applications in terms of which application is more urgent. It compares internship applications
-by their <code>ApplicationDate</code> field as well as the earliest interview date in the <code>ArrayList&lt;Interview&gt; interviews</code> of the
+<p>Firstly, an <code>AND</code> operation on the <code>ApplicationDateDuePredicate</code> and <code>StatusIsWishlistPredicate</code> as well as another
+<code>AND</code> operation on the <code>InterviewDateDuePredicate</code> and  <code>StatusIsInterviewPredicate</code> are performed. Next, an <code>OR</code>
+operation is performed on the predicates from the previous two <code>AND</code> operations. An 'AND' operation is then performed on
+the predicate obtained from the previous <code>OR</code> operation and the <code>IsNotArchivedPredicate</code>. The final predicate produced is
+then passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also
+passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance to sort internship
+applications in terms of which application is more urgent. It compares internship applications by their
+<code>ApplicationDate</code> field as well as the earliest interview date in the <code>ArrayList&lt;Interview&gt; interviews</code> of the
 applications, in order of either date being closer to current date. If two internship applications have the same date
 in their <code>ApplicationDate</code> field, it compares them by the earliest interview date in the <code>ArrayList&lt;Interview&gt;
-interviews</code> of the applications in order of which interview comes first.</p>
+interviews</code> of the applications in order of which application has an interview that comes first.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1963,4 +1988,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-05 13:59:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 15:31:28 UTC</div></div></div></body></html>
