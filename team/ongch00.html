@@ -10,7 +10,8 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My Internship Diary is a desktop address book desktop internship tracking application. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>My Internship Diary is a desktop address book desktop internship tracking application written in Java, and has about
+15 kLoC. The user interacts with it using a CLI, and it has a GUI created with JavaFX.</p>
 </div>
 </div>
 </div>
@@ -20,29 +21,94 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>:</p>
+<p><strong>Major enhancement</strong>: Revamp the find command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement enables the general find where it works similarly to Ctrl-F on most programs. It will take in
+the keywords you entered will list any internship application that has fields that matches any of the keywords provided.</p>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>:</p>
+<p>This enhancement also enables the specific find, where it the user can specify what which field they are
+interested in searching in. The user can find in multiple fields as well. In this case, only the internship
+applications that has the fields matching the specified fields will be listed.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>:</p>
+<p>This enhancement posed a challenge as:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Quite a bit of planning involved, mainly to consider how I should perform the search, and how I can separate the
+general and specific find. At the end the plan to use predicates was decided</p>
+</li>
+<li>
+<p>Quite a bit of knowledge with how predicates work is required as I needed to know how I can combine the required
+predicates cleanly so that it is readable and to ensure that it is correct.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Add visual display of upcoming application deadlines and interviews and inactive applications</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement allows the user to determine which application has deadlines or interviews due in 7 days or if
+there are ghosted application in a quick glance. Internship application with upcoming deadline will show green while
+inactive application will show red.</p>
+</li>
+<li>
+<p>This enhancement, while minor, posed some challenges as well:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Setting it in CSS is not possible as I still wanted to keep the odd and even colors.</p>
+</li>
+<li>
+<p>Setting it in code without first saving the CSS style would cause the style to not reset to the default CSS style.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=ongch00">Reposense</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>Helped with refactoring of Internship Diary from Address Book by adding the model classes and updating DG diagrams
+and text</p>
 </li>
 <li>
-<p>Documentation:</p>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.2</code> - <code>v1.3</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community:</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
-<p>Tools:</p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/32">#32</a>
+<a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/115">#115</a>
+<a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/118">#118</a>
+<a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/201">#201</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -54,12 +120,187 @@
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="find-command"><a class="link" href="#find-command">Find command</a></h3>
+<div class="paragraph">
+<p>The find command allows the user to get a filtered list of internship applications. The following sequence
+diagram will illustrate the process of invocation for the command:</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 11:39:29 UTC</div></div></div></body></html>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindSequenceDiagram.png" alt="FindSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following subsections will go through the general implementations of the find command, as well as the 2
+versions of the command, find any match, and find match by fields.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The find command is implemented in the class <code>FindCommand</code> and uses the <code>FindCommandParser</code> class to parse the
+arguments for the command.</p>
+</div>
+<div class="paragraph">
+<p>To facilitate the find command, several predicates classes implementing <code>Predicate&lt;InternshipApplication&gt;</code> are used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CompanyContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Company</code> field contains any
+substring matching any words in the list supplied by its constructor <code>CompanyContainsKeywordsPredicate(List&lt;String&gt;
+keywords)</code>.</p>
+</li>
+<li>
+<p><code>RoleContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Role</code> field contains any
+substring matching any words in the list supplied by its constructor <code>RoleContainsKeywordsPredicate(List&lt;String&gt;
+keywords)</code>.</p>
+</li>
+<li>
+<p><code>AddressContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Address</code> field contains any
+substring matching any words in the list supplied by its constructor <code>AddressContainsKeywordsPredicate(List&lt;String&gt;
+keywords)</code>.</p>
+</li>
+<li>
+<p><code>PhoneContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Phone</code> field contains any
+substring matching any words in the list supplied by its constructor <code>PhoneContainsNumbersPredicate(List&lt;String&gt;
+numbers)</code>.</p>
+</li>
+<li>
+<p><code>EmailContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Email</code> field contains any
+substring matching any words in the list supplied by its constructor <code>EmailContainsKeywordsPredicate(List&lt;String&gt;
+keywords)</code>.</p>
+</li>
+<li>
+<p><code>PriorityContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Phone</code> field contains any
+substring matching any words in the list supplied by its constructor <code>PriorityContainsNumbersPredicate(List&lt;String&gt;
+numbers)</code>..</p>
+</li>
+<li>
+<p><code>ApplicationDateIsDatePredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>ApplicationDate</code> field is
+exactly the date supplied by its constructor <code>ApplicationDateIsDatePredicate(LocalDate date)</code>.</p>
+</li>
+<li>
+<p><code>StatusContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Status</code> field contains any
+substring matching any words in the list supplied by its constructor <code>StatusContainsKeywordsPredicate(List&lt;String&gt;
+keywords)</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-any-match"><a class="link" href="#find-any-match">Find Any Match</a></h4>
+<div class="paragraph">
+<p>This version of the command is invoked when the user enters the command with preamble text in the parameter, e.g.
+<code>find google facebook</code> or <code>find google r/software</code>. The command will perform search for any internship application
+where any of the fields <code>Company</code>, <code>Role</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>Priority</code> or <code>Status</code> contains a substring
+matching at least one word in the preamble and display them, e.g. <code>find google facebook</code> will look for internship
+applications whose any of the above fields contains the substring <code>google</code> or <code>facebook</code>.</p>
+</div>
+<div class="paragraph">
+<p>The searching and displaying of the internship application is done by performing an <code>OR</code> operation on all the predicates
+<code>CompanyContainsKeywordsPredicate</code>, <code>RoleContainsKeywordsPredicate</code>, <code>AddressContainsKeywordsPredicate</code>,
+<code>PhoneContainsNumbersPredicate</code>, <code>EmailContainsKeywordsPredicate</code>, <code>PriorityContainsNumbersPredicate</code> and
+<code>StatusContainsKeywordsPredicate</code> to get a single predicate and passing that into the method
+<code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-match-by-fields"><a class="link" href="#find-match-by-fields">Find Match by Fields</a></h4>
+<div class="paragraph">
+<p>This version of the command is invoked when the user enters the command without any preamble text in the parameter, e.g.
+<code>find c/google r/software</code>. The command will perform a search for any internship application where the fields
+<code>Company</code>, <code>Role</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>ApplicationDate</code>, <code>Priority</code> and <code>Status</code> match any of the supplied
+word after their respective prefixes (if a field&#8217;s prefix is not specified, the field is not checked),
+e.g. <code>find c/google facebook d/01 02 2020</code> will look for internship applications where the <code>Company</code> field contains
+a substring <code>google</code> or <code>facebook</code> and the <code>ApplicationDate</code> field matching the date 1st February 2020.</p>
+</div>
+<div class="paragraph">
+<p>The searching and displaying of the internship application is done by performing an <code>AND</code> operation on the
+required predicates that is any of <code>CompanyContainsKeywordsPredicate</code>, <code>RoleContainsKeywordsPredicate</code>,
+<code>AddressContainsKeywordsPredicate</code>, <code>PhoneContainsNumbersPredicate</code>, <code>EmailContainsKeywordsPredicate</code>,
+<code>ApplicationDateIsDatePredicate</code>, <code>PriorityContainsNumbersPredicate</code> and <code>StatusContainsKeywordsPredicate</code> to get a
+single predicate and passing that into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code>
+instance.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">Aspect: How to implement the different versions of find command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use a standardized command with the version to invoke determined by the type of
+user input parameters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More streamlined, only one command.<br>
+This ensures that the user dont have to remember multiple command to use the different versions.</p>
+</li>
+<li>
+<p>Cons: Longer and less specific execute method.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Use separate commands for the different versions of find.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More specific execute method for each of the command.</p>
+</li>
+<li>
+<p>Cons: Makes the user remember more commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3</strong>: Use the first word of the user input parameter to select which version of find command to invoke.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Slightly more streamlined than multiple commands.<br>
+This still requires user to remember the right words to invoke the different versions.</p>
+</li>
+<li>
+<p>Cons: Longer and less specific execution method.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 15:16:31 UTC</div></div></div></body></html>
