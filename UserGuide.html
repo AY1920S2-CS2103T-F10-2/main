@@ -37,7 +37,8 @@
 <li><a href="#command-summary">5. Command Summary</a></li>
 <li><a href="#appendix">6. Appendix</a>
 <ul class="sectlevel2">
-<li><a href="#sort-order-of-status">6.1. Sort Order of Status</a></li>
+<li><a href="#valid-values-of-status">6.1. Valid Values of Status</a></li>
+<li><a href="#structure-of-internship-application">6.2. Structure of Internship Application</a></li>
 </ul>
 </li>
 </ul>
@@ -71,7 +72,8 @@ The application is designed and optimized for users who can type quickly, and pr
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the file to start the app.
+The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -99,8 +101,7 @@ The application is designed and optimized for users who can type quickly, and pr
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/COMPANY_NAME</code>, <code>COMPANY_NAME</code> is a
-parameter which can be used as <code>add c/Google</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/COMPANY_NAME</code>, <code>COMPANY_NAME</code> is a parameter which can be used as <code>add c/Google</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>c/COMPANY_NAME [w/PRIORITY]</code> can be used as <code>c/Google w/5</code> or as <code>c/Google</code>.</p>
@@ -110,8 +111,7 @@ parameter which can be used as <code>add c/Google</code>.</p>
 (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>s/STATUS r/ROLE</code>, <code>r/designer s/applied</code> is also
-acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>s/STATUS r/ROLE</code>, <code>r/designer s/applied</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -170,8 +170,7 @@ acceptable.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Alternatively, you could use your mouse and click on a specific internship application
-in the left panel of the internship diary
+Alternatively, you could use your mouse and click on a specific internship application in the left panel of the internship diary
 </td>
 </tr>
 </table>
@@ -194,7 +193,8 @@ in the left panel of the internship diary
 <h3 id="adding-an-internship-application-code-add-code"><a class="link" href="#adding-an-internship-application-code-add-code">3.5. Adding an internship application: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an internship application to the internship diary<br>
-Format: <code>add c/COMPANY r/ROLE d/DATE s/STATUS [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]</code></p>
+Format: <code>add c/COMPANY r/ROLE d/DATE s/STATUS [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]</code><br>
+Refer to <a href="#structure-of-internship-application">Section 6.2, &#8220;Structure of Internship Application&#8221;</a> for valid values.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -491,7 +491,9 @@ Format: <code>edit INDEX [c/COMPANY] [r/ROLE] [d/DATE] [s/STATUS] [p/PHONE] [e/E
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the internship application at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the internship application at the specified <code>INDEX</code>.
+The index refers to the index number shown in the displayed list.
+The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -612,7 +614,7 @@ Format: <code>sort [reverse] FIELD</code>.</p>
 <code>c/</code>: Sorts by company name (Dictionary Order).<br>
 <code>d/</code>: Sorts by application date (Chronological Order).<br>
 <code>r/</code>: Sorts by role (Dictionary Order).<br>
-<code>s/</code>: Sorts by status (Refer to <a href="#sort-order-of-status">Section 6.1, &#8220;Sort Order of Status&#8221;</a>).<br>
+<code>s/</code>: Sorts by status (Refer to <a href="#valid-values-of-status">Section 6.1, &#8220;Valid Values of Status&#8221;</a>).<br>
 <code>w/</code>: Sorts by priority level (Ascending Order).<br></p>
 </div>
 <div class="sidebarblock">
@@ -757,10 +759,8 @@ Deletes the 1st interview in the 1st internship application in the list.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The internship applications will be displayed in terms of urgency, with the application with the earliest application
-date or interview date, shown at the top.
-<br>
-Format: <code>reminder</code></p>
+<p>The internship applications will be displayed in terms of urgency, with the application with the earliest application date or interview date, shown at the top.
++ Format: <code>reminder</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -943,9 +943,9 @@ e.g. <code>interview 1 delete 1</code></p>
 <h2 id="appendix"><a class="link" href="#appendix">6. Appendix</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="sort-order-of-status"><a class="link" href="#sort-order-of-status">6.1. Sort Order of Status</a></h3>
+<h3 id="valid-values-of-status"><a class="link" href="#valid-values-of-status">6.1. Valid Values of Status</a></h3>
 <div class="paragraph">
-<p>The sort order of Status is as follows:</p>
+<p>The valid values of Status as listed in sort order:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -970,5 +970,128 @@ e.g. <code>interview 1 delete 1</code></p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="structure-of-internship-application"><a class="link" href="#structure-of-internship-application">6.2. Structure of Internship Application</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/internshipDetailsExample.png" alt="internshipDetailsExample" width="790">
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 14:56:34 UTC</div></div></div></body></html>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+An input consisting of only spaces is also considered empty.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Field Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Prefix</strong></th>
+<th class="tableblock halign-left valign-top">Can Be Empty?</th>
+<th class="tableblock halign-left valign-top">Max Number of Values</th>
+<th class="tableblock halign-left valign-top">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Company</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restrictions on input.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Role</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restrictions on input.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Address</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restrictions on input.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Phone</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"+" at the start is optional. Must have between 4 and 15 digits if not empty.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Email</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must contain symbol "@" if not empty. Does not ensure validity of email.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Application Date</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be a valid date of the form <code>day-month-year</code>. ` ` and <code>/</code> are also supported
+separators. If year is not given, will default to the current year.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Priority</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">w/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be an integer from 0 to 10.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Status</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">s/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible values listed in <a href="#valid-values-of-status">Section 6.1, &#8220;Valid Values of Status&#8221;</a>. The first letter of the Status can be
+used to input the respective Status values.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Interviews</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not applicable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No limits</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <a href="#modifying-an-interview-in-an-internship-application-code-interview-code">Section 3.12, &#8220;Modifying an interview in an internship application : <code>interview</code>&#8221;</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 11:39:29 UTC</div></div></div></body></html>
