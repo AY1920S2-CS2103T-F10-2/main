@@ -10,7 +10,11 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My Internship Diary is a desktop address book desktop internship tracking application. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.</p>
+<p>Internship Diary is a desktop-based internship application tracking software.
+The idea for this software came about when we realised that the nature of a computer science degree is internship-driven; in the sense that having the best possible internship experience during candidature will greatly improve your chance of landing a good job as a fresh graduate.
+Essentially, your first big internship will serve as a pivotal moment for your future career.
+Having said that, internship application is often a tedious and messy process, with companies having different hiring processes and requirements.
+We set out to tackle this pain point&#8201;&#8212;&#8201;by coming up with a solution to help computer science students manage and streamline their internship application journey Ultimately, we aim to make every student&#8217;s internship hunt during their four years as a computer science undergraduate a pleasant one, and hopefully maximise their chances of landing the best possible internship.</p>
 </div>
 </div>
 </div>
@@ -20,26 +24,53 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to sort internship applications</strong>.</p>
+<p><strong>Major enhancement</strong>: Added <strong>the ability to sort internship applications</strong>.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/71">#71</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/113">#113</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/199">#199</a>])</p>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does: Sorts internship applications by field.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly as users can better manage their internship application list.</p>
+<p>Justification: This feature improves the product significantly as users can better manage their internship application list.
+This is a basic feature which every organizer app need to have.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: Added a history command that allows the user to navigate to previous commands using up/down keys.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/101">#101</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: Allows users to access similar past commands.
+Also speeds up testing considerably.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added display of what the current list is sorted or filtered by.</p>
+<p><strong>Minor enhancement</strong>: Added display of what the current list is sorted or filtered by.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/114">#114</a>])</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>:</p>
+<p><strong>Minor enhancement</strong>: Added DateTimeUtil to better parse dates.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/104">#104</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows application to parse date inputs formatted in different formats.</p>
+</li>
+<li>
+<p>Justification: Gives users more freedom as to how they want to enter dates.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>:
+<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=gerhean">tP Code Dashboard</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -47,29 +78,60 @@
 <ul>
 <li>
 <p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Standardised the Intellij IDEA code formatter, in order to make the code base more uniform and to meet the checkstyle requirements (PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/221">#221</a>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review/mentoring contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Was the main technical adviser, and suggested implementation methods for several features.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/82">#82</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/118">#118</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/216">#216</a>)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Added confirmation prompt for clear command.</p>
+<p>Reformat Storage to fit our app.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/33">#33</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/50">#50</a>)</p>
 </li>
 <li>
-<p>Prettified the help window.</p>
+<p>Prettified the help window.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/73">#73</a>)</p>
+</li>
+<li>
+<p>Allowed certain prefixes to be optional.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/84">#84</a>)</p>
+</li>
+<li>
+<p>Added confirmation prompt for clear command.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/98">#98</a>)</p>
+</li>
+<li>
+<p>Implemented Enums for Listener System.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/125">#125</a>)</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Documentation:</p>
 </li>
 <li>
 <p>Community:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Contributed to forum discussions (examples: <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/74">1</a>)</p>
+<p>Contributed to forum discussions (examples:
+<a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/74">1</a>
+)</p>
 </li>
 </ul>
 </div>
@@ -104,6 +166,44 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">Sorting internship companies by field : <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sort displayed internship companies based on a given FIELD.<br>
+Type <code>reverse</code> before <code>FIELD</code> to sort in the reverse order.<br>
+Format: <code>sort [reverse] FIELD</code>.</p>
+</div>
+<div class="paragraph">
+<p>Available values for <code>FIELD</code>:<br>
+<code>c/</code>: Sorts by company name (Dictionary Order).<br>
+<code>d/</code>: Sorts by application date (Chronological Order).<br>
+<code>r/</code>: Sorts by role (Dictionary Order).<br>
+<code>s/</code>: Sorts by status (Refer to <a href="#Valid Values of Status">[Valid Values of Status]</a>).<br>
+<code>w/</code>: Sorts by priority level (Ascending Order).<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sort displayed internship companies based on a given FIELD</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Sort c/</code><br>
+Returns a list of currently displayed companies sorted by company name.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -206,7 +306,239 @@ Users do not have to remember the order to place the arguments to get the sort t
 <p>Cons: Code becomes much more complex.<br>
 Users has to remember the order to place the arguments to get the sort they want.<br>
 Users are highly unlikely to use this feature, as sorting one field by one feels more natural.<br>
-Harder to implement reverse sorting.</p>
+Harder to implement reverse sorting.
+=== Clear command</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The clear command allows the user to delete all internship applications.
+The following sequence diagram will illustrate the process of invocation for the command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ClearSequenceDiagram.png" alt="ClearSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following subsections will go through the general implementations of the clear command.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The find command is implemented in the class <code>InitClearCommand</code>, <code>ClearCommand</code> and uses the
+<code>ClearCommandConfirmationParser</code> class to parse the arguments for the command.</p>
+</div>
+<div class="paragraph">
+<p>The implementation for this command is unique as it causes 'LogicManager' to use <code>ClearCommandConfirmationParser</code>, which is a subclass of <code>InternshipDiaryParser</code>, as the main parser to parse the next user input.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-prompt-for-confirmation"><a class="link" href="#aspect-how-to-prompt-for-confirmation">Aspect: How to prompt for confirmation.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Implement an abstract method <code>getNextParser</code> for all commands.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to extend.<br>
+New commands which require a prompt or alternative parsing do not need to further modify the <code>InternshipDiaryParser</code> or <code>LogicManager</code> class.</p>
+</li>
+<li>
+<p>Cons: All commands will have to implement a <code>getNextParser</code> method.
+As <code>getNextParser</code> returns <code>null</code> for most commands, an abstract class is used.
+However, this means that commands cannot extend other abstract classes in the future.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Have <code>InternshipDiaryParser</code> have different modes depending on what command was last executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple to understand.</p>
+</li>
+<li>
+<p>Cons: <code>InternshipDiaryParser</code> has no access to the next mode the command leads into, <code>LogicManager</code>
+needs to pass it into <code>InternshipDiaryParser</code>.<br>
+As the different modes do not share code, they are better off as separate classes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3</strong>: Make a confirmation window which freeze the main window.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The <code>InternshipDiaryParser</code> or <code>LogicManager</code> class may not need to be modified.</p>
+</li>
+<li>
+<p>Cons: Relies on global static methods which may lead to bugs in the future.
+=== Command History</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The command history feature allows the user to press the up and down arrow keys to select previous commands.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram depicts the behaviour of the <code>CommandBox</code> while the user is entering commands.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandHistoryActivityDiagram.png" alt="CommandHistoryActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following subsections will go through the general implementations of the command history feature.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<div class="paragraph">
+<p>The implementation of command history involves only the UI classes <code>CommandBox</code> and <code>EnteredCommandsHistory</code>.
+Internally, <code>EnteredCommandsHistory</code> uses a <code>LinkedList</code> to store the command history. The <code>LinkedList</code> data structure
+was chosen the data structure needed to be a queue which also allows the last accessed element to be reaccessed quickly.
+This meant that the data structure has to support random access or have a <code>ListIterator</code>. Unfortunately, Java&#8217;s default
+<code>ArrayDeque</code> does not support either. While it is possible to implement an <code>ArrayDeque</code> with random access, the default
+<code>LinkedList</code> already provides a <code>ListIterator</code>. While this is potentially slower than an <code>ArrayDeque</code> with random access,
+for the sake of convenience, <code>LinkedList</code> was chosen.</p>
+</div>
+<div class="paragraph">
+<p>Currently, a size limit of 20 is imposed on CommandHistory. A limit is required as storing unlimited commands is not feasible.
+Also, it is highly unlikely that users would need to see their entered commands beyond a certain point.</p>
+</div>
+<div class="paragraph">
+<p>Although this feature is fairly simple and based off Windows Command Prompt, there were still a few design aspects worth considering.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown"><a class="link" href="#aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown">Aspect: What should happen when DOWN is pressed when the latest history is being shown.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Blank the CommandBox.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Provides users an easy way to clear the CommandBox.</p>
+</li>
+<li>
+<p>Cons: Users are unable to view their command history without losing the command they have typed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Nothing (Same as Windows Command Prompt).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Users are unable to view their command history without losing the command they have typed.<br>
+No easy way to clear the CommandBox.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Store and display the last modified text.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can view their command history without losing the command they have typed.</p>
+</li>
+<li>
+<p>Cons: No easy way to clear the CommandBox.<br>
+Harder to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-should-invalid-commands-be-stored"><a class="link" href="#aspect-should-invalid-commands-be-stored">Aspect: Should invalid commands be stored.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: No.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces clutter in the Command History.</p>
+</li>
+<li>
+<p>Cons: Users would not be able to see their failed attempts.<br>
+Users are unable to look at their command history without losing the command they have typed (due to above decision).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Yes (Same as Windows Command Prompt).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can store an incomplete draft command in the Command History.</p>
+</li>
+<li>
+<p>Cons: Users who frequently make mistakes would find it troublesome to navigate
+through all the failed attempts. This is especially so as our application does not have
+an autocomplete feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-when-should-the-position-of-historyiterator-reset"><a class="link" href="#aspect-when-should-the-position-of-historyiterator-reset">Aspect: When should the position of historyIterator reset.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Whenever user modifies the text in the CommandBox
+and when command executed successfully.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less confusing for users.</p>
+</li>
+<li>
+<p>Cons: More key presses to repeat a series of commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Never (Same as Windows Command Prompt).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can easily repeat a series of commands.</p>
+</li>
+<li>
+<p>Cons: Potentially confusing for users. Harder to implement as underlying data structure is linked list.</p>
 </li>
 </ul>
 </div>
@@ -215,6 +547,13 @@ Harder to implement reverse sorting.</p>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="proposed-feature"><a class="link" href="#proposed-feature">Proposed Feature</a></h4>
+<div class="paragraph">
+<p>There are plans to save the Command History in the hard drive, so that it may be accessed across sessions.
+However, due to the complexity and difficulty of implementation, it will only be rolled out in a future version.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 13:45:05 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 20:42:34 UTC</div></div></div></body></html>

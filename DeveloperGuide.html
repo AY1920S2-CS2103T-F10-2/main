@@ -44,81 +44,96 @@
 </li>
 </ul>
 </li>
-<li><a href="#interview-and-interview-commands">4.3. Interview and Interview Commands</a>
+<li><a href="#command-history">4.3. Command History</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-4">4.3.1. Implementation</a></li>
-<li><a href="#interview">4.3.2. Interview</a></li>
-<li><a href="#interview-commands">4.3.3. Interview Commands</a></li>
-<li><a href="#interview-commands-parser">4.3.4. Interview Commands Parser</a></li>
-<li><a href="#InterviewListCommand-Improvements">4.3.5. [Proposed Improvements] Interview List Command</a></li>
-<li><a href="#design-considerations-3">4.3.6. Design Considerations</a>
+<li><a href="#design-considerations-3">4.3.2. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-how-to-implement-interview">4.3.6.1. Aspect: How to implement Interview</a></li>
-<li><a href="#aspect-how-to-implement-different-interview-commands">4.3.6.2. Aspect: How to implement different interview commands</a></li>
+<li><a href="#aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown">4.3.2.1. Aspect: What should happen when DOWN is pressed when the latest history is being shown.</a></li>
+<li><a href="#aspect-should-invalid-commands-be-stored">4.3.2.2. Aspect: Should invalid commands be stored.</a></li>
+<li><a href="#aspect-when-should-the-position-of-historyiterator-reset">4.3.2.3. Aspect: When should the position of historyIterator reset.</a></li>
 </ul>
 </li>
+<li><a href="#proposed-feature">4.3.3. Proposed Feature</a></li>
 </ul>
 </li>
-<li><a href="#find-command">4.4. Find command</a>
+<li><a href="#interview-and-interview-commands">4.4. Interview and Interview Commands</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-5">4.4.1. Implementation</a></li>
-<li><a href="#find-any-match">4.4.2. Find Any Match</a></li>
-<li><a href="#find-match-by-fields">4.4.3. Find Match by Fields</a></li>
-<li><a href="#design-considerations-4">4.4.4. Design Considerations</a>
+<li><a href="#interview">4.4.2. Interview</a></li>
+<li><a href="#interview-commands">4.4.3. Interview Commands</a></li>
+<li><a href="#interview-commands-parser">4.4.4. Interview Commands Parser</a></li>
+<li><a href="#InterviewListCommand-Improvements">4.4.5. [Proposed Improvements] Interview List Command</a></li>
+<li><a href="#design-considerations-4">4.4.6. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-how-to-implement-the-different-versions-of-find-command">4.4.4.1. Aspect: How to implement the different versions of find command</a></li>
+<li><a href="#aspect-how-to-implement-interview">4.4.6.1. Aspect: How to implement Interview</a></li>
+<li><a href="#aspect-how-to-implement-different-interview-commands">4.4.6.2. Aspect: How to implement different interview commands</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#archival-system">4.5. Archival System</a>
+<li><a href="#find-command">4.5. Find command</a>
 <ul class="sectlevel3">
-<li><a href="#list-archival">4.5.1. List &amp; Archival</a>
+<li><a href="#implementation-6">4.5.1. Implementation</a></li>
+<li><a href="#find-any-match">4.5.2. Find Any Match</a></li>
+<li><a href="#find-match-by-fields">4.5.3. Find Match by Fields</a></li>
+<li><a href="#determine-which-find-to-invoke">4.5.4. Determine which Find to Invoke</a></li>
+<li><a href="#design-considerations-5">4.5.5. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#implementation-6">4.5.1.1. Implementation</a></li>
-<li><a href="#design-considerations-5">4.5.1.2. Design Considerations</a>
+<li><a href="#aspect-how-to-implement-the-different-versions-of-find-command">4.5.5.1. Aspect: How to implement the different versions of find command</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#archival-system">4.6. Archival System</a>
+<ul class="sectlevel3">
+<li><a href="#list-archival">4.6.1. List &amp; Archival</a>
+<ul class="sectlevel4">
+<li><a href="#implementation-7">4.6.1.1. Implementation</a></li>
+<li><a href="#design-considerations-6">4.6.1.2. Design Considerations</a>
 <ul class="sectlevel5">
-<li><a href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.2.1. Aspect: How to implement the Archival view system on the backend</a></li>
-<li><a href="#aspect-how-to-implement-the-observer-pattern">4.5.1.2.2. Aspect: How to implement the Observer Pattern</a></li>
+<li><a href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.6.1.2.1. Aspect: How to implement the Archival view system on the backend</a></li>
+<li><a href="#aspect-how-to-implement-the-observer-pattern">4.6.1.2.2. Aspect: How to implement the Observer Pattern</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#archive-unarchive">4.5.2. Archive &amp; Unarchive</a>
+<li><a href="#archive-unarchive">4.6.2. Archive &amp; Unarchive</a>
 <ul class="sectlevel4">
-<li><a href="#implementation-7">4.5.2.1. Implementation</a></li>
+<li><a href="#implementation-8">4.6.2.1. Implementation</a></li>
 </ul>
 </li>
-<li><a href="#design-considerations-6">4.5.3. Design Considerations</a>
+<li><a href="#design-considerations-7">4.6.3. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></li>
+<li><a href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.6.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#statistics-feature">4.6. Statistics Feature</a>
-<ul class="sectlevel3">
-<li><a href="#implementation-8">4.6.1. Implementation</a></li>
-<li><a href="#design-considerations-7">4.6.2. Design Considerations</a>
-<ul class="sectlevel4">
-<li><a href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">4.6.2.1. Aspect: Which list to retrieve data from to generate statistics</a></li>
-<li><a href="#aspect-how-to-store-the-statistics-generated-from-data">4.6.2.2. Aspect: How to store the statistics generated from data</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#reminder-command">4.7. Reminder Command</a>
+<li><a href="#statistics-feature">4.7. Statistics Feature</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-9">4.7.1. Implementation</a></li>
-<li><a href="#design-considerations-8">4.7.2. Design considerations</a>
+<li><a href="#design-considerations-8">4.7.2. Design Considerations</a>
+<ul class="sectlevel4">
+<li><a href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">4.7.2.1. Aspect: Which list to retrieve data from to generate statistics</a></li>
+<li><a href="#aspect-how-to-store-the-statistics-generated-from-data">4.7.2.2. Aspect: How to store the statistics generated from data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#reminder-command">4.8. Reminder Command</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-10">4.8.1. Implementation</a></li>
+<li><a href="#design-considerations-9">4.8.2. Design considerations</a>
 <ul class="sectlevel5">
-<li><a href="#aspect-the-order-to-display-the-internship-applications">4.7.2.1. Aspect: The order to display the internship applications</a></li>
+<li><a href="#aspect-the-order-to-display-the-internship-applications">4.8.2.1. Aspect: The order to display the internship applications</a></li>
+<li><a href="#aspect-the-filtering-of-internship-applications-to-be-shown">4.8.2.2. Aspect: The filtering of internship applications to be shown</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -132,11 +147,22 @@
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-an-internship-application">G.2. Deleting an internship application</a></li>
-<li><a href="#adding-an-interview-to-an-internship-application">G.3. Adding an interview to an internship application</a></li>
-<li><a href="#editing-an-interview-in-an-internship-application">G.4. Editing an interview in an internship application</a></li>
-<li><a href="#saving-data">G.5. Saving data</a></li>
+<li><a href="#using-internship-diary-with-sample-internship-application-list">G.1. Using Internship Diary with Sample Internship Application List</a></li>
+<li><a href="#launch-and-shutdown">G.2. Launch and Shutdown</a></li>
+<li><a href="#command-box">G.3. Command Box</a></li>
+<li><a href="#main-list-view">G.4. Main List View</a></li>
+<li><a href="#archival-list-view">G.5. Archival List View</a></li>
+<li><a href="#adding-an-internship-application">G.6. Adding an internship application</a></li>
+<li><a href="#deleting-internship-application">G.7. Deleting internship application</a></li>
+<li><a href="#archiving-internship-application">G.8. Archiving internship application</a></li>
+<li><a href="#unarchiving-internship-application">G.9. Unarchiving internship application</a></li>
+<li><a href="#adding-an-interview-to-an-internship-application">G.10. Adding an interview to an internship application</a></li>
+<li><a href="#editing-an-interview-in-an-internship-application">G.11. Editing an interview in an internship application</a></li>
+<li><a href="#showing-statistics-window">G.12. Showing Statistics Window</a></li>
+<li><a href="#sorting-the-list-of-internship-applications">G.13. Sorting the list of internship applications</a></li>
+<li><a href="#getting-reminders-for-internship-applications">G.14. Getting reminders for internship applications</a></li>
+<li><a href="#finding-internship-applications">G.15. Finding internship applications</a></li>
+<li><a href="#saving-data">G.16. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -604,9 +630,173 @@ As the different modes do not share code, they are better off as separate classe
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">4.3. Interview and Interview Commands</a></h3>
+<h3 id="command-history"><a class="link" href="#command-history">4.3. Command History</a></h3>
+<div class="paragraph">
+<p>The command history feature allows the user to press the up and down arrow keys to select previous commands.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram depicts the behaviour of the <code>CommandBox</code> while the user is entering commands.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandHistoryActivityDiagram.png" alt="CommandHistoryActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following subsections will go through the general implementations of the command history feature.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The implementation of command history involves only the UI classes <code>CommandBox</code> and <code>EnteredCommandsHistory</code>.
+Internally, <code>EnteredCommandsHistory</code> uses a <code>LinkedList</code> to store the command history. The <code>LinkedList</code> data structure
+was chosen the data structure needed to be a queue which also allows the last accessed element to be reaccessed quickly.
+This meant that the data structure has to support random access or have a <code>ListIterator</code>. Unfortunately, Java&#8217;s default
+<code>ArrayDeque</code> does not support either. While it is possible to implement an <code>ArrayDeque</code> with random access, the default
+<code>LinkedList</code> already provides a <code>ListIterator</code>. While this is potentially slower than an <code>ArrayDeque</code> with random access,
+for the sake of convenience, <code>LinkedList</code> was chosen.</p>
+</div>
+<div class="paragraph">
+<p>Currently, a size limit of 20 is imposed on CommandHistory. A limit is required as storing unlimited commands is not feasible.
+Also, it is highly unlikely that users would need to see their entered commands beyond a certain point.</p>
+</div>
+<div class="paragraph">
+<p>Although this feature is fairly simple and based off Windows Command Prompt, there were still a few design aspects worth considering.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown"><a class="link" href="#aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown">4.3.2.1. Aspect: What should happen when DOWN is pressed when the latest history is being shown.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Blank the CommandBox.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Provides users an easy way to clear the CommandBox.</p>
+</li>
+<li>
+<p>Cons: Users are unable to view their command history without losing the command they have typed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Nothing (Same as Windows Command Prompt).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Users are unable to view their command history without losing the command they have typed.<br>
+No easy way to clear the CommandBox.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Store and display the last modified text.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can view their command history without losing the command they have typed.</p>
+</li>
+<li>
+<p>Cons: No easy way to clear the CommandBox.<br>
+Harder to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-should-invalid-commands-be-stored"><a class="link" href="#aspect-should-invalid-commands-be-stored">4.3.2.2. Aspect: Should invalid commands be stored.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: No.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces clutter in the Command History.</p>
+</li>
+<li>
+<p>Cons: Users would not be able to see their failed attempts.<br>
+Users are unable to look at their command history without losing the command they have typed (due to above decision).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Yes (Same as Windows Command Prompt).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can store an incomplete draft command in the Command History.</p>
+</li>
+<li>
+<p>Cons: Users who frequently make mistakes would find it troublesome to navigate
+through all the failed attempts. This is especially so as our application does not have
+an autocomplete feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-when-should-the-position-of-historyiterator-reset"><a class="link" href="#aspect-when-should-the-position-of-historyiterator-reset">4.3.2.3. Aspect: When should the position of historyIterator reset.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Whenever user modifies the text in the CommandBox
+and when command executed successfully.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less confusing for users.</p>
+</li>
+<li>
+<p>Cons: More key presses to repeat a series of commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Never (Same as Windows Command Prompt).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can easily repeat a series of commands.</p>
+</li>
+<li>
+<p>Cons: Potentially confusing for users. Harder to implement as underlying data structure is linked list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proposed-feature"><a class="link" href="#proposed-feature">4.3.3. Proposed Feature</a></h4>
+<div class="paragraph">
+<p>There are plans to save the Command History in the hard drive, so that it may be accessed across sessions.
+However, due to the complexity and difficulty of implementation, it will only be rolled out in a future version.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">4.4. Interview and Interview Commands</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The implementation of interviews will be facilitated by two overarching components, the Model Abstract Class <code>Interview</code>
 which is associated to an <code>InternshipApplication</code> (see Model Diagram <a href="#Design-Model">Section 3.4, &#8220;Model component&#8221;</a> ) and the Logic Classes <code>InterviewCommandParser</code> and <code>InterviewCommand</code>.</p>
@@ -617,7 +807,7 @@ More detailed explanations will be provided in the subsequent sections.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="interview"><a class="link" href="#interview">4.3.2. Interview</a></h4>
+<h4 id="interview"><a class="link" href="#interview">4.4.2. Interview</a></h4>
 <div class="paragraph">
 <p>There are two types of interviews currently available in Internship Diary:</p>
 </div>
@@ -659,7 +849,7 @@ The class diagram below shows the classes associated to <code>Interview</code>.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="interview-commands"><a class="link" href="#interview-commands">4.3.3. Interview Commands</a></h4>
+<h4 id="interview-commands"><a class="link" href="#interview-commands">4.4.3. Interview Commands</a></h4>
 <div class="paragraph">
 <p>Interviews can only be modified through the <code>interview</code> command which relies upon <code>InterviewCommandParser</code> and <code>InterviewCommand</code> classes.<br>
 The <code>interview</code> command will encompass four types of sub-command:</p>
@@ -677,7 +867,7 @@ The <code>interview</code> command will encompass four types of sub-command:</p>
 </li>
 <li>
 <p><code>list</code>&#8201;&#8212;&#8201;lists all <code>Interview</code> in the specified <code>InternshipApplication</code>. <br>
-Currently <code>list</code> functions similarly to <code>select</code>, additional functions for list will be proposed in <a href="#InterviewListCommand-Improvements">Section 4.3.5, &#8220;[Proposed Improvements] Interview List Command&#8221;</a>.</p>
+Currently <code>list</code> functions similarly to <code>select</code>, additional functions for list will be proposed in <a href="#InterviewListCommand-Improvements">Section 4.4.5, &#8220;[Proposed Improvements] Interview List Command&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -719,7 +909,7 @@ Then followed by creating a CommandResult, and returning it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="interview-commands-parser"><a class="link" href="#interview-commands-parser">4.3.4. Interview Commands Parser</a></h4>
+<h4 id="interview-commands-parser"><a class="link" href="#interview-commands-parser">4.4.4. Interview Commands Parser</a></h4>
 <div class="paragraph">
 <p><code>InterviewCommandParser</code> is the entry point to all <code>interview</code> sub-command.
 It will be invoked from <code>InternshipDiaryParser</code>
@@ -735,7 +925,7 @@ All other sub-commands will follow the same invocation format.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="InterviewListCommand-Improvements"><a class="link" href="#InterviewListCommand-Improvements">4.3.5. [Proposed Improvements] Interview List Command</a></h4>
+<h4 id="InterviewListCommand-Improvements"><a class="link" href="#InterviewListCommand-Improvements">4.4.5. [Proposed Improvements] Interview List Command</a></h4>
 <div class="paragraph">
 <p>Currently, the <code>InterviewListCommand</code> is functionally similar to <code>SelectCommand</code>.
 In v2.0, there will be the following improvements to the <code>InterviewListCommand</code>:</p>
@@ -763,9 +953,9 @@ fields provided in the command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.6. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.6. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-interview"><a class="link" href="#aspect-how-to-implement-interview">4.3.6.1. Aspect: How to implement Interview</a></h5>
+<h5 id="aspect-how-to-implement-interview"><a class="link" href="#aspect-how-to-implement-interview">4.4.6.1. Aspect: How to implement Interview</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -801,7 +991,7 @@ Interview types.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">4.3.6.2. Aspect: How to implement different interview commands</a></h5>
+<h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">4.4.6.2. Aspect: How to implement different interview commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -838,7 +1028,7 @@ Create a lot of repetition in code.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-command"><a class="link" href="#find-command">4.4. Find command</a></h3>
+<h3 id="find-command"><a class="link" href="#find-command">4.5. Find command</a></h3>
 <div class="paragraph">
 <p>The find command allows the user to get a filtered list of internship applications.
 The following sequence diagram will illustrate the process of invocation for the command:</p>
@@ -852,7 +1042,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <p>The following subsections will go through the general implementations of the find command, as well as the 2 versions of the command, find any match, and find match by fields.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The find command is implemented in the class <code>FindCommand</code> and uses the <code>FindCommandParser</code> class to parse the arguments for the command.</p>
 </div>
@@ -882,7 +1072,7 @@ numbers)</code>.</p>
 keywords)</code>.</p>
 </li>
 <li>
-<p><code>PriorityContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Phone</code> field contains any substring matching any words in the list supplied by its constructor <code>PriorityContainsNumbersPredicate(List&lt;String&gt;
+<p><code>PriorityContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Priority</code> field contains any substring matching any words in the list supplied by its constructor <code>PriorityContainsNumbersPredicate(List&lt;String&gt;
 numbers)</code>..</p>
 </li>
 <li>
@@ -894,9 +1084,17 @@ keywords)</code>.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The following class diagram show the relationship of the <code>Predicates</code>, <code>FindCommandParser</code> and <code>FindCommand</code>:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/FindClassDiagram.png" alt="FindClassDiagram">
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="find-any-match"><a class="link" href="#find-any-match">4.4.2. Find Any Match</a></h4>
+<h4 id="find-any-match"><a class="link" href="#find-any-match">4.5.2. Find Any Match</a></h4>
 <div class="paragraph">
 <p>This version of the command is invoked when the user enters the command with preamble text in the parameter, e.g.
 <code>find google facebook</code> or <code>find google r/software</code>.
@@ -911,7 +1109,7 @@ The command will perform search for any internship application where any of the 
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-match-by-fields"><a class="link" href="#find-match-by-fields">4.4.3. Find Match by Fields</a></h4>
+<h4 id="find-match-by-fields"><a class="link" href="#find-match-by-fields">4.5.3. Find Match by Fields</a></h4>
 <div class="paragraph">
 <p>This version of the command is invoked when the user enters the command without any preamble text in the parameter, e.g.
 <code>find c/google r/software</code>.
@@ -926,9 +1124,20 @@ instance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.4. Design Considerations</a></h4>
+<h4 id="determine-which-find-to-invoke"><a class="link" href="#determine-which-find-to-invoke">4.5.4. Determine which Find to Invoke</a></h4>
+<div class="paragraph">
+<p>The following activity diagram summarises how which type of find to invoke is determined:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/FindCommandActivityDiagram.png" alt="FindCommandActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.5. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">4.4.4.1. Aspect: How to implement the different versions of find command</a></h5>
+<h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">4.5.5.1. Aspect: How to implement the different versions of find command</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -978,7 +1187,7 @@ This still requires user to remember the right words to invoke the different ver
 </div>
 </div>
 <div class="sect2">
-<h3 id="archival-system"><a class="link" href="#archival-system">4.5. Archival System</a></h3>
+<h3 id="archival-system"><a class="link" href="#archival-system">4.6. Archival System</a></h3>
 <div class="paragraph">
 <p>This feature allows users to store chosen internship application(s) into the archival.</p>
 </div>
@@ -999,7 +1208,7 @@ This still requires user to remember the right words to invoke the different ver
 <p>The two mechanisms can be further broken down into the following four commands: <code>list</code>, <code>archival</code>, <code>archive</code>, and <code>unarchive</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="list-archival"><a class="link" href="#list-archival">4.5.1. List &amp; Archival</a></h4>
+<h4 id="list-archival"><a class="link" href="#list-archival">4.6.1. List &amp; Archival</a></h4>
 <div class="paragraph">
 <p>To handle the ability for a user to switch views, we implemented the commands <code>list</code> and <code>archival</code>:</p>
 </div>
@@ -1025,7 +1234,7 @@ This still requires user to remember the right words to invoke the different ver
 This is identical for the <code>unarchive</code> command in the main list as well.</p>
 </div>
 <div class="sect4">
-<h5 id="implementation-6"><a class="link" href="#implementation-6">4.5.1.1. Implementation</a></h5>
+<h5 id="implementation-7"><a class="link" href="#implementation-7">4.6.1.1. Implementation</a></h5>
 <div class="paragraph">
 <p>The class diagram below depicts the important methods and variables that provide us the ability to switch views between the main list and the archival list.</p>
 </div>
@@ -1255,9 +1464,9 @@ This is especially important when many properties are being observed.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.1.2. Design Considerations</a></h5>
+<h5 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.1.2. Design Considerations</a></h5>
 <div class="sect5">
-<h6 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.2.1. Aspect: How to implement the Archival view system on the backend</a></h6>
+<h6 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.6.1.2.1. Aspect: How to implement the Archival view system on the backend</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1299,7 +1508,7 @@ No need to implement observer pattern as there will be no reference updates.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="aspect-how-to-implement-the-observer-pattern"><a class="link" href="#aspect-how-to-implement-the-observer-pattern">4.5.1.2.2. Aspect: How to implement the Observer Pattern</a></h6>
+<h6 id="aspect-how-to-implement-the-observer-pattern"><a class="link" href="#aspect-how-to-implement-the-observer-pattern">4.6.1.2.2. Aspect: How to implement the Observer Pattern</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1337,7 +1546,7 @@ Harder to understand and implement.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="archive-unarchive"><a class="link" href="#archive-unarchive">4.5.2. Archive &amp; Unarchive</a></h4>
+<h4 id="archive-unarchive"><a class="link" href="#archive-unarchive">4.6.2. Archive &amp; Unarchive</a></h4>
 <div class="paragraph">
 <p>To allow users to move internship application(s) between the main and archival list of internship application(s), we implemented the commands <code>archive</code> and <code>unarchive</code>:</p>
 </div>
@@ -1377,7 +1586,7 @@ Through this new class, users will be able to execute the commands on multiple i
 <p>In the following section, we will delve slightly deeper and discuss about the lower-level implementation of the extended functionality.</p>
 </div>
 <div class="sect4">
-<h5 id="implementation-7"><a class="link" href="#implementation-7">4.5.2.1. Implementation</a></h5>
+<h5 id="implementation-8"><a class="link" href="#implementation-8">4.6.2.1. Implementation</a></h5>
 <div class="paragraph">
 <p>The following class diagram depicts our implementation of the extended functionality.</p>
 </div>
@@ -1540,9 +1749,9 @@ The feedback from each execution is cumulatively concatenated to form a single f
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.5.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h5>
+<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.6.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1583,7 +1792,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.6. Statistics Feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.7. Statistics Feature</a></h3>
 <div class="paragraph">
 <p>This feature allows users to view relevant metrics about their internship application(s).</p>
 </div>
@@ -1601,7 +1810,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="implementation-8"><a class="link" href="#implementation-8">4.6.1. Implementation</a></h4>
+<h4 id="implementation-9"><a class="link" href="#implementation-9">4.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The following class diagram gives an overview of our implementation of the statistics feature.</p>
 </div>
@@ -1673,9 +1882,9 @@ This is so that the implemented observer pattern can notify them of any changes 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-which-list-to-retrieve-data-from-to-generate-statistics"><a class="link" href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">4.6.2.1. Aspect: Which list to retrieve data from to generate statistics</a></h5>
+<h5 id="aspect-which-list-to-retrieve-data-from-to-generate-statistics"><a class="link" href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">4.7.2.1. Aspect: Which list to retrieve data from to generate statistics</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1712,7 +1921,7 @@ The base list is not filtered according to predicate(s) set by users.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-store-the-statistics-generated-from-data"><a class="link" href="#aspect-how-to-store-the-statistics-generated-from-data">4.6.2.2. Aspect: How to store the statistics generated from data</a></h5>
+<h5 id="aspect-how-to-store-the-statistics-generated-from-data"><a class="link" href="#aspect-how-to-store-the-statistics-generated-from-data">4.7.2.2. Aspect: How to store the statistics generated from data</a></h5>
 <div class="paragraph">
 <p>A list of internship application(s) will be passed into the statistics model and upon function call, the statistics model will iterate through the list and generate/update the latest statistics accordingly.</p>
 </div>
@@ -1752,7 +1961,7 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </div>
 </div>
 <div class="sect2">
-<h3 id="reminder-command"><a class="link" href="#reminder-command">4.7. Reminder Command</a></h3>
+<h3 id="reminder-command"><a class="link" href="#reminder-command">4.8. Reminder Command</a></h3>
 <div class="paragraph">
 <p>The reminder command displays to users a list of internship applications which:</p>
 </div>
@@ -1776,7 +1985,7 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 <div class="title">Figure 9. Sequence Diagram of <code>ReminderCommand</code></div>
 </div>
 <div class="sect3">
-<h4 id="implementation-9"><a class="link" href="#implementation-9">4.7.1. Implementation</a></h4>
+<h4 id="implementation-10"><a class="link" href="#implementation-10">4.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The reminder command is implemented in the class <code>ReminderCommand</code>.</p>
 </div>
@@ -1807,50 +2016,100 @@ interviews</code> of an internship application that has a date of the current da
 </div>
 <div class="paragraph">
 <p>Firstly, an <code>AND</code> operation on the <code>ApplicationDateDuePredicate</code> and <code>StatusIsWishlistPredicate</code> as well as another
-<code>AND</code> operation on the <code>InterviewDateDuePredicate</code> and  <code>StatusIsInterviewPredicate</code> are performed.
-Next, an <code>OR</code>
-operation is performed on the predicates from the previous two <code>AND</code> operations.
-An 'AND' operation is then performed on the predicate obtained from the previous <code>OR</code> operation and the <code>IsNotArchivedPredicate</code>.
-The final predicate produced is then passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance.</p>
+<code>AND</code> operation on the <code>InterviewDateDuePredicate</code> and  <code>StatusIsInterviewPredicate</code> are performed. Next, an <code>OR</code>
+operation is performed on the predicates from the previous two <code>AND</code> operations. An 'AND' operation is then performed on
+the predicate obtained from the previous <code>OR</code> operation and the <code>IsNotArchivedPredicate</code>. The <code>IsNotArchivedPredicate</code>
+is used to make sure that archived internship applications do not appear when <code>reminder</code> is used. The final predicate
+produced is then passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance.</p>
 </div>
 <div class="paragraph">
-<p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance to sort internship applications in terms of which application is more urgent.
-It compares internship applications by their
-<code>ApplicationDate</code> field as well as the earliest interview date in the <code>ArrayList&lt;Interview&gt; interviews</code> of the applications, in order of either date being closer to current date.
-If two internship applications have the same date in their <code>ApplicationDate</code> field, it compares them by the earliest interview date in the <code>ArrayList&lt;Interview&gt;
-interviews</code> of the applications in order of which application has an interview that comes first.</p>
+<p>The activity diagram below summarises how each internship application is checked by the predicates mentioned above:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReminderActivityDiagram.png" alt="ReminderActivityDiagram">
+</div>
+<div class="title">Figure 10. Activity Diagram of <code>ReminderCommand</code> filtering out applications to display</div>
+</div>
+<div class="paragraph">
+<p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also
+passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance to sort internship
+applications in terms of which application is more urgent. For each internship application, its <code>ApplicationDate</code> field
+as well as the earliest interview date in the <code>List&lt;Interview&gt; interviews</code> are compared to current date and the
+earlier date out of the two is used for the sorting.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.7.2. Design considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.8.2. Design considerations</a></h4>
 <div class="sect5">
-<h6 id="aspect-the-order-to-display-the-internship-applications"><a class="link" href="#aspect-the-order-to-display-the-internship-applications">4.7.2.1. Aspect: The order to display the internship applications</a></h6>
+<h6 id="aspect-the-order-to-display-the-internship-applications"><a class="link" href="#aspect-the-order-to-display-the-internship-applications">4.8.2.1. Aspect: The order to display the internship applications</a></h6>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Display the internship applications in the order of either their <code>ApplicationDate</code>
-or <code>interviewDate</code> of the earliest interview scheduled in <code>ArrayList&lt;Interview&gt; interviews</code> is closer to current date.</p>
+<p><strong>Alternative 1 (current choice)</strong>: Display the internship applications in the order of either their <code>applicationDate</code>
+or <code>interviewDate</code> of the earliest interview scheduled in <code>List&lt;Interview&gt; interviews</code> is closer to current date.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More useful to the user as the user can directly know which internship application to focus on more, regardless of whether it is to prepare for the submission of the application, or to prepare for an interview scheduled.</p>
+<p>Pros: More useful to the user as the user can directly know which internship application to focus on more, regardless
+of whether it is to prepare for the submission of the application, or to prepare for an interview scheduled.</p>
 </li>
 <li>
-<p>Cons: Longer code.</p>
+<p>Cons: Longer code as both the earliest <code>interviewDate</code> and the <code>applicationDate</code> of an application needs to be compared
+to current date to see which date is closer and that date will then be used to sort the internship applications.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2</strong>: Display the internship applications in the order of which application&#8217;s <code>ApplicationDate</code> is closer to current date.</p>
+<p><strong>Alternative 2</strong>: Display the internship applications in the order of which application&#8217;s <code>applicationDate</code> is closer
+to current date.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Cleaner code.</p>
+<p>Pros: Cleaner code as the applications can just be sorted by their <code>applicationDate</code>.</p>
 </li>
 <li>
-<p>Cons: Has the assumption that an internship application with a earlier <code>ApplicationDate</code> will have an interview scheduled at an earlier <code>interviewDate</code> as compared to an application with later <code>ApplicationDate</code>.
-User might miss out on a earlier <code>interviewDate</code> for an application with later <code>ApplicationDate</code> and additional commands have to be typed in to check <code>interviewDate</code>.</p>
+<p>Cons: Has the assumption that an internship application with a earlier <code>applicationDate</code> will have an interview
+scheduled at an earlier <code>interviewDate</code> as compared to an application with later <code>applicationDate</code>. User might miss out
+on a earlier <code>interviewDate</code> for an application with later <code>applicationDate</code> and additional commands have to be typed in
+to check <code>interviewDate</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-the-filtering-of-internship-applications-to-be-shown"><a class="link" href="#aspect-the-filtering-of-internship-applications-to-be-shown">4.8.2.2. Aspect: The filtering of internship applications to be shown</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Using separate predicates(<code>ApplicationDateDuePredicate</code>, <code>StatusIsWishlistPredicate</code>,
+<code>InterviewDateDuePredicate</code>, <code>StatusIsInterviewPredicate</code>) to filter out internship applications with <code>ApplicationDate</code>
+or earliest <code>interviewDate</code> within 7 days from current date.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Cleaner code and each Predicate class only needs to check for one field. Easier to test as well.</p>
+</li>
+<li>
+<p>Cons: Longer code as more predicates instantiated and used.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Using just one predicate to filter out internship applications with <code>ApplicationDate</code>
+or earliest <code>interviewDate</code> within 7 days from current date.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduce the number of predicates to be instantiated and to be used.</p>
+</li>
+<li>
+<p>Cons: More conditions to check for in one predicate which could lead to potential bugs.</p>
 </li>
 </ul>
 </div>
@@ -1861,7 +2120,7 @@ User might miss out on a earlier <code>interviewDate</code> for an application w
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging.
 The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
@@ -1869,7 +2128,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1900,7 +2159,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2063,19 +2322,54 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>Internship Diary</code> (Internship Diary) and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>For all use cases below, the <strong>System</strong> is the <code>Internship Diary</code> (Internship Diary) and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise.
+Furthermore, any references made to the <code>list</code> refers to the <strong>main list</strong> (unarchived internship applications), unless specified otherwise.</p>
 </div>
-<h3 id="use-case-uc1-find-internship-application" class="discrete">Use case: UC1 - Find Internship Application</h3>
+<h3 id="use-case-uc1-view-main-list" class="discrete">Use case: UC1 - View Main List</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to find a specific Internship Application by company name.</p>
+<p>User requests to view the main list.</p>
 </li>
 <li>
-<p>Internship Diary shows the Internship Application with all its corresponding fields.</p>
+<p>Internship Diary displays the main list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc2-view-archival-list" class="discrete">Use case: UC2 - View Archival List</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the archival list.</p>
+</li>
+<li>
+<p>Internship Diary displays the archival list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc3-add-internship-application" class="discrete">Use case: UC3 - Add Internship Application</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add an internship application to the list.</p>
+</li>
+<li>
+<p>Internship Diary adds the internship application to the list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2088,22 +2382,276 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.
-No Internship Application is shown.</p>
+<p>1a. Internship Diary detects an error in the input.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Internship Diary shows an error message.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>Use case resumes from step 1.</p>
 </div>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc2-edit-internship-application" class="discrete">Use case: UC2 - Edit Internship Application</h3>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc4-delete-internship-application" class="discrete">Use case: UC4 - Delete Internship Application</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User <u>find Internship Application UC1</u>.</p>
+<p>User requests to delete an internship application from the list.</p>
+</li>
+<li>
+<p>Internship Diary deletes the internship application from the list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Internship Diary detects an invalid index.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Internship Diary shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc5-archive-internship-application" class="discrete">Use case: UC5 - Archive Internship Application</h3>
+<div class="paragraph">
+<p><strong>Precondition(s)</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Internship Diary is displaying the main list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Guarantee(s)</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Internship Application appears in the archival list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to archive an internship application from the list.</p>
+</li>
+<li>
+<p>Internship Diary archives the internship application.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Internship Diary detects an invalid index.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Internship Diary shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc6-unarchive-internship-application" class="discrete">Use case: UC6 - Unarchive Internship Application</h3>
+<div class="paragraph">
+<p><strong>Precondition(s)</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Internship Diary is displaying the archival list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Guarantee(s)</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Internship Application appears in the main list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to unarchive an internship application from the archival list.</p>
+</li>
+<li>
+<p>Internship Diary unarchives the internship application.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Internship Diary detects an invalid index.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Internship Diary shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc7-find-internship-application" class="discrete">Use case: UC7 - Find Internship Application</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <u>views main list UC1</u>.</p>
+</li>
+<li>
+<p>User requests to find a list of Internship Application based on given keywords.</p>
+</li>
+<li>
+<p>Internship Diary shows the list of Internship Application with any of the fields <code>Company</code>, <code>Role</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>Priority</code> or <code>Status</code> matching any of the keywords.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User <u>views archival list UC2</u>.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+<li>
+<p>3a. No Internship Application is shown.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc8-find-internship-application-by-specific-field-s" class="discrete">Use case: UC8 - Find Internship Application by Specific Field(s)</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <u>views main list UC1</u>.</p>
+</li>
+<li>
+<p>User requests to find a list of Internship Application based on given keywords for specific field(s).</p>
+</li>
+<li>
+<p>Internship Diary shows the list of Internship Application with the specified field(s) matching the any of the given keywords for each field.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User <u>views archival list UC2</u>.</p>
+<div class="paragraph">
+<p>Use case resumes from step 2.</p>
+</div>
+</li>
+<li>
+<p>2a. Internship Diary detects an invalid date given for the <code>Date</code> field.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. Internship Diary shows an error message.</p>
+</li>
+<li>
+<p>2a2. User enters command with a different date.</p>
+<div class="paragraph">
+<p>Steps 2a1-2a2 are repeated until the date entered is valid.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes from step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. No Internship Application is shown.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc9-edit-internship-application" class="discrete">Use case: UC9 - Edit Internship Application</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <u>find Internship Application UC7</u>.</p>
 </li>
 <li>
 <p>User requests to edit the fields of the Internship Application.</p>
@@ -2137,14 +2685,14 @@ The given index is invalid.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc3-prioritise-internship-application" class="discrete">Use case: UC3 - Prioritise Internship Application</h3>
+<h3 id="use-case-uc10-prioritise-internship-application" class="discrete">Use case: UC10 - Prioritise Internship Application</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User <u>find Internship Application UC1</u>.</p>
+<p>User <u>find Internship Application UC7</u>.</p>
 </li>
 <li>
 <p>User requests to prioritise the Internship Application.</p>
@@ -2157,7 +2705,7 @@ The given index is invalid.</p>
 </li>
 </ol>
 </div>
-<h3 id="use-case-uc4-sort-internship-application" class="discrete">Use case: UC4 - Sort Internship Application</h3>
+<h3 id="use-case-uc11-sort-internship-application" class="discrete">Use case: UC11 - Sort Internship Application</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2201,7 +2749,7 @@ Internship Diary detects invalid syntax.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc5-select-internship-application" class="discrete">Use case: UC5 - Select Internship Application</h3>
+<h3 id="use-case-uc12-select-internship-application" class="discrete">Use case: UC12 - Select Internship Application</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2211,7 +2759,7 @@ Internship Diary detects invalid syntax.</p>
 <p>User requests to select an Internship Application.</p>
 </li>
 <li>
-<p>InternDiary displays selected Internship Application.</p>
+<p>Internship Diary displays selected Internship Application.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2228,7 +2776,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a.1. InternDiary shows an error message.</p>
+<p>1a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1</p>
 </div>
@@ -2238,23 +2786,23 @@ Internship Diary detects invalid syntax.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc6-add-interview" class="discrete">Use case: UC6 - Add Interview</h3>
+<h3 id="use-case-uc13-add-interview" class="discrete">Use case: UC13 - Add Interview</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User <u>find Internship Application UC1</u>.</p>
+<p>User <u>find Internship Application UC7</u>.</p>
 </li>
 <li>
 <p>User requests to add an Interview to a specific Internship Application.</p>
 </li>
 <li>
-<p>InternDiary creates an Interview.</p>
+<p>Internship Diary creates an Interview.</p>
 </li>
 <li>
-<p>InternDiary adds Interview into Internship Application.</p>
+<p>Internship Diary adds Interview into Internship Application.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2271,7 +2819,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.1. InternDiary shows an error message.</p>
+<p>2a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2288,7 +2836,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a.1. InternDiary shows an error message.</p>
+<p>3a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2305,7 +2853,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a.1 InternDiary shows an error message.</p>
+<p>4a.1 Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2315,7 +2863,7 @@ Internship Diary detects invalid syntax.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc7-edit-interview" class="discrete">Use case: UC7 - Edit Interview</h3>
+<h3 id="use-case-uc14-edit-interview" class="discrete">Use case: UC14 - Edit Interview</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2325,10 +2873,10 @@ Internship Diary detects invalid syntax.</p>
 <p>User requests to edit a specific Interview in a specific Internship Application.</p>
 </li>
 <li>
-<p>InternDiary creates a new Interview with edited fields.</p>
+<p>Internship Diary creates a new Interview with edited fields.</p>
 </li>
 <li>
-<p>InternDiary replaces old Interview with new Interview in Internship Application.</p>
+<p>Internship Diary replaces old Interview with new Interview in Internship Application.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2345,7 +2893,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a.1. InternDiary shows an error message.</p>
+<p>1a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2362,7 +2910,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.1. InternDiary shows an error message.</p>
+<p>2a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2379,7 +2927,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a.1 InternDiary shows an error message.</p>
+<p>3a.1 Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2389,7 +2937,7 @@ Internship Diary detects invalid syntax.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc8-delete-interview" class="discrete">Use case: UC8 - Delete Interview</h3>
+<h3 id="use-case-uc15-delete-interview" class="discrete">Use case: UC15 - Delete Interview</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2399,7 +2947,7 @@ Internship Diary detects invalid syntax.</p>
 <p>User requests to delete a specific Interview in a specific Internship Application.</p>
 </li>
 <li>
-<p>InternDiary removes Interview in Internship Application.</p>
+<p>Internship Diary removes Interview in Internship Application.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2416,7 +2964,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a.1. InternDiary shows an error message.</p>
+<p>1a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2433,7 +2981,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.1. InternDiary shows an error message.</p>
+<p>2a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2</p>
 </div>
@@ -2443,8 +2991,32 @@ Internship Diary detects invalid syntax.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-uc16-view-statistics" class="discrete">Use case: UC16 - View Statistics</h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>Guarantee(s)</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Separate window that contains the statistics appears.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the statistics of his internship application(s).</p>
+</li>
+<li>
+<p>Internship Diary displays the statistics.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -2532,7 +3104,7 @@ Internship Diary detects invalid syntax.</p>
 <p>The application should be intuitive and easy-to-learn, such that users can become proficient within a day.</p>
 </li>
 <li>
-<p>The application should prioritse displaying important and relevant information to users.</p>
+<p>The application should prioritise displaying important and relevant information to users.</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
@@ -2565,10 +3137,10 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The application should be compliant with the coding standard set forth by CS2103.</p>
+<p>The application should be compliant with the coding standard set forth by CS2103T.</p>
 </li>
 <li>
-<p>The application should be compliant with best coding practices highlighted in CS2103.</p>
+<p>The application should be compliant with best coding practices highlighted in CS2103T.</p>
 </li>
 <li>
 <p>The application should be designed and implemented elegantly such that any programmer with at least a year of experience should be able to read, maintain, and contribute to the source code easily.</p>
@@ -2702,7 +3274,24 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="using-internship-diary-with-sample-internship-application-list"><a class="link" href="#using-internship-diary-with-sample-internship-application-list">G.1. Using Internship Diary with Sample Internship Application List</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Close Internship Diary.</p>
+</li>
+<li>
+<p>Delete the file <code>./internshipdiary.json</code> (if applicable).</p>
+</li>
+<li>
+<p>Launch Internship Diary.<br>
+Expected: A sample internship application list with 6 internship applications should be displayed.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.2. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2738,43 +3327,527 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-internship-application"><a class="link" href="#deleting-an-internship-application">G.2. Deleting an internship application</a></h3>
+<h3 id="command-box"><a class="link" href="#command-box">G.3. Command Box</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting an internship application while all internship applications are listed</p>
+<p>Retrieving previous commands</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all internship applications using the <code>list</code> command. Multiple internship applications in the list.</p>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least one command has been executed</p>
 </li>
 <li>
+<p>Tester is not already at the oldest executed command</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: ↑<br>
+Expected: Previously executed command appears in the Command Box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Retrieving later commands</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tester has retrieved at least one previous command</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: ↓<br>
+Expected: A command that was entered after the current retrieved command appears in the Command Box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="main-list-view"><a class="link" href="#main-list-view">G.4. Main List View</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the main list of internship application(s)</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: "list"<br>
+Expected: All unarchived internship application(s) are displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="archival-list-view"><a class="link" href="#archival-list-view">G.5. Archival List View</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the archival list of internship application(s)</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: "archival"<br>
+Expected: All archived internship application(s) are displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-internship-application"><a class="link" href="#adding-an-internship-application">G.6. Adding an internship application</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an internship application</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>add c/Google r/Software Engineer d/17 04 2020 s/applied</code><br>
+Expected: New internship application is added to the bottom of the list.
+Details of the newly-added internship application shown in the feedback box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-internship-application"><a class="link" href="#deleting-internship-application">G.7. Deleting internship application</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an internship application by index</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least one internship application displayed</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
 <p>Test case: <code>delete 1</code><br>
-   Expected: First contact is deleted from the list.
-Details of the deleted contact shown in the status message.
-Timestamp in the status bar is updated.</p>
+Expected: First internship application is deleted from the list.
+Details of the deleted internship application shown in the feedback box.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-   Expected: No internship application is deleted.
-Error details shown in the status message.
-Status bar remains the same.</p>
+Expected: No internship application is deleted.
+Error details shown in feedback box.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
 </li>
+</ul>
+</div>
+</li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</li>
+<li>
+<p>Deleting internship applications by indices</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least two internship applications displayed</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>delete 1, 2</code><br>
+Expected: First and second internship applications are deleted from the list.
+Details of the deleted internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>delete 2, 1</code><br>
+Expected: First and second internship applications are deleted from the list.
+Details of the deleted internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>delete 2, 2</code><br>
+Expected: Second internship application is deleted from the list.
+Details of the deleted internship application shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>delete 0, 2</code><br>
+Expected: No internship application is deleted.
+Error details shown in feedback box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting internship application(s) by status field</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>at least one internship application with status "applied"</p>
+</li>
+<li>
+<p>at least one internship application with status "wishlist"</p>
+</li>
+<li>
+<p>no internship applications with status "rejected"</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>delete s/applied</code><br>
+Expected: All internship application(s) with status "applied" are deleted from the list.
+Details of the deleted internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>delete s/rejected</code><br>
+Expected: No internship application(s) deleted.
+Feedback box will show blank list of internship applications deleted.</p>
+</li>
+<li>
+<p>Test case: <code>delete s/notvalidstatus</code><br>
+Expected: No internship application deleted.
+Error details shown in feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>delete s/applied wishlist</code><br>
+Expected: All internship application(s) with status "applied" and "wishlist" are deleted from the list.
+Details of the deleted internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>delete s/applied notvalidstatus</code><br>
+Expected: All internship application(s) with status "applied" are deleted from the list.
+Details of the deleted internship applications shown in the feedback box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-interview-to-an-internship-application"><a class="link" href="#adding-an-interview-to-an-internship-application">G.3. Adding an interview to an internship application</a></h3>
+<h3 id="archiving-internship-application"><a class="link" href="#archiving-internship-application">G.8. Archiving internship application</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Archiving an internship application by index</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least one internship application displayed</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>archive 1</code><br>
+Expected: First internship application is archived from the list.
+Details of the archived internship application shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>archive 0</code><br>
+Expected: No internship application is archived.
+Error details shown in feedback box.</p>
+</li>
+<li>
+<p>Other incorrect archive commands to try: <code>archive</code>, <code>archive x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Archiving internship applications by indices</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least two internship applications displayed</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>archive 1, 2</code><br>
+Expected: First and second internship applications are archived from the list.
+Details of the archived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>archive 2, 1</code><br>
+Expected: First and second internship applications are archived from the list.
+Details of the archived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>archive 2, 2</code><br>
+Expected: Second internship application is archived from the list.
+Details of the archived internship application shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>archive 0, 2</code><br>
+Expected: No internship application is archived.
+Error details shown in feedback box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Archiving internship application(s) by status field</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>at least one internship application with status "applied"</p>
+</li>
+<li>
+<p>at least one internship application with status "wishlist"</p>
+</li>
+<li>
+<p>no internship applications with status "rejected"</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>archive s/applied</code><br>
+Expected: All internship application(s) with status "applied" are archived from the list.
+Details of the archived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>archive s/rejected</code><br>
+Expected: No internship application(s) archived.
+Feedback box will show blank list of internship applications archived.</p>
+</li>
+<li>
+<p>Test case: <code>archive s/notvalidstatus</code><br>
+Expected: No internship application archived.
+Error details shown in feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>archive s/applied wishlist</code><br>
+Expected: All internship application(s) with status "applied" and "wishlist" are archived from the list.
+Details of the archived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>archive s/applied notvalidstatus</code><br>
+Expected: All internship application(s) with status "applied" are archived from the list.
+Details of the archived internship applications shown in the feedback box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unarchiving-internship-application"><a class="link" href="#unarchiving-internship-application">G.9. Unarchiving internship application</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Unarchiving an internship application by index</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least one internship application displayed</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>unarchive 1</code><br>
+Expected: First internship application is unarchived from the list.
+Details of the unarchived internship application shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 0</code><br>
+Expected: No internship application is unarchived.
+Error details shown in feedback box.</p>
+</li>
+<li>
+<p>Other incorrect unarchive commands to try: <code>unarchive</code>, <code>unarchive x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Unarchiving internship applications by indices</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>At least two internship applications displayed</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>unarchive 1, 2</code><br>
+Expected: First and second internship applications are unarchived from the list.
+Details of the unarchived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 2, 1</code><br>
+Expected: First and second internship applications are unarchived from the list.
+Details of the unarchived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 2, 2</code><br>
+Expected: Second internship application is unarchived from the list.
+Details of the unarchived internship application shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive 0, 2</code><br>
+Expected: No internship application is unarchived.
+Error details shown in feedback box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Unarchiving internship application(s) by status field</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>at least one internship application with status "applied"</p>
+</li>
+<li>
+<p>at least one internship application with status "wishlist"</p>
+</li>
+<li>
+<p>no internship applications with status "rejected"</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>unarchive s/applied</code><br>
+Expected: All internship application(s) with status "applied" are unarchived from the list.
+Details of the unarchived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive s/rejected</code><br>
+Expected: No internship application(s) unarchived.
+Feedback box will show blank list of internship applications unarchived.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive s/notvalidstatus</code><br>
+Expected: No internship application unarchived.
+Error details shown in feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive s/applied wishlist</code><br>
+Expected: All internship application(s) with status "applied" and "wishlist" are unarchived from the list.
+Details of the unarchived internship applications shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>unarchive s/applied notvalidstatus</code><br>
+Expected: All internship application(s) with status "applied" are unarchived from the list.
+Details of the unarchived internship applications shown in the feedback box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-interview-to-an-internship-application"><a class="link" href="#adding-an-interview-to-an-internship-application">G.10. Adding an interview to an internship application</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2808,7 +3881,7 @@ Expected: No interview is added. Error details shown in the result box.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-interview-in-an-internship-application"><a class="link" href="#editing-an-interview-in-an-internship-application">G.4. Editing an interview in an internship application</a></h3>
+<h3 id="editing-an-interview-in-an-internship-application"><a class="link" href="#editing-an-interview-in-an-internship-application">G.11. Editing an interview in an internship application</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2847,7 +3920,175 @@ Expected: No change to online interview. Error details shown in the result box a
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.5. Saving data</a></h3>
+<h3 id="showing-statistics-window"><a class="link" href="#showing-statistics-window">G.12. Showing Statistics Window</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Display statistics window</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>stats</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Expected: A separate window will appear with graphical representation of the statistics.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-the-list-of-internship-applications"><a class="link" href="#sorting-the-list-of-internship-applications">G.13. Sorting the list of internship applications</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting a list of internship applications.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all internship applications using <code>list</code>. <br>
+Select any internship application by clicking one.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>sort c/</code>
+Expected: No change in displayed internship details. Internship application list sorted by company (case insensitive).
+Sort order displayed in footer.</p>
+</li>
+<li>
+<p>Test case: <code>sort reverse c/</code><br>
+Expected: No change in displayed internship details. Internship application list sorted by company in
+reverse alphabetical order (case insensitive). Sort order displayed in footer.</p>
+</li>
+<li>
+<p>Test case: <code>sort reversed c/</code><br>
+Expected: Internship application list not sorted. Error details shown in the result box as invalid command format.
+No change in footer display.</p>
+</li>
+<li>
+<p>Test case: <code>sort c/ a</code><br>
+Expected: Internship application list not sorted. Error details shown in the result box as invalid command format.
+No change in footer display.</p>
+</li>
+<li>
+<p>Test case: <code>sort c/ r/</code><br>
+Expected: Internship application list not sorted. Error details shown in the result box as invalid command format.
+No change in footer display.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Prerequisites: Use <code>find</code> command to reduce size of internship application list without deleting any internship applications.<br>
+For example, <code>find r/software</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>sort c/</code><br>
+Expected: No change to number of internship applications displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Prerequisites: Ensure current internship application list has multiple internship applications with fields of the same value.
+For example, multiple internship applications with <code>role</code> being <code>software developer</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Test case: <code>sort r/</code><br>
+Expected: No change in order of internship applications with identical roles (stable sort).</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting a list of internship applications in <code>archival</code> mode.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Repeat the above steps, but list all internship applications using <code>archival</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="getting-reminders-for-internship-applications"><a class="link" href="#getting-reminders-for-internship-applications">G.14. Getting reminders for internship applications</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Getting reminders for internship applications which are due or have interviews scheduled in 7 days<br>
+Test case: <code>reminder</code><br>
+Expected: Only applications which are due or have interviews scheduled in 7 days will be shown. They should be displayed
+in order of earliest application date or scheduled interview date followed by those with later dates.</p>
+</li>
+<li>
+<p>Getting reminders for internship applications which are due or have interviews scheduled in 7 days in <code>archival</code> mode<br>
+Test case: <code>reminder</code><br>
+Expected: No applications should be shown.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-internship-applications"><a class="link" href="#finding-internship-applications">G.15. Finding internship applications</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding a list of internship application.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Starting from an empty list,<br>
+add 3 internship applications into the list using the following commands:<br>
+<code>add c/Google r/Software Engineer a/123 Kent Ridge Road p/98765432 e/hr@google.com d/02-12-2019 w/10 s/applied</code><br>
+<code>add c/Facebook r/Software Developer a/Singapore p/87654321 e/joinus@facebook.com d/20-04-2020 w/9 s/wishlist</code><br>
+<code>add c/Shopee r/Product Developer a/5 Science Park Dr p/99999999 e/shopee@google.com d/10-03-2020 w/1 s/rejected</code></p>
+</li>
+<li>
+<p>Test case: <code>find</code><br>
+Expected: No change in list. Error details shown in the result box as at least one of the optional parameters must be entered.</p>
+</li>
+<li>
+<p>Test case: <code>find google</code><br>
+Expected: Only the internship applications with company names <code>Google</code> and <code>Shopee</code> will be listed (google can be found in the email of Shopee)</p>
+</li>
+<li>
+<p>Test case: <code>find r/software developer</code><br>
+Expected: All 3 internship applications are listed.</p>
+</li>
+<li>
+<p>Test case: <code>find 02-12-2019</code><br>
+Expected: No internship applications are listed as general find don&#8217;t work with dates.</p>
+</li>
+<li>
+<p>Test case: <code>find d/02-12-2019</code><br>
+Expected: Only the internship applications with company names <code>Google</code> is listed as it matches the application date.</p>
+</li>
+<li>
+<p>Test case: <code>find w/1</code><br>
+Expected: Only the internship applications with company names <code>Shopee</code> will be listed (search for priority is not based on substring so <code>Google</code> is not listed)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.16. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2855,8 +4096,8 @@ Expected: No change to online interview. Error details shown in the result box a
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em>
-<em>{ more test cases &#8230;&#8203; }</em></p>
+<p>Internship Diary will load with an empty JSON file which will overwrite the existing corrupted data file upon the execution of
+any commands.</p>
 </li>
 </ol>
 </div>
@@ -2865,4 +4106,4 @@ Expected: No change to online interview. Error details shown in the result box a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 13:45:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 20:42:34 UTC</div></div></div></body></html>
