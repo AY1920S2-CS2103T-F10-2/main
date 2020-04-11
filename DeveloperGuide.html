@@ -76,9 +76,12 @@
 <li><a href="#list-archival">4.5.1. List &amp; Archival</a>
 <ul class="sectlevel4">
 <li><a href="#implementation-6">4.5.1.1. Implementation</a></li>
-<li><a href="#design-considerations-5">4.5.1.2. Design Considerations</a></li>
-<li><a href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.3. Aspect: How to implement the Archival view system on the backend</a></li>
-<li><a href="#aspect-how-to-implement-the-observer-pattern">4.5.1.4. Aspect: How to implement the Observer Pattern</a></li>
+<li><a href="#design-considerations-5">4.5.1.2. Design Considerations</a>
+<ul class="sectlevel5">
+<li><a href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.2.1. Aspect: How to implement the Archival view system on the backend</a></li>
+<li><a href="#aspect-how-to-implement-the-observer-pattern">4.5.1.2.2. Aspect: How to implement the Observer Pattern</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#archive-unarchive">4.5.2. Archive &amp; Unarchive</a>
@@ -88,7 +91,7 @@
 </li>
 <li><a href="#design-considerations-6">4.5.3. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement multiple execution types for removal-based commands</a></li>
+<li><a href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -1028,7 +1031,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="800">
+<img src="images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="700">
 </div>
 </div>
 <div class="paragraph">
@@ -1090,7 +1093,7 @@ Therefore, in the above scenario, users would still see the main list after exec
 </div>
 <div class="paragraph">
 <p>In order to resolve this issue, we need to employ the observer pattern.
-The idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
+The general idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
 Consequently, whenever there is a state change to <code>InternshipDiary</code>, the list of observers will be notified and updated automatically.</p>
 </div>
 <div class="paragraph">
@@ -1144,7 +1147,16 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 <div class="ulist">
 <ul>
 <li>
-<p><code>InternshipDiary</code> and <code>ModelManager</code> each contains an instance of <code>PropertyChangeSupport</code>.</p>
+<p><code>InternshipDiary</code> and <code>ModelManager</code> each contains an instance of <code>PropertyChangeSupport</code> to manage their listeners respectively.</p>
+</li>
+<li>
+<p><code>PropertyChangeSupport</code> serves as the intermediary and an abstraction between the <strong>observables</strong> and <strong>observers</strong>.</p>
+</li>
+<li>
+<p>Observers are generalized (polymorphism) as they implement the <code>PropertyChangeListener</code> interface; these observers are managed by <code>PropertyChangeSupport</code>.</p>
+</li>
+<li>
+<p>There is <strong>no coupling</strong> between the observables and observers.</p>
 </li>
 <li>
 <p><code>ModelManager</code> serves as an abstraction between <code>StatisticsWindow</code> and <code>InternshipDiary</code>.</p>
@@ -1176,11 +1188,18 @@ is a reference to <code>ModelManager</code> itself (so that it can be registered
 <div class="paragraph">
 <p>As a result, whenever there is a change to the property <code>displayedInternships</code> in <code>InternshipDiary</code>, the <code>PropertyChangeSupport</code> instance of
 <code>InternshipDiary</code> will call <code>firePropertyChange</code> to emit a <code>PropertyChangeEvent</code> to <code>ModelManager</code>.
-The emitted event will trigger the
-<code>propertyChange</code> function of <code>ModelManager</code>. <code>ModelManager</code> can then retrieve the new reference from the event and update its
-<code>filteredInternshipApplications</code> accordingly.
+The emitted event will trigger the <code>propertyChange</code> function of <code>ModelManager</code>.
+<code>ModelManager</code> can then retrieve the new reference from the event and update its <code>filteredInternshipApplications</code> accordingly.
 It will then repeat the event emission process to any UI element (e.g. StatisticsWindow) that is observing the
 <code>filteredInternshipApplications</code> property.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram gives a high-level overview of the above event-driven process.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ActivityDiagramObserverPattern.png" alt="ActivityDiagramObserverPattern">
+</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1237,10 +1256,8 @@ This is especially important when many properties are being observed.</p>
 </div>
 <div class="sect4">
 <h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.1.2. Design Considerations</a></h5>
-
-</div>
-<div class="sect4">
-<h5 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.3. Aspect: How to implement the Archival view system on the backend</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.2.1. Aspect: How to implement the Archival view system on the backend</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1281,8 +1298,8 @@ No need to implement observer pattern as there will be no reference updates.</p>
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="aspect-how-to-implement-the-observer-pattern"><a class="link" href="#aspect-how-to-implement-the-observer-pattern">4.5.1.4. Aspect: How to implement the Observer Pattern</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-to-implement-the-observer-pattern"><a class="link" href="#aspect-how-to-implement-the-observer-pattern">4.5.1.2.2. Aspect: How to implement the Observer Pattern</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1315,6 +1332,7 @@ Harder to understand and implement.</p>
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -1524,7 +1542,7 @@ The feedback from each execution is cumulatively concatenated to form a single f
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement multiple execution types for removal-based commands</a></h5>
+<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -2847,4 +2865,4 @@ Expected: No change to online interview. Error details shown in the result box a
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 13:13:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 13:45:05 UTC</div></div></div></body></html>
