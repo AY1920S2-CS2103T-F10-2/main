@@ -23,16 +23,94 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">4.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#sort-command">4.2. Sort command</a></li>
-<li><a href="#clear-command">4.3. Clear command</a></li>
-<li><a href="#interview-and-interview-commands">4.4. Interview and Interview Commands</a></li>
-<li><a href="#find-command">4.5. Find command</a></li>
-<li><a href="#archival-system">4.6. Archival System</a></li>
-<li><a href="#statistics-feature">4.7. Statistics Feature</a></li>
-<li><a href="#reminder-command">4.8. Reminder Command</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#sort-command">4.1. Sort command</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-2">4.1.1. Implementation</a></li>
+<li><a href="#reverse-sort">4.1.2. Reverse sort</a></li>
+<li><a href="#design-considerations">4.1.3. Design Considerations</a>
+<ul class="sectlevel4">
+<li><a href="#aspect-how-to-sort-by-multiple-fields">4.1.3.1. Aspect: How to sort by multiple fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#clear-command">4.2. Clear command</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-3">4.2.1. Implementation</a></li>
+<li><a href="#design-considerations-2">4.2.2. Design Considerations</a>
+<ul class="sectlevel4">
+<li><a href="#aspect-how-to-prompt-for-confirmation">4.2.2.1. Aspect: How to prompt for confirmation.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#interview-and-interview-commands">4.3. Interview and Interview Commands</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-4">4.3.1. Implementation</a></li>
+<li><a href="#design-considerations-3">4.3.2. Design Considerations</a>
+<ul class="sectlevel4">
+<li><a href="#aspect-how-to-implement-different-interview-commands">4.3.2.1. Aspect: How to implement different interview commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#find-command">4.4. Find command</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-5">4.4.1. Implementation</a></li>
+<li><a href="#find-any-match">4.4.2. Find Any Match</a></li>
+<li><a href="#find-match-by-fields">4.4.3. Find Match by Fields</a></li>
+<li><a href="#design-considerations-4">4.4.4. Design Considerations</a>
+<ul class="sectlevel4">
+<li><a href="#aspect-how-to-implement-the-different-versions-of-find-command">4.4.4.1. Aspect: How to implement the different versions of find command</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#archival-system">4.5. Archival System</a>
+<ul class="sectlevel3">
+<li><a href="#list-archival">4.5.1. List &amp; Archival</a>
+<ul class="sectlevel4">
+<li><a href="#implementation-6">4.5.1.1. Implementation</a></li>
+<li><a href="#design-considerations-5">4.5.1.2. Design Considerations</a></li>
+<li><a href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.3. Aspect: How to implement the Archival view system on the backend</a></li>
+<li><a href="#aspect-how-to-implement-the-observer-pattern">4.5.1.4. Aspect: How to implement the Observer Pattern</a></li>
+</ul>
+</li>
+<li><a href="#archive-unarchive">4.5.2. Archive &amp; Unarchive</a>
+<ul class="sectlevel4">
+<li><a href="#implementation-7">4.5.2.1. Implementation</a></li>
+</ul>
+</li>
+<li><a href="#design-considerations-6">4.5.3. Design Considerations</a>
+<ul class="sectlevel4">
+<li><a href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement multiple execution types for removal-based commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#statistics-feature">4.6. Statistics Feature</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-8">4.6.1. Implementation</a></li>
+<li><a href="#design-considerations-7">4.6.2. Design Considerations</a>
+<ul class="sectlevel4">
+<li><a href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">4.6.2.1. Aspect: Which list to retrieve data from to generate statistics</a></li>
+<li><a href="#aspect-how-to-store-the-statistics-generated-from-data">4.6.2.2. Aspect: How to store the statistics generated from data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#reminder-command">4.7. Reminder Command</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-9">4.7.1. Implementation</a></li>
+<li><a href="#design-considerations-8">4.7.2. Design considerations</a>
+<ul class="sectlevel5">
+<li><a href="#aspect-the-order-to-display-the-internship-applications">4.7.2.1. Aspect: The order to display the internship applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -58,8 +136,8 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This developer guide is for software developers or designers who want to understand the system design and implementation
-of InternshipDiary.</p>
+<p>This developer guide is written for software developers or designers who wish to contribute to the project.
+However, you may also use it if you wish to gain deeper insight into the system design and implementation of <strong>Internship Diary</strong>.</p>
 </div>
 </div>
 </div>
@@ -83,23 +161,12 @@ of InternshipDiary.</p>
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/docs/diagrams/">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
-</td>
-</tr>
-</table>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
+Given below is a quick overview of each component.</p>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/java/seedu/diary/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/java/seedu/diary/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/java/seedu/diary/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/java/seedu/diary/MainApp.java"><code>MainApp</code></a>.
+It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -189,10 +256,13 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/java/seedu/diary/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>InternshipApplicationListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>InternshipApplicationListPanel</code>, <code>StatusBarFooter</code> etc.
+All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/java/seedu/diary/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework.
+The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder.
+For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/java/seedu/diary/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -240,13 +310,13 @@ The following class plays an important role at the architecture level:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("select 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+<img src="images/SelectSequenceDiagram.png" alt="SelectSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>select 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -255,7 +325,7 @@ The following class plays an important role at the architecture level:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The lifeline for <code>SelectCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </td>
 </tr>
 </table>
@@ -298,7 +368,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Status</code> list in <code>Internship Diary</code>, which <code>Internship Application</code> can reference. This would allow <code>Internship Diary</code> to only require one <code>Status</code> object per unique <code>Status</code>, instead of each <code>Internship Application</code> needing their own <code>Status</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Status</code> list in <code>Internship Diary</code>, which <code>Internship Application</code> can reference.
+This would allow <code>Internship Diary</code> to only require one <code>Status</code> object per unique <code>Status</code>, instead of each <code>Internship Application</code> needing their own <code>Status</code> object.
+An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -323,10 +395,10 @@ As a more OOP model, we can store a <code>Status</code> list in <code>Internship
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>can save <code>UserPref</code> objects in JSON format and read it back.</p>
 </li>
 <li>
-<p>can save the Internship Diary data in json format and read it back.</p>
+<p>can save the <code>InternshipDiary</code> data in JSON format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -346,224 +418,10 @@ As a more OOP model, we can store a <code>Status</code> list in <code>Internship
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">4.1. [Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.1.1. Proposed Implementation</a></h4>
+<h3 id="sort-command"><a class="link" href="#sort-command">4.1. Sort command</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedInternshipDiary</code>.
-It extends <code>InternshipDiary</code> with an undo/redo history, stored internally as an <code>internshipDiaryStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedInternshipDiary#commit()</code>&#8201;&#8212;&#8201;Saves the current internship diary state in its history.</p>
-</li>
-<li>
-<p><code>VersionedInternshipDiary#undo()</code>&#8201;&#8212;&#8201;Restores the previous internship diary state from its history.</p>
-</li>
-<li>
-<p><code>VersionedInternshipDiary#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone internship diary state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitInternshipDiary()</code>, <code>Model#undoInternshipDiary()</code> and <code>Model#redoInternshipDiary()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedInternshipDiary</code> will be initialized with the initial internship diary state, and the <code>currentStatePointer</code> pointing to that single internship diary state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th internship application in the internship diary. The <code>delete</code> command calls <code>Model#commitInternshipDiary()</code>, causing the modified state of the internship diary after the <code>delete 5</code> command executes to be saved in the <code>internshipDiaryStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted internship diary state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add c/Google &#8230;&#8203;</code> to add a new internship application. The <code>add</code> command also calls <code>Model#commitInternshipDiary()</code>, causing another modified internship diary state to be saved into the <code>internshipDiaryStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitInternshipDiary()</code>, so the internship diary state will not be saved into the <code>internshipDiaryStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the internship application was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoInternshipDiary()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous internship diary state, and restores the internship diary to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial internship diary state, then there are no previous internship diary states to restore. The <code>undo</code> command uses <code>Model#canUndoInternshipDiary()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoInternshipDiary()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the internship diary to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>internshipDiaryStateList.size() - 1</code>, pointing to the latest internship diary state, then there are no undone internship diary states to restore. The <code>redo</code> command uses <code>Model#canRedoInternshipDiary()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the internship diary, such as <code>list</code>, will usually not call <code>Model#commitInternshipDiary()</code>, <code>Model#undoInternshipDiary()</code> or <code>Model#redoInternshipDiary()</code>. Thus, the <code>internshipDiaryStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitInternshipDiary()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>internshipDiaryStateList</code>, all internship diary states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add c/Google &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire internship diary.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the internship application being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of internship diary states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedInternshipDiary</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sort-command"><a class="link" href="#sort-command">4.2. Sort command</a></h3>
-<div class="paragraph">
-<p>The find command allows the user to sort the currently visible list of internship applications. The following sequence
-diagram will illustrate the process of invocation for the command:</p>
+<p>The find command allows the user to sort the currently visible list of internship applications.
+The following sequence diagram will illustrate the process of invocation for the command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -574,10 +432,9 @@ diagram will illustrate the process of invocation for the command:</p>
 <p>The following subsections will go through the general implementations of the sort command.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.2.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The find command is implemented in the class <code>SortCommand</code> and uses the <code>SortCommandParser</code> class to parse the
-arguments for the command.</p>
+<p>The find command is implemented in the class <code>SortCommand</code> and uses the <code>SortCommandParser</code> class to parse the arguments for the command.</p>
 </div>
 <div class="paragraph">
 <p>To facilitate the sort command, several comparator classes implementing <code>Comparator&lt;InternshipApplication&gt;</code> are used:</p>
@@ -585,24 +442,19 @@ arguments for the command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>ApplicationDateComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>ApplicationDate</code> field
-in chronological order.</p>
+<p><code>ApplicationDateComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>ApplicationDate</code> field in chronological order.</p>
 </li>
 <li>
-<p><code>CompanyComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Company</code> field
-in lexicographical order.</p>
+<p><code>CompanyComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Company</code> field in lexicographical order.</p>
 </li>
 <li>
-<p><code>PriorityComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Priority</code> field
-in ascending order.</p>
+<p><code>PriorityComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Priority</code> field in ascending order.</p>
 </li>
 <li>
-<p><code>RoleComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Role</code> field
-in lexicographical order.</p>
+<p><code>RoleComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Role</code> field in lexicographical order.</p>
 </li>
 <li>
-<p><code>StatusComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Status</code> field
-by the order which they are declared in the Status Enum class.</p>
+<p><code>StatusComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Status</code> field by the order which they are declared in the Status Enum class.</p>
 </li>
 </ul>
 </div>
@@ -612,18 +464,17 @@ If the number of such prefixes found is not exactly one, <code>SortCommandParser
 </div>
 </div>
 <div class="sect3">
-<h4 id="reverse-sort"><a class="link" href="#reverse-sort">4.2.2. Reverse sort</a></h4>
+<h4 id="reverse-sort"><a class="link" href="#reverse-sort">4.1.2. Reverse sort</a></h4>
 <div class="paragraph">
-<p>This version of the command is invoked when the user enters the command with <code>reverse</code> as the
-preamble text in the parameter, e.g. <code>sort reverse c/</code>. After retrieving the correct <code>comparator</code> to use,
-the parser would pass <code>comparator.reversed()</code> to the constructor of <code>SortCommand</code> instead of <code>comparator</code>.
+<p>This version of the command is invoked when the user enters the command with <code>reverse</code> as the preamble text in the parameter, e.g. <code>sort reverse c/</code>.
+After retrieving the correct <code>comparator</code> to use, the parser would pass <code>comparator.reversed()</code> to the constructor of <code>SortCommand</code> instead of <code>comparator</code>.
 This would reverse the order in which the currently visible list of internship applications is sorted in.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-sort-by-multiple-fields"><a class="link" href="#aspect-how-to-sort-by-multiple-fields">Aspect: How to sort by multiple fields</a></h5>
+<h5 id="aspect-how-to-sort-by-multiple-fields"><a class="link" href="#aspect-how-to-sort-by-multiple-fields">4.1.3.1. Aspect: How to sort by multiple fields</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -633,8 +484,7 @@ This works as the list uses stable sort.</p>
 <ul>
 <li>
 <p>Pros: More streamlined, less complex.<br>
-<code>EnteredCommandsHistory</code> allows the user to get the sort command template back
-in just one press of the up arrow key so there is little hassle.<br>
+<code>EnteredCommandsHistory</code> allows the user to get the sort command template back in just one press of the up arrow key so there is little hassle.<br>
 Users do not have to remember the order to place the arguments to get the sort they want.</p>
 </li>
 <li>
@@ -665,10 +515,10 @@ Harder to implement reverse sorting.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-command"><a class="link" href="#clear-command">4.3. Clear command</a></h3>
+<h3 id="clear-command"><a class="link" href="#clear-command">4.2. Clear command</a></h3>
 <div class="paragraph">
-<p>The clear command allows the user to delete all internship applications. The following sequence
-diagram will illustrate the process of invocation for the command:</p>
+<p>The clear command allows the user to delete all internship applications.
+The following sequence diagram will illustrate the process of invocation for the command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -679,20 +529,19 @@ diagram will illustrate the process of invocation for the command:</p>
 <p>The following subsections will go through the general implementations of the clear command.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The find command is implemented in the class <code>InitClearCommand</code>, <code>ClearCommand</code> and uses the
 <code>ClearCommandConfirmationParser</code> class to parse the arguments for the command.</p>
 </div>
 <div class="paragraph">
-<p>The implementation for this command is unique as it causes 'LogicManager' to use <code>ClearCommandConfirmationParser</code>,
-which is a subclass of <code>InternshipDiaryParser</code>, as the main parser to parse the next user input.</p>
+<p>The implementation for this command is unique as it causes 'LogicManager' to use <code>ClearCommandConfirmationParser</code>, which is a subclass of <code>InternshipDiaryParser</code>, as the main parser to parse the next user input.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-prompt-for-confirmation"><a class="link" href="#aspect-how-to-prompt-for-confirmation">Aspect: How to prompt for confirmation.</a></h5>
+<h5 id="aspect-how-to-prompt-for-confirmation"><a class="link" href="#aspect-how-to-prompt-for-confirmation">4.2.2.1. Aspect: How to prompt for confirmation.</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -701,20 +550,18 @@ which is a subclass of <code>InternshipDiaryParser</code>, as the main parser to
 <ul>
 <li>
 <p>Pros: Easy to extend.<br>
-New commands which require a prompt or alternative parsing do not need to further
-modify the <code>InternshipDiaryParser</code> or <code>LogicManager</code> class.</p>
+New commands which require a prompt or alternative parsing do not need to further modify the <code>InternshipDiaryParser</code> or <code>LogicManager</code> class.</p>
 </li>
 <li>
-<p>Cons: All commands will have to implement a <code>getNextParser</code> method. As <code>getNextParser</code> returns <code>null</code> for most
-commands, an abstract class is used. However, this means that commands cannot extend other abstract classes in
-the future.</p>
+<p>Cons: All commands will have to implement a <code>getNextParser</code> method.
+As <code>getNextParser</code> returns <code>null</code> for most commands, an abstract class is used.
+However, this means that commands cannot extend other abstract classes in the future.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2</strong>: Have <code>InternshipDiaryParser</code> have different modes depending
-on what command was last executed.</p>
+<p><strong>Alternative 2</strong>: Have <code>InternshipDiaryParser</code> have different modes depending on what command was last executed.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -747,9 +594,9 @@ As the different modes do not share code, they are better off as separate classe
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">4.4. Interview and Interview Commands</a></h3>
+<h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">4.3. Interview and Interview Commands</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.4.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The implementation of interviews will be facilitated by two overarching components, the Model Class <code>Interview</code>
 which is associated to an <code>InternshipApplication</code> (see Model Diagram <a href="#Design-Model">Section 3.4, &#8220;Model component&#8221;</a> ) and the Logic Classes <code>InterviewCommandParser</code> and <code>InterviewCommand</code>.</p>
@@ -780,7 +627,8 @@ which is associated to an <code>InternshipApplication</code> (see Model Diagram 
 </div>
 <div class="paragraph">
 <p>Interviews can only be modified through the <code>interview</code> command which relies upon <code>InterviewCommandParser</code> and <code>InterviewCommand</code> classes.
-The <code>interview</code> command will encompass four types of sub-command: <code>add list edit delete</code>. Correspondingly, the <code>InterviewCommand</code>
+The <code>interview</code> command will encompass four types of sub-command: <code>add list edit delete</code>.
+Correspondingly, the <code>InterviewCommand</code>
 class will be made abstract with specific implementation of each sub-command in an inheriting class, this can be seen in the diagram below.</p>
 </div>
 <div class="imageblock">
@@ -793,9 +641,12 @@ class will be made abstract with specific implementation of each sub-command in 
 This is to facilitate all sub-commands to acquire the <code>InternshipApplication</code> to modify the <code>Interview</code> from.</p>
 </div>
 <div class="paragraph">
-<p><code>InterviewCommandParser</code> is the entry point to all <code>interview</code> sub-command. It will be invoked from <code>InternshipDiaryParser</code>
-which is the primary logic parser for user input. The following sequence diagram will illustrate the process of invocation for
- <code>InterviewAddCommand</code>. All other sub-commands will follow the same invocation format.</p>
+<p><code>InterviewCommandParser</code> is the entry point to all <code>interview</code> sub-command.
+It will be invoked from <code>InternshipDiaryParser</code>
+which is the primary logic parser for user input.
+The following sequence diagram will illustrate the process of invocation for
+<code>InterviewAddCommand</code>.
+All other sub-commands will follow the same invocation format.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -804,9 +655,9 @@ which is the primary logic parser for user input. The following sequence diagram
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">Aspect: How to implement different interview commands</a></h5>
+<h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">4.3.2.1. Aspect: How to implement different interview commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -843,10 +694,10 @@ Create a lot of repetition in code.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-command"><a class="link" href="#find-command">4.5. Find command</a></h3>
+<h3 id="find-command"><a class="link" href="#find-command">4.4. Find command</a></h3>
 <div class="paragraph">
-<p>The find command allows the user to get a filtered list of internship applications. The following sequence
-diagram will illustrate the process of invocation for the command:</p>
+<p>The find command allows the user to get a filtered list of internship applications.
+The following sequence diagram will illustrate the process of invocation for the command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -854,14 +705,12 @@ diagram will illustrate the process of invocation for the command:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The following subsections will go through the general implementations of the find command, as well as the 2
-versions of the command, find any match, and find match by fields.</p>
+<p>The following subsections will go through the general implementations of the find command, as well as the 2 versions of the command, find any match, and find match by fields.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.5.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The find command is implemented in the class <code>FindCommand</code> and uses the <code>FindCommandParser</code> class to parse the
-arguments for the command.</p>
+<p>The find command is implemented in the class <code>FindCommand</code> and uses the <code>FindCommandParser</code> class to parse the arguments for the command.</p>
 </div>
 <div class="paragraph">
 <p>To facilitate the find command, several predicates classes implementing <code>Predicate&lt;InternshipApplication&gt;</code> are used:</p>
@@ -869,55 +718,45 @@ arguments for the command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>CompanyContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Company</code> field contains any
-substring matching any words in the list supplied by its constructor <code>CompanyContainsKeywordsPredicate(List&lt;String&gt;
+<p><code>CompanyContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Company</code> field contains any substring matching any words in the list supplied by its constructor <code>CompanyContainsKeywordsPredicate(List&lt;String&gt;
 keywords)</code>.</p>
 </li>
 <li>
-<p><code>RoleContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Role</code> field contains any
-substring matching any words in the list supplied by its constructor <code>RoleContainsKeywordsPredicate(List&lt;String&gt;
+<p><code>RoleContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Role</code> field contains any substring matching any words in the list supplied by its constructor <code>RoleContainsKeywordsPredicate(List&lt;String&gt;
 keywords)</code>.</p>
 </li>
 <li>
-<p><code>AddressContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Address</code> field contains any
-substring matching any words in the list supplied by its constructor <code>AddressContainsKeywordsPredicate(List&lt;String&gt;
+<p><code>AddressContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Address</code> field contains any substring matching any words in the list supplied by its constructor <code>AddressContainsKeywordsPredicate(List&lt;String&gt;
 keywords)</code>.</p>
 </li>
 <li>
-<p><code>PhoneContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Phone</code> field contains any
-substring matching any words in the list supplied by its constructor <code>PhoneContainsNumbersPredicate(List&lt;String&gt;
+<p><code>PhoneContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Phone</code> field contains any substring matching any words in the list supplied by its constructor <code>PhoneContainsNumbersPredicate(List&lt;String&gt;
 numbers)</code>.</p>
 </li>
 <li>
-<p><code>EmailContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Email</code> field contains any
-substring matching any words in the list supplied by its constructor <code>EmailContainsKeywordsPredicate(List&lt;String&gt;
+<p><code>EmailContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Email</code> field contains any substring matching any words in the list supplied by its constructor <code>EmailContainsKeywordsPredicate(List&lt;String&gt;
 keywords)</code>.</p>
 </li>
 <li>
-<p><code>PriorityContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Phone</code> field contains any
-substring matching any words in the list supplied by its constructor <code>PriorityContainsNumbersPredicate(List&lt;String&gt;
+<p><code>PriorityContainsNumbersPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Phone</code> field contains any substring matching any words in the list supplied by its constructor <code>PriorityContainsNumbersPredicate(List&lt;String&gt;
 numbers)</code>..</p>
 </li>
 <li>
-<p><code>ApplicationDateIsDatePredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>ApplicationDate</code> field is
-exactly the date supplied by its constructor <code>ApplicationDateIsDatePredicate(LocalDate date)</code>.</p>
+<p><code>ApplicationDateIsDatePredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>ApplicationDate</code> field is exactly the date supplied by its constructor <code>ApplicationDateIsDatePredicate(LocalDate date)</code>.</p>
 </li>
 <li>
-<p><code>StatusContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Status</code> field contains any
-substring matching any words in the list supplied by its constructor <code>StatusContainsKeywordsPredicate(List&lt;String&gt;
+<p><code>StatusContainsKeywordsPredicate</code>&#8201;&#8212;&#8201;Predicate to check if an internship application&#8217;s <code>Status</code> field contains any substring matching any words in the list supplied by its constructor <code>StatusContainsKeywordsPredicate(List&lt;String&gt;
 keywords)</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-any-match"><a class="link" href="#find-any-match">4.5.2. Find Any Match</a></h4>
+<h4 id="find-any-match"><a class="link" href="#find-any-match">4.4.2. Find Any Match</a></h4>
 <div class="paragraph">
 <p>This version of the command is invoked when the user enters the command with preamble text in the parameter, e.g.
-<code>find google facebook</code> or <code>find google r/software</code>. The command will perform search for any internship application
-where any of the fields <code>Company</code>, <code>Role</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>Priority</code> or <code>Status</code> contains a substring
-matching at least one word in the preamble and display them, e.g. <code>find google facebook</code> will look for internship
-applications whose any of the above fields contains the substring <code>google</code> or <code>facebook</code>.</p>
+<code>find google facebook</code> or <code>find google r/software</code>.
+The command will perform search for any internship application where any of the fields <code>Company</code>, <code>Role</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>Priority</code> or <code>Status</code> contains a substring matching at least one word in the preamble and display them, e.g. <code>find google facebook</code> will look for internship applications whose any of the above fields contains the substring <code>google</code> or <code>facebook</code>.</p>
 </div>
 <div class="paragraph">
 <p>The searching and displaying of the internship application is done by performing an <code>OR</code> operation on all the predicates
@@ -928,33 +767,28 @@ applications whose any of the above fields contains the substring <code>google</
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-match-by-fields"><a class="link" href="#find-match-by-fields">4.5.3. Find Match by Fields</a></h4>
+<h4 id="find-match-by-fields"><a class="link" href="#find-match-by-fields">4.4.3. Find Match by Fields</a></h4>
 <div class="paragraph">
 <p>This version of the command is invoked when the user enters the command without any preamble text in the parameter, e.g.
-<code>find c/google r/software</code>. The command will perform a search for any internship application where the fields
-<code>Company</code>, <code>Role</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>ApplicationDate</code>, <code>Priority</code> and <code>Status</code> match any of the supplied
-word after their respective prefixes (if a field&#8217;s prefix is not specified, the field is not checked),
-e.g. <code>find c/google facebook d/01 02 2020</code> will look for internship applications where the <code>Company</code> field contains
-a substring <code>google</code> or <code>facebook</code> and the <code>ApplicationDate</code> field matching the date 1st February 2020.</p>
+<code>find c/google r/software</code>.
+The command will perform a search for any internship application where the fields
+<code>Company</code>, <code>Role</code>, <code>Address</code>, <code>Phone</code>, <code>Email</code>, <code>ApplicationDate</code>, <code>Priority</code> and <code>Status</code> match any of the supplied word after their respective prefixes (if a field&#8217;s prefix is not specified, the field is not checked), e.g. <code>find c/google facebook d/01 02 2020</code> will look for internship applications where the <code>Company</code> field contains a substring <code>google</code> or <code>facebook</code> and the <code>ApplicationDate</code> field matching the date 1st February 2020.</p>
 </div>
 <div class="paragraph">
-<p>The searching and displaying of the internship application is done by performing an <code>AND</code> operation on the
-required predicates that is any of <code>CompanyContainsKeywordsPredicate</code>, <code>RoleContainsKeywordsPredicate</code>,
+<p>The searching and displaying of the internship application is done by performing an <code>AND</code> operation on the required predicates that is any of <code>CompanyContainsKeywordsPredicate</code>, <code>RoleContainsKeywordsPredicate</code>,
 <code>AddressContainsKeywordsPredicate</code>, <code>PhoneContainsNumbersPredicate</code>, <code>EmailContainsKeywordsPredicate</code>,
-<code>ApplicationDateIsDatePredicate</code>, <code>PriorityContainsNumbersPredicate</code> and <code>StatusContainsKeywordsPredicate</code> to get a
-single predicate and passing that into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code>
+<code>ApplicationDateIsDatePredicate</code>, <code>PriorityContainsNumbersPredicate</code> and <code>StatusContainsKeywordsPredicate</code> to get a single predicate and passing that into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code>
 instance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.4. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.4. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">Aspect: How to implement the different versions of find command</a></h5>
+<h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">4.4.4.1. Aspect: How to implement the different versions of find command</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Use a standardized command with the version to invoke determined by the type of
-user input parameters.</p>
+<p><strong>Alternative 1 (current choice)</strong>: Use a standardized command with the version to invoke determined by the type of user input parameters.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1000,7 +834,7 @@ This still requires user to remember the right words to invoke the different ver
 </div>
 </div>
 <div class="sect2">
-<h3 id="archival-system"><a class="link" href="#archival-system">4.6. Archival System</a></h3>
+<h3 id="archival-system"><a class="link" href="#archival-system">4.5. Archival System</a></h3>
 <div class="paragraph">
 <p>This feature allows users to store chosen internship application(s) into the archival.</p>
 </div>
@@ -1021,7 +855,7 @@ This still requires user to remember the right words to invoke the different ver
 <p>The two mechanisms can be further broken down into the following four commands: <code>list</code>, <code>archival</code>, <code>archive</code>, and <code>unarchive</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="list-archival"><a class="link" href="#list-archival">4.6.1. List &amp; Archival</a></h4>
+<h4 id="list-archival"><a class="link" href="#list-archival">4.5.1. List &amp; Archival</a></h4>
 <div class="paragraph">
 <p>To handle the ability for a user to switch views, we implemented the commands <code>list</code> and <code>archival</code>:</p>
 </div>
@@ -1036,8 +870,7 @@ This still requires user to remember the right words to invoke the different ver
 </ul>
 </div>
 <div class="paragraph">
-<p>From here on, we will refer to the list of unarchived internship application(s) as the <strong>main list</strong>, and the list of
-archived internship application(s) as the <strong>archival list</strong>.</p>
+<p>From here on, we will refer to the list of unarchived internship application(s) as the <strong>main list</strong>, and the list of archived internship application(s) as the <strong>archival list</strong>.</p>
 </div>
 <div class="paragraph">
 <p>Beyond the primary purpose of allowing users to switch between their view of main and archived list of internship application(s),
@@ -1048,10 +881,9 @@ archived internship application(s) as the <strong>archival list</strong>.</p>
 This is identical for the <code>unarchive</code> command in the main list as well.</p>
 </div>
 <div class="sect4">
-<h5 id="implementation-6"><a class="link" href="#implementation-6">Implementation</a></h5>
+<h5 id="implementation-6"><a class="link" href="#implementation-6">4.5.1.1. Implementation</a></h5>
 <div class="paragraph">
-<p>The class diagram below depicts the important methods and variables that provide us the ability to switch
-views between the main list and the archival list.</p>
+<p>The class diagram below depicts the important methods and variables that provide us the ability to switch views between the main list and the archival list.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1088,7 +920,8 @@ views between the main list and the archival list.</p>
 And when a user is viewing the archival list, <code>displayedInternships</code> references <code>archivedInternships</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how an <code>archival</code> command is executed. The <code>list</code> command is similar to <code>archival</code>.
+<p>The following sequence diagram illustrates how an <code>archival</code> command is executed.
+The <code>list</code> command is similar to <code>archival</code>.
 You may use the same sequence diagram for the <code>list</code> command.</p>
 </div>
 <div class="imageblock" style="text-align: center">
@@ -1097,7 +930,8 @@ You may use the same sequence diagram for the <code>list</code> command.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The following code snippet is retrieved from the InternshipDiary class. It illustrates the internal workings of how we switch the view between the archived list and the main list.</p>
+<p>The following code snippet is retrieved from the InternshipDiary class.
+It illustrates the internal workings of how we switch the view between the archived list and the main list.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1110,18 +944,19 @@ You may use the same sequence diagram for the <code>list</code> command.</p>
 </div>
 <div class="paragraph">
 <p>It can be seen explicitly from the code snippet that we make use of referencing to switch between the views of archived and main list.
-However, such implementation brings about issues with reactivity&#8201;&#8212;&#8201;where elements that reference <code>displayedInternships</code> will not be aware of the
-reference update in <code>displayedInternships</code> whenever the user executes <code>archival</code> or <code>list</code>. Therefore, in the above scenario, users would still see the main list after executing the <code>archival</code> command.</p>
+However, such implementation brings about issues with reactivity&#8201;&#8212;&#8201;where elements that reference <code>displayedInternships</code> will not be aware of the reference update in <code>displayedInternships</code> whenever the user executes <code>archival</code> or <code>list</code>.
+Therefore, in the above scenario, users would still see the main list after executing the <code>archival</code> command.</p>
 </div>
 <div class="paragraph">
-<p>In order to resolve this issue, we need to employ the observer pattern. The idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
+<p>In order to resolve this issue, we need to employ the observer pattern.
+The idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
 Consequently, whenever there is a state change to <code>InternshipDiary</code>, the list of observers will be notified and updated automatically.</p>
 </div>
 <div class="paragraph">
 <p>To achieve this observer pattern, we made use of the <code>PropertyChangeSupport</code> class and the <code>PropertyChangeListener</code> interface.
-<code>PropertyChangeSupport</code> is a utility class to support the observer pattern by managing a list of listeners (observers) and firing <code>PropertyChangeEvent</code> to
-the listeners. A class that contains an instance of <code>PropertyChangeSupport</code> is an observable. On the other hand, a class
-that implements the <code>PropertyChangeListener</code> interface is an observer.</p>
+<code>PropertyChangeSupport</code> is a utility class to support the observer pattern by managing a list of listeners (observers) and firing <code>PropertyChangeEvent</code> to the listeners.
+A class that contains an instance of <code>PropertyChangeSupport</code> is an observable.
+On the other hand, a class that implements the <code>PropertyChangeListener</code> interface is an observer.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1158,11 +993,13 @@ that implements the <code>PropertyChangeListener</code> interface is an observer
 </li>
 </ul>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Do note the following:</p>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1176,29 +1013,32 @@ that implements the <code>PropertyChangeListener</code> interface is an observer
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="paragraph">
-<p>From here on, we will briefly discuss how the observer pattern works in our implementation.</p>
-</div>
-<div class="paragraph">
-<p>Whenever an object wants to observe changes in another object, it will call the <code>addPropertyChangeListener</code> function
-of the <code>PropertyChangeSupport</code> instance from the appropriate object that it wishes to observe. It will also have to specify which property
-of that object it wants to observe.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>In our case, when ModelManager is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance
-belonging to <code>InternshipDiary</code>. The function call will look like this: <code>addPropertyChangeListener("displayedInternships", this)</code> where <code>this</code>
+<p>We will briefly discuss how the observer pattern works in our implementation.</p>
+</div>
+<div class="paragraph">
+<p>Whenever an object wants to observe changes in another object, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance from the appropriate object that it wishes to observe.
+It will also have to specify which property of that object it wants to observe.</p>
+</div>
+<div class="paragraph">
+<p>In our case, when ModelManager is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance belonging to <code>InternshipDiary</code>.
+The function call will look like this: <code>addPropertyChangeListener("displayedInternships", this)</code> where <code>this</code>
 is a reference to <code>ModelManager</code> itself (so that it can be registered as a listener of the <code>displayedInternships</code> property).</p>
 </div>
 <div class="paragraph">
-<p>The process is similar for any UI element that wants to observe the <code>filteredInternshipApplications</code> attribute (property) of <code>ModelManager</code>.</p>
+<p>The process is similar for any UI element that wants to observe the <code>filteredInternshipApplications</code> property of <code>ModelManager</code>.</p>
 </div>
 <div class="paragraph">
 <p>As a result, whenever there is a change to the property <code>displayedInternships</code> in <code>InternshipDiary</code>, the <code>PropertyChangeSupport</code> instance of
-<code>InternshipDiary</code> will call <code>firePropertyChange</code> to emit a <code>PropertyChangeEvent</code> to <code>ModelManager</code>. The emitted event will trigger the
+<code>InternshipDiary</code> will call <code>firePropertyChange</code> to emit a <code>PropertyChangeEvent</code> to <code>ModelManager</code>.
+The emitted event will trigger the
 <code>propertyChange</code> function of <code>ModelManager</code>. <code>ModelManager</code> can then retrieve the new reference from the event and update its
-<code>filteredInternshipApplications</code> accordingly. It will then repeat the event emission process to any UI element (e.g. StatisticsWindow) that is observing the
+<code>filteredInternshipApplications</code> accordingly.
+It will then repeat the event emission process to any UI element (e.g. StatisticsWindow) that is observing the
 <code>filteredInternshipApplications</code> property.</p>
 </div>
 <div class="exampleblock">
@@ -1210,20 +1050,23 @@ is a reference to <code>ModelManager</code> itself (so that it can be registered
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This two-tier observer-observable structure is necessary because <code>list</code> and <code>archival</code> only changes the reference of <code>displayedInternships</code>.<br>
+The two-tier observer-observable structure is <strong>necessary</strong>.
+This is because <code>list</code> and <code>archival</code> only changes the reference of <code>displayedInternships</code>.<br>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>When 'ModelManager' updates its property <code>filteredInternshipApplications</code> with the new reference, UI elements that reference <code>filteredInternshipApplications</code>
-will not be aware of the reference update to <code>filteredInternshipApplications</code>. Thus, <code>ModelManager</code> has to notify and update the UI elements as well.</p>
+will not be aware of the reference update to <code>filteredInternshipApplications</code>.
+Thus, <code>ModelManager</code> has to notify and update the UI elements as well.</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>As an extension, our team also implemented enumeration for each property that is being observed. This modification ensures type safety and a way for us
-to track what properties are observed. This is especially important when many properties are being observed.</p>
+<p>As an extension, our team also implemented enumeration for each property that is being observed.
+This modification ensures type safety and a way for us to track what properties are observed.
+This is especially important when many properties are being observed.</p>
 </div>
 <div class="paragraph">
 <p>Below is the updated class diagram with the implementation of <code>ListenerPropertyType</code> enumeration.</p>
@@ -1247,43 +1090,46 @@ to track what properties are observed. This is especially important when many pr
 </ol>
 </div>
 <div class="paragraph">
-<p>This forms an abstraction as users would not be allowed to call the the <code>addPropertyChangeListener</code> and <code>firePropertyChange</code> methods of
+<p>This forms a layer of abstraction as users would not be allowed to call the the <code>addPropertyChangeListener</code> and <code>firePropertyChange</code> methods of
 <code>PropertyChangeSupport</code> directly.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-6"><a class="link" href="#design-considerations-6">Design Considerations</a></h5>
+<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.1.2. Design Considerations</a></h5>
 
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-the-archiving-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archiving-system-on-the-backend">Aspect: How to implement the Archiving system on the backend</a></h5>
+<h5 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.5.1.3. Aspect: How to implement the Archival view system on the backend</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Maintain three <code>UniqueInternshipApplicationList</code>: <code>displayedInternships</code>, <code>unarchivedInternships</code>, and <code>archivedInternships</code>.<br>
+<p><strong>Alternative 1 (current choice)</strong>: Maintain three <code>UniqueInternshipApplicationList</code>: <code>displayedInternships</code>, <code>unarchivedInternships</code>, and <code>archivedInternships</code>.
 <code>displayedInternships</code> will be used as the reference for other elements to retrieve the list of internship application(s) for usage.
-Whenever the user executes <code>archival</code>, we will update the reference of <code>displayedInternships</code> to <code>archivedInternships</code>.
-In terms of storage, we will use only one list. This means that whenever we load the list of internship application(s) from the JSON save file,
-we will filter the internship application(s) appropriately into <code>archivedInternships</code> and <code>unarchivedInternships</code> in <code>InternshipDiary</code>.
+Whenever the user executes <code>archival</code>, we will update the reference of <code>displayedInternships</code> to <code>archivedInternships</code> and vice-versa.
+In terms of storage, we will use only one list.
+This means that whenever we load the list of internship application(s) from the JSON save file, we will filter the internship application(s) appropriately into <code>archivedInternships</code> and <code>unarchivedInternships</code> in <code>InternshipDiary</code>.
 When saving, we will combine both <code>archivedInternships</code> and <code>unarchivedInternships</code> into a single list for storage.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: No need to modify the storage and its relevant test cases. This provides some stability in the refactoring process.</p>
+<p>Pros: No need to modify the storage and its relevant test cases.
+This provides stability in the refactoring process.</p>
 </li>
 <li>
-<p>Cons: Potentially expensive in terms of computation. Furthermore, we will have to implement observer pattern to handle the reference changes.</p>
+<p>Cons: Potentially expensive in terms of computation.
+Furthermore, we will have to implement observer pattern to handle the reference changes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2</strong>: Manipulate the current view of the internship application list by using Predicate and FilteredList,
-along with the boolean isArchived variable in <code>InternshipApplication</code>. This will easily help us determine which internship application should be rendered.</p>
+<p><strong>Alternative 2</strong>: Manipulate the current view of the internship application list by using Predicate and FilteredList, along with the boolean isArchived variable in <code>InternshipApplication</code>.
+This will easily help us determine which internship application should be rendered.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Very easy to implement and less expensive in terms of memory and computation. No need to implement observer pattern as there will be no reference updates.</p>
+<p>Pros: Very easy to implement and less expensive in terms of memory and computation.
+No need to implement observer pattern as there will be no reference updates.</p>
 </li>
 <li>
 <p>Cons: Potentially unsustainable as conflicts are likely to arise with commands that make heavy use of predicates (e.g. <code>Find</code> command).</p>
@@ -1295,7 +1141,7 @@ along with the boolean isArchived variable in <code>InternshipApplication</code>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-the-observer-pattern"><a class="link" href="#aspect-how-to-implement-the-observer-pattern">Aspect: How to implement the observer pattern</a></h5>
+<h5 id="aspect-how-to-implement-the-observer-pattern"><a class="link" href="#aspect-how-to-implement-the-observer-pattern">4.5.1.4. Aspect: How to implement the Observer Pattern</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1303,7 +1149,9 @@ along with the boolean isArchived variable in <code>InternshipApplication</code>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy and intuitive to use. Good built-in support. Seems to be highly recommended by other users.</p>
+<p>Pros: Easy and intuitive to use.
+Good built-in support.
+Seems to be highly recommended by other users.</p>
 </li>
 <li>
 <p>Cons: Seemingly negligible for our usage.</p>
@@ -1319,7 +1167,8 @@ along with the boolean isArchived variable in <code>InternshipApplication</code>
 <p>Pros: Seemingly negligible for our usage.</p>
 </li>
 <li>
-<p>Cons: The package is deprecated. Harder to understand and implement.</p>
+<p>Cons: The package is deprecated.
+Harder to understand and implement.</p>
 </li>
 </ul>
 </div>
@@ -1329,10 +1178,9 @@ along with the boolean isArchived variable in <code>InternshipApplication</code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="archive-unarchive"><a class="link" href="#archive-unarchive">4.6.2. Archive &amp; Unarchive</a></h4>
+<h4 id="archive-unarchive"><a class="link" href="#archive-unarchive">4.5.2. Archive &amp; Unarchive</a></h4>
 <div class="paragraph">
-<p>To allow users to move internship application(s) between the main and archival list of internship application(s),
-we implemented the commands <code>archive</code> and <code>unarchive</code>:</p>
+<p>To allow users to move internship application(s) between the main and archival list of internship application(s), we implemented the commands <code>archive</code> and <code>unarchive</code>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1345,7 +1193,9 @@ we implemented the commands <code>archive</code> and <code>unarchive</code>:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The following activity diagram depicts the behaviour of an <code>archive</code> command. You may use it as a reference for <code>unarchive</code> as well. The activity diagrams for both are very similar.</p>
+<p>The following activity diagram depicts the behaviour of an <code>archive</code> command.
+You may use it as a reference for <code>unarchive</code> as well.
+The activity diagrams for both are very similar.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1357,21 +1207,45 @@ we implemented the commands <code>archive</code> and <code>unarchive</code>:</p>
 For example, a user may want to archive all the internship application(s) that have the status of "rejected".</p>
 </div>
 <div class="paragraph">
-<p>Commands like <code>archive</code>, <code>unarchive</code>, and <code>delete</code> can be seen as <strong>removal-based commands</strong>. This is because the utility
-of such functions are very similar; in that they serve to modify the list by removing items.</p>
+<p>Commands like <code>archive</code>, <code>unarchive</code>, and <code>delete</code> can be seen as <strong>removal-based commands</strong>.
+This is because the utility of such functions are very similar; in that they serve to modify the list by removing items.</p>
 </div>
 <div class="paragraph">
 <p>Therefore, we specifically created a new class, <code>RemovalBasedCommand</code>, to extend the functionality of <strong>removal-based commands</strong> like <code>archive</code>, <code>unarchive</code>, and <code>delete</code>.
 Through this new class, users will be able to execute the commands on multiple internship applications.</p>
 </div>
+<div class="paragraph">
+<p>In the following section, we will delve slightly deeper and discuss about the lower-level implementation of the extended functionality.</p>
+</div>
 <div class="sect4">
-<h5 id="implementation-7"><a class="link" href="#implementation-7">Implementation</a></h5>
+<h5 id="implementation-7"><a class="link" href="#implementation-7">4.5.2.1. Implementation</a></h5>
+<div class="paragraph">
+<p>The following class diagram depicts our implementation of the extended functionality.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/RemovalBasedClassDiagram.png" alt="RemovalBasedClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The idea of the implementation can be summarized as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The purpose of <code>RemovalBasedCommandExecutionTypeParser</code> is solely to determine the execution type of the command by parsing the user input and calling <code>RemovalBasedCommandExecutionType#getExecutionType</code>.</p>
+</li>
+<li>
+<p>On the other hand, <code>RemovalBasedCommand</code> is responsible for creating and executing the appropriate command based on the <code>commandWord</code> that was generated from the user input and passed down from <code>InternshipDiaryParser</code>.</p>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>Users are able to execute removal-based commands like <code>archive</code> according to the execution types we have in the enumeration class <code>RemovalBasedCommandExecutionType</code>.</p>
 </div>
 <div class="paragraph">
-<p>We have implemented the following execution types: <code>BY_INDEX</code>, <code>BY_INDICES</code>, and <code>BY_FIELD</code>. For the execution type <code>BY_FIELD</code>, users can only
-execute by the status field of an internship application currently.</p>
+<p>We have implemented the following execution types: <code>BY_INDEX</code>, <code>BY_INDICES</code>, and <code>BY_FIELD</code>.
+For the execution type <code>BY_FIELD</code>, users can only execute by the <code>Status</code> field of an internship application currently.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1399,7 +1273,8 @@ execute by the status field of an internship application currently.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>It is important to note that each execution type works similarly. At the core, all of them involves retrieving the index of a internship application to execute on.
+<p>It is important to note that each execution type works similarly.
+At the core, all of them involves retrieving the index of a internship application to execute on.
 The difference lies in the pre-processing stage&#8201;&#8212;&#8201;the steps an execution type takes to retrieve all the required indices.</p>
 </div>
 <div class="paragraph">
@@ -1415,8 +1290,8 @@ Other variations of <strong>removal-based commands</strong> and <strong>executio
 </div>
 </div>
 <div class="paragraph">
-<p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the
-internship applications and then converting these internship applications to their respective index. This will provide us with required indices.</p>
+<p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the internship applications and then converting these internship applications to their respective index.
+This provides us with required indices that we will execute the removal-based command on.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1433,13 +1308,11 @@ We have implemented the mechanism to be reusable and extensible for new commands
 </table>
 </div>
 <div class="paragraph">
-<p>This is evident in the sequence diagram above, where the different kinds of <strong>removal-based commands</strong> are abstracted from the diagram and
-referred to simply as <code>RemovalBasedCommand</code>. This means that the above diagram is applicable to <code>archive</code>, <code>unarchive</code>, <code>delete</code>, and any other
-<strong>removal-based commands</strong> that we may wish to introduce in the future.</p>
+<p>This is evident in the sequence diagram above, where the different kinds of <strong>removal-based commands</strong> are abstracted from the diagram and referred to simply as <code>RemovalBasedCommand</code>.
+This means that the above diagram is applicable to <code>archive</code>, <code>unarchive</code>, <code>delete</code>, and any other <strong>removal-based commands</strong> that we may wish to introduce in the future.</p>
 </div>
 <div class="paragraph">
-<p>Furthermore, if we ever wish to create a <strong>new</strong> <code>RemovalBasedCommandExecutionType</code> (on top of <code>BY_INDEX</code>, <code>BY_INDICES</code>, and <code>BY_FIELD</code>), we may simply
-add a new alternative path to the diagram (or a new switch condition in terms of code).</p>
+<p>Furthermore, if we ever wish to create a <strong>new</strong> <code>RemovalBasedCommandExecutionType</code> (on top of <code>BY_INDEX</code>, <code>BY_INDICES</code>, and <code>BY_FIELD</code>), we may simply add a new alternative path to the diagram (or a new switch condition in terms of code).</p>
 </div>
 </div>
 </div>
@@ -1453,12 +1326,10 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 </div>
 </div>
 <div class="paragraph">
-<p>As seen from the diagram above, the parser determined the execution type to be <code>BY_FIELD</code> and generated the appropriate predicate to
-construct a <code>RemovalBasedCommand</code> instance.</p>
+<p>As seen from the diagram above, the parser determined the execution type to be <code>BY_FIELD</code> and generated the appropriate predicate to construct a <code>RemovalBasedCommand</code> instance.</p>
 </div>
 <div class="paragraph">
-<p>Based on the command word passed in to construct the <code>RemovalBasedCommand</code> instance, <code>RemovalBasedCommand</code> creates a lazy lambda function
-that can be called to construct the appropriate <strong>removal-based command</strong> for execution.</p>
+<p>Based on the command word passed in to construct the <code>RemovalBasedCommand</code> instance, <code>RemovalBasedCommand</code> creates a lazy lambda function that can be called to construct the appropriate <strong>removal-based command</strong> for execution.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram depicts the above behaviour.</p>
@@ -1472,7 +1343,7 @@ that can be called to construct the appropriate <strong>removal-based command</s
 <p>As the command word is <code>archive</code>, a lazy lambda function to construct an <code>ArchiveCommand</code> is returned.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram captures the process of executing a removal-based command on one index.
+<p>The following sequence diagram captures the process of executing the lazy removal-based command on one index.
 This particular index allows us to retrieve the appropriate internship application.</p>
 </div>
 <div class="imageblock" style="text-align: center">
@@ -1484,8 +1355,8 @@ This particular index allows us to retrieve the appropriate internship applicati
 <p>It can be seen that the previously-generated lazy command is executed in the above sequence diagram.</p>
 </div>
 <div class="paragraph">
-<p><code>ArchiveCommand</code> is constructed and subsequently executed on the index provided, by making the
-appropriate function call to the model to execute on the internship application. In this case, <code>archiveInternshipApplication</code> is called.</p>
+<p><code>ArchiveCommand</code> is constructed and subsequently executed on the index provided, by making the appropriate function call to the model to execute on the internship application.
+In this case, <code>archiveInternshipApplication</code> is called.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram captures the process of executing the lazy <code>ArchiveCommand</code> on indices.</p>
@@ -1496,12 +1367,11 @@ appropriate function call to the model to execute on the internship application.
 </div>
 </div>
 <div class="paragraph">
-<p>As seen above, <code>executeLazyCommandOnIndices</code> merely reuses the function <code>executeLazyCommandOnIndex</code> (from the previous sequence diagram)
-by running it on every index provided.</p>
+<p>As seen above, <code>executeLazyCommandOnIndices</code> merely reuses the function <code>executeLazyCommandOnIndex</code> (from the previous sequence diagram) by running it on every index provided.
+The feedback from each execution is cumulatively concatenated to form a single feedback.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram captures the process of re-creating the command result in <code>RemovalBasedCommand</code> by
-using the feedback obtained from the specific command execution, which is <code>ArchiveCommand</code> in our example.</p>
+<p>The following sequence diagram captures the process of re-creating the command result in <code>RemovalBasedCommand</code> by using the feedback obtained from the specific command execution, which is <code>ArchiveCommand</code> in our example.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1511,23 +1381,24 @@ using the feedback obtained from the specific command execution, which is <code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">Aspect: How to implement multiple execution types for removal-based commands</a></h5>
+<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.5.3.1. Aspect: How to implement multiple execution types for removal-based commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Use encapsulation to hold the appropriate command word, which will then be used to
-generate the removal-based command that will execute based on the execute type provided.
+<p><strong>Alternative 1 (current choice)</strong>: Use encapsulation to hold the appropriate command word, which will then be used to generate the removal-based command that will execute based on the execute type provided.
 <code>RemovalBasedCommand</code> will store the command word of the appropriate removal-based command and create the command when
-<code>RemovalBasedCommand</code> is executed. This removal-based command will then be used on the index/indices provided according to the execution type.</p>
+<code>RemovalBasedCommand</code> is executed.
+This removal-based command will then be used on the index/indices provided according to the execution type.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Easier to implement and convey the idea to team members.</p>
 </li>
 <li>
-<p>Cons: Will require many case handling (e.g. switch cases). Polymorphism may be a better solution in terms of code extensibility and elegance.</p>
+<p>Cons: Will require multiple case handlings (e.g. switch cases).
+Polymorphism may be a better solution in terms of code extensibility and elegance.</p>
 </li>
 </ul>
 </div>
@@ -1541,7 +1412,8 @@ generate the removal-based command that will execute based on the execute type p
 </li>
 <li>
 <p>Cons: Likely to require major redesigning and refactoring of existing logic codebase because we will have to modify <code>Command</code> class.
-Furthermore, the changes may affect areas that we may not have considered. This is risky and will take a lot of time, effort, and team discussion.</p>
+Furthermore, the changes may affect areas that we may not have considered.
+This is risky and will take a lot of time, effort, and team discussion.</p>
 </li>
 </ul>
 </div>
@@ -1552,7 +1424,7 @@ Furthermore, the changes may affect areas that we may not have considered. This 
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.7. Statistics Feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.6. Statistics Feature</a></h3>
 <div class="paragraph">
 <p>This feature allows users to view relevant metrics about their internship application(s).</p>
 </div>
@@ -1570,7 +1442,7 @@ Furthermore, the changes may affect areas that we may not have considered. This 
 </ul>
 </div>
 <div class="sect3">
-<h4 id="implementation-8"><a class="link" href="#implementation-8">4.7.1. Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The following class diagram gives an overview of our implementation of the statistics feature.</p>
 </div>
@@ -1615,16 +1487,13 @@ Furthermore, the changes may affect areas that we may not have considered. This 
 </div>
 <div class="paragraph">
 <p>The <code>Statistics</code> object is used to generate statistics for any internship application list that it is given.
-<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> each contains an instance of <code>Statistics</code> that helps them compute the relevant statistics
-whenever there is any update to the internship application list.</p>
+<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> each contains an instance of <code>Statistics</code> that helps them compute the relevant statistics whenever there is any update to the internship application list.</p>
 </div>
 <div class="paragraph">
-<p>The internship application list can be updated either due to a change in reference in <code>displayedInternships</code> from <code>InternshipDiary</code> (e.g. <code>archival</code> and <code>list</code>) or any modifications to the
-current internship application list (e.g. adding, deleting, editing of internship applications).</p>
+<p>The internship application list can be updated either due to a change in reference in <code>displayedInternships</code> from <code>InternshipDiary</code> (e.g. <code>archival</code> and <code>list</code>) or any modifications to the current internship application list (e.g. adding, deleting, editing of internship applications).</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram illustrates how <code>StatisticsWindow</code> (<code>StatisticsBarFooter</code> shares the same workflow) is notified of the updates
-in the internship application list and how it subsequently updates the statistics.</p>
+<p>The following activity diagram illustrates how <code>StatisticsWindow</code> (<code>StatisticsBarFooter</code> shares the same workflow) is notified of the updates in the internship application list and how it subsequently updates the statistics.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1632,30 +1501,28 @@ in the internship application list and how it subsequently updates the statistic
 </div>
 </div>
 <div class="paragraph">
-<p>Upon creation of the <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code>, each of them will attach an event listener to the internship application list
-that it was given. This event listener will notify them of any internal modifications to the internship application list.</p>
+<p>Upon creation of the <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code>, each of them will attach an event listener to the internship application list that it was given.
+This event listener will notify them of any internal modifications to the internship application list.</p>
 </div>
 <div class="paragraph">
-<p>On the other hand, both <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will register themselves as <strong>observers</strong> as well. This is so that
-the implemented observer pattern can notify them of any changes in the internship application list reference and update them with the new reference
-accordingly.</p>
+<p>On the other hand, both <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will register themselves as <strong>observers</strong> as well.
+This is so that the implemented observer pattern can notify them of any changes in the internship application list reference and update them with the new reference accordingly.</p>
 </div>
 <div class="paragraph">
 <p>Any of the two updates above will trigger the <code>Statistics</code> to recompute with the updated internship application list.
-<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will then retrieve the required computed metrics from <code>Statistics</code> and re-binds the
-them to the UI accordingly.</p>
+<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will then retrieve the required computed metrics from <code>Statistics</code> and re-binds the them to the UI accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-which-list-to-retrieve-data-from-to-generate-statistics"><a class="link" href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">Aspect: Which list to retrieve data from to generate statistics</a></h5>
+<h5 id="aspect-which-list-to-retrieve-data-from-to-generate-statistics"><a class="link" href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">4.6.2.1. Aspect: Which list to retrieve data from to generate statistics</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Using filtered ObservableList<br>
-The filtered list is dynamically updated by <code>find</code> and <code>sort</code> command. The statistics model will generate statistics based
-on the dynamic filtering changes that occur in either the main list or archival list (the current view selected by user).</p>
+<p><strong>Alternative 1 (current choice)</strong>: Use filtered ObservableList.
+The filtered list is dynamically updated by <code>find</code> and <code>sort</code> command.
+The statistics model will generate statistics based on the dynamic filtering changes that occur in either the main list or archival list (the current view selected by user).</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1669,13 +1536,12 @@ Works well with <code>archival</code>, <code>list</code>, and <code>find</code> 
 </div>
 </li>
 <li>
-<p><strong>Alternative 2</strong>: Using the base list that contains all of the internship application(s)
+<p><strong>Alternative 2</strong>: Use the base list that contains all of the internship application(s).
 The base list is not filtered according to predicate(s) set by users.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Require less re-computation compared to using filtered ObservableList, as it only recomputes upon addition(s), deletion(s), or changes
-in an internship application stored in the list.</p>
+<p>Pros: Require less re-computation compared to using filtered ObservableList, as it only recomputes upon addition(s), deletion(s), or changes in an internship application stored in the list.</p>
 </li>
 <li>
 <p>Cons: May be unintuitive to some extent for users when the statistics do not tally with the current view of the list.</p>
@@ -1687,21 +1553,20 @@ in an internship application stored in the list.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-store-the-statistics-generated-from-data"><a class="link" href="#aspect-how-to-store-the-statistics-generated-from-data">Aspect: How to store the statistics generated from data</a></h5>
+<h5 id="aspect-how-to-store-the-statistics-generated-from-data"><a class="link" href="#aspect-how-to-store-the-statistics-generated-from-data">4.6.2.2. Aspect: How to store the statistics generated from data</a></h5>
 <div class="paragraph">
-<p>A list of internship application(s) will be passed into the statistics model and upon function call,
-the statistics model will iterate through the list and generate/update the latest statistics accordingly.</p>
+<p>A list of internship application(s) will be passed into the statistics model and upon function call, the statistics model will iterate through the list and generate/update the latest statistics accordingly.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Storing the mapping between each status and count using a HashMap<br>
-The idea is to retrieve all the statuses available from the enum (whenever the statistics model is created)
-and creating a HashMap with those status as the key and respective count as the value.</p>
+<p><strong>Alternative 1 (current choice)</strong>: Store the mapping between each status and count using a HashMap.
+The idea is to retrieve all the statuses available from the enum (whenever the statistics model is created) and create a HashMap with those status as the key and respective count as the value.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Extensible and reusable. Regardless of any changes, this system can dynamically handle the addition, deletion, or changes in statuses.</p>
+<p>Pros: Extensible and reusable.
+Regardless of any changes, this system can dynamically handle the addition, deletion, or changes in statuses.</p>
 </li>
 <li>
 <p>Cons: Seemingly negligible cons for our usage.</p>
@@ -1728,7 +1593,7 @@ and creating a HashMap with those status as the key and respective count as the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="reminder-command"><a class="link" href="#reminder-command">4.8. Reminder Command</a></h3>
+<h3 id="reminder-command"><a class="link" href="#reminder-command">4.7. Reminder Command</a></h3>
 <div class="paragraph">
 <p>The reminder command displays to users a list of internship applications which:</p>
 </div>
@@ -1752,7 +1617,7 @@ and creating a HashMap with those status as the key and respective count as the 
 <div class="title">Figure 9. Sequence Diagram of <code>ReminderCommand</code></div>
 </div>
 <div class="sect3">
-<h4 id="implementation-9"><a class="link" href="#implementation-9">4.8.1. Implementation</a></h4>
+<h4 id="implementation-9"><a class="link" href="#implementation-9">4.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The reminder command is implemented in the class <code>ReminderCommand</code>.</p>
 </div>
@@ -1762,8 +1627,7 @@ and creating a HashMap with those status as the key and respective count as the 
 <div class="ulist">
 <ul>
 <li>
-<p><code>ApplicationDateDuePredicate</code>&#8201;&#8212;&#8201;Predicate to check whether the <code>ApplicationDate</code> field of an internship application
-has a date of the current date or within 7 days of the current date.</p>
+<p><code>ApplicationDateDuePredicate</code>&#8201;&#8212;&#8201;Predicate to check whether the <code>ApplicationDate</code> field of an internship application has a date of the current date or within 7 days of the current date.</p>
 </li>
 <li>
 <p><code>StatusIsWishlistPredicate</code>&#8201;&#8212;&#8201;Predicate to check whether the <code>Status</code> field of an internship application is
@@ -1784,25 +1648,24 @@ interviews</code> of an internship application that has a date of the current da
 </div>
 <div class="paragraph">
 <p>Firstly, an <code>AND</code> operation on the <code>ApplicationDateDuePredicate</code> and <code>StatusIsWishlistPredicate</code> as well as another
-<code>AND</code> operation on the <code>InterviewDateDuePredicate</code> and  <code>StatusIsInterviewPredicate</code> are performed. Next, an <code>OR</code>
-operation is performed on the predicates from the previous two <code>AND</code> operations. An 'AND' operation is then performed on
-the predicate obtained from the previous <code>OR</code> operation and the <code>IsNotArchivedPredicate</code>. The final predicate produced is
-then passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance.</p>
+<code>AND</code> operation on the <code>InterviewDateDuePredicate</code> and  <code>StatusIsInterviewPredicate</code> are performed.
+Next, an <code>OR</code>
+operation is performed on the predicates from the previous two <code>AND</code> operations.
+An 'AND' operation is then performed on the predicate obtained from the previous <code>OR</code> operation and the <code>IsNotArchivedPredicate</code>.
+The final predicate produced is then passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance.</p>
 </div>
 <div class="paragraph">
-<p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also
-passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance to sort internship
-applications in terms of which application is more urgent. It compares internship applications by their
-<code>ApplicationDate</code> field as well as the earliest interview date in the <code>ArrayList&lt;Interview&gt; interviews</code> of the
-applications, in order of either date being closer to current date. If two internship applications have the same date
-in their <code>ApplicationDate</code> field, it compares them by the earliest interview date in the <code>ArrayList&lt;Interview&gt;
+<p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance to sort internship applications in terms of which application is more urgent.
+It compares internship applications by their
+<code>ApplicationDate</code> field as well as the earliest interview date in the <code>ArrayList&lt;Interview&gt; interviews</code> of the applications, in order of either date being closer to current date.
+If two internship applications have the same date in their <code>ApplicationDate</code> field, it compares them by the earliest interview date in the <code>ArrayList&lt;Interview&gt;
 interviews</code> of the applications in order of which application has an interview that comes first.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.8.2. Design considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.7.2. Design considerations</a></h4>
 <div class="sect5">
-<h6 id="aspect-the-order-to-display-the-internship-applications"><a class="link" href="#aspect-the-order-to-display-the-internship-applications">Aspect: The order to display the internship applications</a></h6>
+<h6 id="aspect-the-order-to-display-the-internship-applications"><a class="link" href="#aspect-the-order-to-display-the-internship-applications">4.7.2.1. Aspect: The order to display the internship applications</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1811,8 +1674,7 @@ or <code>interviewDate</code> of the earliest interview scheduled in <code>Array
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More useful to the user as the user can directly know which internship application to focus on more, regardless
-of whether it is to prepare for the submission of the application, or to prepare for an interview scheduled.</p>
+<p>Pros: More useful to the user as the user can directly know which internship application to focus on more, regardless of whether it is to prepare for the submission of the application, or to prepare for an interview scheduled.</p>
 </li>
 <li>
 <p>Cons: Longer code.</p>
@@ -1821,18 +1683,15 @@ of whether it is to prepare for the submission of the application, or to prepare
 </div>
 </li>
 <li>
-<p><strong>Alternative 2</strong>: Display the internship applications in the order of which application&#8217;s <code>ApplicationDate</code> is closer
-to current date.</p>
+<p><strong>Alternative 2</strong>: Display the internship applications in the order of which application&#8217;s <code>ApplicationDate</code> is closer to current date.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Cleaner code.</p>
 </li>
 <li>
-<p>Cons: Has the assumption that an internship application with a earlier <code>ApplicationDate</code> will have an interview
-scheduled at an earlier <code>interviewDate</code> as compared to an application with later <code>ApplicationDate</code>. User might miss out
-on a earlier <code>interviewDate</code> for an application with later <code>ApplicationDate</code> and additional commands have to be typed in
-to check <code>interviewDate</code>.</p>
+<p>Cons: Has the assumption that an internship application with a earlier <code>ApplicationDate</code> will have an interview scheduled at an earlier <code>interviewDate</code> as compared to an application with later <code>ApplicationDate</code>.
+User might miss out on a earlier <code>interviewDate</code> for an application with later <code>ApplicationDate</code> and additional commands have to be typed in to check <code>interviewDate</code>.</p>
 </li>
 </ul>
 </div>
@@ -1843,14 +1702,15 @@ to check <code>interviewDate</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+<p>We are using <code>java.util.logging</code> package for logging.
+The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1881,7 +1741,7 @@ to check <code>interviewDate</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1892,7 +1752,7 @@ to check <code>interviewDate</code>.</p>
 <h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="Documentation.html">here</a>.</p>
+<p>You may refer to the guide <a href="Documentation.html">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1900,7 +1760,7 @@ to check <code>interviewDate</code>.</p>
 <h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="Testing.html">here</a>.</p>
+<p>You may refer to the guide <a href="Testing.html">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1908,7 +1768,7 @@ to check <code>interviewDate</code>.</p>
 <h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="DevOps.html">here</a>.</p>
+<p>You may refer to the guide <a href="DevOps.html">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1924,10 +1784,10 @@ to check <code>interviewDate</code>.</p>
 <p>is a Computer Science student</p>
 </li>
 <li>
-<p>is looking for an internship</p>
+<p>is actively looking for internships</p>
 </li>
 <li>
-<p>has a need to organise internship application</p>
+<p>has a need to organise internship applications</p>
 </li>
 <li>
 <p>is a fast typist</p>
@@ -1935,10 +1795,13 @@ to check <code>interviewDate</code>.</p>
 <li>
 <p>is comfortable using CLI apps</p>
 </li>
+<li>
+<p>prefers desktop applications</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: An easy to use CLI program that can help students to organise and plan for their internship</p>
+<p><strong>Value proposition</strong>: An easy-to-use CLI program that can help students to organise and plan for their internship</p>
 </div>
 </div>
 </div>
@@ -2041,7 +1904,7 @@ to check <code>interviewDate</code>.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>Internship Diary</code> (InternDiary) and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>Internship Diary</code> (Internship Diary) and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-uc1-find-internship-application" class="discrete">Use case: UC1 - Find Internship Application</h3>
 <div class="paragraph">
@@ -2053,7 +1916,7 @@ to check <code>interviewDate</code>.</p>
 <p>User requests to find a specific Internship Application by company name.</p>
 </li>
 <li>
-<p>InternDiary shows the Internship Application with all its corresponding fields.</p>
+<p>Internship Diary shows the Internship Application with all its corresponding fields.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2066,7 +1929,8 @@ to check <code>interviewDate</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. No Internship Application is shown.</p>
+<p>2a.
+No Internship Application is shown.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2086,7 +1950,7 @@ to check <code>interviewDate</code>.</p>
 <p>User requests to edit the fields of the Internship Application.</p>
 </li>
 <li>
-<p>InternDiary updates the new fields of the Internship Application.</p>
+<p>Internship Diary updates the new fields of the Internship Application.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2099,16 +1963,17 @@ to check <code>interviewDate</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The given index is invalid.</p>
+<p>2a.
+The given index is invalid.</p>
+</li>
+</ul>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. InternDiary shows an error message</p>
+<p>2a1. Internship Diary shows an error message</p>
 <div class="paragraph">
 <p>Use case resumes at step 1</p>
-</div>
-</li>
-</ul>
 </div>
 </li>
 </ul>
@@ -2126,7 +1991,7 @@ to check <code>interviewDate</code>.</p>
 <p>User requests to prioritise the Internship Application.</p>
 </li>
 <li>
-<p>InternDiary updates the priority level of the Internship Application.</p>
+<p>Internship Diary updates the priority level of the Internship Application.</p>
 <div class="paragraph">
 <p>Use case ends</p>
 </div>
@@ -2143,10 +2008,10 @@ to check <code>interviewDate</code>.</p>
 <p>User requests to sort the list.</p>
 </li>
 <li>
-<p>InternDiary sorts the list.</p>
+<p>Internship Diary sorts the list.</p>
 </li>
 <li>
-<p>InternDiary displays the sorted list.</p>
+<p>Internship Diary displays the sorted list.</p>
 </li>
 <li>
 <p>Footer displays the field which list is sorted by.</p>
@@ -2162,16 +2027,17 @@ to check <code>interviewDate</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. InternDiary detects invalid syntax.</p>
+<p>1a.
+Internship Diary detects invalid syntax.</p>
+</li>
+</ul>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a.1. InternDiary shows an error message.</p>
+<p>1a.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends</p>
-</div>
-</li>
-</ul>
 </div>
 </li>
 </ul>
@@ -2339,21 +2205,33 @@ to check <code>interviewDate</code>.</p>
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
-<div class="dlist">
+<div id="mainstream-os" class="dlist">
 <dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dt class="hdlist1">Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
-<dt class="hdlist1"><a id="internship-application"></a> Internship application</dt>
+</dl>
+</div>
+<div id="internship-application" class="dlist">
+<dl>
+<dt class="hdlist1">Internship application</dt>
 <dd>
 <p>An application made by the user to a company offering an internship position</p>
 </dd>
-<dt class="hdlist1"><a id="fields"></a> Fields</dt>
+</dl>
+</div>
+<div id="fields" class="dlist">
+<dl>
+<dt class="hdlist1">Fields</dt>
 <dd>
 <p>A list of descriptions for an internship application grouped by type</p>
 </dd>
-<dt class="hdlist1"><a id="window-preferences"></a> Window preferences</dt>
+</dl>
+</div>
+<div id="window-preferences" class="dlist">
+<dl>
+<dt class="hdlist1">Window preferences</dt>
 <dd>
 <p>The last application window size and location the user used before shutdown</p>
 </dd>
@@ -2449,15 +2327,13 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+   Expected: The most recent window size and location is retained.
+<em>{ more test cases &#8230;&#8203; }</em></p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -2473,11 +2349,15 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+   Expected: First contact is deleted from the list.
+Details of the deleted contact shown in the status message.
+Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No internship application is deleted. Error details shown in the status message. Status bar remains the same.</p>
+   Expected: No internship application is deleted.
+Error details shown in the status message.
+Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -2501,16 +2381,14 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em>
+<em>{ more test cases &#8230;&#8203; }</em></p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 13:21:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 04:02:39 UTC</div></div></div></body></html>

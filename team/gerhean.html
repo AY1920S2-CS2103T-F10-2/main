@@ -122,8 +122,8 @@
 <div class="sect2">
 <h3 id="sort-command"><a class="link" href="#sort-command">Sort command</a></h3>
 <div class="paragraph">
-<p>The find command allows the user to sort the currently visible list of internship applications. The following sequence
-diagram will illustrate the process of invocation for the command:</p>
+<p>The find command allows the user to sort the currently visible list of internship applications.
+The following sequence diagram will illustrate the process of invocation for the command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -136,8 +136,7 @@ diagram will illustrate the process of invocation for the command:</p>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The find command is implemented in the class <code>SortCommand</code> and uses the <code>SortCommandParser</code> class to parse the
-arguments for the command.</p>
+<p>The find command is implemented in the class <code>SortCommand</code> and uses the <code>SortCommandParser</code> class to parse the arguments for the command.</p>
 </div>
 <div class="paragraph">
 <p>To facilitate the sort command, several comparator classes implementing <code>Comparator&lt;InternshipApplication&gt;</code> are used:</p>
@@ -145,24 +144,19 @@ arguments for the command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>ApplicationDateComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>ApplicationDate</code> field
-in chronological order.</p>
+<p><code>ApplicationDateComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>ApplicationDate</code> field in chronological order.</p>
 </li>
 <li>
-<p><code>CompanyComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Company</code> field
-in lexicographical order.</p>
+<p><code>CompanyComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Company</code> field in lexicographical order.</p>
 </li>
 <li>
-<p><code>PriorityComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Priority</code> field
-in ascending order.</p>
+<p><code>PriorityComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Priority</code> field in ascending order.</p>
 </li>
 <li>
-<p><code>RoleComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Role</code> field
-in lexicographical order.</p>
+<p><code>RoleComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Role</code> field in lexicographical order.</p>
 </li>
 <li>
-<p><code>StatusComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Status</code> field
-by the order which they are declared in the Status Enum class.</p>
+<p><code>StatusComparator</code>&#8201;&#8212;&#8201;Comparator to compare internship applications by their <code>Status</code> field by the order which they are declared in the Status Enum class.</p>
 </li>
 </ul>
 </div>
@@ -174,9 +168,8 @@ If the number of such prefixes found is not exactly one, <code>SortCommandParser
 <div class="sect3">
 <h4 id="reverse-sort"><a class="link" href="#reverse-sort">Reverse sort</a></h4>
 <div class="paragraph">
-<p>This version of the command is invoked when the user enters the command with <code>reverse</code> as the
-preamble text in the parameter, e.g. <code>sort reverse c/</code>. After retrieving the correct <code>comparator</code> to use,
-the parser would pass <code>comparator.reversed()</code> to the constructor of <code>SortCommand</code> instead of <code>comparator</code>.
+<p>This version of the command is invoked when the user enters the command with <code>reverse</code> as the preamble text in the parameter, e.g. <code>sort reverse c/</code>.
+After retrieving the correct <code>comparator</code> to use, the parser would pass <code>comparator.reversed()</code> to the constructor of <code>SortCommand</code> instead of <code>comparator</code>.
 This would reverse the order in which the currently visible list of internship applications is sorted in.</p>
 </div>
 </div>
@@ -193,8 +186,7 @@ This works as the list uses stable sort.</p>
 <ul>
 <li>
 <p>Pros: More streamlined, less complex.<br>
-<code>EnteredCommandsHistory</code> allows the user to get the sort command template back
-in just one press of the up arrow key so there is little hassle.<br>
+<code>EnteredCommandsHistory</code> allows the user to get the sort command template back in just one press of the up arrow key so there is little hassle.<br>
 Users do not have to remember the order to place the arguments to get the sort they want.</p>
 </li>
 <li>
@@ -225,4 +217,4 @@ Harder to implement reverse sorting.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 13:21:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 04:02:39 UTC</div></div></div></body></html>
