@@ -23,6 +23,7 @@
 <ul class="sectlevel3">
 <li><a href="#index-of-an-internship-application">3.7.1. Index of an internship application</a></li>
 <li><a href="#multiple-fields">3.7.2. Multiple fields</a></li>
+<li><a href="#command-availability">3.7.3. Command availability</a></li>
 </ul>
 </li>
 </ul>
@@ -384,7 +385,7 @@ separators. If year is not given, will default to the current year.</p></td>
 </li>
 <li>
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times.<br>
-(e.g. <code>delete INDEX, [INDEX]&#8230;&#8203;</code> can be used as <code>delete 1,</code> or <code>delete 1, 2, 3</code>)</p>
+(e.g. <code>delete INDEX, [INDEX],&#8230;&#8203;</code> can be used as <code>delete 1,</code> or <code>delete 1, 2, 3</code>)</p>
 </li>
 <li>
 <p>Parameters can be entered in any order.<br>
@@ -454,16 +455,6 @@ separators. If year is not given, will default to the current year.</p></td>
 </ul>
 </div>
 </li>
-<li>
-<p>All the commands will work on both <strong>main list</strong> and <strong>archival list</strong>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The exceptions are: <code>Archive</code>, <code>Unarchive</code>, <code>Reminder</code></p>
-</li>
-</ul>
-</div>
-</li>
 </ul>
 </div>
 </div>
@@ -479,6 +470,23 @@ entry of each field (except <code>sort</code> which only allows one field).</p>
 <p>However, when multiple fields are inputted, eg. <code>c/Google c/Facebook</code>, only the last field will be recognised
 by the application. In the example above, only <code>c/Facebook</code> will be registered, <code>c/Google</code>
 will be ignored by the application.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-availability"><a class="link" href="#command-availability">3.7.3. Command availability</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>All the commands will work on both <strong>main list</strong> and <strong>archival list</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The exceptions are: <code>Archive</code>, <code>Unarchive</code>, <code>Reminder</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -604,10 +612,10 @@ Alternatively, you may use your mouse to click on a specific internship applicat
 <p><code>delete INDEX</code></p>
 </li>
 <li>
-<p><code>delete INDEX, [INDEX]&#8230;&#8203;</code></p>
+<p><code>delete INDEX, [INDEX],&#8230;&#8203;</code></p>
 </li>
 <li>
-<p><code>delete s/STATUS</code></p>
+<p><code>delete s/STATUS [STATUS]&#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -620,7 +628,7 @@ Alternatively, you may use your mouse to click on a specific internship applicat
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the internship application at <code>INDEX</code> (<strong>must be a positive integer</strong>).</p>
+<p>Deletes the internship application at <code>INDEX</code>.</p>
 </li>
 <li>
 <p><code>INDEX</code> may be entered in any order.</p>
@@ -694,14 +702,14 @@ specified <code>STATUS</code>, then the feedback box will not display any intern
 Deletes the 2nd internship application from the main list.</p>
 </li>
 <li>
-<p><code>archival</code><br>
-<code>delete s/applied</code><br>
-Deletes all the internship applications with the <code>applied</code> status from the archival list.</p>
-</li>
-<li>
 <p><code>list</code><br>
 <code>delete 2, 1, 3</code><br>
 Deletes the 1st, 2nd, and 3rd internship applications from the main list.</p>
+</li>
+<li>
+<p><code>archival</code><br>
+<code>delete s/applied</code><br>
+Deletes all the internship applications with the <code>applied</code> status from the archival list.</p>
 </li>
 </ul>
 </div>
@@ -720,10 +728,10 @@ Deletes the 1st, 2nd, and 3rd internship applications from the main list.</p>
 <p><code>archive INDEX</code></p>
 </li>
 <li>
-<p><code>archive INDEX, [INDEX]&#8230;&#8203;</code></p>
+<p><code>archive INDEX, [INDEX],&#8230;&#8203;</code></p>
 </li>
 <li>
-<p><code>archive s/STATUS</code></p>
+<p><code>archive s/STATUS [STATUS]&#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -736,7 +744,7 @@ Deletes the 1st, 2nd, and 3rd internship applications from the main list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Archives the internship application at <code>INDEX</code> (<strong>must be a positive integer</strong>).</p>
+<p>Archives the internship application at <code>INDEX</code>.</p>
 </li>
 <li>
 <p><code>INDEX</code> may be entered in any order.</p>
@@ -836,10 +844,10 @@ Archives all the internship applications with the <code>rejected</code> status i
 <p><code>unarchive INDEX</code></p>
 </li>
 <li>
-<p><code>unarchive INDEX, [INDEX]&#8230;&#8203;</code></p>
+<p><code>unarchive INDEX, [INDEX],&#8230;&#8203;</code></p>
 </li>
 <li>
-<p><code>unarchive s/STATUS</code></p>
+<p><code>unarchive s/STATUS [STATUS]&#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -852,7 +860,7 @@ Archives all the internship applications with the <code>rejected</code> status i
 <div class="ulist">
 <ul>
 <li>
-<p>Unarchives the internship application at <code>INDEX</code> (<strong>must be a positive integer</strong>).</p>
+<p>Unarchives the internship application at <code>INDEX</code>.</p>
 </li>
 <li>
 <p><code>INDEX</code> may be entered in any order.</p>
@@ -949,9 +957,7 @@ Format: <code>edit INDEX [c/COMPANY] [r/ROLE] [d/DATE] [s/STATUS] [p/PHONE] [e/E
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the internship application at the specified <code>INDEX</code>.
-The index refers to the index number shown in the displayed list.
-The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the internship application at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -1521,4 +1527,4 @@ events which occurred later.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:29:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:52:54 UTC</div></div></div></body></html>
