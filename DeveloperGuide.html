@@ -56,16 +56,16 @@
 <li><a href="#proposed-improvements-command-history-storage">4.3.3. [Proposed Improvements] Command History Storage</a></li>
 </ul>
 </li>
-<li><a href="#interview-and-interview-commands">4.4. Interview and Interview Commands</a>
+<li><a href="#interview-and-interview-commands">4.4. Interview and interview commands</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-5">4.4.1. Implementation</a></li>
 <li><a href="#interview">4.4.2. Interview</a></li>
-<li><a href="#interview-commands">4.4.3. Interview Commands</a></li>
+<li><a href="#interview-commands">4.4.3. Interview commands</a></li>
 <li><a href="#interview-commands-parser">4.4.4. Interview Commands Parser</a></li>
-<li><a href="#InterviewListCommand-Improvements">4.4.5. [Proposed Improvements] Interview List Command</a></li>
+<li><a href="#InterviewListCommand-Improvements">4.4.5. [Proposed Improvements] InterviewListCommand</a></li>
 <li><a href="#design-considerations-4">4.4.6. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-how-to-implement-interview">4.4.6.1. Aspect: How to implement Interview</a></li>
+<li><a href="#aspect-how-to-implement-interview">4.4.6.1. Aspect: How to implement interview</a></li>
 <li><a href="#aspect-how-to-implement-different-interview-commands">4.4.6.2. Aspect: How to implement different Interview Commands</a></li>
 </ul>
 </li>
@@ -835,7 +835,7 @@ However, due to the complexity and difficulty of implementation, it will only be
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">4.4. Interview and Interview Commands</a></h3>
+<h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">4.4. Interview and interview commands</a></h3>
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
 <div class="paragraph">
@@ -891,7 +891,7 @@ The class diagram below shows the classes associated to <code>Interview</code>.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="interview-commands"><a class="link" href="#interview-commands">4.4.3. Interview Commands</a></h4>
+<h4 id="interview-commands"><a class="link" href="#interview-commands">4.4.3. Interview commands</a></h4>
 <div class="paragraph">
 <p>Interviews can only be modified through the <code>interview</code> command which relies upon <code>InterviewCommandParser</code> and <code>InterviewCommand</code> classes.<br>
 The <code>interview</code> command will encompass four types of sub-command:</p>
@@ -909,7 +909,7 @@ The <code>interview</code> command will encompass four types of sub-command:</p>
 </li>
 <li>
 <p><code>list</code>&#8201;&#8212;&#8201;lists all <code>Interview</code> in the specified <code>InternshipApplication</code>. <br>
-Currently <code>list</code> functions similarly to <code>select</code>, additional functions for list will be proposed in <a href="#InterviewListCommand-Improvements">Section 4.4.5, &#8220;[Proposed Improvements] Interview List Command&#8221;</a>.</p>
+Currently <code>list</code> functions similarly to <code>select</code>, additional functions for list will be proposed in <a href="#InterviewListCommand-Improvements">Section 4.4.5, &#8220;[Proposed Improvements] InterviewListCommand&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -955,22 +955,43 @@ Then followed by creating a CommandResult, and returning it.</p>
 <div class="sect3">
 <h4 id="interview-commands-parser"><a class="link" href="#interview-commands-parser">4.4.4. Interview Commands Parser</a></h4>
 <div class="paragraph">
-<p><code>InterviewCommandParser</code> is the entry point to all <code>interview</code> sub-command.
-It will be invoked from <code>InternshipDiaryParser</code>
-which is the primary logic parser for user input.
-The following sequence diagram will illustrate the process of invocation for
-<code>InterviewAddCommand</code>.
-All other sub-commands will follow the same invocation format.</p>
+<p><code>InterviewCommandParser</code> is the entry point to all <code>interview</code> sub-commands.
+It will be called from `InternshipDiaryParser`which is the primary logic parser for user input.</p>
+</div>
+<div class="paragraph">
+<p><code>InterviewCommandParser</code> will support the parsing of all four types of <code>InterviewCommand</code> sub-commands.
+The following activity diagram will show how <code>InterviewCommandParser</code> reads and interpret user input to
+return the expected sub-command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/InterviewCommandSequenceDiagram.png" alt="InterviewCommandSequenceDiagram">
+<img src="images/InterviewCommandParserActivityDiagram.png" alt="InterviewCommandParserActivityDiagram">
 </div>
-<div class="title">Figure 17. Interactions inside the Logic Component for <code>InterviewAddCommand</code></div>
+<div class="title">Figure 17. Process of <code>InterviewCommandParser</code> when reading user input</div>
+</div>
+<div class="paragraph">
+<p>Additionally, <code>InterviewCommandParser</code> will only be invoked within the <code>Logic</code> component, with the only exception being
+InterviewAddCommand.
+Figure 18 will show the general invocation format within the <code>Logic</code> component using <code>InterviewDeleteCommand</code>
+as an example.
+While Figure 19 will show the invocation of <code>InterviewAddCommand</code> which is the only sub-command that will utilise the
+<code>Model component</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InterviewDeleteCommandSequenceDiagram.png" alt="InterviewDeleteCommandSequenceDiagram">
+</div>
+<div class="title">Figure 18. Interactions inside the Logic Component for <code>InterviewDeleteCommand</code></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InterviewAddCommandSequenceDiagram.png" alt="InterviewAddCommandSequenceDiagram">
+</div>
+<div class="title">Figure 19. Interactions inside the Logic and Model Component for <code>InterviewAddCommand</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="InterviewListCommand-Improvements"><a class="link" href="#InterviewListCommand-Improvements">4.4.5. [Proposed Improvements] Interview List Command</a></h4>
+<h4 id="InterviewListCommand-Improvements"><a class="link" href="#InterviewListCommand-Improvements">4.4.5. [Proposed Improvements] InterviewListCommand</a></h4>
 <div class="paragraph">
 <p>Currently, the <code>InterviewListCommand</code> is functionally similar to <code>SelectCommand</code>.
 In v2.0, there will be the following improvements to the <code>InterviewListCommand</code>:</p>
@@ -978,7 +999,7 @@ In v2.0, there will be the following improvements to the <code>InterviewListComm
 <div class="ulist">
 <ul>
 <li>
-<p>Additional Parameters</p>
+<p>Additional parameters to filter interviews</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1000,7 +1021,7 @@ fields provided in the command.</p>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.6. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-interview"><a class="link" href="#aspect-how-to-implement-interview">4.4.6.1. Aspect: How to implement Interview</a></h5>
+<h5 id="aspect-how-to-implement-interview"><a class="link" href="#aspect-how-to-implement-interview">4.4.6.1. Aspect: How to implement interview</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1024,7 +1045,7 @@ Interview types.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Simple to implement.</p>
+<p>Pros: Easy to implement.</p>
 </li>
 <li>
 <p>Cons: Increasing number of variables if more interview types will be added.</p>
@@ -1082,7 +1103,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram">
 </div>
-<div class="title">Figure 18. Interactions inside the Logic Component for the <code>find c/google r/software</code> command</div>
+<div class="title">Figure 20. Interactions inside the Logic Component for the <code>find c/google r/software</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the find command, as well as the 2 versions of the command, find any match, and find match by fields.</p>
@@ -1137,7 +1158,7 @@ keywords)</code>.</p>
 <div class="content">
 <img src="images/FindClassDiagram.png" alt="FindClassDiagram">
 </div>
-<div class="title">Figure 19. Class diagram to show relationship between <code>Predicates</code>, <code>FindCommandParser</code> and <code>FindCommand</code></div>
+<div class="title">Figure 21. Class diagram to show relationship between <code>Predicates</code>, <code>FindCommandParser</code> and <code>FindCommand</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -1179,7 +1200,7 @@ instance.</p>
 <div class="content">
 <img src="images/FindCommandActivityDiagram.png" alt="FindCommandActivityDiagram">
 </div>
-<div class="title">Figure 20. Activity Diagram to show how the type of find to invoke is determined</div>
+<div class="title">Figure 22. Activity Diagram to show how the type of find to invoke is determined</div>
 </div>
 </div>
 <div class="sect3">
@@ -1290,7 +1311,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="700">
 </div>
-<div class="title">Figure 21. Structure of <code>InternshipDiary</code> that showcases the methods and attributes required for view-switching</div>
+<div class="title">Figure 23. Structure of <code>InternshipDiary</code> that showcases the methods and attributes required for view-switching</div>
 </div>
 <div class="paragraph">
 <p>The object diagram below illustrates the three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code>:</p>
@@ -1312,7 +1333,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="images/InternshipDiaryAndModelManagerObjectDiagram.png" alt="InternshipDiaryAndModelManagerObjectDiagram" width="800">
 </div>
-<div class="title">Figure 22. Object diagram of three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code></div>
+<div class="title">Figure 24. Object diagram of three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code></div>
 </div>
 <div class="paragraph">
 <p>As the name suggests, <code>displayedInternships</code> is the list that is shown to the user in the GUI. It references either
@@ -1331,7 +1352,7 @@ You may use the same sequence diagram for the <code>list</code> command.</p>
 <div class="content">
 <img src="images/ArchivalSequenceDiagram.png" alt="ArchivalSequenceDiagram">
 </div>
-<div class="title">Figure 23. Sequence diagram for <code>archival</code> Command</div>
+<div class="title">Figure 25. Sequence diagram for <code>archival</code> Command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet is retrieved from the <code>InternshipDiary</code> class.
@@ -1366,7 +1387,7 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 <div class="content">
 <img src="images/InternshipDiaryAndModelManagerPropertyChangeClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeClassDiagram">
 </div>
-<div class="title">Figure 24. Implementation of a two-tier observer-observable structure for <code>InternshipDiary</code></div>
+<div class="title">Figure 26. Implementation of a two-tier observer-observable structure for <code>InternshipDiary</code></div>
 </div>
 <div class="paragraph">
 <p>The class diagram above showcases our implementation of a two-tier observer-observable structure:<br></p>
@@ -1461,7 +1482,7 @@ It will then repeat the event emission process to any UI element (e.g. <code>Sta
 <div class="content">
 <img src="images/ActivityDiagramObserverPattern.png" alt="ActivityDiagramObserverPattern">
 </div>
-<div class="title">Figure 25. Activity diagram to illustrate the Observer Pattern using <code>archival</code> command</div>
+<div class="title">Figure 27. Activity diagram to illustrate the Observer Pattern using <code>archival</code> command</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1497,7 +1518,7 @@ This is especially important when many properties are being observed.</p>
 <div class="content">
 <img src="images/InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram">
 </div>
-<div class="title">Figure 26. Updated class diagram to showcase our implementation of the two-tier observer-observable structure with <code>ListenerPropertyType</code></div>
+<div class="title">Figure 28. Updated class diagram to showcase our implementation of the two-tier observer-observable structure with <code>ListenerPropertyType</code></div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, each observable will implement two additional methods to use <code>ListenerPropertyType</code> enumeration as parameters:</p>
@@ -1623,7 +1644,7 @@ The activity diagrams for both are very similar.</p>
 <div class="content">
 <img src="images/ActivityDiagramArchiveCommand.png" alt="ActivityDiagramArchiveCommand" width="700">
 </div>
-<div class="title">Figure 27. Activity Diagram for <code>archive</code> Command</div>
+<div class="title">Figure 29. Activity Diagram for <code>archive</code> Command</div>
 </div>
 <div class="paragraph">
 <p>While implementing the <code>archive</code> and <code>unarchive</code> commands, we realised that users may sometimes want to cherry-pick multiple internship application(s) to execute on or mass-execute on certain types of internship application(s).
@@ -1649,7 +1670,7 @@ Through this new class, users will be able to execute the commands on multiple i
 <div class="content">
 <img src="images/RemovalBasedClassDiagram.png" alt="RemovalBasedClassDiagram">
 </div>
-<div class="title">Figure 28. Structure of <code>RemovalBasedCommand</code> and <code>RemovalBasedCommandExecutionTypeParser</code> with its associated classes</div>
+<div class="title">Figure 30. Structure of <code>RemovalBasedCommand</code> and <code>RemovalBasedCommandExecutionTypeParser</code> with its associated classes</div>
 </div>
 <div class="paragraph">
 <p>The idea of the implementation can be summarized as follows:</p>
@@ -1712,7 +1733,7 @@ Other variations of <strong>removal-based commands</strong> and <strong>executio
 <div class="content">
 <img src="images/ArchiveSequenceDiagram.png" alt="ArchiveSequenceDiagram">
 </div>
-<div class="title">Figure 29. Interactions inside the Logic Component for the <code>archive s/rejected</code> command</div>
+<div class="title">Figure 31. Interactions inside the Logic Component for the <code>archive s/rejected</code> command</div>
 </div>
 <div class="paragraph">
 <p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the internship applications and then converting these internship applications to their respective index.
@@ -1749,7 +1770,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="images/RemovalBasedCommandExecutionTypeParserSequenceDiagram.png" alt="RemovalBasedCommandExecutionTypeParserSequenceDiagram">
 </div>
-<div class="title">Figure 30. Sequence Diagram of how <code>RemovalBasedCommandExecuteTypeParser</code> parses input and determines the execution type of command</div>
+<div class="title">Figure 32. Sequence Diagram of how <code>RemovalBasedCommandExecuteTypeParser</code> parses input and determines the execution type of command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, the parser determined the execution type to be <code>BY_FIELD</code> and generated the appropriate predicate to construct a <code>RemovalBasedCommand</code> instance.</p>
@@ -1764,7 +1785,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="images/GenerateLazyCommandSequenceDiagram.png" alt="GenerateLazyCommandSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 31. Creation of lazy lambda function by <code>RemovalBasedCommand</code> instance</div>
+<div class="title">Figure 33. Creation of lazy lambda function by <code>RemovalBasedCommand</code> instance</div>
 </div>
 <div class="paragraph">
 <p>As the command word is <code>archive</code>, a lazy lambda function to construct an <code>ArchiveCommand</code> is returned.</p>
@@ -1777,7 +1798,7 @@ This particular index allows us to retrieve the appropriate internship applicati
 <div class="content">
 <img src="images/ConstructAndExecuteLazyCommandByIndexSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndexSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 32. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on one index</div>
+<div class="title">Figure 34. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on one index</div>
 </div>
 <div class="paragraph">
 <p>It can be seen that the previously-generated lazy command is executed in the above sequence diagram.</p>
@@ -1793,7 +1814,7 @@ In this case, <code>archiveInternshipApplication</code> is called.</p>
 <div class="content">
 <img src="images/ConstructAndExecuteLazyCommandByIndicesSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndicesSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 33. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on indices</div>
+<div class="title">Figure 35. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on indices</div>
 </div>
 <div class="paragraph">
 <p>As seen above, <code>executeLazyCommandOnIndices</code> merely reuses the function <code>executeLazyCommandOnIndex</code> (from the previous sequence diagram) by running it on every index provided.
@@ -1806,7 +1827,7 @@ The feedback from each execution is cumulatively concatenated to form a single f
 <div class="content">
 <img src="images/CreateCommandResultSequenceDiagram.png" alt="CreateCommandResultSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 34. Re-creating the command result in <code>RemovalBasedCommand</code></div>
+<div class="title">Figure 36. Re-creating the command result in <code>RemovalBasedCommand</code></div>
 </div>
 </div>
 <div class="sect4">
@@ -1880,7 +1901,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <div class="content">
 <img src="images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram" width="800">
 </div>
-<div class="title">Figure 35. Structure of <code>Statistics</code> and its associated classes</div>
+<div class="title">Figure 37. Structure of <code>Statistics</code> and its associated classes</div>
 </div>
 <div class="paragraph">
 <p>Users will be able to view the metrics from two areas:</p>
@@ -1930,7 +1951,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <div class="content">
 <img src="images/ActivityDiagramStatistics.png" alt="ActivityDiagramStatistics">
 </div>
-<div class="title">Figure 36. Activity Diagram to show how <code>StatisticsWindow</code> is notified of updates in the internship application list and how statistics is updated accordingly</div>
+<div class="title">Figure 38. Activity Diagram to show how <code>StatisticsWindow</code> is notified of updates in the internship application list and how statistics is updated accordingly</div>
 </div>
 <div class="paragraph">
 <p>Upon creation of the <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code>, each of them will attach an event listener to the internship application list that it was given.
@@ -2046,7 +2067,7 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 <div class="content">
 <img src="images/ReminderSequenceDiagram.png" alt="ReminderSequenceDiagram">
 </div>
-<div class="title">Figure 37. Interactions Inside the Logic Component for the <code>reminder</code> Command</div>
+<div class="title">Figure 39. Interactions Inside the Logic Component for the <code>reminder</code> Command</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-10"><a class="link" href="#implementation-10">4.8.1. Implementation</a></h4>
@@ -2093,7 +2114,7 @@ produced is then passed into the method <code>updateFilteredInternshipApplicatio
 <div class="content">
 <img src="images/ReminderActivityDiagram.png" alt="Reminder" width="400">
 </div>
-<div class="title">Figure 38. Activity Diagram on how <code>ReminderCommand</code> filters out applications to display</div>
+<div class="title">Figure 40. Activity Diagram on how <code>ReminderCommand</code> filters out applications to display</div>
 </div>
 <div class="paragraph">
 <p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also created and
@@ -4345,4 +4366,4 @@ not foresee). As this was our first time dealing with the observer pattern, we h
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:52:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 18:38:44 UTC</div></div></div></body></html>

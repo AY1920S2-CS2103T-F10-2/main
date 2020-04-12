@@ -14,6 +14,21 @@
 <div class="paragraph">
 <p><strong>Internship Diary</strong> is a command line interface (CLI) and desktop-based internship tracking application.</p>
 </div>
+<div class="paragraph">
+<p>Arguably the most important phase in the journey of a computer science undergraduate is in their internship.
+Internships are widely viewed as an entry point into the professional scene of computer science. Coupled with the
+intense competition amongst highly desired internship companies, applying for internships become a tedious and stressful process. Numerous hours
+would be spent planning, researching and organising internship applications.</p>
+</div>
+<div class="paragraph">
+<p>As a group of computer science undergraduates, our team understands the anxiety and stress that internship
+planning can cause. Therefore, we resolved ourselves to create a software that can ease the worries of fellow computer science
+undergraduates when organising or tracking their internship applications.</p>
+</div>
+<div class="paragraph">
+<p>Internship Diary is the culmination of this resolution, a simple yet elegant one-stop application for computer science
+undergraduates' internship organising needs.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,12 +166,572 @@ javafx and the Ui structure of Internship Diary in order to produce a robust and
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="interview"><a class="link" href="#interview">Structure of interview</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Interview</code> represents an interview that you have been given by the company you are applying to.
+It exists within an <code>InternshipApplication</code></p>
+</li>
+<li>
+<p>Currently there are two types of <code>Interview</code> provided by the Internship Diary:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Online Interview&#8201;&#8212;&#8201;No address is needed.</p>
+</li>
+<li>
+<p>Offline Interview&#8201;&#8212;&#8201;Address must be provided when interview is added or modified from online to offline.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You can specify what type of interview you want to add by using the <code>o/IS_ONLINE</code> prefix.</p>
+</li>
+<li>
+<p>In order to facilitate your tracking of interviews, there are no restriction to what <code>InternshipApplication</code>
+you can add your interview to.<br>
+Therefore, it is possible for you to add an interview to an <code>InternshipApplication</code> with any status.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is so that just in case you forgot to record an interview after you already got offered or rejected,
+you could still add it into the Internship Diary for your personal tracking.</p>
+</li>
+<li>
+<p>In v2.0, we will create a prompt on whether you want to automatically change your <code>InternshipApplication</code> status
+to 'interview'.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Prefix</strong></th>
+<th class="tableblock halign-left valign-top">Can Be Empty?</th>
+<th class="tableblock halign-left valign-top">Max Number of Values</th>
+<th class="tableblock halign-left valign-top">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>isOnline</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">o/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can only be <code>true</code> or <code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Interview Date</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be a valid date of the form <code>day-month-year</code>. Whitespace and <code>/</code> are also supported
+separators. If year is not given, will default to the current year.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Interview Address</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restrictions on input.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="selecting-an-internship-application-to-display-code-select-code"><a class="link" href="#selecting-an-internship-application-to-display-code-select-code">Selecting an internship application to display: <code>select</code></a></h3>
+<div class="paragraph">
+<p>Selects an internship application to display on the right panel of the internship diary.</p>
+</div>
+<div class="paragraph">
+<p>Only one internship application may be selected at any point in time.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Alternatively, you may use your mouse to click on a specific internship application on the left panel of the internship diary.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>select INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="modifying-an-interview-in-an-internship-application-code-interview-code"><a class="link" href="#modifying-an-interview-in-an-internship-application-code-interview-code">Modifying an interview in an internship application: <code>interview</code></a></h3>
+<div class="paragraph">
+<p>Add, list, edit or delete interviews within an internship application<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+An interview must contain a date and a boolean (true or false) that represents whether an interview is conducted online or not.<br>
+If the interview is not conducted online, an additional address field must be provided.
+See <a href="#interview">Structure of interview</a> for more information.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Overview<br>
+<code>interview INTERNSHIP_INDEX COMMAND_WORD [INTERVIEW_INDEX] [a/ADDRESS] [d/DATE] [o/IS_ONLINE]</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>COMMAND_WORD</code> can be: <code>add list edit delete</code><br>
+The command will behave identically to their internship application counterparts</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code> is currently functionally similar to <code>select</code>, additional features will be added in v2.0.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>INTERNSHIP_INDEX</code> corresponds to the index of the internship in the displayed internship list.
+Whereas the <code>INTERVIEW_INDEX</code> corresponds to the index of the interview in the interview list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Specific format of each <code>COMMAND_WORD</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Add interview<br>
+<code>interview INTERNSHIP_INDEX add d/DATE o/IS_ONLINE [a/ADDRESS]</code><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Address field <code>a/ADDRESS</code> is listed as optional here as online interview do not require an address but offline interview does.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>List interview<br>
+<code>interview INTERNSHIP_INDEX list</code></p>
+</li>
+<li>
+<p>Edit interview<br>
+<code>interview INTERNSHIP_INDEX edit INTERVIEW_INDEX [a/ADDRESS] [d/DATE] [o/IS_ONLINE]</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are editing an online interview into an offline interview, Address field <code>a/ADDRESS</code> is a requirement.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Delete interview<br>
+<code>interview INTERNSHIP_INDEX delete INTERVIEW_INDEX</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>interview 2 list</code><br>
+Lists all interviews in the 2nd internship application in the list</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InterviewListExample.png" alt="InterviewListExample" width="800">
+</div>
+<div class="title">Figure 1. Display of interview list in internship application details panel</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>interview 2 add o/false d/05 02 2020 a/Raffles City #02-22</code><br>
+Adds an interview to the 2nd internship application in the list.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InterviewAddExample.png" alt="InterviewAddExample" width="800">
+</div>
+<div class="title">Figure 2. Display of change in interview list after a new interview is added</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>interview 2 list</code><br>
+<code>interview 2 edit 1 d/05 05 2020</code><br>
+Edits the date of the 1st interview in the 2nd internship application in the list to <code>05 05 2020</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InterviewEditExample.png" alt="InterviewEditExample" width="800">
+</div>
+<div class="title">Figure 3. Display of change of interview field after an interview is edited</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>interview 2 list</code><br>
+<code>interview 2 delete 3</code><br>
+Deletes the 3rd interview in the 2nd internship application in the list.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InterviewDeleteExample.png" alt="InterviewDeleteExample" width="800">
+</div>
+<div class="title">Figure 4. Display of change in interview list after an interview is deleted</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="interview-and-interview-commands"><a class="link" href="#interview-and-interview-commands">Interview and interview commands</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The implementation of interviews will be facilitated by two overarching components, the Model Abstract Class <code>Interview</code>
+which is associated to an <code>InternshipApplication</code> (see Model Diagram <a href="#Design-Model">[Design-Model]</a> ) and the Logic Classes <code>InterviewCommandParser</code> and <code>InterviewCommand</code>.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:52:54 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The Logic Classes will interact with the <code>Interview</code> Classes to modify the interviews list in <code>InternshipApplication</code>.
+More detailed explanations will be provided in the subsequent sections.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="interview-2"><a class="link" href="#interview-2">Interview</a></h4>
+<div class="paragraph">
+<p>There are two types of interviews currently available in Internship Diary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Online Interview</code>&#8201;&#8212;&#8201;this type of interview will not carry an address. A placeholder <code>Address</code> "NA" will be set.</p>
+</li>
+<li>
+<p><code>Offline Interview</code>&#8201;&#8212;&#8201;this type of interview must have an address.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Interview</code> will consist of the following variables and method:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getIsOnline()</code>&#8201;&#8212;&#8201;abstract method that returns whether the interview is to be conducted online.</p>
+</li>
+<li>
+<p><code>ApplicationDate</code> interviewDate&#8201;&#8212;&#8201;indicates the date of the interview.</p>
+</li>
+<li>
+<p><code>Address</code> interviewAddress&#8201;&#8212;&#8201;indicates the address of the interview.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In particular, <code>Interview</code> will rely on the <code>ApplicationDate</code> and <code>Address</code> classes in the Model to implement
+<code>interviewDate</code> and <code>interviewAddress</code><br>
+The class diagram below shows the classes associated to <code>Interview</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewClassDiagram.png" alt="InterviewClassDiagram">
+</div>
+<div class="title">Figure 5. Structure of <code>Interview</code> and its associated classes</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="interview-commands"><a class="link" href="#interview-commands">Interview commands</a></h4>
+<div class="paragraph">
+<p>Interviews can only be modified through the <code>interview</code> command which relies upon <code>InterviewCommandParser</code> and <code>InterviewCommand</code> classes.<br>
+The <code>interview</code> command will encompass four types of sub-command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add</code>&#8201;&#8212;&#8201;add an <code>Interview</code> to the specified <code>InternshipApplication</code>.</p>
+</li>
+<li>
+<p><code>edit</code>&#8201;&#8212;&#8201;edits a specified <code>Interview</code> that exists in the interview list in the specified <code>InternshipApplication</code>.</p>
+</li>
+<li>
+<p><code>delete</code>&#8201;&#8212;&#8201;deletes a specified <code>Interview</code> that exists in the interview list in the specified <code>InternshipApplication</code>.</p>
+</li>
+<li>
+<p><code>list</code>&#8201;&#8212;&#8201;lists all <code>Interview</code> in the specified <code>InternshipApplication</code>. <br>
+Currently <code>list</code> functions similarly to <code>select</code>, additional functions for list will be proposed in <a href="#InterviewListCommand-Improvements">[Proposed Improvements] InterviewListCommand</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Correspondingly, the `InterviewCommand`class will be made abstract with specific implementation
+of each sub-command in an inheriting class, this can be seen in the diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewCommandClassDiagram.png" alt="InterviewCommandClassDiagram">
+</div>
+<div class="title">Figure 6. Structure of <code>InterviewCommand</code> class with its respective sub-commands</div>
+</div>
+<div class="paragraph">
+<p>Additionally, <code>InterviewCommand</code> will implement the following static operations to facilitate sub-commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InterviewCommand#getInternshipApplication(Model, Index)</code> will assist all sub-commands in acquiring the <code>InternshipApplication</code> to modify.</p>
+</li>
+<li>
+<p><code>InterviewCommand#isInterviewBeforeApplication(InternshipApplication, Interview)</code> will assist <code>edit</code> and <code>add</code>
+commands in checking whether the interview occurs before the internship application.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lastly, as the commands inherit from <code>Command</code> interface, the commands will implement <code>execute(Model)</code>.
+All the sub-commands follow roughly the same execution sequence as seen in the diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewAddCommandExecuteSequenceDiagram.png" alt="InterviewAddCommandExecuteSequenceDiagram">
+</div>
+<div class="title">Figure 7. Sequence Diagram to show execution of <code>InterviewAddCommand</code></div>
+</div>
+<div class="paragraph">
+<p>The execution sequence will first modify the <code>InternshipApplication</code> based on the specific sub-command.
+Then followed by creating a CommandResult, and returning it.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="interview-commands-parser"><a class="link" href="#interview-commands-parser">Interview Commands Parser</a></h4>
+<div class="paragraph">
+<p><code>InterviewCommandParser</code> is the entry point to all <code>interview</code> sub-commands.
+It will be called from `InternshipDiaryParser`which is the primary logic parser for user input.</p>
+</div>
+<div class="paragraph">
+<p><code>InterviewCommandParser</code> will support the parsing of all four types of <code>InterviewCommand</code> sub-commands.
+The following activity diagram will show how <code>InterviewCommandParser</code> reads and interpret user input to
+return the expected sub-command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewCommandParserActivityDiagram.png" alt="InterviewCommandParserActivityDiagram">
+</div>
+<div class="title">Figure 8. Process of <code>InterviewCommandParser</code> when reading user input</div>
+</div>
+<div class="paragraph">
+<p>Additionally, <code>InterviewCommandParser</code> will only be invoked within the <code>Logic</code> component, with the only exception being
+InterviewAddCommand.
+Figure 18 will show the general invocation format within the <code>Logic</code> component using <code>InterviewDeleteCommand</code>
+as an example.
+While Figure 19 will show the invocation of <code>InterviewAddCommand</code> which is the only sub-command that will utilise the
+<code>Model component</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewDeleteCommandSequenceDiagram.png" alt="InterviewDeleteCommandSequenceDiagram">
+</div>
+<div class="title">Figure 9. Interactions inside the Logic Component for <code>InterviewDeleteCommand</code></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewAddCommandSequenceDiagram.png" alt="InterviewAddCommandSequenceDiagram">
+</div>
+<div class="title">Figure 10. Interactions inside the Logic and Model Component for <code>InterviewAddCommand</code></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="InterviewListCommand-Improvements"><a class="link" href="#InterviewListCommand-Improvements">[Proposed Improvements] InterviewListCommand</a></h4>
+<div class="paragraph">
+<p>Currently, the <code>InterviewListCommand</code> is functionally similar to <code>SelectCommand</code>.
+In v2.0, there will be the following improvements to the <code>InterviewListCommand</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Additional parameters to filter interviews</p>
+<div class="ulist">
+<ul>
+<li>
+<p>New command format will be <code>interview INDEX list [o/IsOnline] [a/Address] [d/Date]</code>.</p>
+</li>
+<li>
+<p>The command will return the list of interviews consisting of only the interviews that contain the optional
+fields provided in the command.</p>
+</li>
+<li>
+<p><code>FilteredList</code> from <code>javafx</code> will be used to implement this feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-interview"><a class="link" href="#aspect-how-to-implement-interview">Aspect: How to implement interview</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice in v1.4)</strong>: Use an abstract class as the primary reference to Interviews.
+Implement types of Interview as extending classes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More scalable, able to easily add new Interview types.<br>
+Easier to debug and handle exceptions.</p>
+</li>
+<li>
+<p>Cons: More classes to create and handle.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (previous choice in v1.3)</strong>: Use a concrete Interview class with additional variables to differentiate
+Interview types.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Increasing number of variables if more interview types will be added.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">Aspect: How to implement different Interview Commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use a standardized command with sub-command type parsed as user input.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More streamlined, only one command.<br>
+Able to use polymorphism to share operations between commands.</p>
+</li>
+<li>
+<p>Cons: Harder to implement and document.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Use separate commands for each different method of modifying interview.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Makes the user remember more commands.<br>
+Create a lot of repetition in code.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 18:38:44 UTC</div></div></div></body></html>

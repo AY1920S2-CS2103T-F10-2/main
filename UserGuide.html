@@ -1203,7 +1203,14 @@ Whereas the <code>INTERVIEW_INDEX</code> corresponds to the index of the intervi
 <ul>
 <li>
 <p>Add interview<br>
-<code>interview INTERNSHIP_INDEX add d/DATE o/IS_ONLINE [a/ADDRESS]</code></p>
+<code>interview INTERNSHIP_INDEX add d/DATE o/IS_ONLINE [a/ADDRESS]</code><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Address field <code>a/ADDRESS</code> is listed as optional here as online interview do not require an address but offline interview does.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>List interview<br>
@@ -1212,6 +1219,13 @@ Whereas the <code>INTERVIEW_INDEX</code> corresponds to the index of the intervi
 <li>
 <p>Edit interview<br>
 <code>interview INTERNSHIP_INDEX edit INTERVIEW_INDEX [a/ADDRESS] [d/DATE] [o/IS_ONLINE]</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are editing an online interview into an offline interview, Address field <code>a/ADDRESS</code> is a requirement.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Delete interview<br>
@@ -1232,24 +1246,57 @@ Whereas the <code>INTERVIEW_INDEX</code> corresponds to the index of the intervi
 <code>interview 2 list</code><br>
 Lists all interviews in the 2nd internship application in the list</p>
 </li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InterviewListExample.png" alt="InterviewListExample" width="800">
+</div>
+<div class="title">Figure 10. Display of interview list in internship application details panel</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>list</code><br>
-<code>interview 1 add o/false d/05 02 2020 a/123 Kent Ridge Road</code><br>
-Adds an interview to the 1st internship application in the list.</p>
-</li>
-<li>
-<p><code>list</code><br>
-<code>interview 2 list</code><br>
-<code>interview 2 edit 1 d/05 01 2020</code><br>
-Edits the date of the 1st interview in the 2nd internship application in the list to <code>05 01 2020</code>.</p>
-</li>
-<li>
-<p><code>list</code><br>
-<code>interview 1 list</code><br>
-<code>interview 1 delete 1</code><br>
-Deletes the 1st interview in the 1st internship application in the list.</p>
+<p><code>interview 2 add o/false d/05 02 2020 a/Raffles City #02-22</code><br>
+Adds an interview to the 2nd internship application in the list.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InterviewAddExample.png" alt="InterviewAddExample" width="800">
+</div>
+<div class="title">Figure 11. Display of change in interview list after a new interview is added</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>interview 2 list</code><br>
+<code>interview 2 edit 1 d/05 05 2020</code><br>
+Edits the date of the 1st interview in the 2nd internship application in the list to <code>05 05 2020</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InterviewEditExample.png" alt="InterviewEditExample" width="800">
+</div>
+<div class="title">Figure 12. Display of change of interview field after an interview is edited</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>interview 2 list</code><br>
+<code>interview 2 delete 3</code><br>
+Deletes the 3rd interview in the 2nd internship application in the list.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InterviewDeleteExample.png" alt="InterviewDeleteExample" width="800">
+</div>
+<div class="title">Figure 13. Display of change in interview list after an interview is deleted</div>
 </div>
 </div>
 <div class="sect2">
@@ -1280,7 +1327,7 @@ Deletes the 1st interview in the 1st internship application in the list.</p>
 <div class="content">
 <img src="images/reminder_example.png" alt="reminder example" width="800">
 </div>
-<div class="title">Figure 10. Example display of Internship Diary when <code>reminder</code> is executed</div>
+<div class="title">Figure 14. Example display of Internship Diary when <code>reminder</code> is executed</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1333,7 +1380,7 @@ Format: <code>clear</code></p>
 <div class="content">
 <img src="images/internship_diary_stats.png" alt="internship diary stats" width="500">
 </div>
-<div class="title">Figure 11. Statistics window which opens when <code>stats</code> is executed</div>
+<div class="title">Figure 15. Statistics window which opens when <code>stats</code> is executed</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1382,7 +1429,7 @@ Alternatively, you may use your mouse to click on "Statistics" and then "View St
 <div class="content">
 <img src="images/click_statistics.png" alt="click statistics" width="790">
 </div>
-<div class="title">Figure 12. Opening statistics window via mouse click</div>
+<div class="title">Figure 16. Opening statistics window via mouse click</div>
 </div>
 </div>
 <div class="sect2">
@@ -1527,4 +1574,4 @@ events which occurred later.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:52:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 18:38:44 UTC</div></div></div></body></html>
