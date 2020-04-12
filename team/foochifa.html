@@ -1,16 +1,18 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Foo Chi Fa - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">My Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Foo Chi Fa - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-my-internship-diary"><a class="link" href="#project-my-internship-diary">PROJECT: My Internship Diary</a></h2>
+<h2 id="project-internship-diary"><a class="link" href="#project-internship-diary">PROJECT: Internship Diary</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="paragraph">
+<p>This portfolio provides an overview of my contributions to the Internship Diary project.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My Internship Diary is a desktop address book desktop internship tracking application. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p><strong>Internship Diary</strong> is a command line interface (CLI) and desktop-based internship tracking application.</p>
 </div>
 </div>
 </div>
@@ -20,29 +22,124 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>:</p>
+<p><strong>Major enhancement</strong>: implemented interview classes and commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does:</strong> This feature enables the user to add and modify interviews in an internship application, through the
+interview commands.</p>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>:</p>
+<p><strong>Justification:</strong> Interviews are important to an internship application. As interviews are almost always the next step
+towards a successful application, it is important for the user to be able to organise and view his interviews.
+Therefore, this features improves the product by allowing the user to add and modify interviews in an internship application.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>:</p>
+<p><strong>Highlights:</strong> This enhancement requires extensive testing as it makes massive increments to the current Model and Logic packages.
+The implementation had to be constantly tweaked to ensure good integration with all other enhancements. Meticulousness and
+the ability to write good test cases was integral to implementing this enhancement.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
+<p><strong>Major enhancement</strong>: implemented display of internship application details in the Graphical User Interface (GUI)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does:</strong> This feature enables the user to display the details of a selected internship application
+(all the fields and list of interviews) on the right panel of the internship application.</p>
+</li>
+<li>
+<p><strong>Justification:</strong> This feature improves the product as it allows the users to view all the details of the
+internship application. This is important because the user will need to refer to the details in order to plan or
+organise his internships.</p>
+</li>
+<li>
+<p><strong>Highlights:</strong> This enhancement uses property change listeners to react to any changes by the user
+to the displayed filtered list on the left panel and the internship application selected.
+This implementation will allow for better flexibility in future modifications to internship application,
+while being less prone to bugs and errors. Additionally, this enhancement requires strong knowledge of
+javafx and the Ui structure of Internship Diary in order to produce a robust and well-integrated GUI enhancement.</p>
+</li>
+<li>
+<p><strong>Credits:</strong> <a href="gerhean.adoc">Ger Hean</a> for improving the implementation by using java property change.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added select command to show Internship Application detail based on index.</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added parsers for new Internship Diary fields (status, priority, role).</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: You can find all my code contributed here:
+<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=foochifa">Chi Fa&#8217;s Reposense Report</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><strong>Other contributions</strong>:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up Tags on Github Issues</p>
+</li>
+<li>
+<p>Created and managed Milestones on Github</p>
+</li>
+<li>
+<p>Managed meeting agendas and delegation of features, and translated them into issues on Github</p>
+</li>
+<li>
+<p>Assigned issues and PRs to relevant Milestones (from v1.1 to v2.0)</p>
+</li>
+<li>
+<p>Assigned relevant tags to issues</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancement to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added additional test cases to improve coverage from 74% to 77% (Pull Request: Pull Request <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/83">#83</a>)</p>
+</li>
+<li>
+<p>Added builders to assist in tests (Pull Request <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/64">#64</a>, Pull Request <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/83">#83</a>)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Preliminary refactor of DG from AB3 to Internship Diary (Pull Request <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/19">#19</a>)</p>
+</li>
+<li>
+<p>Refactor UG to reflect v1.2 Internship Diary features (Pull Request <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/83">#83</a>)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community:</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
-<p>Tools:</p>
+<p>Pull Requests reviewed (with non-trivial comments): <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/31">#31</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/77">#77</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/134">#134</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/198">#198</a></p>
 </li>
 </ul>
 </div>
@@ -62,4 +159,4 @@
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:24:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:59:15 UTC</div></div></div></body></html>

@@ -11,13 +11,19 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick start</a></li>
-<li><a href="#before-you-start">3. Before you start</a>
+<li><a href="#key-information">3. Key Information</a>
 <ul class="sectlevel2">
 <li><a href="#graphical-user-interface">3.1. Graphical user interface</a></li>
-<li><a href="#structure-of-internship-application">3.2. Structure of internship application</a></li>
+<li><a href="#fields">3.2. Structure of internship application</a></li>
 <li><a href="#valid-status">3.3. Valid status</a></li>
-<li><a href="#command-format">3.4. Command format</a></li>
-<li><a href="#other-important-information">3.5. Other important information</a></li>
+<li><a href="#interview">3.4. Structure of Interview</a></li>
+<li><a href="#command-format">3.5. Command format</a></li>
+<li><a href="#other-important-information">3.6. Other important information</a>
+<ul class="sectlevel3">
+<li><a href="#index">3.6.1. Index</a></li>
+<li><a href="#multiple-fields">3.6.2. Multiple Fields</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#Commands">4. Commands</a>
@@ -99,7 +105,7 @@ The GUI should appear in a few seconds.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="before-you-start"><a class="link" href="#before-you-start">3. Before you start</a></h2>
+<h2 id="key-information"><a class="link" href="#key-information">3. Key Information</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Here are some important information you should know.</p>
@@ -116,7 +122,7 @@ The GUI should appear in a few seconds.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="structure-of-internship-application"><a class="link" href="#structure-of-internship-application">3.2. Structure of internship application</a></h3>
+<h3 id="fields"><a class="link" href="#fields">3.2. Structure of internship application</a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -148,7 +154,7 @@ The GUI should appear in a few seconds.</p>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Role</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No restrictions on input.</p></td>
@@ -166,7 +172,7 @@ The GUI should appear in a few seconds.</p>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Phone</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"+" at the start is optional. Must have between 4 and 15 digits if not empty.</p></td>
@@ -216,7 +222,7 @@ used to input the respective Status values.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Not applicable</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No limits</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See <a href="#modifying-an-interview-in-an-internship-application-code-interview-code">Section 4.12, &#8220;Modifying an interview in an internship application : <code>interview</code>&#8221;</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See below, <a href="#interview">Section 3.4, &#8220;Structure of Interview&#8221;</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -250,7 +256,99 @@ used to input the respective Status values.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-format"><a class="link" href="#command-format">3.4. Command format</a></h3>
+<h3 id="interview"><a class="link" href="#interview">3.4. Structure of Interview</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Interview</code> represents an interview that you have been given by the company you are applying to.
+It exists within an <code>InternshipApplication</code></p>
+</li>
+<li>
+<p>Currently there are two types of <code>Interview</code> provided by the Internship Diary:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Online Interview&#8201;&#8212;&#8201;No address is needed.</p>
+</li>
+<li>
+<p>Offline Interview&#8201;&#8212;&#8201;Address must be provided when interview is added or modified from online to offline.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You can specify what type of interview you want to add by using the <code>o/IS_ONLINE</code> prefix.</p>
+</li>
+<li>
+<p>In order to facilitate your tracking of interviews, there are no restriction to what <code>InternshipApplication</code>
+you can add your interview to.<br>
+Therefore, it is possible for you to add an interview to an <code>InternshipApplication</code> with any status.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is so that just in case you forgot to record an interview after you already got offered or rejected,
+you could still add it into the Internship Diary for your personal tracking.</p>
+</li>
+<li>
+<p>In v2.0, we will create a prompt on whether you want to automatically change your <code>InternshipApplication</code> status
+to 'interview'.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Prefix</strong></th>
+<th class="tableblock halign-left valign-top">Can Be Empty?</th>
+<th class="tableblock halign-left valign-top">Max Number of Values</th>
+<th class="tableblock halign-left valign-top">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>isOnline</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">o/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can only be <code>true</code> or <code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Interview Date</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must be a valid date of the form <code>day-month-year</code>. Whitespace and <code>/</code> are also supported
+separators. If year is not given, will default to the current year.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Interview Address</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restrictions on input.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="command-format"><a class="link" href="#command-format">3.5. Command format</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -280,7 +378,9 @@ used to input the respective Status values.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="other-important-information"><a class="link" href="#other-important-information">3.5. Other important information</a></h3>
+<h3 id="other-important-information"><a class="link" href="#other-important-information">3.6. Other important information</a></h3>
+<div class="sect3">
+<h4 id="index"><a class="link" href="#index">3.6.1. Index</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -291,7 +391,7 @@ used to input the respective Status values.</p></td>
 <p><code>INDEX</code> can be found on the left side of an internship application card.</p>
 </li>
 <li>
-<p><code>INDEX</code> will always be a <strong>positive integer</strong>.</p>
+<p><code>INDEX</code> has to start from <strong>1</strong> (inclusive).</p>
 </li>
 <li>
 <p><code>INDEX</code> is not unique to a particular internship application&#8201;&#8212;&#8201;it will change as the list is updated.</p>
@@ -329,9 +429,6 @@ used to input the respective Status values.</p></td>
 </ul>
 </div>
 </li>
-<li>
-<p><code>INDEX</code> must be a <strong>positive integer</strong>.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -346,6 +443,23 @@ used to input the respective Status values.</p></td>
 </div>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="multiple-fields"><a class="link" href="#multiple-fields">3.6.2. Multiple Fields</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Commands that contain fields (see: <a href="#fields">Section 3.2, &#8220;Structure of internship application&#8221;</a>) will be able to take in multiple
+entry of each field (except <code>sort</code> which only allows one field).</p>
+</li>
+<li>
+<p>However, when multiple fields are inputted, eg. <code>c/Google c/Facebook</code>, only the last field will be recognised
+by the application. In the example above, only <code>c/Facebook</code> will be registered, <code>c/Google</code>
+will be ignored by the application</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -976,8 +1090,9 @@ Returns a list of currently displayed companies sorted by company name.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-An interview must contain a date and a boolean that represents whether an interview is conducted online or not.<br>
+An interview must contain a date and a boolean (true or false) that represents whether an interview is conducted online or not.<br>
 If the interview is not conducted online, an additional address field must be provided.
+See <a href="#interview">Section 3.4, &#8220;Structure of Interview&#8221;</a> for more information.
 </td>
 </tr>
 </table>
@@ -1000,11 +1115,17 @@ If the interview is not conducted online, an additional address field must be pr
 <li>
 <p>A <code>COMMAND_WORD</code> can be: <code>add list edit delete</code><br>
 The command will behave identically to their internship application counterparts</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code> is currently functionally similar to <code>select</code>, additional features will be added in v2.0.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>The <code>INTERNSHIP_INDEX</code> corresponds to the index of the internship in the displayed internship list.
-Whereas the <code>INTERVIEW_INDEX</code> corresponds to the index of the interview in the interview list.<br>
-Both indexes must be positive integer 1, 2, 3, &#8230;&#8203;</p>
+Whereas the <code>INTERVIEW_INDEX</code> corresponds to the index of the interview in the interview list.</p>
 </li>
 </ul>
 </div>
@@ -1308,4 +1429,4 @@ e.g. <code>interview 1 delete 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:24:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:59:15 UTC</div></div></div></body></html>
