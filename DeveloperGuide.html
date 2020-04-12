@@ -92,7 +92,7 @@
 <li><a href="#implementation-7">4.6.1.1. Implementation</a></li>
 <li><a href="#design-considerations-6">4.6.1.2. Design Considerations</a>
 <ul class="sectlevel5">
-<li><a href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.6.1.2.1. Aspect: How to implement the Archival view system on the backend</a></li>
+<li><a href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.6.1.2.1. Aspect: How to implement the Archival View system on the backend</a></li>
 <li><a href="#aspect-how-to-implement-the-observer-pattern">4.6.1.2.2. Aspect: How to implement the Observer Pattern</a></li>
 </ul>
 </li>
@@ -1283,7 +1283,7 @@ You may use the same sequence diagram for the <code>list</code> command.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The following code snippet is retrieved from the InternshipDiary class.
+<p>The following code snippet is retrieved from the <code>InternshipDiary</code> class.
 It illustrates the internal workings of how we switch the view between the archived list and the main list.</p>
 </div>
 <div class="literalblock">
@@ -1297,7 +1297,7 @@ It illustrates the internal workings of how we switch the view between the archi
 </div>
 <div class="paragraph">
 <p>It can be seen explicitly from the code snippet that we make use of referencing to switch between the views of archived and main list.
-However, such implementation brings about issues with reactivity&#8201;&#8212;&#8201;where elements that reference <code>displayedInternships</code> will not be aware of the reference update in <code>displayedInternships</code> whenever the user executes <code>archival</code> or <code>list</code>.
+However, such implementation brings about issues with reactivity&#8201;&#8212;&#8201;where elements that reference <code>displayedInternships</code> will not be aware of the reference change in <code>displayedInternships</code> whenever the user executes <code>archival</code> or <code>list</code>.
 Therefore, in the above scenario, users would still see the main list after executing the <code>archival</code> command.</p>
 </div>
 <div class="paragraph">
@@ -1389,7 +1389,7 @@ It will also have to specify which property of that object it wants to observe.<
 <div class="paragraph">
 <p>In our case, when ModelManager is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance belonging to <code>InternshipDiary</code>.
 The function call will look like this: <code>addPropertyChangeListener("displayedInternships", this)</code> where <code>this</code>
-is a reference to <code>ModelManager</code> itself (so that it can be registered as a listener of the <code>displayedInternships</code> property).</p>
+is a reference to <code>ModelManager</code> itself (so that it can be registered as a listener of the <code>displayedInternships</code> property of <code>InternshipDiary</code>).</p>
 </div>
 <div class="paragraph">
 <p>The process is similar for any UI element that wants to observe the <code>filteredInternshipApplications</code> property of <code>ModelManager</code>.</p>
@@ -1459,14 +1459,14 @@ This is especially important when many properties are being observed.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>This forms a layer of abstraction as users would not be allowed to call the the <code>addPropertyChangeListener</code> and <code>firePropertyChange</code> methods of
+<p>This forms a layer of abstraction as we would not be allowed to call the <code>addPropertyChangeListener</code> and <code>firePropertyChange</code> methods of
 <code>PropertyChangeSupport</code> directly.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.1.2. Design Considerations</a></h5>
 <div class="sect5">
-<h6 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.6.1.2.1. Aspect: How to implement the Archival view system on the backend</a></h6>
+<h6 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">4.6.1.2.1. Aspect: How to implement the Archival View system on the backend</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1490,7 +1490,7 @@ Furthermore, we will have to implement observer pattern to handle the reference 
 </div>
 </li>
 <li>
-<p><strong>Alternative 2</strong>: Manipulate the current view of the internship application list by using Predicate and FilteredList, along with the boolean isArchived variable in <code>InternshipApplication</code>.
+<p><strong>Alternative 2 (previous choice)</strong>: Manipulate the current view of the internship application list by using Predicate and FilteredList, along with the boolean isArchived variable in <code>InternshipApplication</code>.
 This will easily help us determine which internship application should be rendered.</p>
 <div class="ulist">
 <ul>
@@ -1641,8 +1641,8 @@ For the execution type <code>BY_FIELD</code>, users can only execute by the <cod
 </div>
 </div>
 <div class="paragraph">
-<p>It is important to note that each execution type works similarly.
-At the core, all of them involves retrieving the index of a internship application to execute on.
+<p>It is important to note that each <code>RemovalBasedCommandExecutionType</code> works similarly.
+At the core, all of them involves retrieving the index of an internship application to execute on.
 The difference lies in the pre-processing stage&#8201;&#8212;&#8201;the steps an execution type takes to retrieve all the required indices.</p>
 </div>
 <div class="paragraph">
@@ -1659,7 +1659,7 @@ Other variations of <strong>removal-based commands</strong> and <strong>executio
 </div>
 <div class="paragraph">
 <p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the internship applications and then converting these internship applications to their respective index.
-This provides us with required indices that we will execute the removal-based command on.</p>
+This provides us with required indices that we will execute the removal-based command <code>archive</code> on.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1758,14 +1758,14 @@ The feedback from each execution is cumulatively concatenated to form a single f
 <p><strong>Alternative 1 (current choice)</strong>: Use encapsulation to hold the appropriate command word, which will then be used to generate the removal-based command that will execute based on the execute type provided.
 <code>RemovalBasedCommand</code> will store the command word of the appropriate removal-based command and create the command when
 <code>RemovalBasedCommand</code> is executed.
-This removal-based command will then be used on the index/indices provided according to the execution type.</p>
+This removal-based command will then be executed on the index/indices provided according to the execution type.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Easier to implement and convey the idea to team members.</p>
 </li>
 <li>
-<p>Cons: Will require multiple case handlings (e.g. switch cases).
+<p>Cons: Will require multiple case handling (e.g. switch cases).
 Polymorphism may be a better solution in terms of code extensibility and elegance.</p>
 </li>
 </ul>
@@ -1858,14 +1858,14 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> each contains an instance of <code>Statistics</code> that helps them compute the relevant statistics whenever there is any update to the internship application list.</p>
 </div>
 <div class="paragraph">
-<p>The internship application list can be updated either due to a change in reference in <code>displayedInternships</code> from <code>InternshipDiary</code> (e.g. <code>archival</code> and <code>list</code>) or any modifications to the current internship application list (e.g. adding, deleting, editing of internship applications).</p>
+<p>The internship application list can be updated either due to a change in reference in <code>displayedInternships</code> from <code>InternshipDiary</code> (e.g. <code>archival</code> and <code>list</code>) or any modifications to the current internship application list (e.g. <code>add</code>, <code>delete</code>, <code>edit</code>, <code>archive</code>, <code>unarchive</code>, <code>find</code>).</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram illustrates how <code>StatisticsWindow</code> (<code>StatisticsBarFooter</code> shares the same workflow) is notified of the updates in the internship application list and how it subsequently updates the statistics.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ActivityDiagramStatistics.png" alt="ActivityDiagramStatistics" width="700">
+<img src="images/ActivityDiagramStatistics.png" alt="ActivityDiagramStatistics">
 </div>
 </div>
 <div class="paragraph">
@@ -1878,7 +1878,7 @@ This is so that the implemented observer pattern can notify them of any changes 
 </div>
 <div class="paragraph">
 <p>Any of the two updates above will trigger the <code>Statistics</code> to recompute with the updated internship application list.
-<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will then retrieve the required computed metrics from <code>Statistics</code> and re-binds the them to the UI accordingly.</p>
+<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will then retrieve the required computed metrics from <code>Statistics</code> and re-bind the them to the UI accordingly.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1894,7 +1894,7 @@ The statistics model will generate statistics based on the dynamic filtering cha
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Users will be choose which list they want to view the relevant statistics for.
+<p>Pros: Users will be able to choose which list they want to view the relevant statistics for.
 Works well with <code>archival</code>, <code>list</code>, and <code>find</code> commands that dynamically changes the list.</p>
 </li>
 <li>
@@ -1909,7 +1909,7 @@ The base list is not filtered according to predicate(s) set by users.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Require less re-computation compared to using filtered ObservableList, as it only recomputes upon addition(s), deletion(s), or changes in an internship application stored in the list.</p>
+<p>Pros: Require less re-computation compared to using filtered ObservableList, as it only re-computes upon addition(s), deletion(s), or changes in an internship application stored in the list.</p>
 </li>
 <li>
 <p>Cons: May be unintuitive to some extent for users when the statistics do not tally with the current view of the list.</p>
@@ -1943,14 +1943,14 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </div>
 </li>
 <li>
-<p><strong>Alternative 2</strong>: Store each status count in separate variables that are initialized upon the creation of statistics model.</p>
+<p><strong>Alternative 2 (previous choice)</strong>: Store each status count in separate variables that are initialized upon the creation of statistics model.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Straightforward and very easy to understand for future developers.</p>
 </li>
 <li>
-<p>Cons: Very inextensible.</p>
+<p>Cons: Very inextensible as we need to create new variables for new statuses each time.</p>
 </li>
 </ul>
 </div>
@@ -2266,8 +2266,8 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set reminders for internship deadlines/interviews</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">make sure I do not miss any internship opportunities by not applying in time/ missing interviews</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set reminders for internship application deadlines/interviews</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make sure I do not miss any internship opportunities by not applying in time / missing interviews</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -3082,23 +3082,10 @@ Internship Diary detects invalid syntax.</p>
 <h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Accessibility</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The source code should be open source.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
 <p><strong>Availability</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
-<li>
-<p>The application is available around the clock and free-of-charge to the public.</p>
-</li>
 <li>
 <p>The application is available for download on our GitHub release page in the form of a JAR file.</p>
 </li>
@@ -3120,7 +3107,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Response time to any user action is within 3 seconds (including application start-up).</p>
+<p>Response time to any user command is within 3 seconds.</p>
 </li>
 <li>
 <p>The application should be able to contain and handle up to 300 internship applications before facing any form of performance bottleneck issues.</p>
@@ -3133,10 +3120,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The application should never fail if user actions are appropriate according to the user guide.</p>
-</li>
-<li>
-<p>The application should warn the user if it is unable to execute any of the user actions for various reasons.</p>
+<p>The application should guide the user if it is unable to execute any of the user actions for various reasons.</p>
 </li>
 </ol>
 </div>
@@ -3146,7 +3130,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The application should work as intended on any popular operating systems.</p>
+<p>The application should work as intended on any mainstream operating systems.</p>
 </li>
 <li>
 <p>The application is guaranteed to work on Java version 11.</p>
@@ -3159,12 +3143,6 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The application should be intuitive and easy-to-learn, such that users can become proficient within a day.</p>
-</li>
-<li>
-<p>The application should prioritise displaying important and relevant information to users.</p>
-</li>
-<li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 </ol>
@@ -3175,7 +3153,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The application should be designed in a timeless manner, such that it would remain highly relevant to internship application at any point in the future.</p>
+<p>The application should remain highly relevant to internship applications at any point in the future.</p>
 </li>
 </ol>
 </div>
@@ -3185,7 +3163,10 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The application should require periodical user updates to the data to ensure its integrity and that it is up-to-date and relevant.</p>
+<p>There should be user updates to the internship applications to ensure its integrity.</p>
+</li>
+<li>
+<p>When there is an application update, it should not compromise the integrity of the save file.</p>
 </li>
 </ol>
 </div>
@@ -3201,7 +3182,7 @@ Internship Diary detects invalid syntax.</p>
 <p>The application should be compliant with best coding practices highlighted in CS2103T.</p>
 </li>
 <li>
-<p>The application should be designed and implemented elegantly such that any programmer with at least a year of experience should be able to read, maintain, and contribute to the source code easily.</p>
+<p>The application should be designed such that any programmer with at least a year of experience should be able to read, maintain, and contribute to the source code easily.</p>
 </li>
 </ol>
 </div>
@@ -3211,7 +3192,7 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The project is expected to deliver a feature when necessary and feasible.</p>
+<p>The project features are to be in line with any changes to real world internship application process.</p>
 </li>
 </ol>
 </div>
@@ -3221,15 +3202,19 @@ Internship Diary detects invalid syntax.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The application is not required to trace or detect internship application and add to the system automatically.</p>
+<p>The application requires manual addition of internship application into the system.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Accessibility, Capacity, Compliance with regulations, Documentation, Disaster recovery, Efficiency, Extensibility, Fault tolerance, Interoperability, Maintainability, Privacy, Portability, Quality, Reliability, Response time, Robustness, Scalability, Security, Stability, Testability, and more &#8230;&#8203;</p>
+<p><strong>Privacy</strong></p>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The application should not store any information of user&#8217;s internship applications in remote storage.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -4164,4 +4149,4 @@ any commands.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 01:54:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 05:08:26 UTC</div></div></div></body></html>
