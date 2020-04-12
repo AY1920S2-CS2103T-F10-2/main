@@ -36,17 +36,35 @@ of such students, we came up with the idea of the Internship Diary.</p>
 <p>Justification: This feature improves the product significantly as users can better manage their internship application list.
 This is a basic feature which every organizer app need to have.</p>
 </li>
+<li>
+<p><strong>Highlights:</strong> This enhancement was not very hard to implement, but a lot of effort went into thinking about how
+to make it more extendable.</p>
+</li>
+<li>
+<p><strong>What could be improved:</strong> CliSyntax should have been refactored into an Enum. This would have allowed for
+a very simple switch statement implementation.</p>
+</li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Added a history command that allows the user to navigate to previous commands using up/down keys.
+<p><strong>Minor enhancement</strong>: Added CommandBox history.
 (PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/101">#101</a>)</p>
 <div class="ulist">
 <ul>
 <li>
+<p>What it does: Users can navigate to previous commands using up and down keys.</p>
+</li>
+<li>
 <p>Justification: Allows users to access similar past commands.
 Also speeds up testing considerably.</p>
+</li>
+<li>
+<p><strong>Highlights:</strong> The motivation of this enhancement was originally to make manual testing much simpler. At first the command history
+was done directly on the CommandBox class, but I ended up abstracting the code into its own class. I also spent some time
+on deciding the data structure to store the command history, but i realised that a lot of my worries was over constant time
+performance differences, so I simply used the data structure (Linked List) which was already implemented in Java default libraries with
+all the functionality I needed.</p>
 </li>
 </ul>
 </div>
@@ -54,6 +72,19 @@ Also speeds up testing considerably.</p>
 <li>
 <p><strong>Minor enhancement</strong>: Added display of what the current list is sorted or filtered by.
 (PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/114">#114</a>])</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: This feature is a nice visual indication as to what a list is sorted or filtered by.</p>
+</li>
+<li>
+<p><strong>Highlights:</strong> Thought very long about how to best pass the description of the comparator or predicate without
+adding too many new methods. In the end I just settled on overriding the <code>toString</code> method, directly or by using a wrapper class.
+Although it feels very crude, but it is simple and easy to extend to future commands which may involve changing the
+Comparator or Predicate.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Minor enhancement</strong>: Added DateTimeUtil to better parse dates.
@@ -118,6 +149,10 @@ Also speeds up testing considerably.</p>
 <p>Implemented Enums for Listener System.
 (PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/125">#125</a>)</p>
 </li>
+<li>
+<p>Change Implementation of DisplayInternshipDetails to Listener System.
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/198">#198</a>)</p>
+</li>
 </ul>
 </div>
 </li>
@@ -139,11 +174,14 @@ and updating DG diagrams and text.</p>
 </div>
 </li>
 <li>
-<p>Tools:</p>
+<p>Contributions to team-based tasks :</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Set up Travis CI and Coveralls</p>
+<p>Renamed project folder from <code>address</code> to <code>diary</code>.</p>
+</li>
+<li>
+<p>Set up GitHub, Travis CI, Coveralls and Codacy</p>
 </li>
 </ul>
 </div>
@@ -171,9 +209,25 @@ and updating DG diagrams and text.</p>
 <div class="sect2">
 <h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">Sorting internship companies by field: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sort displayed internship companies based on a given FIELD.<br>
-Type <code>reverse</code> before <code>FIELD</code> to sort in the reverse order.<br>
-Format: <code>sort [reverse] FIELD</code>.</p>
+<p>Sort displayed internship companies based on a given FIELD.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 4.7619%;">
+<col style="width: 95.2381%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">💡</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The sort parameters will appear at the bottom left of the internship diary</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>reverse</code> before <code>FIELD</code> to sort in the reverse order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort [reverse] FIELD</code>.</p>
 </div>
 <div class="paragraph">
 <p>Available values for <code>FIELD</code>:<br>
@@ -205,6 +259,28 @@ Returns a list of currently displayed companies sorted by company name.</p>
 </li>
 </ul>
 </div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/beforeSort.png" alt="beforeSort">
+</div>
+<div class="title">Figure 1. Before sorting the diary.</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/afterSort.png" alt="afterSort">
+</div>
+<div class="title">Figure 2. After sorting the diary.</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="modifying-an-interview-in-an-internship-application-code-interview-code"><a class="link" href="#modifying-an-interview-in-an-internship-application-code-interview-code">Modifying an interview in an internship application: <code>interview</code></a></h3>
@@ -344,7 +420,7 @@ Deletes the 1st interview in the 1st internship application in the list.</p>
 <div class="content">
 <img src="../images/reminder_example.png" alt="reminder example" width="800">
 </div>
-<div class="title">Figure 1. Example display of Internship Diary when <code>reminder</code> is executed</div>
+<div class="title">Figure 3. Example display of Internship Diary when <code>reminder</code> is executed</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -397,7 +473,7 @@ Format: <code>clear</code></p>
 <div class="content">
 <img src="../images/internship_diary_stats.png" alt="internship diary stats" width="500">
 </div>
-<div class="title">Figure 2. Statistics window which opens when <code>stats</code> is executed</div>
+<div class="title">Figure 4. Statistics window which opens when <code>stats</code> is executed</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -446,7 +522,7 @@ Alternatively, you may use your mouse to click on "Statistics" and then "View St
 <div class="content">
 <img src="../images/click_statistics.png" alt="click statistics" width="790">
 </div>
-<div class="title">Figure 3. Opening statistics window via mouse click</div>
+<div class="title">Figure 5. Opening statistics window via mouse click</div>
 </div>
 </div>
 <div class="sect2">
@@ -563,6 +639,36 @@ e.g. <code>interview 1 delete 1</code></p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Glossary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Chronological order</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The order of events in which events which occurred earlier would be placed before
+events which occurred later.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dictionary order:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The order which words would be ordered in a dictionary.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
@@ -585,7 +691,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="../images/SortSequenceDiagram.png" alt="SortSequenceDiagram">
 </div>
-<div class="title">Figure 4. Interactions inside the Logic Component for the <code>sort c/</code> command</div>
+<div class="title">Figure 6. Interactions inside the Logic Component for the <code>sort c/</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the sort command.</p>
@@ -637,7 +743,7 @@ to it.</p>
 <div class="content">
 <img src="../images/ComparatorClassDiagram.png" alt="ComparatorClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of SortCommand</div>
+<div class="title">Figure 7. Structure of SortCommand</div>
 </div>
 </div>
 <div class="sect3">
@@ -697,7 +803,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="../images/ClearSequenceDiagram.png" alt="ClearSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions inside the Logic Component for the <code>clear</code> command</div>
+<div class="title">Figure 8. Interactions inside the Logic Component for the <code>clear</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the clear command.</p>
@@ -777,19 +883,19 @@ As the different modes do not share code, they are better off as separate classe
 <div class="content">
 <img src="../images/CommandHistoryActivityDiagram.png" alt="CommandHistory" width="200">
 </div>
-<div class="title">Figure 7. Execution of CommandHistory</div>
+<div class="title">Figure 9. Execution of CommandHistory</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/CommandHistKeypessActivityDiagram.png" alt="CommandHistory2" width="600">
 </div>
-<div class="title">Figure 8. Handle other key pressed</div>
+<div class="title">Figure 10. Handle other key pressed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/CommandHistExeCleanupActivityDiagram.png" alt="CommandHistory2" width="200">
 </div>
-<div class="title">Figure 9. Execution cleanup</div>
+<div class="title">Figure 11. Execution cleanup</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the command history feature.</p>
@@ -945,4 +1051,4 @@ However, due to the complexity and difficulty of implementation, it will only be
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:49:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:51:55 UTC</div></div></div></body></html>

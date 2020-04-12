@@ -50,6 +50,7 @@
 </li>
 <li><a href="#faq">5. FAQ</a></li>
 <li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#glossary">7. Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -556,7 +557,7 @@ Alternatively, you may use your mouse to click on a specific internship applicat
 <p>Format: <code>add c/COMPANY r/ROLE d/DATE s/STATUS [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]</code></p>
 </div>
 <div class="paragraph">
-<p>Refer to <a href="#Structure of Internship Application">[Structure of Internship Application]</a> for details about the input constraints.</p>
+<p>Refer to <a href="#fields">Section 3.2, &#8220;Structure of internship application&#8221;</a> for details about the input constraints.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1050,9 +1051,25 @@ being <code>Software Engineer</code> but not company that is <code>Facebook</cod
 <div class="sect2">
 <h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">4.11. Sorting internship companies by field: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sort displayed internship companies based on a given FIELD.<br>
-Type <code>reverse</code> before <code>FIELD</code> to sort in the reverse order.<br>
-Format: <code>sort [reverse] FIELD</code>.</p>
+<p>Sort displayed internship companies based on a given FIELD.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 4.7619%;">
+<col style="width: 95.2381%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">💡</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The sort parameters will appear at the bottom left of the internship diary</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>reverse</code> before <code>FIELD</code> to sort in the reverse order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort [reverse] FIELD</code>.</p>
 </div>
 <div class="paragraph">
 <p>Available values for <code>FIELD</code>:<br>
@@ -1084,6 +1101,28 @@ Returns a list of currently displayed companies sorted by company name.</p>
 </li>
 </ul>
 </div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="images/beforeSort.png" alt="beforeSort">
+</div>
+<div class="title">Figure 8. Before sorting the diary.</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="images/afterSort.png" alt="afterSort">
+</div>
+<div class="title">Figure 9. After sorting the diary.</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="modifying-an-interview-in-an-internship-application-code-interview-code"><a class="link" href="#modifying-an-interview-in-an-internship-application-code-interview-code">4.12. Modifying an interview in an internship application: <code>interview</code></a></h3>
@@ -1223,7 +1262,7 @@ Deletes the 1st interview in the 1st internship application in the list.</p>
 <div class="content">
 <img src="images/reminder_example.png" alt="reminder example" width="800">
 </div>
-<div class="title">Figure 8. Example display of Internship Diary when <code>reminder</code> is executed</div>
+<div class="title">Figure 10. Example display of Internship Diary when <code>reminder</code> is executed</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1276,7 +1315,7 @@ Format: <code>clear</code></p>
 <div class="content">
 <img src="images/internship_diary_stats.png" alt="internship diary stats" width="500">
 </div>
-<div class="title">Figure 9. Statistics window which opens when <code>stats</code> is executed</div>
+<div class="title">Figure 11. Statistics window which opens when <code>stats</code> is executed</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1325,7 +1364,7 @@ Alternatively, you may use your mouse to click on "Statistics" and then "View St
 <div class="content">
 <img src="images/click_statistics.png" alt="click statistics" width="790">
 </div>
-<div class="title">Figure 10. Opening statistics window via mouse click</div>
+<div class="title">Figure 12. Opening statistics window via mouse click</div>
 </div>
 </div>
 <div class="sect2">
@@ -1440,4 +1479,34 @@ e.g. <code>interview 1 delete 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:49:52 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">7. Glossary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Chronological order</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The order of events in which events which occurred earlier would be placed before
+events which occurred later.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dictionary order:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The order which words would be ordered in a dictionary.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:51:55 UTC</div></div></div></body></html>
