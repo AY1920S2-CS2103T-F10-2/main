@@ -203,6 +203,7 @@ This required careful design considerations.</p>
 <div class="content">
 <img src="../images/main_list.png" alt="main list" width="800">
 </div>
+<div class="title">Figure 1. Display of main list</div>
 </div>
 </div>
 <div class="sect2">
@@ -217,6 +218,7 @@ This required careful design considerations.</p>
 <div class="content">
 <img src="../images/archival_list.png" alt="archival list" width="800">
 </div>
+<div class="title">Figure 2. Display of archival list</div>
 </div>
 </div>
 <div class="sect2">
@@ -590,6 +592,7 @@ Unarchives all the internship applications with the <code>rejected</code> status
 <div class="content">
 <img src="../images/internship_diary_stats.png" alt="internship diary stats" width="500">
 </div>
+<div class="title">Figure 3. Statistics window which will be opened when <code>stats</code> is executed</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -694,6 +697,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="700">
 </div>
+<div class="title">Figure 4. Structure of InternshipDiary</div>
 </div>
 <div class="paragraph">
 <p>The object diagram below illustrates the three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code>:</p>
@@ -715,6 +719,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerObjectDiagram.png" alt="InternshipDiaryAndModelManagerObjectDiagram" width="800">
 </div>
+<div class="title">Figure 5. Object diagram of three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code></div>
 </div>
 <div class="paragraph">
 <p>As the name suggests, <code>displayedInternships</code> is the list that is shown to the user in the GUI. It references either
@@ -733,6 +738,7 @@ You may use the same sequence diagram for the <code>list</code> command.</p>
 <div class="content">
 <img src="../images/ArchivalSequenceDiagram.png" alt="ArchivalSequenceDiagram">
 </div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for <code>archival</code> Command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet is retrieved from the <code>InternshipDiary</code> class.
@@ -767,6 +773,7 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerPropertyChangeClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeClassDiagram">
 </div>
+<div class="title">Figure 7. Implementation of a two-tier observer-observable structure</div>
 </div>
 <div class="paragraph">
 <p>The class diagram above showcases our implementation of a two-tier observer-observable structure:<br></p>
@@ -861,6 +868,7 @@ It will then repeat the event emission process to any UI element (e.g. <code>Sta
 <div class="content">
 <img src="../images/ActivityDiagramObserverPattern.png" alt="ActivityDiagramObserverPattern">
 </div>
+<div class="title">Figure 8. Activity diagram for Observer Pattern for <code>archival</code> Command</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -896,6 +904,7 @@ This is especially important when many properties are being observed.</p>
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram">
 </div>
+<div class="title">Figure 9. Updated class diagram for the implementation of two-tier observer-observable structure with <code>ListenerPropertyType</code> enumeration</div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, each observable will implement two additional methods to use <code>ListenerPropertyType</code> enumeration as parameters:</p>
@@ -1021,6 +1030,7 @@ The activity diagrams for both are very similar.</p>
 <div class="content">
 <img src="../images/ActivityDiagramArchiveCommand.png" alt="ActivityDiagramArchiveCommand" width="700">
 </div>
+<div class="title">Figure 10. Activity Diagram for <code>archive</code> Command</div>
 </div>
 <div class="paragraph">
 <p>While implementing the <code>archive</code> and <code>unarchive</code> commands, we realised that users may sometimes want to cherry-pick multiple internship application(s) to execute on or mass-execute on certain types of internship application(s).
@@ -1046,6 +1056,7 @@ Through this new class, users will be able to execute the commands on multiple i
 <div class="content">
 <img src="../images/RemovalBasedClassDiagram.png" alt="RemovalBasedClassDiagram">
 </div>
+<div class="title">Figure 11. Structure of <code>RemovalBasedCommand</code> with its associated classes</div>
 </div>
 <div class="paragraph">
 <p>The idea of the implementation can be summarized as follows:</p>
@@ -1108,6 +1119,7 @@ Other variations of <strong>removal-based commands</strong> and <strong>executio
 <div class="content">
 <img src="../images/ArchiveSequenceDiagram.png" alt="ArchiveSequenceDiagram">
 </div>
+<div class="title">Figure 12. Interactions Inside the Logic Component for the <code>archive s/rejected</code> Command</div>
 </div>
 <div class="paragraph">
 <p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the internship applications and then converting these internship applications to their respective index.
@@ -1144,6 +1156,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="../images/RemovalBasedCommandExecutionTypeParserSequenceDiagram.png" alt="RemovalBasedCommandExecutionTypeParserSequenceDiagram">
 </div>
+<div class="title">Figure 13. Sequence Diagram of how <code>RemovalBasedCommandExecuteTypeParser</code> parses input and determines execution type of command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, the parser determined the execution type to be <code>BY_FIELD</code> and generated the appropriate predicate to construct a <code>RemovalBasedCommand</code> instance.</p>
@@ -1158,6 +1171,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="../images/GenerateLazyCommandSequenceDiagram.png" alt="GenerateLazyCommandSequenceDiagram" width="500">
 </div>
+<div class="title">Figure 14. Creation of lambda function by <code>RemovalBasedCommand</code> instance</div>
 </div>
 <div class="paragraph">
 <p>As the command word is <code>archive</code>, a lazy lambda function to construct an <code>ArchiveCommand</code> is returned.</p>
@@ -1170,6 +1184,7 @@ This particular index allows us to retrieve the appropriate internship applicati
 <div class="content">
 <img src="../images/ConstructAndExecuteLazyCommandByIndexSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndexSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 15. Execution of removal-based command on one index</div>
 </div>
 <div class="paragraph">
 <p>It can be seen that the previously-generated lazy command is executed in the above sequence diagram.</p>
@@ -1185,6 +1200,7 @@ In this case, <code>archiveInternshipApplication</code> is called.</p>
 <div class="content">
 <img src="../images/ConstructAndExecuteLazyCommandByIndicesSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndicesSequenceDiagram" width="500">
 </div>
+<div class="title">Figure 16. Execution of <code>ArchiveCommand</code> on indices</div>
 </div>
 <div class="paragraph">
 <p>As seen above, <code>executeLazyCommandOnIndices</code> merely reuses the function <code>executeLazyCommandOnIndex</code> (from the previous sequence diagram) by running it on every index provided.
@@ -1197,6 +1213,7 @@ The feedback from each execution is cumulatively concatenated to form a single f
 <div class="content">
 <img src="../images/CreateCommandResultSequenceDiagram.png" alt="CreateCommandResultSequenceDiagram" width="500">
 </div>
+<div class="title">Figure 17. Re-creating command result in <code>RemovalBasedCommand</code></div>
 </div>
 </div>
 </div>
@@ -1270,6 +1287,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <div class="content">
 <img src="../images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram" width="800">
 </div>
+<div class="title">Figure 18. Structure of <code>Statistics</code> and its associated classes</div>
 </div>
 <div class="paragraph">
 <p>Users will be able to view the metrics from two areas:</p>
@@ -1319,6 +1337,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <div class="content">
 <img src="../images/ActivityDiagramStatistics.png" alt="ActivityDiagramStatistics">
 </div>
+<div class="title">Figure 19. Activity Diagram of how <code>StatisticsWindow</code> is notified of updates list and statistics is updated</div>
 </div>
 <div class="paragraph">
 <p>Upon creation of the <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code>, each of them will attach an event listener to the internship application list that it was given.
@@ -1413,4 +1432,4 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:46:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:02:21 UTC</div></div></div></body></html>
