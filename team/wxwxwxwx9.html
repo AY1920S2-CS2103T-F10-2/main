@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Ong Wei Xiang - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">My Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ong Wei Xiang - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ong Wei Xiang - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-internship-diary"><a class="link" href="#project-internship-diary">PROJECT: Internship Diary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -57,6 +57,25 @@ it "de-clutters" their main list. This allows them to focus on the internship ap
 <p><strong>Highlights</strong>: The archival feature seems trivial as it is usually a staple feature in many tracking applications.
 However, it was challenging to decide on a design implementation for our use case such that the feature is sustainable and extensible.
 Due to the chosen design, there was a need to implement a form of observer pattern to handle reactivity issues&#8201;&#8212;&#8201;this became another important design consideration.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Implemented the Observer Pattern Design</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: Provides a robust solution to keep UI in sync with the state of backend data.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: As we started to introduce many UI elements that require various data and reference from the backend, it became difficult to manage the delivery of such data to the UI.
+To prevent coupling between the elements with our backend, and to ensure the UI can be updated with the latest data changes, we needed to implement the observer pattern.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: Researching about and implementing the observer pattern design. I had to find out exactly how the mechanism works and the options out there for us to
+integrate it into our project. There was also quite a bit of trial-and-error involved in testing out the options so that we can find the best implementation / library
+for our situation.</p>
 </li>
 </ul>
 </div>
@@ -192,7 +211,7 @@ This required careful design considerations.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="viewing-unarchived-internship-applications-code-list-code"><a class="link" href="#viewing-unarchived-internship-applications-code-list-code">Viewing unarchived internship applications : <code>list</code></a></h3>
+<h3 id="viewing-unarchived-internship-applications-code-list-code"><a class="link" href="#viewing-unarchived-internship-applications-code-list-code">Viewing unarchived internship applications: <code>list</code></a></h3>
 <div class="paragraph">
 <p>Displays <strong>unarchived</strong> internship applications. This is known as your <strong>main list</strong>.</p>
 </div>
@@ -222,9 +241,9 @@ This required careful design considerations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-internship-application-code-delete-code"><a class="link" href="#deleting-an-internship-application-code-delete-code">Deleting an internship application : <code>delete</code></a></h3>
+<h3 id="deleting-internship-application-code-delete-code"><a class="link" href="#deleting-internship-application-code-delete-code">Deleting internship application: <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Delete specified internship applications from the current list.<br></p>
+<p>Delete specific internship applications from the current list.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -339,9 +358,9 @@ Deletes the 1st, 2nd, and 3rd internship applications from the results of the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="archiving-an-internship-application-code-archive-code"><a class="link" href="#archiving-an-internship-application-code-archive-code">Archiving an internship application : <code>archive</code></a></h3>
+<h3 id="archiving-internship-application-code-archive-code"><a class="link" href="#archiving-internship-application-code-archive-code">Archiving internship application: <code>archive</code></a></h3>
 <div class="paragraph">
-<p>Archive specified internship applications from the main list.<br></p>
+<p>Archive specific internship applications in the main list.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -457,9 +476,9 @@ Archives all the internship applications with the <code>rejected</code> status i
 </div>
 </div>
 <div class="sect2">
-<h3 id="unarchiving-an-internship-application-code-unarchive-code"><a class="link" href="#unarchiving-an-internship-application-code-unarchive-code">Unarchiving an internship application : <code>unarchive</code></a></h3>
+<h3 id="unarchiving-internship-application-code-unarchive-code"><a class="link" href="#unarchiving-internship-application-code-unarchive-code">Unarchiving internship application: <code>unarchive</code></a></h3>
 <div class="paragraph">
-<p>Unarchive specified internship applications from the archival list.<br></p>
+<p>Unarchive specific internship applications in the archival list.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -592,7 +611,7 @@ Unarchives all the internship applications with the <code>rejected</code> status
 <div class="content">
 <img src="../images/internship_diary_stats.png" alt="internship diary stats" width="500">
 </div>
-<div class="title">Figure 3. Statistics window which will be opened when <code>stats</code> is executed</div>
+<div class="title">Figure 3. Statistics window which opens when <code>stats</code> is executed</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -624,6 +643,24 @@ Unarchives all the internship applications with the <code>rejected</code> status
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Alternatively, you may use your mouse to click on "Statistics" and then "View Statistics" to bring up the statistics window.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/click_statistics.png" alt="click statistics" width="790">
+</div>
+<div class="title">Figure 4. Opening statistics window via mouse click</div>
 </div>
 </div>
 </div>
@@ -697,7 +734,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="700">
 </div>
-<div class="title">Figure 4. Structure of InternshipDiary</div>
+<div class="title">Figure 5. Structure of <code>InternshipDiary</code> that showcases the methods and attributes required for view-switching</div>
 </div>
 <div class="paragraph">
 <p>The object diagram below illustrates the three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code>:</p>
@@ -719,7 +756,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerObjectDiagram.png" alt="InternshipDiaryAndModelManagerObjectDiagram" width="800">
 </div>
-<div class="title">Figure 5. Object diagram of three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code></div>
+<div class="title">Figure 6. Object diagram of three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code></div>
 </div>
 <div class="paragraph">
 <p>As the name suggests, <code>displayedInternships</code> is the list that is shown to the user in the GUI. It references either
@@ -738,7 +775,7 @@ You may use the same sequence diagram for the <code>list</code> command.</p>
 <div class="content">
 <img src="../images/ArchivalSequenceDiagram.png" alt="ArchivalSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for <code>archival</code> Command</div>
+<div class="title">Figure 7. Sequence diagram for <code>archival</code> Command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet is retrieved from the <code>InternshipDiary</code> class.
@@ -773,7 +810,7 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerPropertyChangeClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeClassDiagram">
 </div>
-<div class="title">Figure 7. Implementation of a two-tier observer-observable structure</div>
+<div class="title">Figure 8. Implementation of a two-tier observer-observable structure for <code>InternshipDiary</code></div>
 </div>
 <div class="paragraph">
 <p>The class diagram above showcases our implementation of a two-tier observer-observable structure:<br></p>
@@ -868,7 +905,7 @@ It will then repeat the event emission process to any UI element (e.g. <code>Sta
 <div class="content">
 <img src="../images/ActivityDiagramObserverPattern.png" alt="ActivityDiagramObserverPattern">
 </div>
-<div class="title">Figure 8. Activity diagram for Observer Pattern for <code>archival</code> Command</div>
+<div class="title">Figure 9. Activity diagram to illustrate the Observer Pattern using <code>archival</code> command</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -904,7 +941,7 @@ This is especially important when many properties are being observed.</p>
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram">
 </div>
-<div class="title">Figure 9. Updated class diagram for the implementation of two-tier observer-observable structure with <code>ListenerPropertyType</code> enumeration</div>
+<div class="title">Figure 10. Updated class diagram to showcase our implementation of the two-tier observer-observable structure with <code>ListenerPropertyType</code> enumeration</div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, each observable will implement two additional methods to use <code>ListenerPropertyType</code> enumeration as parameters:</p>
@@ -1030,7 +1067,7 @@ The activity diagrams for both are very similar.</p>
 <div class="content">
 <img src="../images/ActivityDiagramArchiveCommand.png" alt="ActivityDiagramArchiveCommand" width="700">
 </div>
-<div class="title">Figure 10. Activity Diagram for <code>archive</code> Command</div>
+<div class="title">Figure 11. Activity Diagram for <code>archive</code> Command</div>
 </div>
 <div class="paragraph">
 <p>While implementing the <code>archive</code> and <code>unarchive</code> commands, we realised that users may sometimes want to cherry-pick multiple internship application(s) to execute on or mass-execute on certain types of internship application(s).
@@ -1056,7 +1093,7 @@ Through this new class, users will be able to execute the commands on multiple i
 <div class="content">
 <img src="../images/RemovalBasedClassDiagram.png" alt="RemovalBasedClassDiagram">
 </div>
-<div class="title">Figure 11. Structure of <code>RemovalBasedCommand</code> with its associated classes</div>
+<div class="title">Figure 12. Structure of <code>RemovalBasedCommand</code> and <code>RemovalBasedCommandExecutionTypeParser</code> with its associated classes</div>
 </div>
 <div class="paragraph">
 <p>The idea of the implementation can be summarized as follows:</p>
@@ -1119,7 +1156,7 @@ Other variations of <strong>removal-based commands</strong> and <strong>executio
 <div class="content">
 <img src="../images/ArchiveSequenceDiagram.png" alt="ArchiveSequenceDiagram">
 </div>
-<div class="title">Figure 12. Interactions Inside the Logic Component for the <code>archive s/rejected</code> Command</div>
+<div class="title">Figure 13. Interactions inside the Logic Component for the <code>archive s/rejected</code> Command</div>
 </div>
 <div class="paragraph">
 <p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the internship applications and then converting these internship applications to their respective index.
@@ -1156,7 +1193,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="../images/RemovalBasedCommandExecutionTypeParserSequenceDiagram.png" alt="RemovalBasedCommandExecutionTypeParserSequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence Diagram of how <code>RemovalBasedCommandExecuteTypeParser</code> parses input and determines execution type of command</div>
+<div class="title">Figure 14. Sequence Diagram of how <code>RemovalBasedCommandExecuteTypeParser</code> parses input and determines the execution type of command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, the parser determined the execution type to be <code>BY_FIELD</code> and generated the appropriate predicate to construct a <code>RemovalBasedCommand</code> instance.</p>
@@ -1171,7 +1208,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="../images/GenerateLazyCommandSequenceDiagram.png" alt="GenerateLazyCommandSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 14. Creation of lambda function by <code>RemovalBasedCommand</code> instance</div>
+<div class="title">Figure 15. Creation of lazy lambda function by <code>RemovalBasedCommand</code> instance</div>
 </div>
 <div class="paragraph">
 <p>As the command word is <code>archive</code>, a lazy lambda function to construct an <code>ArchiveCommand</code> is returned.</p>
@@ -1184,7 +1221,7 @@ This particular index allows us to retrieve the appropriate internship applicati
 <div class="content">
 <img src="../images/ConstructAndExecuteLazyCommandByIndexSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndexSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 15. Execution of removal-based command on one index</div>
+<div class="title">Figure 16. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on one index</div>
 </div>
 <div class="paragraph">
 <p>It can be seen that the previously-generated lazy command is executed in the above sequence diagram.</p>
@@ -1200,7 +1237,7 @@ In this case, <code>archiveInternshipApplication</code> is called.</p>
 <div class="content">
 <img src="../images/ConstructAndExecuteLazyCommandByIndicesSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndicesSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 16. Execution of <code>ArchiveCommand</code> on indices</div>
+<div class="title">Figure 17. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on indices</div>
 </div>
 <div class="paragraph">
 <p>As seen above, <code>executeLazyCommandOnIndices</code> merely reuses the function <code>executeLazyCommandOnIndex</code> (from the previous sequence diagram) by running it on every index provided.
@@ -1213,14 +1250,13 @@ The feedback from each execution is cumulatively concatenated to form a single f
 <div class="content">
 <img src="../images/CreateCommandResultSequenceDiagram.png" alt="CreateCommandResultSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 17. Re-creating command result in <code>RemovalBasedCommand</code></div>
+<div class="title">Figure 18. Re-creating the command result in <code>RemovalBasedCommand</code></div>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h5>
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1260,6 +1296,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="statistics-feature"><a class="link" href="#statistics-feature">Statistics Feature</a></h3>
 <div class="paragraph">
@@ -1287,7 +1324,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <div class="content">
 <img src="../images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram" width="800">
 </div>
-<div class="title">Figure 18. Structure of <code>Statistics</code> and its associated classes</div>
+<div class="title">Figure 19. Structure of <code>Statistics</code> and its associated classes</div>
 </div>
 <div class="paragraph">
 <p>Users will be able to view the metrics from two areas:</p>
@@ -1337,7 +1374,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <div class="content">
 <img src="../images/ActivityDiagramStatistics.png" alt="ActivityDiagramStatistics">
 </div>
-<div class="title">Figure 19. Activity Diagram of how <code>StatisticsWindow</code> is notified of updates list and statistics is updated</div>
+<div class="title">Figure 20. Activity Diagram to show how <code>StatisticsWindow</code> is notified of updates in the internship application list and how statistics is updated accordingly</div>
 </div>
 <div class="paragraph">
 <p>Upon creation of the <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code>, each of them will attach an event listener to the internship application list that it was given.
@@ -1432,4 +1469,4 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:30:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:21:19 UTC</div></div></div></body></html>

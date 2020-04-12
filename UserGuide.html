@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Internship Diary - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">My Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Internship Diary - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Internship Diary - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>CS2103T-F10-2</code>      Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
@@ -10,18 +10,19 @@
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick start</a></li>
+<li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#key-information">3. Key Information</a>
 <ul class="sectlevel2">
 <li><a href="#graphical-user-interface">3.1. Graphical user interface</a></li>
 <li><a href="#fields">3.2. Structure of internship application</a></li>
 <li><a href="#valid-status">3.3. Valid status</a></li>
-<li><a href="#interview">3.4. Structure of Interview</a></li>
+<li><a href="#interview">3.4. Structure of interview</a></li>
 <li><a href="#command-format">3.5. Command format</a></li>
-<li><a href="#other-important-information">3.6. Other important information</a>
+<li><a href="#viewing-command-history">3.6. Viewing command history</a></li>
+<li><a href="#other-important-information">3.7. Other important information</a>
 <ul class="sectlevel3">
-<li><a href="#index">3.6.1. Index</a></li>
-<li><a href="#multiple-fields">3.6.2. Multiple Fields</a></li>
+<li><a href="#index-of-an-internship-application">3.7.1. Index of an internship application</a></li>
+<li><a href="#multiple-fields">3.7.2. Multiple fields</a></li>
 </ul>
 </li>
 </ul>
@@ -29,23 +30,22 @@
 <li><a href="#Commands">4. Commands</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-offline-user-guide-code-help-code">4.1. Viewing offline user guide: <code>help</code></a></li>
-<li><a href="#viewing-unarchived-internship-applications-code-list-code">4.2. Viewing unarchived internship applications : <code>list</code></a></li>
+<li><a href="#viewing-unarchived-internship-applications-code-list-code">4.2. Viewing unarchived internship applications: <code>list</code></a></li>
 <li><a href="#viewing-archived-internship-applications-code-archival-code">4.3. Viewing archived internship applications: <code>archival</code></a></li>
 <li><a href="#selecting-an-internship-application-to-display-code-select-code">4.4. Selecting an internship application to display: <code>select</code></a></li>
 <li><a href="#adding-an-internship-application-code-add-code">4.5. Adding an internship application: <code>add</code></a></li>
-<li><a href="#deleting-an-internship-application-code-delete-code">4.6. Deleting an internship application : <code>delete</code></a></li>
-<li><a href="#archiving-an-internship-application-code-archive-code">4.7. Archiving an internship application : <code>archive</code></a></li>
-<li><a href="#unarchiving-an-internship-application-code-unarchive-code">4.8. Unarchiving an internship application : <code>unarchive</code></a></li>
-<li><a href="#editing-an-internship-application-code-edit-code">4.9. Editing an internship application : <code>edit</code></a></li>
+<li><a href="#deleting-internship-application-code-delete-code">4.6. Deleting internship application: <code>delete</code></a></li>
+<li><a href="#archiving-internship-application-code-archive-code">4.7. Archiving internship application: <code>archive</code></a></li>
+<li><a href="#unarchiving-internship-application-code-unarchive-code">4.8. Unarchiving internship application: <code>unarchive</code></a></li>
+<li><a href="#editing-an-internship-application-code-edit-code">4.9. Editing an internship application: <code>edit</code></a></li>
 <li><a href="#locating-an-internship-application-by-fields-code-find-code">4.10. Locating an internship application by fields: <code>find</code></a></li>
-<li><a href="#sorting-internship-companies-by-field-code-sort-code">4.11. Sorting internship companies by field : <code>sort</code></a></li>
-<li><a href="#modifying-an-interview-in-an-internship-application-code-interview-code">4.12. Modifying an interview in an internship application : <code>interview</code></a></li>
-<li><a href="#getting-applications-due-or-have-interviews-in-7-days-code-reminder-code">4.13. Getting applications due or have interviews in 7 days : <code>reminder</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">4.14. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#sorting-internship-companies-by-field-code-sort-code">4.11. Sorting internship companies by field: <code>sort</code></a></li>
+<li><a href="#modifying-an-interview-in-an-internship-application-code-interview-code">4.12. Modifying an interview in an internship application: <code>interview</code></a></li>
+<li><a href="#getting-applications-due-or-have-interviews-in-7-days-code-reminder-code">4.13. Getting applications due or have interviews in 7 days: <code>reminder</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.14. Clearing all entries: <code>clear</code></a></li>
 <li><a href="#retrieving-statistics-code-stats-code">4.15. Retrieving statistics: <code>stats</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#viewing-command-history">4.17. Viewing command history</a></li>
-<li><a href="#saving-the-data">4.18. Saving the data</a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.16. Exiting the program: <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.17. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -57,14 +57,16 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Internship Diary is a desktop application that assists university students in managing their internship applications.
-With the Internship Diary, you can leave behind your troubling times trying to to organize, track, and review all your past and upcoming internship applications.
+<p>Internship Diary is a desktop application that assists university students in managing their internship applications.</p>
+</div>
+<div class="paragraph">
+<p>With the Internship Diary, you can leave behind your troubling times trying to to organize, track, and review all your past and upcoming internship applications.
 The application is designed and optimized for users who can type quickly, and provides an elegant design which is easy on the eyes.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick start</a></h2>
+<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Here are the steps to get you started on using Internship Diary:</p>
@@ -87,7 +89,7 @@ The Graphical User Interface (GUI) should appear in a few seconds.</p>
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
-<div class="title">Figure 1. GUI of Internship Diary</div>
+<div class="title">Figure 1. Graphical User Interface of Internship Diary</div>
 </div>
 </li>
 <li>
@@ -121,7 +123,7 @@ The Graphical User Interface (GUI) should appear in a few seconds.</p>
 <div class="title">Figure 3. Major graphical components of Internship Diary</div>
 </div>
 <div class="paragraph">
-<p>The image illustrates the major graphical components of <strong>Internship Diary</strong>.</p>
+<p>The above image illustrates the major graphical components of <strong>Internship Diary</strong> to help you navigate our application.</p>
 </div>
 </div>
 <div class="sect2">
@@ -225,7 +227,7 @@ used to input the respective Status values.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Not applicable</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No limits</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">See below, <a href="#interview">Section 3.4, &#8220;Structure of Interview&#8221;</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See below, <a href="#interview">Section 3.4, &#8220;Structure of interview&#8221;</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -238,16 +240,16 @@ used to input the respective Status values.</p></td>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>wishlist</code> - <span class="image"><img src="images/wishlist_card.png" alt="wishlist card" width="60"></span></p>
+<p><code>wishlist</code></p>
 </li>
 <li>
-<p><code>applied</code> - <span class="image"><img src="images/applied_card.png" alt="applied card" width="60"></span></p>
+<p><code>applied</code></p>
 </li>
 <li>
-<p><code>interview</code> - <span class="image"><img src="images/interview_card.png" alt="interview card" width="60"></span></p>
+<p><code>interview</code></p>
 </li>
 <li>
-<p><code>offered</code> - <span class="image"><img src="images/offered_card.png" alt="offered card" width="60"></span></p>
+<p><code>offered</code></p>
 </li>
 <li>
 <p><code>rejected</code></p>
@@ -259,7 +261,7 @@ used to input the respective Status values.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="interview"><a class="link" href="#interview">3.4. Structure of Interview</a></h3>
+<h3 id="interview"><a class="link" href="#interview">3.4. Structure of interview</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -381,9 +383,15 @@ separators. If year is not given, will default to the current year.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="other-important-information"><a class="link" href="#other-important-information">3.6. Other important information</a></h3>
+<h3 id="viewing-command-history"><a class="link" href="#viewing-command-history">3.6. Viewing command history</a></h3>
+<div class="paragraph">
+<p>Use the <code>up</code> and <code>down</code> arrow keys while the command box is being focused to scroll through your command history.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-important-information"><a class="link" href="#other-important-information">3.7. Other important information</a></h3>
 <div class="sect3">
-<h4 id="index"><a class="link" href="#index">3.6.1. Index</a></h4>
+<h4 id="index-of-an-internship-application"><a class="link" href="#index-of-an-internship-application">3.7.1. Index of an internship application</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -394,17 +402,13 @@ separators. If year is not given, will default to the current year.</p></td>
 <p><code>INDEX</code> can be found on the left side of an internship application card.</p>
 </li>
 <li>
-<p><code>INDEX</code> has to start from <strong>1</strong> (inclusive).</p>
+<p><code>INDEX</code> will start from <strong>1</strong> (inclusive).</p>
 </li>
 <li>
 <p><code>INDEX</code> is not unique to a particular internship application&#8201;&#8212;&#8201;it will change as the list is updated.</p>
-<div class="ulist">
-<ul>
+</li>
 <li>
 <p><code>INDEX</code> only serves as a reference for you to choose the correct internship application.</p>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
@@ -415,7 +419,7 @@ separators. If year is not given, will default to the current year.</p></td>
 <div class="content">
 <img src="images/sample_index.png" alt="sample index" width="600">
 </div>
-<div class="title">Figure 4. Example of internship application seen on the Internship Application List</div>
+<div class="title">Figure 4. Example of an internship application card seen on the Internship Application List</div>
 </div>
 <div class="ulist">
 <ul>
@@ -441,7 +445,7 @@ separators. If year is not given, will default to the current year.</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>The only exceptions are: <code>Reminder</code>, <code>Archive</code>, <code>Unarchive</code></p>
+<p>The exceptions are: <code>Archive</code>, <code>Unarchive</code>, <code>Reminder</code></p>
 </li>
 </ul>
 </div>
@@ -450,7 +454,7 @@ separators. If year is not given, will default to the current year.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="multiple-fields"><a class="link" href="#multiple-fields">3.6.2. Multiple Fields</a></h4>
+<h4 id="multiple-fields"><a class="link" href="#multiple-fields">3.7.2. Multiple fields</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -460,7 +464,7 @@ entry of each field (except <code>sort</code> which only allows one field).</p>
 <li>
 <p>However, when multiple fields are inputted, eg. <code>c/Google c/Facebook</code>, only the last field will be recognised
 by the application. In the example above, only <code>c/Facebook</code> will be registered, <code>c/Google</code>
-will be ignored by the application</p>
+will be ignored by the application.</p>
 </li>
 </ul>
 </div>
@@ -478,7 +482,7 @@ will be ignored by the application</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-unarchived-internship-applications-code-list-code"><a class="link" href="#viewing-unarchived-internship-applications-code-list-code">4.2. Viewing unarchived internship applications : <code>list</code></a></h3>
+<h3 id="viewing-unarchived-internship-applications-code-list-code"><a class="link" href="#viewing-unarchived-internship-applications-code-list-code">4.2. Viewing unarchived internship applications: <code>list</code></a></h3>
 <div class="paragraph">
 <p>Displays <strong>unarchived</strong> internship applications. This is known as your <strong>main list</strong>.</p>
 </div>
@@ -573,9 +577,9 @@ Alternatively, you may use your mouse to click on a specific internship applicat
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-internship-application-code-delete-code"><a class="link" href="#deleting-an-internship-application-code-delete-code">4.6. Deleting an internship application : <code>delete</code></a></h3>
+<h3 id="deleting-internship-application-code-delete-code"><a class="link" href="#deleting-internship-application-code-delete-code">4.6. Deleting internship application: <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Delete specified internship applications from the current list.<br></p>
+<p>Delete specific internship applications from the current list.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -690,9 +694,9 @@ Deletes the 1st, 2nd, and 3rd internship applications from the results of the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="archiving-an-internship-application-code-archive-code"><a class="link" href="#archiving-an-internship-application-code-archive-code">4.7. Archiving an internship application : <code>archive</code></a></h3>
+<h3 id="archiving-internship-application-code-archive-code"><a class="link" href="#archiving-internship-application-code-archive-code">4.7. Archiving internship application: <code>archive</code></a></h3>
 <div class="paragraph">
-<p>Archive specified internship applications from the main list.<br></p>
+<p>Archive specific internship applications in the main list.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -808,9 +812,9 @@ Archives all the internship applications with the <code>rejected</code> status i
 </div>
 </div>
 <div class="sect2">
-<h3 id="unarchiving-an-internship-application-code-unarchive-code"><a class="link" href="#unarchiving-an-internship-application-code-unarchive-code">4.8. Unarchiving an internship application : <code>unarchive</code></a></h3>
+<h3 id="unarchiving-internship-application-code-unarchive-code"><a class="link" href="#unarchiving-internship-application-code-unarchive-code">4.8. Unarchiving internship application: <code>unarchive</code></a></h3>
 <div class="paragraph">
-<p>Unarchive specified internship applications from the archival list.<br></p>
+<p>Unarchive specific internship applications in the archival list.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -926,7 +930,7 @@ Unarchives all the internship applications with the <code>rejected</code> status
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-internship-application-code-edit-code"><a class="link" href="#editing-an-internship-application-code-edit-code">4.9. Editing an internship application : <code>edit</code></a></h3>
+<h3 id="editing-an-internship-application-code-edit-code"><a class="link" href="#editing-an-internship-application-code-edit-code">4.9. Editing an internship application: <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an internship application in the internship diary.<br>
 Format: <code>edit INDEX [c/COMPANY] [r/ROLE] [d/DATE] [s/STATUS] [p/PHONE] [e/EMAIL] [a/ADDRESS] [w/PRIORITY]​</code></p>
@@ -1048,7 +1052,7 @@ being <code>Software Engineer</code> but not company that is <code>Facebook</cod
 </table>
 </div>
 <div class="sect2">
-<h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">4.11. Sorting internship companies by field : <code>sort</code></a></h3>
+<h3 id="sorting-internship-companies-by-field-code-sort-code"><a class="link" href="#sorting-internship-companies-by-field-code-sort-code">4.11. Sorting internship companies by field: <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sort displayed internship companies based on a given FIELD.<br>
 Type <code>reverse</code> before <code>FIELD</code> to sort in the reverse order.<br>
@@ -1086,7 +1090,7 @@ Returns a list of currently displayed companies sorted by company name.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="modifying-an-interview-in-an-internship-application-code-interview-code"><a class="link" href="#modifying-an-interview-in-an-internship-application-code-interview-code">4.12. Modifying an interview in an internship application : <code>interview</code></a></h3>
+<h3 id="modifying-an-interview-in-an-internship-application-code-interview-code"><a class="link" href="#modifying-an-interview-in-an-internship-application-code-interview-code">4.12. Modifying an interview in an internship application: <code>interview</code></a></h3>
 <div class="paragraph">
 <p>Add, list, edit or delete interviews within an internship application<br></p>
 </div>
@@ -1099,7 +1103,7 @@ Returns a list of currently displayed companies sorted by company name.</p>
 <td class="content">
 An interview must contain a date and a boolean (true or false) that represents whether an interview is conducted online or not.<br>
 If the interview is not conducted online, an additional address field must be provided.
-See <a href="#interview">Section 3.4, &#8220;Structure of Interview&#8221;</a> for more information.
+See <a href="#interview">Section 3.4, &#8220;Structure of interview&#8221;</a> for more information.
 </td>
 </tr>
 </table>
@@ -1196,7 +1200,7 @@ Deletes the 1st interview in the 1st internship application in the list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-applications-due-or-have-interviews-in-7-days-code-reminder-code"><a class="link" href="#getting-applications-due-or-have-interviews-in-7-days-code-reminder-code">4.13. Getting applications due or have interviews in 7 days : <code>reminder</code></a></h3>
+<h3 id="getting-applications-due-or-have-interviews-in-7-days-code-reminder-code"><a class="link" href="#getting-applications-due-or-have-interviews-in-7-days-code-reminder-code">4.13. Getting applications due or have interviews in 7 days: <code>reminder</code></a></h3>
 <div class="paragraph">
 <p>Displays all internship application(s) that:</p>
 </div>
@@ -1252,7 +1256,7 @@ e.g. <code>reminder dummy variable</code> be just be treated as <code>reminder</
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.14. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.14. Clearing all entries: <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the Internship Diary.<br>
 Format: <code>clear</code></p>
@@ -1276,7 +1280,7 @@ Format: <code>clear</code></p>
 <div class="content">
 <img src="images/internship_diary_stats.png" alt="internship diary stats" width="500">
 </div>
-<div class="title">Figure 9. Statistics window which will be opened when <code>stats</code> is executed</div>
+<div class="title">Figure 9. Statistics window which opens when <code>stats</code> is executed</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1309,22 +1313,34 @@ Format: <code>clear</code></p>
 </div>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Alternatively, you may use your mouse to click on "Statistics" and then "View Statistics" to bring up the statistics window.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/click_statistics.png" alt="click statistics" width="790">
+</div>
+<div class="title">Figure 10. Opening statistics window via mouse click</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.16. Exiting the program: <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-command-history"><a class="link" href="#viewing-command-history">4.17. Viewing command history</a></h3>
-<div class="paragraph">
-<p>Use the <code>up</code> and <code>down</code> arrow keys while the command box is being focused to scroll through your command history.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.18. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Internship Diary is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1428,4 +1444,4 @@ e.g. <code>interview 1 delete 1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:30:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:21:19 UTC</div></div></div></body></html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Internship Diary - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">My Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Internship Diary - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Internship Diary - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>CS2103T-F10-2</code>      Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
@@ -10,23 +10,23 @@
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#setting-up">2. Setting Up</a></li>
 <li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">3.1. Architecture</a></li>
-<li><a href="#Design-Ui">3.2. UI component</a></li>
-<li><a href="#Design-Logic">3.3. Logic component</a></li>
-<li><a href="#Design-Model">3.4. Model component</a></li>
-<li><a href="#Design-Storage">3.5. Storage component</a></li>
-<li><a href="#Design-Commons">3.6. Common classes</a></li>
+<li><a href="#Design-Ui">3.2. UI Component</a></li>
+<li><a href="#Design-Logic">3.3. Logic Component</a></li>
+<li><a href="#Design-Model">3.4. Model Component</a></li>
+<li><a href="#Design-Storage">3.5. Storage Component</a></li>
+<li><a href="#Design-Commons">3.6. Common Classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#sort-command">4.1. Sort command</a>
+<li><a href="#sort-command">4.1. Sort Command</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-2">4.1.1. Implementation</a></li>
-<li><a href="#reverse-sort">4.1.2. Reverse sort</a></li>
+<li><a href="#reverse-sort">4.1.2. Reverse Sort</a></li>
 <li><a href="#design-considerations">4.1.3. Design Considerations</a>
 <ul class="sectlevel4">
 <li><a href="#aspect-how-to-sort-by-multiple-fields">4.1.3.1. Aspect: How to sort by multiple fields</a></li>
@@ -34,12 +34,12 @@
 </li>
 </ul>
 </li>
-<li><a href="#clear-command">4.2. Clear command</a>
+<li><a href="#clear-command">4.2. Clear Command</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-3">4.2.1. Implementation</a></li>
 <li><a href="#design-considerations-2">4.2.2. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-how-to-prompt-for-confirmation">4.2.2.1. Aspect: How to prompt for confirmation.</a></li>
+<li><a href="#aspect-how-to-prompt-for-confirmation">4.2.2.1. Aspect: How to prompt for confirmation</a></li>
 </ul>
 </li>
 </ul>
@@ -49,12 +49,12 @@
 <li><a href="#implementation-4">4.3.1. Implementation</a></li>
 <li><a href="#design-considerations-3">4.3.2. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown">4.3.2.1. Aspect: What should happen when DOWN is pressed when the latest history is being shown.</a></li>
-<li><a href="#aspect-should-invalid-commands-be-stored">4.3.2.2. Aspect: Should invalid commands be stored.</a></li>
-<li><a href="#aspect-when-should-the-position-of-historyiterator-reset">4.3.2.3. Aspect: When should the position of historyIterator reset.</a></li>
+<li><a href="#aspect-what-should-happen-when-down-key-is-pressed-when-the-latest-history-is-being-shown">4.3.2.1. Aspect: What should happen when down key is pressed when the latest history is being shown</a></li>
+<li><a href="#aspect-should-invalid-commands-be-stored">4.3.2.2. Aspect: Should invalid commands be stored</a></li>
+<li><a href="#aspect-when-should-the-position-of-historyiterator-reset">4.3.2.3. Aspect: When should the position of historyIterator reset</a></li>
 </ul>
 </li>
-<li><a href="#proposed-feature">4.3.3. Proposed Feature</a></li>
+<li><a href="#proposed-improvements-command-history-storage">4.3.3. [Proposed Improvements] Command History Storage</a></li>
 </ul>
 </li>
 <li><a href="#interview-and-interview-commands">4.4. Interview and Interview Commands</a>
@@ -67,12 +67,12 @@
 <li><a href="#design-considerations-4">4.4.6. Design Considerations</a>
 <ul class="sectlevel4">
 <li><a href="#aspect-how-to-implement-interview">4.4.6.1. Aspect: How to implement Interview</a></li>
-<li><a href="#aspect-how-to-implement-different-interview-commands">4.4.6.2. Aspect: How to implement different interview commands</a></li>
+<li><a href="#aspect-how-to-implement-different-interview-commands">4.4.6.2. Aspect: How to implement different Interview Commands</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#find-command">4.5. Find command</a>
+<li><a href="#find-command">4.5. Find Command</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-6">4.5.1. Implementation</a></li>
 <li><a href="#find-any-match">4.5.2. Find Any Match</a></li>
@@ -80,7 +80,7 @@
 <li><a href="#determine-which-find-to-invoke">4.5.4. Determine which Find to Invoke</a></li>
 <li><a href="#design-considerations-5">4.5.5. Design Considerations</a>
 <ul class="sectlevel4">
-<li><a href="#aspect-how-to-implement-the-different-versions-of-find-command">4.5.5.1. Aspect: How to implement the different versions of find command</a></li>
+<li><a href="#aspect-how-to-implement-the-different-versions-of-find-command">4.5.5.1. Aspect: How to implement the different versions of Find command</a></li>
 </ul>
 </li>
 </ul>
@@ -101,11 +101,11 @@
 <li><a href="#archive-unarchive">4.6.2. Archive &amp; Unarchive</a>
 <ul class="sectlevel4">
 <li><a href="#implementation-8">4.6.2.1. Implementation</a></li>
+<li><a href="#design-considerations-7">4.6.2.2. Design Considerations</a>
+<ul class="sectlevel5">
+<li><a href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.6.2.2.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></li>
 </ul>
 </li>
-<li><a href="#design-considerations-7">4.6.3. Design Considerations</a>
-<ul class="sectlevel4">
-<li><a href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.6.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -124,7 +124,7 @@
 <li><a href="#reminder-command">4.8. Reminder Command</a>
 <ul class="sectlevel3">
 <li><a href="#implementation-10">4.8.1. Implementation</a></li>
-<li><a href="#design-considerations-9">4.8.2. Design considerations</a>
+<li><a href="#design-considerations-9">4.8.2. Design Considerations</a>
 <ul class="sectlevel5">
 <li><a href="#aspect-the-order-to-display-the-internship-applications">4.8.2.1. Aspect: The order to display the internship applications</a></li>
 <li><a href="#aspect-the-filtering-of-internship-applications-to-be-shown">4.8.2.2. Aspect: The filtering of internship applications to be shown</a></li>
@@ -147,8 +147,8 @@
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#using-internship-diary-with-sample-internship-application-list">G.1. Using Internship Diary with Sample Internship Application List</a></li>
-<li><a href="#launch-and-shutdown">G.2. Launch and Shutdown</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#using-internship-diary-with-sample-internship-application-list">G.2. Using Internship Diary with Sample Internship Application List</a></li>
 <li><a href="#command-box">G.3. Command Box</a></li>
 <li><a href="#main-list-view">G.4. Main List View</a></li>
 <li><a href="#archival-list-view">G.5. Archival List View</a></li>
@@ -191,7 +191,7 @@ However, you may also use it if you wish to gain deeper insight into the system 
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting Up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -294,7 +294,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI Component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -328,7 +328,7 @@ For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F10-
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic Component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -381,7 +381,7 @@ The lifeline for <code>SelectCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model Component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -428,7 +428,7 @@ An example of how such a model may look like is given below.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage Component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -453,7 +453,7 @@ An example of how such a model may look like is given below.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common Classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.diary.commons</code> package.</p>
 </div>
@@ -467,7 +467,7 @@ An example of how such a model may look like is given below.<br>
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="sort-command"><a class="link" href="#sort-command">4.1. Sort command</a></h3>
+<h3 id="sort-command"><a class="link" href="#sort-command">4.1. Sort Command</a></h3>
 <div class="paragraph">
 <p>The sort command allows the user to sort the currently visible list of internship applications.
 The following sequence diagram will illustrate the process of invocation for the command:</p>
@@ -476,7 +476,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="images/SortSequenceDiagram.png" alt="SortSequenceDiagram">
 </div>
-<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>sort c/</code> Command</div>
+<div class="title">Figure 9. Interactions inside the Logic Component for the <code>sort c/</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the sort command.</p>
@@ -532,7 +532,7 @@ to it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reverse-sort"><a class="link" href="#reverse-sort">4.1.2. Reverse sort</a></h4>
+<h4 id="reverse-sort"><a class="link" href="#reverse-sort">4.1.2. Reverse Sort</a></h4>
 <div class="paragraph">
 <p>This version of the command is invoked when the user enters the command with <code>reverse</code> as the preamble text in the parameter, e.g. <code>sort reverse c/</code>.
 After retrieving the correct <code>comparator</code> to use, the parser would pass <code>comparator.reversed()</code> to the constructor of <code>SortCommand</code> instead of <code>comparator</code>.
@@ -583,7 +583,7 @@ Harder to implement reverse sorting.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-command"><a class="link" href="#clear-command">4.2. Clear command</a></h3>
+<h3 id="clear-command"><a class="link" href="#clear-command">4.2. Clear Command</a></h3>
 <div class="paragraph">
 <p>The clear command allows the user to delete all internship applications.
 The following sequence diagram will illustrate the process of invocation for the command:</p>
@@ -592,7 +592,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="images/ClearSequenceDiagram.png" alt="ClearSequenceDiagram">
 </div>
-<div class="title">Figure 11. Interactions Inside the Logic Component for the <code>clear</code> Command</div>
+<div class="title">Figure 11. Interactions inside the Logic Component for the <code>clear</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the clear command.</p>
@@ -610,7 +610,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-prompt-for-confirmation"><a class="link" href="#aspect-how-to-prompt-for-confirmation">4.2.2.1. Aspect: How to prompt for confirmation.</a></h5>
+<h5 id="aspect-how-to-prompt-for-confirmation"><a class="link" href="#aspect-how-to-prompt-for-confirmation">4.2.2.1. Aspect: How to prompt for confirmation</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -713,7 +713,7 @@ Also, it is highly unlikely that users would need to see their entered commands 
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown"><a class="link" href="#aspect-what-should-happen-when-down-is-pressed-when-the-latest-history-is-being-shown">4.3.2.1. Aspect: What should happen when DOWN is pressed when the latest history is being shown.</a></h5>
+<h5 id="aspect-what-should-happen-when-down-key-is-pressed-when-the-latest-history-is-being-shown"><a class="link" href="#aspect-what-should-happen-when-down-key-is-pressed-when-the-latest-history-is-being-shown">4.3.2.1. Aspect: What should happen when down key is pressed when the latest history is being shown</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -761,7 +761,7 @@ Harder to implement.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-should-invalid-commands-be-stored"><a class="link" href="#aspect-should-invalid-commands-be-stored">4.3.2.2. Aspect: Should invalid commands be stored.</a></h5>
+<h5 id="aspect-should-invalid-commands-be-stored"><a class="link" href="#aspect-should-invalid-commands-be-stored">4.3.2.2. Aspect: Should invalid commands be stored</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -797,7 +797,7 @@ an autocomplete feature.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-when-should-the-position-of-historyiterator-reset"><a class="link" href="#aspect-when-should-the-position-of-historyiterator-reset">4.3.2.3. Aspect: When should the position of historyIterator reset.</a></h5>
+<h5 id="aspect-when-should-the-position-of-historyiterator-reset"><a class="link" href="#aspect-when-should-the-position-of-historyiterator-reset">4.3.2.3. Aspect: When should the position of historyIterator reset</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -832,7 +832,7 @@ and when command executed successfully.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="proposed-feature"><a class="link" href="#proposed-feature">4.3.3. Proposed Feature</a></h4>
+<h4 id="proposed-improvements-command-history-storage"><a class="link" href="#proposed-improvements-command-history-storage">4.3.3. [Proposed Improvements] Command History Storage</a></h4>
 <div class="paragraph">
 <p>There are plans to save the Command History in the hard drive, so that it may be accessed across sessions.
 However, due to the complexity and difficulty of implementation, it will only be rolled out in a future version.</p>
@@ -845,7 +845,7 @@ However, due to the complexity and difficulty of implementation, it will only be
 <h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The implementation of interviews will be facilitated by two overarching components, the Model Abstract Class <code>Interview</code>
-which is associated to an <code>InternshipApplication</code> (see Model Diagram <a href="#Design-Model">Section 3.4, &#8220;Model component&#8221;</a> ) and the Logic Classes <code>InterviewCommandParser</code> and <code>InterviewCommand</code>.</p>
+which is associated to an <code>InternshipApplication</code> (see Model Diagram <a href="#Design-Model">Section 3.4, &#8220;Model Component&#8221;</a> ) and the Logic Classes <code>InterviewCommandParser</code> and <code>InterviewCommand</code>.</p>
 </div>
 <div class="paragraph">
 <p>The Logic Classes will interact with the <code>Interview</code> Classes to modify the interviews list in <code>InternshipApplication</code>.
@@ -971,7 +971,7 @@ All other sub-commands will follow the same invocation format.</p>
 <div class="content">
 <img src="images/InterviewCommandSequenceDiagram.png" alt="InterviewCommandSequenceDiagram">
 </div>
-<div class="title">Figure 18. Interactions Inside the Logic Component for <code>InterviewAddCommand</code></div>
+<div class="title">Figure 18. Interactions inside the Logic Component for <code>InterviewAddCommand</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -1041,7 +1041,7 @@ Interview types.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">4.4.6.2. Aspect: How to implement different interview commands</a></h5>
+<h5 id="aspect-how-to-implement-different-interview-commands"><a class="link" href="#aspect-how-to-implement-different-interview-commands">4.4.6.2. Aspect: How to implement different Interview Commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1078,7 +1078,7 @@ Create a lot of repetition in code.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-command"><a class="link" href="#find-command">4.5. Find command</a></h3>
+<h3 id="find-command"><a class="link" href="#find-command">4.5. Find Command</a></h3>
 <div class="paragraph">
 <p>The find command allows the user to get a filtered list of internship applications.
 The following sequence diagram will illustrate the process of invocation for the command:</p>
@@ -1087,7 +1087,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram">
 </div>
-<div class="title">Figure 19. Interactions Inside the Logic Component for the <code>find c/google r/software</code> Command</div>
+<div class="title">Figure 19. Interactions inside the Logic Component for the <code>find c/google r/software</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the find command, as well as the 2 versions of the command, find any match, and find match by fields.</p>
@@ -1190,7 +1190,7 @@ instance.</p>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.5. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">4.5.5.1. Aspect: How to implement the different versions of find command</a></h5>
+<h5 id="aspect-how-to-implement-the-different-versions-of-find-command"><a class="link" href="#aspect-how-to-implement-the-different-versions-of-find-command">4.5.5.1. Aspect: How to implement the different versions of Find command</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1295,7 +1295,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="700">
 </div>
-<div class="title">Figure 22. Structure of InternshipDiary</div>
+<div class="title">Figure 22. Structure of <code>InternshipDiary</code> that showcases the methods and attributes required for view-switching</div>
 </div>
 <div class="paragraph">
 <p>The object diagram below illustrates the three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code>:</p>
@@ -1336,7 +1336,7 @@ You may use the same sequence diagram for the <code>list</code> command.</p>
 <div class="content">
 <img src="images/ArchivalSequenceDiagram.png" alt="ArchivalSequenceDiagram">
 </div>
-<div class="title">Figure 24. Interactions Inside the Logic Component for <code>archival</code> Command</div>
+<div class="title">Figure 24. Sequence diagram for <code>archival</code> Command</div>
 </div>
 <div class="paragraph">
 <p>The following code snippet is retrieved from the <code>InternshipDiary</code> class.
@@ -1371,7 +1371,7 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 <div class="content">
 <img src="images/InternshipDiaryAndModelManagerPropertyChangeClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeClassDiagram">
 </div>
-<div class="title">Figure 25. Implementation of a two-tier observer-observable structure</div>
+<div class="title">Figure 25. Implementation of a two-tier observer-observable structure for <code>InternshipDiary</code></div>
 </div>
 <div class="paragraph">
 <p>The class diagram above showcases our implementation of a two-tier observer-observable structure:<br></p>
@@ -1466,7 +1466,7 @@ It will then repeat the event emission process to any UI element (e.g. <code>Sta
 <div class="content">
 <img src="images/ActivityDiagramObserverPattern.png" alt="ActivityDiagramObserverPattern">
 </div>
-<div class="title">Figure 26. Activity diagram for Observer Pattern for <code>archival</code> Command</div>
+<div class="title">Figure 26. Activity diagram to illustrate the Observer Pattern using <code>archival</code> command</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1502,7 +1502,7 @@ This is especially important when many properties are being observed.</p>
 <div class="content">
 <img src="images/InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram">
 </div>
-<div class="title">Figure 27. Updated class diagram for the implementation of two-tier observer-observable structure with <code>ListenerPropertyType</code> enumeration</div>
+<div class="title">Figure 27. Updated class diagram to showcase our implementation of the two-tier observer-observable structure with <code>ListenerPropertyType</code> enumeration</div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, each observable will implement two additional methods to use <code>ListenerPropertyType</code> enumeration as parameters:</p>
@@ -1654,7 +1654,7 @@ Through this new class, users will be able to execute the commands on multiple i
 <div class="content">
 <img src="images/RemovalBasedClassDiagram.png" alt="RemovalBasedClassDiagram">
 </div>
-<div class="title">Figure 29. Structure of <code>RemovalBasedCommand</code> with its associated classes</div>
+<div class="title">Figure 29. Structure of <code>RemovalBasedCommand</code> and <code>RemovalBasedCommandExecutionTypeParser</code> with its associated classes</div>
 </div>
 <div class="paragraph">
 <p>The idea of the implementation can be summarized as follows:</p>
@@ -1717,7 +1717,7 @@ Other variations of <strong>removal-based commands</strong> and <strong>executio
 <div class="content">
 <img src="images/ArchiveSequenceDiagram.png" alt="ArchiveSequenceDiagram">
 </div>
-<div class="title">Figure 30. Interactions Inside the Logic Component for the <code>archive s/rejected</code> Command</div>
+<div class="title">Figure 30. Interactions inside the Logic Component for the <code>archive s/rejected</code> Command</div>
 </div>
 <div class="paragraph">
 <p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the internship applications and then converting these internship applications to their respective index.
@@ -1754,7 +1754,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="images/RemovalBasedCommandExecutionTypeParserSequenceDiagram.png" alt="RemovalBasedCommandExecutionTypeParserSequenceDiagram">
 </div>
-<div class="title">Figure 31. Sequence Diagram of how <code>RemovalBasedCommandExecuteTypeParser</code> parses input and determines execution type of command</div>
+<div class="title">Figure 31. Sequence Diagram of how <code>RemovalBasedCommandExecuteTypeParser</code> parses input and determines the execution type of command</div>
 </div>
 <div class="paragraph">
 <p>As seen from the diagram above, the parser determined the execution type to be <code>BY_FIELD</code> and generated the appropriate predicate to construct a <code>RemovalBasedCommand</code> instance.</p>
@@ -1769,7 +1769,7 @@ It also shows how a <code>RemovalBasedCommand</code> is created with the appropr
 <div class="content">
 <img src="images/GenerateLazyCommandSequenceDiagram.png" alt="GenerateLazyCommandSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 32. Creation of lambda function by <code>RemovalBasedCommand</code> instance</div>
+<div class="title">Figure 32. Creation of lazy lambda function by <code>RemovalBasedCommand</code> instance</div>
 </div>
 <div class="paragraph">
 <p>As the command word is <code>archive</code>, a lazy lambda function to construct an <code>ArchiveCommand</code> is returned.</p>
@@ -1782,7 +1782,7 @@ This particular index allows us to retrieve the appropriate internship applicati
 <div class="content">
 <img src="images/ConstructAndExecuteLazyCommandByIndexSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndexSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 33. Execution of removal-based command on one index</div>
+<div class="title">Figure 33. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on one index</div>
 </div>
 <div class="paragraph">
 <p>It can be seen that the previously-generated lazy command is executed in the above sequence diagram.</p>
@@ -1798,7 +1798,7 @@ In this case, <code>archiveInternshipApplication</code> is called.</p>
 <div class="content">
 <img src="images/ConstructAndExecuteLazyCommandByIndicesSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndicesSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 34. Execution of <code>ArchiveCommand</code> on indices</div>
+<div class="title">Figure 34. Sequence diagram to illustrate the execution of the removal-based command, <code>archive</code>, on indices</div>
 </div>
 <div class="paragraph">
 <p>As seen above, <code>executeLazyCommandOnIndices</code> merely reuses the function <code>executeLazyCommandOnIndex</code> (from the previous sequence diagram) by running it on every index provided.
@@ -1811,14 +1811,13 @@ The feedback from each execution is cumulatively concatenated to form a single f
 <div class="content">
 <img src="images/CreateCommandResultSequenceDiagram.png" alt="CreateCommandResultSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 35. Re-creating command result in <code>RemovalBasedCommand</code></div>
+<div class="title">Figure 35. Re-creating the command result in <code>RemovalBasedCommand</code></div>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.6.3.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h5>
+<h5 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.2.2. Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">4.6.2.2.1. Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1854,6 +1853,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -1935,7 +1935,7 @@ This is risky and will take a lot of time, effort, and team discussion.</p>
 <div class="content">
 <img src="images/ActivityDiagramStatistics.png" alt="ActivityDiagramStatistics">
 </div>
-<div class="title">Figure 37. Activity Diagram of how <code>StatisticsWindow</code> is notified of updates list and statistics is updated</div>
+<div class="title">Figure 37. Activity Diagram to show how <code>StatisticsWindow</code> is notified of updates in the internship application list and how statistics is updated accordingly</div>
 </div>
 <div class="paragraph">
 <p>Upon creation of the <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code>, each of them will attach an event listener to the internship application list that it was given.
@@ -2109,7 +2109,7 @@ earlier date out of the two is used for the sorting. The most urgent application
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.8.2. Design considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.8.2. Design Considerations</a></h4>
 <div class="sect5">
 <h6 id="aspect-the-order-to-display-the-internship-applications"><a class="link" href="#aspect-the-order-to-display-the-internship-applications">4.8.2.1. Aspect: The order to display the internship applications</a></h6>
 <div class="ulist">
@@ -3440,24 +3440,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="using-internship-diary-with-sample-internship-application-list"><a class="link" href="#using-internship-diary-with-sample-internship-application-list">G.1. Using Internship Diary with Sample Internship Application List</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Close Internship Diary.</p>
-</li>
-<li>
-<p>Delete the file <code>./internshipdiary.json</code> (if applicable).</p>
-</li>
-<li>
-<p>Launch Internship Diary.<br>
-Expected: A sample internship application list with 6 internship applications should be displayed.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.2. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3469,7 +3452,7 @@ Expected: A sample internship application list with 6 internship applications sh
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI with a set of sample internship applications. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -3483,11 +3466,27 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
-   Expected: The most recent window size and location is retained.
-<em>{ more test cases &#8230;&#8203; }</em></p>
+Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-internship-diary-with-sample-internship-application-list"><a class="link" href="#using-internship-diary-with-sample-internship-application-list">G.2. Using Internship Diary with Sample Internship Application List</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Close Internship Diary.</p>
+</li>
+<li>
+<p>Delete the file <code>./internshipdiary.json</code> (if applicable).</p>
+</li>
+<li>
+<p>Launch Internship Diary.<br>
+Expected: A sample internship application list with 6 internship applications should be displayed.</p>
 </li>
 </ol>
 </div>
@@ -3600,6 +3599,11 @@ Expected: All archived internship application(s) are displayed.</p>
 <p>Test case: <code>add c/Google r/Software Engineer d/17 04 2020 s/applied</code><br>
 Expected: New internship application is added to the bottom of the list.
 Details of the newly-added internship application shown in the feedback box.</p>
+</li>
+<li>
+<p>Test case: <code>add c/Google r/Software Engineer d/17 04 2020</code><br>
+Expected: Internship application is not added.
+Error details shown in feedback box.</p>
 </li>
 </ol>
 </div>
@@ -3755,6 +3759,9 @@ Details of the deleted internship applications shown in the feedback box.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Current view is the main list</p>
+</li>
+<li>
 <p>At least one internship application displayed</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
@@ -3789,6 +3796,9 @@ Expected: Similar to previous.</p>
 <p>Prerequisites:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Current view is the main list</p>
+</li>
 <li>
 <p>At least two internship applications displayed</p>
 <div class="olist lowerroman">
@@ -3830,6 +3840,9 @@ Error details shown in feedback box.</p>
 <p>Prerequisites:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>current view is the main list</p>
+</li>
 <li>
 <p>at least one internship application with status "applied"</p>
 </li>
@@ -3890,6 +3903,9 @@ Details of the archived internship applications shown in the feedback box.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>current view is the archival list</p>
+</li>
+<li>
 <p>At least one internship application displayed</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
@@ -3924,6 +3940,9 @@ Expected: Similar to previous.</p>
 <p>Prerequisites:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>current view is the archival list</p>
+</li>
 <li>
 <p>At least two internship applications displayed</p>
 <div class="olist lowerroman">
@@ -3965,6 +3984,9 @@ Error details shown in feedback box.</p>
 <p>Prerequisites:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>current view is the archival list</p>
+</li>
 <li>
 <p>at least one internship application with status "applied"</p>
 </li>
@@ -4286,9 +4308,9 @@ their internship applications, we designed and implemented <code>reminder</code>
 <div class="sect3">
 <h4 id="designing-code-find-code-code-sort-code-and-code-reminder-code"><a class="link" href="#designing-code-find-code-code-sort-code-and-code-reminder-code">H.1.1. Designing <code>find</code>, <code>sort</code>, and <code>reminder</code></a></h4>
 <div class="paragraph">
-<p>There was a need to plan how <code>find</code>, <code>sort</code>, and <code>reminder</code> command should behave and how we can extend such commands with new behaviours easily in the future.
+<p>There was a need to plan how <code>find</code>, <code>sort</code>, and <code>reminder</code> should behave and how we can extend such commands with new behaviours easily in the future.
 This required a lot of team discussion and effort in terms of coming up with drafts for our intended implementation. For <code>find</code>, we had to ensure that
-when a new field is added, or if an existing field is changed, we can simply add/edit predicate classes accordingly and make changes only in the <code>FindCommandParser</code>.
+when a new field is added, or if an existing field is changed, we can simply add / edit predicate classes accordingly and make changes only in the <code>FindCommandParser</code>.
 For <code>sort</code>, we had to ensure that adding or removing a sort comparator only required very minimal changes to the <code>SortCommandParser</code> (which requires only a single line in our final implementation).
 On top of that, we also had to ensure that it is easy to pass a description of the predicate and comparator used to the <code>PredicateDisplayFooter</code> and <code>SortDisplayFooter</code> respectively.
 For <code>reminder</code>, there was a need to plan the conditions to decide which internship applications to show when the reminder command is used for the implementation of the corresponding predicates to use.</p>
@@ -4323,9 +4345,9 @@ For example, as our features introduced many new UI elements and backend impleme
 <div class="paragraph">
 <p>We needed a more robust solution to help us keep the UI in sync with the state of our data. This required the team to look into how we can implement the observer pattern design into our system and the best options we have
 to implement the structure. There were various constraints that we had to be mindful of as we incorporated the observer pattern, mainly due to the way we implemented certain features (as reactivity issue was something we did
-not foresee). As this is our first time dealing with the observer pattern, we had to spend a good amount of time to understand and implement it properly.</p>
+not foresee). As this was our first time dealing with the observer pattern, we had to spend a good amount of time to research, understand, and implement it properly.</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:30:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:21:19 UTC</div></div></div></body></html>
