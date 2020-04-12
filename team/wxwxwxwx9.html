@@ -56,9 +56,26 @@ it "de-clutters" their main list. This allows them to focus on the internship ap
 <li>
 <p><strong>Highlights</strong>: The archival feature seems trivial as it is usually a staple feature in many tracking applications.
 However, it was challenging to decide on a design implementation for our use case such that the feature is sustainable and extensible.
-Due to the chosen design, there was a need to implement a form of observer pattern to handle reactivity issues&#8201;&#8212;&#8201;this became another important design consideration.
-Furthermore, for the <code>archive</code> and <code>unarchive</code> commands, the concept of enabling multiple execution types (e.g. by index, indices, and status) was
-not trivial to design and implement as well.</p>
+Due to the chosen design, there was a need to implement a form of observer pattern to handle reactivity issues&#8201;&#8212;&#8201;this became another important design consideration.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Implemented Multi-Execution Type functionality for Removal-Based Commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: Allows users to execute removal-based commands like <code>archive</code>, <code>unarchive</code>, <code>delete</code> on multiple internship applications (by index, indices, or field).</p>
+</li>
+<li>
+<p><strong>Justification</strong>: This would greatly aid users in organising their internship applications. Imagine having to archive your internship applications one-by-one. This would not be a pleasant experience for the user.
+Users can now archive / unarchive / delete internship applications with a certain <code>status</code> or by multiple index-es.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This feature seems trivial to implement. However, to design and implement it well is not easy. I had to discuss extensively with the team regarding the <strong>most suitable</strong>
+implementation (not the best) to go ahead with. This is because we have to consider aspects like timeline, amount of refactoring, conflicts with existing implementations, and other issues.
+We had to carefully weigh the amount of effort required and the benefit this feature would bring to the user as well.</p>
 </li>
 </ul>
 </div>
@@ -102,6 +119,9 @@ This required careful design considerations.</p>
 <ul>
 <li>
 <p>Actively managed team repository&#8217;s issue panel by adding, assigning, labeling, and closing issues.</p>
+</li>
+<li>
+<p>Ensured that the team is heading in the right direction by monitoring the development progress and bringing up important issues.</p>
 </li>
 </ul>
 </div>
@@ -161,12 +181,1236 @@ This required careful design considerations.</p>
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="viewing-unarchived-internship-applications-code-list-code"><a class="link" href="#viewing-unarchived-internship-applications-code-list-code">Viewing unarchived internship applications : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Displays <strong>unarchived</strong> internship applications. This is known as your <strong>main list</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/main_list.png" alt="main list" width="800">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-archived-internship-applications-code-archival-code"><a class="link" href="#viewing-archived-internship-applications-code-archival-code">Viewing archived internship applications: <code>archival</code></a></h3>
+<div class="paragraph">
+<p>Displays <strong>archived</strong> internship applications. This is known as your <strong>archival list</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>archival</code></p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/archival_list.png" alt="archival list" width="800">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-internship-application-code-delete-code"><a class="link" href="#deleting-an-internship-application-code-delete-code">Deleting an internship application : <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Delete specified internship applications from the current list.<br></p>
+</div>
+<div class="paragraph">
+<p>Formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete INDEX</code></p>
+</li>
+<li>
+<p><code>delete INDEX, [INDEX]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>delete s/STATUS</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting by <code>INDEX</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the internship application at <code>INDEX</code> (<strong>must be a positive integer</strong>).</p>
+</li>
+<li>
+<p><code>INDEX</code> may be entered in any order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>delete 3, 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Duplicated <code>INDEX</code> will be ignored.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>delete 1, 2, 2</code> has the same effect as <code>delete 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deleting by <code>STATUS</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>There must be at least one valid <code>STATUS</code>.</p>
+</li>
+<li>
+<p>There can be multiple <code>STATUS</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will delete internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>delete s/applied wishlist</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The command will execute as long as there is a valid <code>STATUS</code>&#8201;&#8212;&#8201;it will ignore other invalid inputs. If there is no internship application with the
+specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application acted upon).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will delete internship application(s) with status <code>rejected</code> for <code>delete s/ somethinginvalid rejected</code>.</p>
+</li>
+<li>
+<p>e.g. the command will delete internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>delete s/applied somethinginvalid wishlist</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd internship application from the main list.</p>
+</li>
+<li>
+<p><code>archival</code><br>
+<code>delete s/applied</code><br>
+Deletes all the internship applications with the <code>applied</code> status from the archival list.</p>
+</li>
+<li>
+<p><code>list</code><br>
+ <code>find Google</code><br>
+<code>delete 2, 1, 3</code><br>
+Deletes the 1st, 2nd, and 3rd internship applications from the results of the <code>find</code> command (in main list).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="archiving-an-internship-application-code-archive-code"><a class="link" href="#archiving-an-internship-application-code-archive-code">Archiving an internship application : <code>archive</code></a></h3>
+<div class="paragraph">
+<p>Archive specified internship applications from the main list.<br></p>
+</div>
+<div class="paragraph">
+<p>Formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>archive INDEX</code></p>
+</li>
+<li>
+<p><code>archive INDEX, [INDEX]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>archive s/STATUS</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Archiving by <code>INDEX</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Archives the internship application at <code>INDEX</code> (<strong>must be a positive integer</strong>).</p>
+</li>
+<li>
+<p><code>INDEX</code> may be entered in any order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>archive 3, 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Duplicated <code>INDEX</code> will be ignored.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>archive 1, 2, 2</code> has the same effect as <code>archive 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Archiving by <code>STATUS</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>There must be at least one valid <code>STATUS</code>.</p>
+</li>
+<li>
+<p>There can be multiple <code>STATUS</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will archive internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>archive s/applied wishlist</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The command will execute as long as there is a valid <code>STATUS</code>&#8201;&#8212;&#8201;it will ignore other invalid inputs. If there is no internship application with the
+specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application acted upon).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will archive internship application(s) with status <code>rejected</code> for <code>archive s/ somethinginvalid rejected</code>.</p>
+</li>
+<li>
+<p>e.g. the command will archive internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>archive s/applied somethinginvalid wishlist</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>archive 2</code><br>
+Archives the 2nd internship application in the main list.</p>
+</li>
+<li>
+<p><code>list</code><br>
+<code>find Google</code><br>
+<code>archive 2, 1, 3</code><br>
+Archives the 1st, 2nd, and 3rd internship application in the results of the <code>find</code> command (in main list).</p>
+</li>
+<li>
+<p><code>list</code><br>
+ <code>find Google</code><br>
+<code>archive s/rejected</code><br>
+Archives all the internship applications with the <code>rejected</code> status in the results of the <code>find</code> command (in main list).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unarchiving-an-internship-application-code-unarchive-code"><a class="link" href="#unarchiving-an-internship-application-code-unarchive-code">Unarchiving an internship application : <code>unarchive</code></a></h3>
+<div class="paragraph">
+<p>Unarchive specified internship applications from the archival list.<br></p>
+</div>
+<div class="paragraph">
+<p>Formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unarchive INDEX</code></p>
+</li>
+<li>
+<p><code>unarchive INDEX, [INDEX]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>unarchive s/STATUS</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Unarchiving by <code>INDEX</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Unarchives the internship application at <code>INDEX</code> (<strong>must be a positive integer</strong>).</p>
+</li>
+<li>
+<p><code>INDEX</code> may be entered in any order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>unarchive 3, 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Duplicated <code>INDEX</code> will be ignored.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>unarchive 1, 2, 2</code> has the same effect as <code>unarchive 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Unarchiving by <code>STATUS</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>There must be at least one valid <code>STATUS</code>.</p>
+</li>
+<li>
+<p>There can be multiple <code>STATUS</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will unarchive internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>unarchive s/applied wishlist</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The command will execute as long as there is a valid <code>STATUS</code>&#8201;&#8212;&#8201;it will ignore other invalid inputs. If there is no internship application with the
+specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application acted upon).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will unarchive internship application(s) with status <code>rejected</code> for <code>unarchive s/ somethinginvalid rejected</code>.</p>
+</li>
+<li>
+<p>e.g. the command will unarchive internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>unarchive s/applied somethinginvalid wishlist</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>unarchive 2</code><br>
+Unarchives the 2nd internship application in the main list.</p>
+</li>
+<li>
+<p><code>list</code><br>
+<code>find Google</code><br>
+<code>unarchive 2, 1, 3</code><br>
+Unarchives the 1st, 2nd, and 3rd internship application in the results of the <code>find</code> command (in main list).</p>
+</li>
+<li>
+<p><code>list</code><br>
+ <code>find Google</code><br>
+<code>unarchive s/rejected</code><br>
+Unarchives all the internship applications with the <code>rejected</code> status in the results of the <code>find</code> command (in main list).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="retrieving-statistics-code-stats-code"><a class="link" href="#retrieving-statistics-code-stats-code">Retrieving statistics: <code>stats</code></a></h3>
+<div class="paragraph">
+<p>Displays the statistics about your internship application(s) on the current list.</p>
+</div>
+<div class="paragraph">
+<p>The statistics will dynamically update as you modify the current list (e.g. switching between main and archival list).</p>
+</div>
+<div class="paragraph">
+<p>It will open a separate window that contains a bar chart and a pie chart.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats</code></p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/internship_diary_stats.png" alt="internship diary stats" width="500">
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The bar chart showcases:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the count of internship application(s) under each <code>STATUS</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The pie chart showcases:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the percentage of internship application(s) under each <code>STATUS</code></p>
+</li>
+<li>
+<p>percentages are rounded off to two decimal places</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="archival-system"><a class="link" href="#archival-system">Archival System</a></h3>
+<div class="paragraph">
+<p>This feature allows users to store chosen internship application(s) into the archival.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:59:15 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The entire system is driven by two mechanisms:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the ability to switch views between the archived and unarchived list of internship application(s)</p>
+</li>
+<li>
+<p>the ability to move internship application(s) into the archived list and vice-versa</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The two mechanisms can be further broken down into the following four commands: <code>list</code>, <code>archival</code>, <code>archive</code>, and <code>unarchive</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="list-archival"><a class="link" href="#list-archival">List &amp; Archival</a></h4>
+<div class="paragraph">
+<p>To handle the ability for a user to switch views, we implemented the commands <code>list</code> and <code>archival</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code> allows the user to view the unarchived internship application(s)</p>
+</li>
+<li>
+<p><code>archival</code> allows the user to view the archived internship application(s)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>From here on, we will refer to the list of unarchived internship application(s) as the <strong>main list</strong>, and the list of archived internship application(s) as the <strong>archival list</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Beyond the primary purpose of allowing users to switch between their view of main and archived list of internship application(s),
+<code>list</code> and <code>archival</code> also helps to verify that the <code>archive</code> and <code>unarchive</code> commands are used appropriately.</p>
+</div>
+<div class="paragraph">
+<p>This means that a user should not <code>archive</code> an internship application when it is already in the archival&#8201;&#8212;&#8201;doing so will raise an exception.
+This is identical for the <code>unarchive</code> command in the main list as well.</p>
+</div>
+<div class="sect4">
+<h5 id="implementation"><a class="link" href="#implementation">Implementation</a></h5>
+<div class="paragraph">
+<p>The class diagram below depicts the important methods and variables that provide us the ability to switch views between the main list and the archival list.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>The object diagram below illustrates the three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>displayedInternships</code></p>
+</li>
+<li>
+<p><code>archivedInternships</code></p>
+</li>
+<li>
+<p><code>unarchivedInternships</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InternshipDiaryAndModelManagerObjectDiagram.png" alt="InternshipDiaryAndModelManagerObjectDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>As the name suggests, <code>displayedInternships</code> is the list that is shown to the user in the GUI. It references either
+<code>archivedInternships</code> or <code>unarchivedInternships</code> at any one time.</p>
+</div>
+<div class="paragraph">
+<p>When a user is viewing the main list, <code>displayedInternships</code> references <code>unarchivedInternships</code>.
+And when a user is viewing the archival list, <code>displayedInternships</code> references <code>archivedInternships</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how an <code>archival</code> command is executed.
+The <code>list</code> command is similar to <code>archival</code>.
+You may use the same sequence diagram for the <code>list</code> command.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ArchivalSequenceDiagram.png" alt="ArchivalSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet is retrieved from the <code>InternshipDiary</code> class.
+It illustrates the internal workings of how we switch the view between the archived list and the main list.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>public void viewArchivedInternshipApplicationList() {
+    this.displayedInternships = archivedInternships;
+    this.currentView = InternshipApplicationViewType.ARCHIVED;
+    firePropertyChange(DISPLAYED_INTERNSHIPS, getDisplayedInternshipList());
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It can be seen explicitly from the code snippet that we make use of referencing to switch between the views of archival and main list.
+However, such implementation brings about issues with reactivity&#8201;&#8212;&#8201;where elements that reference <code>displayedInternships</code> will not be aware of the reference change in <code>displayedInternships</code> whenever the user executes <code>archival</code> or <code>list</code>.
+Therefore, in the above scenario, users would still see the main list after executing the <code>archival</code> command.</p>
+</div>
+<div class="paragraph">
+<p>In order to resolve this issue, we need to employ the <strong>observer pattern design</strong>.
+The broad idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
+Consequently, whenever there is a state change to <code>InternshipDiary</code>, the list of observers will be notified and updated automatically.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this observer pattern, we made use of the <code>PropertyChangeSupport</code> class and the <code>PropertyChangeListener</code> interface.
+<code>PropertyChangeSupport</code> is a utility class to support the observer pattern by managing a list of listeners (observers) and firing <code>PropertyChangeEvent</code> to the listeners.
+A class that contains an instance of <code>PropertyChangeSupport</code> is an observable.
+On the other hand, a class that implements the <code>PropertyChangeListener</code> interface is an observer.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InternshipDiaryAndModelManagerPropertyChangeClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The class diagram above showcases our implementation of a two-tier observer-observable structure:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InternshipDiary</code> is an observable</p>
+</li>
+<li>
+<p><code>ModelManager</code> is both an observable and observer</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It observes any changes to <code>displayedInternships</code> contained in <code>InternshipDiary</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>StatisticsWindow</code> is an observer</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It observes any changes to <code>filteredInternshipApplications</code> contained in <code>ModelManager</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>InternshipDiary</code> and <code>ModelManager</code> each contains an instance of <code>PropertyChangeSupport</code> to manage their listeners respectively.</p>
+</li>
+<li>
+<p><code>PropertyChangeSupport</code> serves as the intermediary and an abstraction between the <strong>observables</strong> and <strong>observers</strong>.</p>
+</li>
+<li>
+<p>Observers are generalized (polymorphism) as they implement the <code>PropertyChangeListener</code> interface; these observers are managed by <code>PropertyChangeSupport</code>.</p>
+</li>
+<li>
+<p>There is <strong>no coupling</strong> between the observables and observers.</p>
+</li>
+<li>
+<p><code>ModelManager</code> serves as an abstraction between <code>StatisticsWindow</code> and <code>InternshipDiary</code>.</p>
+</li>
+<li>
+<p>All the UI elements in our implementation follow the above class diagram&#8201;&#8212;&#8201;<code>StatisticsWindow</code> just happens to be the UI element that we chose to illustrate our diagram.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>We will briefly discuss how the observer pattern works in our implementation.</p>
+</div>
+<div class="paragraph">
+<p>Whenever an object wants to observe changes in another object, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance from the appropriate object that it wishes to observe.
+It will also have to specify which property of that object it wants to observe.</p>
+</div>
+<div class="paragraph">
+<p>In our case, when <code>ModelManager</code> is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance belonging to <code>InternshipDiary</code>.
+The function call will look like this: <code>addPropertyChangeListener("displayedInternships", this)</code> where <code>this</code>
+is a reference to <code>ModelManager</code> itself (so that it can be registered as a listener of the <code>displayedInternships</code> property of <code>InternshipDiary</code>).</p>
+</div>
+<div class="paragraph">
+<p>The process is similar for any UI element that wants to observe the <code>filteredInternshipApplications</code> property of <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>As a result, whenever there is a change to the property <code>displayedInternships</code> in <code>InternshipDiary</code>, the <code>PropertyChangeSupport</code> instance of
+<code>InternshipDiary</code> will call <code>firePropertyChange</code> to emit a <code>PropertyChangeEvent</code> to <code>ModelManager</code>.
+The emitted event will trigger the <code>propertyChange</code> function of <code>ModelManager</code>.
+<code>ModelManager</code> can then retrieve the new reference from the event and update its <code>filteredInternshipApplications</code> accordingly.
+It will then repeat the event emission process to any UI element (e.g. <code>StatisticsWindow</code>) that is observing the
+<code>filteredInternshipApplications</code> property.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram gives a high-level overview of the above event-driven process.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ActivityDiagramObserverPattern.png" alt="ActivityDiagramObserverPattern">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The two-tier observer-observable structure is <strong>necessary</strong>.
+This is because <code>list</code> and <code>archival</code> only changes the reference of <code>displayedInternships</code>.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When 'ModelManager' updates its property <code>filteredInternshipApplications</code> with the new reference, UI elements that reference <code>filteredInternshipApplications</code>
+will not be aware of the reference update to <code>filteredInternshipApplications</code>.
+Thus, <code>ModelManager</code> has to notify and update the UI elements as well.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>As an extension, our team also implemented enumeration for each property that is being observed.
+This modification ensures type safety and a way for us to track what properties are observed.
+This is especially important when many properties are being observed.</p>
+</div>
+<div class="paragraph">
+<p>Below is the updated class diagram with the implementation of <code>ListenerPropertyType</code> enumeration.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>As seen from the diagram above, each observable will implement two additional methods to use <code>ListenerPropertyType</code> enumeration as parameters:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>addPropertyChangeListener(ListenerPropertyType propertyType, PropertyChangeListener l)</code></p>
+</li>
+<li>
+<p><code>firePropertyChange(ListenerPropertyType propertyType, Object newValue)</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This forms a layer of abstraction as we would not be allowed to call the <code>addPropertyChangeListener</code> and <code>firePropertyChange</code> methods of
+<code>PropertyChangeSupport</code> directly.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-to-implement-the-archival-view-system-on-the-backend"><a class="link" href="#aspect-how-to-implement-the-archival-view-system-on-the-backend">Aspect: How to implement the Archival View system on the backend</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Maintain three <code>UniqueInternshipApplicationList</code>: <code>displayedInternships</code>, <code>unarchivedInternships</code>, and <code>archivedInternships</code>.
+<code>displayedInternships</code> will be used as the reference for other elements to retrieve the list of internship application(s) for usage.
+Whenever the user executes <code>archival</code>, we will update the reference of <code>displayedInternships</code> to <code>archivedInternships</code> and vice-versa.
+In terms of storage, we will use only one list.
+This means that whenever we load the list of internship application(s) from the JSON save file, we will filter the internship application(s) appropriately into <code>archivedInternships</code> and <code>unarchivedInternships</code> in <code>InternshipDiary</code>.
+When saving, we will combine both <code>archivedInternships</code> and <code>unarchivedInternships</code> into a single list for storage.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to modify the storage and its relevant test cases.
+This provides stability in the refactoring process.</p>
+</li>
+<li>
+<p>Cons: Potentially expensive in terms of computation.
+Furthermore, we will have to implement observer pattern to handle the reference changes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (previous choice)</strong>: Manipulate the current view of the internship application list by using Predicate and FilteredList, along with the boolean isArchived variable in <code>InternshipApplication</code>.
+This will easily help us determine which internship application should be rendered.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Very easy to implement and less expensive in terms of memory and computation.
+No need to implement observer pattern as there will be no reference updates.</p>
+</li>
+<li>
+<p>Cons: Potentially unsustainable as conflicts are likely to arise with commands that make heavy use of predicates (e.g. <code>Find</code> command).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-how-to-implement-the-observer-pattern"><a class="link" href="#aspect-how-to-implement-the-observer-pattern">Aspect: How to implement the Observer Pattern</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use <code>PropertyChangeSupport</code> class and <code>PropertyChangeListener</code> interface from the <code>java.beans</code> package to support our implementation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy and intuitive to use.
+Good built-in support.
+Seems to be highly recommended by other users.</p>
+</li>
+<li>
+<p>Cons: Seemingly negligible for our usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Use Java&#8217;s <code>Observable</code> class and <code>Observer</code> interface.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Seemingly negligible for our usage.</p>
+</li>
+<li>
+<p>Cons: The package is deprecated.
+Harder to understand and implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="archive-unarchive"><a class="link" href="#archive-unarchive">Archive &amp; Unarchive</a></h4>
+<div class="paragraph">
+<p>To allow users to move internship application(s) between the main and archival list of internship application(s), we implemented the commands <code>archive</code> and <code>unarchive</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>archive</code> allows a user to move internship application(s) from the main list to the archival list.</p>
+</li>
+<li>
+<p><code>unarchive</code> allows a user to move internship application(s) from the archival list to the main list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following activity diagram depicts the behaviour of an <code>archive</code> command.
+You may use it as a reference for <code>unarchive</code> as well.
+The activity diagrams for both are very similar.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ActivityDiagramArchiveCommand.png" alt="ActivityDiagramArchiveCommand" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>While implementing the <code>archive</code> and <code>unarchive</code> commands, we realised that users may sometimes want to cherry-pick multiple internship application(s) to execute on or mass-execute on certain types of internship application(s).
+For example, a user may want to archive all the internship application(s) that have the status of "rejected".</p>
+</div>
+<div class="paragraph">
+<p>Commands like <code>archive</code>, <code>unarchive</code>, and <code>delete</code> can be seen as <strong>removal-based commands</strong>.
+This is because the utility of such functions are very similar; in that they serve to modify the list by removing items.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, we specifically created a new class, <code>RemovalBasedCommand</code>, to extend the functionality of <strong>removal-based commands</strong> like <code>archive</code>, <code>unarchive</code>, and <code>delete</code>.
+Through this new class, users will be able to execute the commands on multiple internship applications.</p>
+</div>
+<div class="paragraph">
+<p>In the following section, we will delve slightly deeper and discuss about the lower-level implementation of the extended functionality.</p>
+</div>
+<div class="sect4">
+<h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
+<div class="paragraph">
+<p>The following class diagram depicts our implementation of the extended functionality.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/RemovalBasedClassDiagram.png" alt="RemovalBasedClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The idea of the implementation can be summarized as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The purpose of <code>RemovalBasedCommandExecutionTypeParser</code> is solely to determine the execution type of the command by parsing the user input and calling <code>RemovalBasedCommandExecutionType#getExecutionType</code>.</p>
+</li>
+<li>
+<p>On the other hand, <code>RemovalBasedCommand</code> is responsible for creating and executing the appropriate command based on the <code>commandWord</code> that was generated from the user input and passed down from <code>InternshipDiaryParser</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Users are able to execute removal-based commands like <code>archive</code> according to the execution types we have in the enumeration class <code>RemovalBasedCommandExecutionType</code>.</p>
+</div>
+<div class="paragraph">
+<p>We have implemented the following execution types: <code>BY_INDEX</code>, <code>BY_INDICES</code>, and <code>BY_FIELD</code>.
+For the execution type <code>BY_FIELD</code>, users can only execute by the <code>Status</code> field of an internship application currently.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The format of a removal-based command can take on any of the following forms:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>command</code> INDEX</p>
+</li>
+<li>
+<p><code>command</code> INDEX, [INDEX], [INDEX], &#8230;&#8203;<br>
+(where INDEX within the bracket is optional and there can only be as many INDEX as the number of internship application(s) displayed)</p>
+</li>
+<li>
+<p><code>command</code> s/STATUS<br>
+(where STATUS refers to a valid internship application status)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Note that <code>command</code> can be any one of the removal-based commands.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>It is important to note that each <code>RemovalBasedCommandExecutionType</code> works similarly.
+At the core, all of them involves retrieving the index of an internship application to execute on.
+The difference lies in the pre-processing stage&#8201;&#8212;&#8201;the steps an execution type takes to retrieve all the required indices.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, to ensure succinctness, we will only be illustrating the usage of the command <code>archive</code> with the execution type <code>BY_FIELD</code>.
+Other variations of <strong>removal-based commands</strong> and <strong>execution types</strong> are similar.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram provides a high-level overview of how the <code>archive</code> command with the execution type of <code>BY_FIELD</code> is executed in our application.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ArchiveSequenceDiagram.png" alt="ArchiveSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>As illustrated in the diagram above, the pre-processing steps of <code>BY_FIELD</code> involves applying the appropriate predicate to filter the internship applications and then converting these internship applications to their respective index.
+This provides us with required indices that we will execute the removal-based command <code>archive</code> on.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We have implemented the mechanism to be reusable and extensible for new commands and execution types.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This is evident in the sequence diagram above, where the different kinds of <strong>removal-based commands</strong> are abstracted from the diagram and referred to simply as <code>RemovalBasedCommand</code>.
+This means that the above diagram is applicable to <code>archive</code>, <code>unarchive</code>, <code>delete</code>, and any other <strong>removal-based commands</strong> that we may wish to introduce in the future.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, if we ever wish to create a <strong>new</strong> <code>RemovalBasedCommandExecutionType</code> (on top of <code>BY_INDEX</code>, <code>BY_INDICES</code>, and <code>BY_FIELD</code>), we may simply add a new alternative path to the diagram (or a new switch condition in terms of code).</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram captures how <code>RemovalBasedCommandExecuteTypeParser</code> parses the input and determines the <strong>execution type</strong> of the command.
+It also shows how a <code>RemovalBasedCommand</code> is created with the appropriate <code>RemovalBasedCommandExecutionType</code> and command word.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/RemovalBasedCommandExecutionTypeParserSequenceDiagram.png" alt="RemovalBasedCommandExecutionTypeParserSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>As seen from the diagram above, the parser determined the execution type to be <code>BY_FIELD</code> and generated the appropriate predicate to construct a <code>RemovalBasedCommand</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>Based on the command word passed in to construct the <code>RemovalBasedCommand</code> instance, <code>RemovalBasedCommand</code> creates a lazy lambda function that can be called to construct the appropriate <strong>removal-based command</strong> for execution.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram depicts the above behaviour.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/GenerateLazyCommandSequenceDiagram.png" alt="GenerateLazyCommandSequenceDiagram" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>As the command word is <code>archive</code>, a lazy lambda function to construct an <code>ArchiveCommand</code> is returned.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram captures the process of executing the lazy removal-based command on one index.
+This particular index allows us to retrieve the appropriate internship application.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ConstructAndExecuteLazyCommandByIndexSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndexSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>It can be seen that the previously-generated lazy command is executed in the above sequence diagram.</p>
+</div>
+<div class="paragraph">
+<p><code>ArchiveCommand</code> is constructed and subsequently executed on the index provided, by making the appropriate function call to the model to execute on the internship application.
+In this case, <code>archiveInternshipApplication</code> is called.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram captures the process of executing the lazy <code>ArchiveCommand</code> on indices.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ConstructAndExecuteLazyCommandByIndicesSequenceDiagram.png" alt="ConstructAndExecuteLazyCommandByIndicesSequenceDiagram" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>As seen above, <code>executeLazyCommandOnIndices</code> merely reuses the function <code>executeLazyCommandOnIndex</code> (from the previous sequence diagram) by running it on every index provided.
+The feedback from each execution is cumulatively concatenated to form a single feedback.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram captures the process of re-creating the command result in <code>RemovalBasedCommand</code> by using the feedback obtained from the specific command execution, which is <code>ArchiveCommand</code> in our example.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/CreateCommandResultSequenceDiagram.png" alt="CreateCommandResultSequenceDiagram" width="500">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-multiple-execution-types-for-removal-based-commands"><a class="link" href="#aspect-how-to-implement-multiple-execution-types-for-removal-based-commands">Aspect: How to implement Multiple Execution Types for Removal-Based Commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use encapsulation to hold the appropriate command word, which will then be used to generate the removal-based command that will execute based on the execute type provided.
+<code>RemovalBasedCommand</code> will store the command word of the appropriate removal-based command and create the command when
+<code>RemovalBasedCommand</code> is executed.
+This removal-based command will then be executed on the index/indices provided according to the execution type.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and convey the idea to team members.</p>
+</li>
+<li>
+<p>Cons: Will require multiple case handling (e.g. switch cases).
+Polymorphism may be a better solution in terms of code extensibility and elegance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Use polymorphism where each removal-based command extends the class <code>RemovalBasedCommand</code> and inherit the appropriate execution type methods.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Code will likely be more extensible and elegant.</p>
+</li>
+<li>
+<p>Cons: Likely to require major redesigning and refactoring of existing logic codebase because we will have to modify <code>Command</code> class.
+Furthermore, the changes may affect areas that we may not have considered.
+This is risky and will take a lot of time, effort, and team discussion.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">Statistics Feature</a></h3>
+<div class="paragraph">
+<p>This feature allows users to view relevant metrics about their internship application(s).</p>
+</div>
+<div class="paragraph">
+<p>Currently, the tracked metrics include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the amount of internship applications in each status</p>
+</li>
+<li>
+<p>the percentage of internship applications in each status</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<div class="paragraph">
+<p>The following class diagram gives an overview of our implementation of the statistics feature.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/StatisticsClassDiagram.png" alt="StatisticsClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Users will be able to view the metrics from two areas:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>StatisticsBarFooter</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>found at the bottom of the application in the form of a bar footer</p>
+</li>
+<li>
+<p>serves as a quick view of the metrics in terms of counters</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>StatisticsWindow</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>displayed on a separate window that is opened upon the command <code>stats</code></p>
+</li>
+<li>
+<p>serves as an additional graphical statistics interface for users to get a visual breakdown of the metrics<br>
+(currently in the form of a bar chart and a pie chart)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>Statistics</code> object is used to generate statistics for any internship application list that it is given.
+<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> each contains an instance of <code>Statistics</code> that helps them compute the relevant statistics whenever there is any update to the internship application list.</p>
+</div>
+<div class="paragraph">
+<p>The internship application list can be updated either due to a change in reference in <code>displayedInternships</code> from <code>InternshipDiary</code> (e.g. <code>archival</code> and <code>list</code>) or any modifications to the current internship application list (e.g. <code>add</code>, <code>delete</code>, <code>edit</code>, <code>archive</code>, <code>unarchive</code>, <code>find</code>).</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram illustrates how <code>StatisticsWindow</code> (<code>StatisticsBarFooter</code> shares the same workflow) is notified of the updates in the internship application list and how it subsequently updates the statistics.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ActivityDiagramStatistics.png" alt="ActivityDiagramStatistics">
+</div>
+</div>
+<div class="paragraph">
+<p>Upon creation of the <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code>, each of them will attach an event listener to the internship application list that it was given.
+This event listener will notify them of any internal modifications to the internship application list.</p>
+</div>
+<div class="paragraph">
+<p>On the other hand, both <code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will register themselves as <strong>observers</strong> as well.
+This is so that the implemented observer pattern can notify them of any changes in the internship application list reference and update them with the new reference accordingly.</p>
+</div>
+<div class="paragraph">
+<p>Any of the two updates above will trigger the <code>Statistics</code> to recompute with the updated internship application list.
+<code>StatisticsWindow</code> and <code>StatisticsBarFooter</code> will then retrieve the required computed metrics from <code>Statistics</code> and re-bind the them to the UI accordingly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-which-list-to-retrieve-data-from-to-generate-statistics"><a class="link" href="#aspect-which-list-to-retrieve-data-from-to-generate-statistics">Aspect: Which list to retrieve data from to generate statistics</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use filtered ObservableList.
+The filtered list is dynamically updated by <code>find</code> and <code>sort</code> command.
+The statistics model will generate statistics based on the dynamic filtering changes that occur in either the main list or archival list (the current view selected by user).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users will be able to choose which list they want to view the relevant statistics for.
+Works well with <code>archival</code>, <code>list</code>, and <code>find</code> commands that dynamically changes the list.</p>
+</li>
+<li>
+<p>Cons: Often re-computation upon changes in the filtered list may cause some performance bottleneck.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Use the base list that contains all of the internship application(s).
+The base list is not filtered according to predicate(s) set by users.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Require less re-computation compared to using filtered ObservableList, as it only re-computes upon addition(s), deletion(s), or changes in an internship application stored in the list.</p>
+</li>
+<li>
+<p>Cons: May be unintuitive to some extent for users when the statistics do not tally with the current view of the list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-store-the-statistics-generated-from-data"><a class="link" href="#aspect-how-to-store-the-statistics-generated-from-data">Aspect: How to store the statistics generated from data</a></h5>
+<div class="paragraph">
+<p>A list of internship application(s) will be passed into the statistics model and upon function call, the statistics model will iterate through the list and generate/update the latest statistics accordingly.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Store the mapping between each status and count using a HashMap.
+The idea is to retrieve all the statuses available from the enum (whenever the statistics model is created) and create a HashMap with those status as the key and respective count as the value.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Extensible and reusable.
+Regardless of any changes, this system can dynamically handle the addition, deletion, or changes in statuses.</p>
+</li>
+<li>
+<p>Cons: Seemingly negligible cons for our usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (previous choice)</strong>: Store each status count in separate variables that are initialized upon the creation of statistics model.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Straightforward and very easy to understand for future developers.</p>
+</li>
+<li>
+<p>Cons: Very inextensible as we need to create new variables for new statuses each time.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:45:30 UTC</div></div></div></body></html>

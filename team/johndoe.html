@@ -136,6 +136,123 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="deleting-an-internship-application-code-delete-code"><a class="link" href="#deleting-an-internship-application-code-delete-code">Deleting an internship application : <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Delete specified internship applications from the current list.<br></p>
+</div>
+<div class="paragraph">
+<p>Formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete INDEX</code></p>
+</li>
+<li>
+<p><code>delete INDEX, [INDEX]&#8230;&#8203;</code></p>
+</li>
+<li>
+<p><code>delete s/STATUS</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting by <code>INDEX</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the internship application at <code>INDEX</code> (<strong>must be a positive integer</strong>).</p>
+</li>
+<li>
+<p><code>INDEX</code> may be entered in any order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>delete 3, 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Duplicated <code>INDEX</code> will be ignored.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. <code>delete 1, 2, 2</code> has the same effect as <code>delete 1, 2</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deleting by <code>STATUS</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>There must be at least one valid <code>STATUS</code>.</p>
+</li>
+<li>
+<p>There can be multiple <code>STATUS</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will delete internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>delete s/applied wishlist</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The command will execute as long as there is a valid <code>STATUS</code>&#8201;&#8212;&#8201;it will ignore other invalid inputs. If there is no internship application with the
+specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application acted upon).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. the command will delete internship application(s) with status <code>rejected</code> for <code>delete s/ somethinginvalid rejected</code>.</p>
+</li>
+<li>
+<p>e.g. the command will delete internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>delete s/applied somethinginvalid wishlist</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd internship application from the main list.</p>
+</li>
+<li>
+<p><code>archival</code><br>
+<code>delete s/applied</code><br>
+Deletes all the internship applications with the <code>applied</code> status from the archival list.</p>
+</li>
+<li>
+<p><code>list</code><br>
+ <code>find Google</code><br>
+<code>delete 2, 1, 3</code><br>
+Deletes the 1st, 2nd, and 3rd internship applications from the results of the <code>find</code> command (in main list).</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -161,4 +278,4 @@
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:59:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:45:30 UTC</div></div></div></body></html>

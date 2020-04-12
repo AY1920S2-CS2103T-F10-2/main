@@ -165,6 +165,19 @@
 <li><a href="#saving-data">G.16. Saving data</a></li>
 </ul>
 </li>
+<li><a href="#effort">Appendix H: Effort</a>
+<ul class="sectlevel2">
+<li><a href="#challenges-faced">H.1. Challenges Faced</a>
+<ul class="sectlevel3">
+<li><a href="#designing-code-find-code-code-sort-code-and-code-reminder-code">H.1.1. Designing <code>find</code>, <code>sort</code>, and <code>reminder</code></a></li>
+<li><a href="#implementing-interview-classes-and-commands">H.1.2. Implementing interview classes and commands</a></li>
+<li><a href="#enabling-multiple-execution-type-functionality-for-removal-based-commands">H.1.3. Enabling multiple execution type functionality for removal-based commands</a></li>
+<li><a href="#modifying-gui">H.1.4. Modifying GUI</a></li>
+<li><a href="#integrating-the-features">H.1.5. Integrating the features</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1309,13 +1322,13 @@ It illustrates the internal workings of how we switch the view between the archi
 </div>
 </div>
 <div class="paragraph">
-<p>It can be seen explicitly from the code snippet that we make use of referencing to switch between the views of archived and main list.
+<p>It can be seen explicitly from the code snippet that we make use of referencing to switch between the views of archival and main list.
 However, such implementation brings about issues with reactivity&#8201;&#8212;&#8201;where elements that reference <code>displayedInternships</code> will not be aware of the reference change in <code>displayedInternships</code> whenever the user executes <code>archival</code> or <code>list</code>.
 Therefore, in the above scenario, users would still see the main list after executing the <code>archival</code> command.</p>
 </div>
 <div class="paragraph">
-<p>In order to resolve this issue, we need to employ the observer pattern.
-The general idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
+<p>In order to resolve this issue, we need to employ the <strong>observer pattern design</strong>.
+The broad idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
 Consequently, whenever there is a state change to <code>InternshipDiary</code>, the list of observers will be notified and updated automatically.</p>
 </div>
 <div class="paragraph">
@@ -1400,7 +1413,7 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 It will also have to specify which property of that object it wants to observe.</p>
 </div>
 <div class="paragraph">
-<p>In our case, when ModelManager is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance belonging to <code>InternshipDiary</code>.
+<p>In our case, when <code>ModelManager</code> is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance belonging to <code>InternshipDiary</code>.
 The function call will look like this: <code>addPropertyChangeListener("displayedInternships", this)</code> where <code>this</code>
 is a reference to <code>ModelManager</code> itself (so that it can be registered as a listener of the <code>displayedInternships</code> property of <code>InternshipDiary</code>).</p>
 </div>
@@ -1412,7 +1425,7 @@ is a reference to <code>ModelManager</code> itself (so that it can be registered
 <code>InternshipDiary</code> will call <code>firePropertyChange</code> to emit a <code>PropertyChangeEvent</code> to <code>ModelManager</code>.
 The emitted event will trigger the <code>propertyChange</code> function of <code>ModelManager</code>.
 <code>ModelManager</code> can then retrieve the new reference from the event and update its <code>filteredInternshipApplications</code> accordingly.
-It will then repeat the event emission process to any UI element (e.g. StatisticsWindow) that is observing the
+It will then repeat the event emission process to any UI element (e.g. <code>StatisticsWindow</code>) that is observing the
 <code>filteredInternshipApplications</code> property.</p>
 </div>
 <div class="paragraph">
@@ -4162,4 +4175,60 @@ any commands.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:59:15 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="effort"><a class="link" href="#effort">Appendix H: Effort</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A lot of time and effort were channeled into designing and implementing a set of robust, easy-to-use, and cohesive features for our users.
+To help users <strong>organise</strong> their internship applications, we designed and implemented <code>find</code>, <code>sort</code>, <code>archive</code> and <code>unarchive</code>. On the other hand, to help users <strong>track</strong>
+their internship applications, we designed and implemented <code>reminder</code>, <code>interview</code>, and <code>stats</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="challenges-faced"><a class="link" href="#challenges-faced">H.1. Challenges Faced</a></h3>
+<div class="sect3">
+<h4 id="designing-code-find-code-code-sort-code-and-code-reminder-code"><a class="link" href="#designing-code-find-code-code-sort-code-and-code-reminder-code">H.1.1. Designing <code>find</code>, <code>sort</code>, and <code>reminder</code></a></h4>
+<div class="paragraph">
+<p>There was a need to plan how <code>find</code>, <code>sort</code>, and <code>reminder</code> command should behave and how we can extend such commands with new behaviours easily in the future.
+This required a lot of team discussion and effort in terms of coming up with drafts for our intended implementation. For <code>find</code>, we had to ensure that
+when a new field is added, or if an existing field is changed, we can simply add/edit predicate classes accordingly and make changes only in the <code>FindCommandParser</code>.
+For <code>sort</code>, we had to ensure that adding or removing a sort comparator only required very minimal changes to the <code>SortCommandParser</code> (which requires only a single line in our final implementation).
+On top of that, we also had to ensure that it is easy to pass a description of the predicate and comparator used to the <code>PredicateDisplayFooter</code> and <code>SortDisplayFooter</code> respectively.
+For <code>reminder</code>, there was a need to plan the conditions to decide which internship applications to show when the reminder command is used for the implementation of the corresponding predicates to use.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementing-interview-classes-and-commands"><a class="link" href="#implementing-interview-classes-and-commands">H.1.2. Implementing interview classes and commands</a></h4>
+<div class="paragraph">
+<p>The interview classes must be highly extensible as new interview types could be added in the future. Therefore, extra effort was made to ensure new interviews could be easily integrated into the current logic and model structure of interviews.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="enabling-multiple-execution-type-functionality-for-removal-based-commands"><a class="link" href="#enabling-multiple-execution-type-functionality-for-removal-based-commands">H.1.3. Enabling multiple execution type functionality for removal-based commands</a></h4>
+<div class="paragraph">
+<p>We wanted to make the application as user-friendly as possible for the users. Being able to execute removal-based commands like <code>delete</code>, <code>archive</code>, and <code>unarchive</code> is therefore a good feature to include.
+However, there are many ways to extend our commands to accommodate multiple execution type. The only question is: at what cost? As a team, we had to conduct multiple online team meetings during <strong>milestone v1.4</strong>
+to discuss about the most suitable, time-effective, and extensible implementation considering that the deadline is around the corner.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="modifying-gui"><a class="link" href="#modifying-gui">H.1.4. Modifying GUI</a></h4>
+<div class="paragraph">
+<p>The GUI must be made easily readable and understandable by the user. Research and effort was made to ensure a well organised and consistent application layout.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="integrating-the-features"><a class="link" href="#integrating-the-features">H.1.5. Integrating the features</a></h4>
+<div class="paragraph">
+<p>Due to the cohesive nature of our features, it resulted in extensive interaction between the components&#8201;&#8212;&#8201;ensuring a smooth integration was therefore a significant challenge.
+For example, as our features introduced many new UI elements and backend implementation, we ran into UI / data reactivity issue where ObservableList was no longer an adequate and sustainable solution.</p>
+</div>
+<div class="paragraph">
+<p>We needed a more robust solution to help us keep the UI in sync with the state of our data. This required the team to look into how we can implement the observer pattern design into our system and the best options we have
+to implement the structure. There were various constraints that we had to be mindful of as we incorporated the observer pattern, mainly due to the way we implemented certain features (as reactivity issue was something we did
+not foresee). As this is our first time dealing with the observer pattern, we had to spend a good amount of time to understand and implement it properly.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:45:30 UTC</div></div></div></body></html>
