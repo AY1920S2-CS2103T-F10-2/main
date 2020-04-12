@@ -469,7 +469,7 @@ An example of how such a model may look like is given below.<br>
 <div class="sect2">
 <h3 id="sort-command"><a class="link" href="#sort-command">4.1. Sort command</a></h3>
 <div class="paragraph">
-<p>The find command allows the user to sort the currently visible list of internship applications.
+<p>The sort command allows the user to sort the currently visible list of internship applications.
 The following sequence diagram will illustrate the process of invocation for the command:</p>
 </div>
 <div class="imageblock">
@@ -483,7 +483,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The find command is implemented in the class <code>SortCommand</code> and uses the <code>SortCommandParser</code> class to parse the arguments for the command.</p>
+<p>The sort command is implemented in the class <code>SortCommand</code> and uses the <code>SortCommandParser</code> class to parse the arguments for the command.</p>
 </div>
 <div class="paragraph">
 <p>To facilitate the sort command, several comparator classes implementing <code>Comparator&lt;InternshipApplication&gt;</code> are used:</p>
@@ -508,8 +508,26 @@ The following sequence diagram will illustrate the process of invocation for the
 </ul>
 </div>
 <div class="paragraph">
+<p>The <code>SortCommandParser</code> stores all of these Comparators in an immutable static Map mapping a prefix to each Comparator object.
+As the Comparators are all immutable, we can treat the Map as completely immutable.</p>
+</div>
+<div class="paragraph">
 <p>The <code>SortCommandParser</code> looks for a acceptable prefix in the command, and passes the corresponding comparator to <code>SortCommand</code>.
 If the number of such prefixes found is not exactly one, <code>SortCommandParser</code> throws a <code>ParseException</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>toString()</code> method of all Comparators have also been overridden with a description of the comparator, so as
+to allow the DisplayComparatorFooter to retrieve information of the current Comparator without passing a separate <code>String</code>
+to it.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram will illustrate the structure of SortCommand:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ComparatorClassDiagram.png" alt="ComparatorClassDiagram">
+</div>
+<div class="title">Figure 9. Structure of SortCommand</div>
 </div>
 </div>
 <div class="sect3">
@@ -654,19 +672,19 @@ As the different modes do not share code, they are better off as separate classe
 <div class="content">
 <img src="images/CommandHistoryActivityDiagram.png" alt="CommandHistory" width="200">
 </div>
-<div class="title">Figure 9. Execution of CommandHistory</div>
+<div class="title">Figure 10. Execution of CommandHistory</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CommandHistKeypessActivityDiagram.png" alt="CommandHistory2" width="400">
+<img src="images/CommandHistKeypessActivityDiagram.png" alt="CommandHistory2" width="600">
 </div>
-<div class="title">Figure 10. Handle other key pressed</div>
+<div class="title">Figure 11. Handle other key pressed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CommandHistExeCleanupActivityDiagram.png" alt="CommandHistory2" width="200">
 </div>
-<div class="title">Figure 11. Execution cleanup</div>
+<div class="title">Figure 12. Execution cleanup</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the command history feature.</p>
@@ -2008,7 +2026,7 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 <div class="content">
 <img src="images/ReminderSequenceDiagram.png" alt="ReminderSequenceDiagram">
 </div>
-<div class="title">Figure 12. Sequence Diagram of <code>ReminderCommand</code></div>
+<div class="title">Figure 13. Sequence Diagram of <code>ReminderCommand</code></div>
 </div>
 <div class="sect3">
 <h4 id="implementation-10"><a class="link" href="#implementation-10">4.8.1. Implementation</a></h4>
@@ -2055,7 +2073,7 @@ produced is then passed into the method <code>updateFilteredInternshipApplicatio
 <div class="content">
 <img src="images/ReminderActivityDiagram.png" alt="ReminderActivityDiagram">
 </div>
-<div class="title">Figure 13. Activity Diagram of <code>ReminderCommand</code> filtering out applications to display</div>
+<div class="title">Figure 14. Activity Diagram of <code>ReminderCommand</code> filtering out applications to display</div>
 </div>
 <div class="paragraph">
 <p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also
@@ -4231,4 +4249,4 @@ not foresee). As this is our first time dealing with the observer pattern, we ha
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:45:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:46:55 UTC</div></div></div></body></html>
