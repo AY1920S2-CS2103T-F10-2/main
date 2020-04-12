@@ -639,8 +639,21 @@ As the different modes do not share code, they are better off as separate classe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CommandHistoryActivityDiagram.png" alt="CommandHistoryActivityDiagram">
+<img src="images/CommandHistoryActivityDiagram.png" alt="CommandHistory" width="200">
 </div>
+<div class="title">Figure 9. Execution of CommandHistory</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandHistKeypessActivityDiagram.png" alt="CommandHistory2" width="400">
+</div>
+<div class="title">Figure 10. Handle other key pressed</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandHistExeCleanupActivityDiagram.png" alt="CommandHistory2" width="200">
+</div>
+<div class="title">Figure 11. Execution cleanup</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the command history feature.</p>
@@ -1982,7 +1995,7 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 <div class="content">
 <img src="images/ReminderSequenceDiagram.png" alt="ReminderSequenceDiagram">
 </div>
-<div class="title">Figure 9. Sequence Diagram of <code>ReminderCommand</code></div>
+<div class="title">Figure 12. Sequence Diagram of <code>ReminderCommand</code></div>
 </div>
 <div class="sect3">
 <h4 id="implementation-10"><a class="link" href="#implementation-10">4.8.1. Implementation</a></h4>
@@ -2029,7 +2042,7 @@ produced is then passed into the method <code>updateFilteredInternshipApplicatio
 <div class="content">
 <img src="images/ReminderActivityDiagram.png" alt="ReminderActivityDiagram">
 </div>
-<div class="title">Figure 10. Activity Diagram of <code>ReminderCommand</code> filtering out applications to display</div>
+<div class="title">Figure 13. Activity Diagram of <code>ReminderCommand</code> filtering out applications to display</div>
 </div>
 <div class="paragraph">
 <p>A comparator <code>ApplicationDateAndInterviewDateComparator</code> implementing <code>Comparator&lt;InternshipApplication&gt;</code> is also
@@ -2736,9 +2749,6 @@ The given index is invalid.</p>
 <li>
 <p>1a.
 Internship Diary detects the keyword reverse.</p>
-</li>
-</ul>
-</div>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2749,20 +2759,23 @@ Internship Diary detects the keyword reverse.</p>
 </li>
 </ul>
 </div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b.
-Internship Diary detects invalid syntax.</p>
 </li>
 </ul>
 </div>
 <div class="ulist none">
 <ul class="none">
 <li>
+<p>1b.
+Internship Diary detects invalid syntax.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
 <p>1b.1. Internship Diary shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ul>
@@ -3049,7 +3062,7 @@ Internship Diary detects invalid syntax.</p>
 <p>Internship Diary prompts the user for confirmation.</p>
 </li>
 <li>
-<p>User confirms.</p>
+<p>User enters confirmation phrase.</p>
 </li>
 <li>
 <p>Internship Diary deletes all internship application(s).</p>
@@ -3059,10 +3072,13 @@ Internship Diary detects invalid syntax.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. The user does not confirm.</p>
+<p>3a. The user enters something else.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -4149,4 +4165,4 @@ any commands.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 05:08:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:24:48 UTC</div></div></div></body></html>

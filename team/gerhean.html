@@ -26,7 +26,7 @@ of such students, we came up with the idea of the Internship Diary.</p>
 <ul>
 <li>
 <p><strong>Major enhancement</strong>: Added <strong>the ability to sort internship applications</strong>.
-(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/71">#71</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/113">#113</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/199">#199</a>])</p>
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/71">#71</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/113">#113</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/199">#199</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -103,10 +103,6 @@ Also speeds up testing considerably.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reformat Storage to fit our app.
-(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/33">#33</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/50">#50</a>)</p>
-</li>
-<li>
 <p>Prettified the help window.
 (PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/73">#73</a>)</p>
 </li>
@@ -124,6 +120,11 @@ Also speeds up testing considerably.</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Helped with refactoring of Internship Diary from Address Book by updating the storage classes
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/33">#33</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/50">#50</a>)
+and updating DG diagrams and text.</p>
 </li>
 <li>
 <p>Community:</p>
@@ -179,7 +180,7 @@ Format: <code>sort [reverse] FIELD</code>.</p>
 <code>c/</code>: Sorts by company name (Dictionary Order).<br>
 <code>d/</code>: Sorts by application date (Chronological Order).<br>
 <code>r/</code>: Sorts by role (Dictionary Order).<br>
-<code>s/</code>: Sorts by status (Refer to <a href="#Valid Values of Status">[Valid Values of Status]</a>).<br>
+<code>s/</code>: Sorts by status (Refer to <a href="#Valid status">[Valid status]</a>).<br>
 <code>w/</code>: Sorts by priority level (Ascending Order).<br></p>
 </div>
 <div class="sidebarblock">
@@ -400,8 +401,21 @@ As the different modes do not share code, they are better off as separate classe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/CommandHistoryActivityDiagram.png" alt="CommandHistoryActivityDiagram">
+<img src="../images/CommandHistoryActivityDiagram.png" alt="CommandHistory" width="200">
 </div>
+<div class="title">Figure 1. Execution of CommandHistory</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandHistKeypessActivityDiagram.png" alt="CommandHistory2" width="400">
+</div>
+<div class="title">Figure 2. Handle other key pressed</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandHistExeCleanupActivityDiagram.png" alt="CommandHistory2" width="200">
+</div>
+<div class="title">Figure 3. Execution cleanup</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the command history feature.</p>
@@ -557,4 +571,4 @@ However, due to the complexity and difficulty of implementation, it will only be
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 05:08:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:24:48 UTC</div></div></div></body></html>
