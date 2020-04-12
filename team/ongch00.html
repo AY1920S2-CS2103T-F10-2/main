@@ -39,7 +39,7 @@ applications that has the fields matching the specified fields will be listed.</
 <ul>
 <li>
 <p>Quite a bit of planning involved, mainly to consider how I should perform the search, and how I can separate the
-general and specific find. At the end the plan to use predicates was decided</p>
+general and specific find. At the end the plan to use predicates was decided.</p>
 </li>
 <li>
 <p>Quite a bit of knowledge with how predicates work is required as I needed to know how I can combine the required
@@ -65,7 +65,7 @@ inactive application will show red.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Setting it in CSS is not possible as I still wanted to keep the odd and even colors.</p>
+<p>Setting it in CSS was not possible as I still wanted to keep the odd and even colors.</p>
 </li>
 <li>
 <p>Setting it in code without first saving the CSS style would cause the style to not reset to the default CSS style.</p>
@@ -77,7 +77,7 @@ inactive application will show red.</p>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=ongch00">Reposense</a></p>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=ongch00">RepoSense</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -85,7 +85,10 @@ inactive application will show red.</p>
 <ul>
 <li>
 <p>Helped with refactoring of Internship Diary from Address Book by adding the model classes and updating DG diagrams
-and text</p>
+and text.</p>
+</li>
+<li>
+<p>Contributed to adding some test cases for various parts of the code to help maintain a coverage of around 75%</p>
 </li>
 <li>
 <p>Project management:</p>
@@ -130,6 +133,124 @@ and text</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="locating-internship-applications-code-find-code"><a class="link" href="#locating-internship-applications-code-find-code">Locating internship applications: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Finds all internship application(s) with the specified fields containing any of the given keywords.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The find parameters will appear at the bottom left of the internship diary
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>find [KEYWORDS] [c/COMPANY] [r/ROLE] [a/ADDRESS] [p/PHONE] [e/EMAIL] [d/DATE] [w/PRIORITY] [s/STATUS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>At least one of the optional parameter must be provided.</p>
+</li>
+<li>
+<p>If <code>[KEYWORDS]</code> is provided, find will look for matches in any field except for application date based on <code>KEYWORDS</code> (i.e. <code>OR</code> search), regardless of whether other fields are specified.</p>
+</li>
+<li>
+<p>When fields are specified without [KEYWORD], only applications where all the specified fields match are returned (i.e. <code>AND</code> search).
+e.g. <code>find c/google r/software engineer</code> will return application with company being <code>Google</code> and role
+being <code>Software Engineer</code> but not company that is <code>Facebook</code> and role being <code>Software Engineer</code>.</p>
+</li>
+<li>
+<p>The search is case insensitive. e.g <code>google</code> will match <code>Google</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>AI Singapore</code> will match <code>Singapore AI</code>.</p>
+</li>
+<li>
+<p>Companies matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>AI Singapore</code> will return <code>AISingapore</code>, <code>AI Malaysia</code>.</p>
+</li>
+<li>
+<p>Partial words will be matched e.g. <code>find a/Singapore</code> will match internship application with address field named <code>Singapores</code>.</p>
+</li>
+<li>
+<p>Consecutive find command calls will not stack on the resulting list from the preceding find command. It is always performed on either the main list or archival list (shown on the bottom left of the program window).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example(s):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find Google</code><br>
+Lists internship application(s) with company <code>Google</code> OR with email <code>alice@google.com</code>.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/BeforeFind1.png" alt="BeforeFind1">
+</div>
+<div class="title">Figure 1. Before executing <code>find Google</code>.</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/AfterFind1.png" alt="AfterFind1">
+</div>
+<div class="title">Figure 2. After executing <code>find Google</code>.</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find c/Google s/applied</code><br>
+Lists internship application(s) with company <code>Google</code> AND status <code>APPLIED</code>.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/BeforeFind2.png" alt="BeforeFind2">
+</div>
+<div class="title">Figure 3. Before executing <code>find c/Google s/applied</code>.</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/AfterFind2.png" alt="AfterFind2">
+</div>
+<div class="title">Figure 4. After executing <code>find c/Google s/applied</code>.</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -155,7 +276,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="../images/FindSequenceDiagram.png" alt="FindSequenceDiagram">
 </div>
-<div class="title">Figure 1. Interactions inside the Logic Component for the <code>find c/google r/software</code> command</div>
+<div class="title">Figure 5. Interactions inside the Logic Component for the <code>find c/google r/software</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the find command, as well as the 2 versions of the command, find any match, and find match by fields.</p>
@@ -210,7 +331,7 @@ keywords)</code>.</p>
 <div class="content">
 <img src="../images/FindClassDiagram.png" alt="FindClassDiagram">
 </div>
-<div class="title">Figure 2. Class diagram to show relationship between <code>Predicates</code>, <code>FindCommandParser</code> and <code>FindCommand</code></div>
+<div class="title">Figure 6. Class diagram to show relationship between <code>Predicates</code>, <code>FindCommandParser</code> and <code>FindCommand</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -252,7 +373,7 @@ instance.</p>
 <div class="content">
 <img src="../images/FindCommandActivityDiagram.png" alt="FindCommandActivityDiagram">
 </div>
-<div class="title">Figure 3. Activity Diagram to show how the type of find to invoke is determined</div>
+<div class="title">Figure 7. Activity Diagram to show how the type of find to invoke is determined</div>
 </div>
 </div>
 <div class="sect3">
@@ -308,4 +429,88 @@ This still requires user to remember the right words to invoke the different ver
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 18:38:44 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="product-survey"><a class="link" href="#product-survey">Appendix A: Product Survey</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Below are some of the programs currently available that could be used to manage internship applications, as well as their pros and cons</p>
+</div>
+<div class="paragraph">
+<p><strong>Huntr</strong></p>
+</div>
+<div class="paragraph">
+<p>Pros:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Uses online database</p>
+</li>
+<li>
+<p>Uses kanban board for drag and drop management</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cannot use CLI for interactions with the system</p>
+</li>
+<li>
+<p>Cannot use without internet connection</p>
+</li>
+<li>
+<p>Cannot use without signing up for an account</p>
+</li>
+<li>
+<p>Cannot get filtered list, the whole board is always shown and can be disorganised</p>
+</li>
+<li>
+<p>Cannot directly get reminders for deadlines, must add a new task</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Excel</strong></p>
+</div>
+<div class="paragraph">
+<p>Pros:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Free for NUS students</p>
+</li>
+<li>
+<p>Allows the user to define what to include</p>
+</li>
+<li>
+<p>Allows the user to use it offline</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Does not use CLI for interactions with the system</p>
+</li>
+<li>
+<p>Cannot easily go straight to managing internship applications, steep learning curve</p>
+</li>
+<li>
+<p>Can get messy quickly, no inbuilt filter and archive functions</p>
+</li>
+<li>
+<p>Does not include inbuilt statistics and reminder functions</p>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 19:10:20 UTC</div></div></div></body></html>
