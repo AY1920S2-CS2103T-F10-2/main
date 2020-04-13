@@ -16,9 +16,8 @@
 </div>
 <div class="paragraph">
 <p>The idea for this software came about when we realised that the nature of a computer science degree is internship-driven;
-in the sense that having the best possible internship experience during candidature will greatly improve your chance of landing a good job as a fresh graduate.
-Essentially, your first big internship will serve as a pivotal moment for your future career. Having said that, internship application is often a
-tedious and messy process as companies having different hiring processes and requirements.</p>
+in the sense that having the best possible internship experience during candidature will greatly improve your chance of landing a good first job.
+Having said that, internship application is often a tedious process as companies having different hiring processes and requirements.</p>
 </div>
 <div class="paragraph">
 <p>We set out to tackle this pain point&#8201;&#8212;&#8201;by coming up with a solution to help computer science students manage and streamline their internship application journey.
@@ -26,10 +25,7 @@ We aim to make every student&#8217;s internship hunt during their four years as 
 </div>
 <div class="paragraph">
 <p>Internship Diary offers a one-stop solution for users to organise and track their internship applications. It enables users to retrieve any information about
-their internship applications easily so that they can keep themselves updated with the companies they have applied to.</p>
-</div>
-<div class="paragraph">
-<p>This will motivate students to freely apply for many different companies and roles because they know that Internship Diary is always keeping their applications organized.
+their internship applications easily so that they can keep themselves updated with the companies they have applied to. This will motivate students to freely apply for many different companies and roles because they know that Internship Diary is always keeping their applications organized.
 Consequently, this may improve their chance of landing an internship.</p>
 </div>
 </div>
@@ -46,12 +42,12 @@ Consequently, this may improve their chance of landing an internship.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>What it does</strong>: Allows users to move their internship applications from the main list to the archival list and vice-versa.</p>
+<p><strong>What it does</strong>: Allows users to move their internship applications between the main list and the archival list.</p>
 </li>
 <li>
-<p><strong>Justification</strong>: This feature is particularly important as it helps users to keep their internship applications organized. Whenever there are
-internship application(s) that are no longer relevant / of interest to the user, the user can archive those internship applications so that
-it "de-clutters" their main list. This allows them to focus on the internship application(s) that are more important currently.</p>
+<p><strong>Justification</strong>: This feature is important as it helps users to keep their internship applications organized. Whenever there are
+internship application(s) that are no longer relevant, the user can archive those internship applications so that
+it "de-clutters" their main list. This allows them to focus on the internship application(s) that are more important.</p>
 </li>
 <li>
 <p><strong>Highlights</strong>: The archival feature seems trivial as it is usually a staple feature in many tracking applications.
@@ -74,8 +70,7 @@ To prevent coupling between the elements with our backend, and to ensure the UI 
 </li>
 <li>
 <p><strong>Highlights</strong>: Researching about and implementing the observer pattern design. I had to find out exactly how the mechanism works and the options out there for us to
-integrate it into our project. There was also quite a bit of trial-and-error involved in testing out the options so that we can find the best implementation / library
-for our situation.</p>
+integrate it into our project. There was quite a bit of trial-and-error in testing out the options so that we can find the best implementation / library for our situation.</p>
 </li>
 </ul>
 </div>
@@ -88,13 +83,11 @@ for our situation.</p>
 <p><strong>What it does</strong>: Allows users to execute removal-based commands like <code>archive</code>, <code>unarchive</code>, <code>delete</code> on multiple internship applications (by index, indices, or field).</p>
 </li>
 <li>
-<p><strong>Justification</strong>: This would greatly aid users in organising their internship applications. Imagine having to archive your internship applications one-by-one. This would not be a pleasant experience for the user.
-Users can now archive / unarchive / delete internship applications with a certain <code>status</code> or by multiple index-es.</p>
+<p><strong>Justification</strong>: This would greatly aid users in organising their internship applications. Having to archive your internship applications one-by-one would not be a pleasant experience for the user.</p>
 </li>
 <li>
-<p><strong>Highlights</strong>: This feature seems trivial to implement. However, to design and implement it well is not easy. I had to discuss extensively with the team regarding the <strong>most suitable</strong>
-implementation (not the best) to go ahead with. This is because we have to consider aspects like timeline, amount of refactoring, conflicts with existing implementations, and other issues.
-We had to carefully weigh the amount of effort required and the benefit this feature would bring to the user as well.</p>
+<p><strong>Highlights</strong>: To design and implement this feature well is not easy. There were extensive discussions with the team regarding the <strong>most suitable</strong>
+implementation (not the best) to go ahead with. We had to consider aspects like timeline, amount of refactoring, conflicts with existing implementations, and other issues.</p>
 </li>
 </ul>
 </div>
@@ -104,7 +97,7 @@ We had to carefully weigh the amount of effort required and the benefit this fea
 <div class="ulist">
 <ul>
 <li>
-<p><strong>What it does</strong>: The statistics feature dynamically generates relevant metrics from the list of internship application(s) in the current view (e.g. archival).</p>
+<p><strong>What it does</strong>: The statistics feature dynamically generates relevant metrics from the list of internship application(s) in the current view.</p>
 </li>
 <li>
 <p><strong>Justification</strong>: The hunt for internship can be seen as a journey of growth in terms of personal and professional development.
@@ -112,8 +105,7 @@ The statistics feature provides users with important information about their int
 </li>
 <li>
 <p><strong>Highlights</strong>: Implementing the Statistics feature on its own was straightforward. The difficulty lies in how it can be implemented in an extensible manner.
-For example, the addition of a new status would not require the refactoring of model. To solve the issue, a HashMap was used to hold the counter for each status.
-This required careful design considerations.</p>
+For example, the addition of a new status would not require the refactoring of model. This required careful design considerations.</p>
 </li>
 </ul>
 </div>
@@ -125,7 +117,7 @@ This required careful design considerations.</p>
 <h3 id="code-contribution"><a class="link" href="#code-contribution">Code Contribution</a></h3>
 <div class="paragraph">
 <p>All of my contributions can be found here:
-<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=wxwxwxwx9&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;until=2020-04-09">RepoSense Report</a></p>
+<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=wxwxwxwx9">RepoSense Report</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -172,7 +164,7 @@ This required careful design considerations.</p>
 <ul>
 <li>
 <p>Fixed bugs reported during PE dry run
-(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/185">#185</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/197">#197</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/54">#218</a>)</p>
+(PR <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/185">#185</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/197">#197</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-2/main/pull/218">#218</a>)</p>
 </li>
 </ul>
 </div>
@@ -1449,4 +1441,4 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:01:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:06:46 UTC</div></div></div></body></html>
