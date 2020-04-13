@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My Internship Diary is a desktop address book desktop internship tracking application written in Java, and has about
+<p>Internship Diary is a desktop internship tracking application written in Java, and has about
 15 kLoC. The user interacts with it using a CLI, and it has a GUI created with JavaFX.</p>
 </div>
 </div>
@@ -25,28 +25,23 @@
 <div class="ulist">
 <ul>
 <li>
-<p>This enhancement enables the general find where it works similarly to Ctrl-F on most programs. It will take in
-the keywords you entered will list any internship application that has fields that matches any of the keywords provided.</p>
+<p><strong>What it does:</strong> This enhancement enables the general find where the keywords that the user entered will list
+any internship application that has fields that matches any of the keywords provided. This enhancement also enables
+finding by specific field(s), where the user can specify which field(s) they are interested in searching in.
+Only the internship applications that has the field(s) matching the specified field(s) keywords will be listed in this case.</p>
 </li>
 <li>
-<p>This enhancement also enables the specific find, where it the user can specify what which field they are
-interested in searching in. The user can find in multiple fields as well. In this case, only the internship
-applications that has the fields matching the specified fields will be listed.</p>
+<p><strong>Justification:</strong> This feature will allow the user to easily filter the list to quickly get to what is important.
+With the flexibility of general and specific find, the user can get a more specific filtered list if needed.</p>
 </li>
 <li>
-<p>This enhancement posed a challenge as:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Quite a bit of planning involved, mainly to consider how I should perform the search, and how I can separate the
-general and specific find. At the end the plan to use predicates was decided.</p>
-</li>
-<li>
-<p>Quite a bit of knowledge with how predicates work is required as I needed to know how I can combine the required
-predicates cleanly so that it is readable and to ensure that it is correct.</p>
-</li>
-</ul>
-</div>
+<p><strong>Highlights:</strong> Quite a bit of planning was involved, mainly to consider how the search should behave and how it is performed.
+It the end, the plan to use predicates was decided as it will be easy to extend the application with minimal changes in the command.
+Quite a bit of knowledge on how predicates work is also required as there was a need to find out how to combine
+many predicates cleanly so that it is readable and to ensure that it is working correctly.
+There was also a need decide on how I should allow the user to tell the system which of the two types of find command to invoke.
+It was decided in the end to use the same command word and have the type of user input be the way of telling the system
+which type of find to invoke.</p>
 </li>
 </ul>
 </div>
@@ -56,22 +51,18 @@ predicates cleanly so that it is readable and to ensure that it is correct.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>This enhancement allows the user to determine which application has deadlines or interviews due in 7 days or if
-there are ghosted application in a quick glance. Internship application with upcoming deadline will show green while
-inactive application will show red.</p>
+<p><strong>What it does:</strong> This enhancement allows the user to determine which application has deadlines or interviews due in 7 days or if
+there are ghosted application by the color of the internship application in the list.
+Internship applications with upcoming deadline or interview will show green while ghosted applications will show red.</p>
 </li>
 <li>
-<p>This enhancement, while minor, posed some challenges as well:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Setting it in CSS was not possible as I still wanted to keep the odd and even colors.</p>
+<p><strong>Justification:</strong> This enhancement will allow the user to know what is upcoming and what is ghosted/inactive at a quick glance.</p>
 </li>
 <li>
-<p>Setting it in code without first saving the CSS style would cause the style to not reset to the default CSS style.</p>
-</li>
-</ul>
-</div>
+<p><strong>Highlights:</strong> Figuring out where the code to update the color should go was a challenge.
+Setting it directly in CSS was not possible as I still wanted to keep the odd and even colors for the list.
+When setting it in code, I had to figure out why the style will not revert to the default CSS style, leading to visual bugs.
+The bugs were fixed after some research.</p>
 </li>
 </ul>
 </div>
@@ -95,7 +86,7 @@ and text.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.2</code> - <code>v1.3</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.2</code> - <code>v1.4</code> (3 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -513,4 +504,4 @@ This still requires user to remember the right words to invoke the different ver
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:52:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:04:03 UTC</div></div></div></body></html>
