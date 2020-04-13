@@ -453,7 +453,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="images/SortSequenceDiagram.png" alt="SortSequenceDiagram">
 </div>
-<div class="title">Figure 8. Interactions inside the Logic Component for the <code>sort c/</code> command</div>
+<div class="title">Figure 8. Interactions inside the <code>Logic</code> Component for the <code>sort c/</code> command</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the sort command.</p>
@@ -509,13 +509,13 @@ This would reverse the order in which the currently visible list of internship a
 the <code>toString()</code> method of the newly created Comparator for the <code>DisplayComparatorFooter</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following class diagram will illustrate the overall structure of SortCommand:</p>
+<p>The following class diagram will illustrate the overall structure of <code>SortCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ComparatorClassDiagram.png" alt="ComparatorClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of SortCommand</div>
+<div class="title">Figure 9. Structure of <code>SortCommand</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -525,7 +525,7 @@ the <code>toString()</code> method of the newly created Comparator for the <code
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Accept only one field to sort by when using SortCommand.
+<p><strong>Alternative 1 (current choice)</strong>: Accept only one field to sort by when using <code>SortCommand</code>.
 This works as the list uses stable sort.</p>
 <div class="ulist">
 <ul>
@@ -535,7 +535,7 @@ This works as the list uses stable sort.</p>
 Users do not have to remember the order to place the arguments to get the sort they want.</p>
 </li>
 <li>
-<p>Cons: Hard to explain the concept of stable sort in the User Guide.</p>
+<p>Cons: Hard to explain the concept of stable sort in the User Guide, if a more in depth explanation were to be given.</p>
 </li>
 </ul>
 </div>
@@ -571,7 +571,7 @@ The following sequence diagram will illustrate the process of invocation for the
 <div class="content">
 <img src="images/ClearSequenceDiagram.png" alt="ClearSequenceDiagram">
 </div>
-<div class="title">Figure 10. Interactions inside the Logic Component for the <code>clear</code> command</div>
+<div class="title">Figure 10. Interactions inside the <code>Logic</code> Component for <code>ClearCommand</code>.</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the clear command.</p>
@@ -653,19 +653,19 @@ As the different modes do not share code, they are better off as separate classe
 <div class="content">
 <img src="images/CommandHistoryActivityDiagram.png" alt="CommandHistory" width="200">
 </div>
-<div class="title">Figure 11. Execution of CommandHistory</div>
+<div class="title">Figure 11. Execution of command history feature.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CommandHistKeypessActivityDiagram.png" alt="CommandHistory2" width="600">
 </div>
-<div class="title">Figure 12. Handle other key pressed</div>
+<div class="title">Figure 12. Handle other key pressed.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CommandHistExeCleanupActivityDiagram.png" alt="CommandHistory2" width="200">
 </div>
-<div class="title">Figure 13. Execution cleanup</div>
+<div class="title">Figure 13. Execution cleanup.</div>
 </div>
 <div class="paragraph">
 <p>The following subsections will go through the general implementations of the command history feature.</p>
@@ -673,7 +673,7 @@ As the different modes do not share code, they are better off as separate classe
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The implementation of command history involves only the UI classes <code>CommandBox</code> and <code>EnteredCommandsHistory</code>.
+<p>The implementation of command history involves only the <code>UI</code> classes <code>CommandBox</code> and <code>EnteredCommandsHistory</code>.
 Internally, <code>EnteredCommandsHistory</code> uses a <code>LinkedList</code> to store the command history. The <code>LinkedList</code> data structure
 was chosen the data structure needed to be a queue which also allows the last accessed element to be reaccessed quickly.
 This meant that the data structure has to support random access or have a <code>ListIterator</code>. Unfortunately, Java&#8217;s default
@@ -682,7 +682,7 @@ This meant that the data structure has to support random access or have a <code>
 for the sake of convenience, <code>LinkedList</code> was chosen.</p>
 </div>
 <div class="paragraph">
-<p>Currently, a size limit of 20 is imposed on CommandHistory. A limit is required as storing unlimited commands is not feasible.
+<p>Currently, a size limit of 20 is imposed on <code>EnteredCommandsHistory</code>. A limit is required as storing unlimited commands is not feasible.
 Also, it is highly unlikely that users would need to see their entered commands beyond a certain point.</p>
 </div>
 <div class="paragraph">
@@ -696,11 +696,11 @@ Also, it is highly unlikely that users would need to see their entered commands 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Blank the CommandBox.</p>
+<p><strong>Alternative 1 (current choice)</strong>: Blank the <code>CommandBox</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Provides users an easy way to clear the CommandBox.</p>
+<p>Pros: Provides users a fast way to clear the <code>CommandBox</code>.</p>
 </li>
 <li>
 <p>Cons: Users are unable to view their command history without losing the command they have typed.</p>
@@ -717,7 +717,7 @@ Also, it is highly unlikely that users would need to see their entered commands 
 </li>
 <li>
 <p>Cons: Users are unable to view their command history without losing the command they have typed.<br>
-No easy way to clear the CommandBox.</p>
+No fast way to clear the <code>CommandBox</code>.</p>
 </li>
 </ul>
 </div>
@@ -730,7 +730,7 @@ No easy way to clear the CommandBox.</p>
 <p>Pros: Users can view their command history without losing the command they have typed.</p>
 </li>
 <li>
-<p>Cons: No easy way to clear the CommandBox.<br>
+<p>Cons: No fast way to clear the <code>CommandBox</code>.<br>
 Harder to implement.</p>
 </li>
 </ul>
@@ -748,7 +748,7 @@ Harder to implement.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduces clutter in the Command History.</p>
+<p>Pros: Reduces clutter in the command history.</p>
 </li>
 <li>
 <p>Cons: Users would not be able to see their failed attempts.<br>
@@ -762,7 +762,7 @@ Users are unable to look at their command history without losing the command the
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: User can store an incomplete draft command in the Command History.</p>
+<p>Pros: User can store an incomplete draft command in the command history.</p>
 </li>
 <li>
 <p>Cons: Users who frequently make mistakes would find it troublesome to navigate
@@ -780,7 +780,7 @@ an autocomplete feature.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice)</strong>: Whenever user modifies the text in the CommandBox
+<p><strong>Alternative 1 (current choice)</strong>: Whenever user modifies the text in the <code>CommandBox</code>
 and when command executed successfully.</p>
 <div class="ulist">
 <ul>
@@ -813,7 +813,7 @@ and when command executed successfully.</p>
 <div class="sect3">
 <h4 id="proposed-improvements-command-history-storage"><a class="link" href="#proposed-improvements-command-history-storage">4.3.3. [Proposed Improvements] Command History Storage</a></h4>
 <div class="paragraph">
-<p>There are plans to save the Command History in the hard drive, so that it may be accessed across sessions.
+<p>There are plans to save the command history in the hard drive, so that it may be accessed across sessions.
 However, due to the complexity and difficulty of implementation, it will only be rolled out in a future version.</p>
 </div>
 </div>
@@ -4388,4 +4388,4 @@ not foresee). As this was our first time dealing with the observer pattern, we h
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:31:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:34:14 UTC</div></div></div></body></html>
