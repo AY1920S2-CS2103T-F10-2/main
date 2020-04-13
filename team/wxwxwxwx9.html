@@ -150,7 +150,7 @@ This required careful design considerations.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Contributed to both the User Guide (UG) and Developer Guide (DG).</p>
+<p>Contributed extensively to both the User Guide (UG) and Developer Guide (DG).</p>
 </li>
 </ul>
 </div>
@@ -736,7 +736,7 @@ This is identical for the <code>unarchive</code> command in the main list as wel
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerObjectDiagram.png" alt="InternshipDiaryAndModelManagerObjectDiagram" width="800">
 </div>
-<div class="title">Figure 6. Object diagram of three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code></div>
+<div class="title">Figure 6. Object diagram to illustrate the three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code></div>
 </div>
 <div class="paragraph">
 <p>As the name suggests, <code>displayedInternships</code> is the list that is shown to the user in the GUI. It references either
@@ -790,7 +790,7 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 <div class="content">
 <img src="../images/InternshipDiaryAndModelManagerPropertyChangeClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeClassDiagram">
 </div>
-<div class="title">Figure 8. Implementation of a two-tier observer-observable structure for <code>InternshipDiary</code></div>
+<div class="title">Figure 8. Implementation of a two-tier observer-observable structure</div>
 </div>
 <div class="paragraph">
 <p>The class diagram above showcases our implementation of a two-tier observer-observable structure:<br></p>
@@ -860,7 +860,7 @@ On the other hand, a class that implements the <code>PropertyChangeListener</cod
 </div>
 <div class="paragraph">
 <p>Whenever an object wants to observe changes in another object, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance from the appropriate object that it wishes to observe.
-It will also have to specify which property of that object it wants to observe.</p>
+It will also have to specify which <strong>property</strong> of that object it wants to observe.</p>
 </div>
 <div class="paragraph">
 <p>In our case, when <code>ModelManager</code> is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance belonging to <code>InternshipDiary</code>.
@@ -1449,4 +1449,4 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:43:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:52:35 UTC</div></div></div></body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Archival View</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Internship Diary</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"></div><div id="content"><div class="sect1">
+<h2 id="archival-view"><a class="link" href="#archival-view">Archival View</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The class diagram below depicts the important methods and variables that provide us the ability to switch views between the main list and the archival list.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InternshipDiaryAndModelManagerClassDiagram.png" alt="InternshipDiaryAndModelManagerClassDiagram" width="500">
+</div>
+<div class="title">Figure 1. Structure of <code>InternshipDiary</code> that showcases the methods and attributes required for view-switching</div>
+</div>
+<div class="paragraph">
+<p>The object diagram below illustrates the three <code>UniqueInternshipApplicationList</code> objects maintained by <code>InternshipDiary</code>.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InternshipDiaryAndModelManagerObjectDiagram.png" alt="InternshipDiaryAndModelManagerObjectDiagram" width="650">
+</div>
+<div class="title">Figure 2. Object diagram to illustrate the three <code>UniqueInternshipApplicationList</code> maintained by <code>InternshipDiary</code></div>
+</div>
+<div class="paragraph">
+<p>As the name suggests, <code>displayedInternships</code> is the list that is shown to the user in the GUI. It references either
+<code>archivedInternships</code> or <code>unarchivedInternships</code> at any one time. When a user is viewing the main list, <code>displayedInternships</code> references <code>unarchivedInternships</code>.
+And when a user is viewing the archival list, <code>displayedInternships</code> references <code>archivedInternships</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how an <code>archival</code> command is executed.
+The <code>list</code> command is similar to <code>archival</code>.
+You may use the same sequence diagram for the <code>list</code> command.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ArchivalSequenceDiagram.png" alt="ArchivalSequenceDiagram" width="850">
+</div>
+<div class="title">Figure 3. Sequence diagram for <code>archival</code> Command</div>
+</div>
+<div class="paragraph">
+<p>The following code snippet is retrieved from the <code>InternshipDiary</code> class.
+It illustrates the internal workings of how we switch the view between the archived list and the main list.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>public void viewArchivedInternshipApplicationList() {
+    this.displayedInternships = archivedInternships;
+    this.currentView = InternshipApplicationViewType.ARCHIVED;
+    firePropertyChange(DISPLAYED_INTERNSHIPS, getDisplayedInternshipList());
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It can be seen from the code snippet that we make use of referencing to switch between the views of archival and main list.
+However, such implementation brings about reactivity ssues&#8201;&#8212;&#8201;where elements that reference <code>displayedInternships</code> will not be aware of the reference change in <code>displayedInternships</code> whenever the user executes <code>archival</code> or <code>list</code>.
+Therefore, in the above scenario, users would still see the main list after executing the <code>archival</code> command.</p>
+</div>
+<div class="paragraph">
+<p>To resolve this issue, we need to employ the <strong>observer pattern design</strong>.
+The broad idea is to assign each UI element to be an <strong>observer</strong> and <code>InternshipDiary</code> to be the <strong>observable</strong>.
+Consequently, whenever there is a state change to <code>InternshipDiary</code>, the list of observers will be notified and updated automatically.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this observer pattern, we made use of the <code>PropertyChangeSupport</code> class and the <code>PropertyChangeListener</code> interface.
+<code>PropertyChangeSupport</code> is a utility class to support the observer pattern by managing a list of listeners (observers) and firing <code>PropertyChangeEvent</code> to the listeners.
+A class that contains an instance of <code>PropertyChangeSupport</code> is an observable.
+On the other hand, a class that implements the <code>PropertyChangeListener</code> interface is an observer.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InternshipDiaryAndModelManagerPropertyChangeClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeClassDiagram" width="700">
+</div>
+<div class="title">Figure 4. Implementation of a two-tier observer-observable structure</div>
+</div>
+<div class="paragraph">
+<p>The class diagram above showcases our implementation of a two-tier observer-observable structure: 1) <code>InternshipDiary</code> is an observable,
+2)<code>ModelManager</code> is both an observable and observer; it observes any changes to <code>displayedInternships</code> contained in <code>InternshipDiary</code>,
+3) <code>StatisticsWindow</code> is an observer; it observes any changes to <code>filteredInternshipApplications</code> contained in <code>ModelManager</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InternshipDiary</code> and <code>ModelManager</code> each contains an instance of <code>PropertyChangeSupport</code> to manage their listeners.</p>
+</li>
+<li>
+<p><code>PropertyChangeSupport</code> serves as the intermediary and an abstraction between the <strong>observables</strong> and <strong>observers</strong>.</p>
+</li>
+<li>
+<p>Observers are generalized (polymorphism) as they implement the <code>PropertyChangeListener</code> interface; these observers are managed by <code>PropertyChangeSupport</code>.</p>
+</li>
+<li>
+<p>All the UI elements in our implementation follow the above class diagram; <code>StatisticsWindow</code> is an example.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We will briefly discuss how the observer pattern works in our implementation.</p>
+</div>
+<div class="paragraph">
+<p>Whenever an object wants to observe changes in another object, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance from the appropriate object that it wishes to observe.
+It will also have to specify which property of that object it wants to observe.</p>
+</div>
+<div class="paragraph">
+<p>In our case, when <code>ModelManager</code> is created, it will call the <code>addPropertyChangeListener</code> function of the <code>PropertyChangeSupport</code> instance belonging to <code>InternshipDiary</code>.
+The function call will look like this: <code>addPropertyChangeListener("displayedInternships", this)</code> where <code>this</code>
+is a reference to <code>ModelManager</code> itself (so that it can be registered as a listener of the <code>displayedInternships</code> property of <code>InternshipDiary</code>).</p>
+</div>
+<div class="paragraph">
+<p>The process is similar for any UI element that wants to observe the <code>filteredInternshipApplications</code> property of <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>As a result, whenever there is a change to the property <code>displayedInternships</code> in <code>InternshipDiary</code>, the <code>PropertyChangeSupport</code> instance of
+<code>InternshipDiary</code> will call <code>firePropertyChange</code> to emit a <code>PropertyChangeEvent</code> to <code>ModelManager</code>.
+The emitted event will trigger the <code>propertyChange</code> function of <code>ModelManager</code>.
+<code>ModelManager</code> can then retrieve the new reference from the event and update its <code>filteredInternshipApplications</code> accordingly.
+It will then repeat the event emission process to any UI element (e.g. <code>StatisticsWindow</code>) that is observing the
+<code>filteredInternshipApplications</code> property.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram gives a high-level overview of the above event-driven process.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ActivityDiagramObserverPattern.png" alt="ActivityDiagramObserverPattern" width="800">
+</div>
+<div class="title">Figure 5. Activity diagram to illustrate the Observer Pattern using <code>archival</code> command</div>
+</div>
+<div class="paragraph">
+<p>Note that the two-tier observer-observable structure is <strong>necessary</strong>.</p>
+</div>
+<div class="paragraph">
+<p>This is because <code>list</code> and <code>archival</code> only changes the reference of <code>displayedInternships</code>.
+When 'ModelManager' updates its property <code>filteredInternshipApplications</code> with the new reference, UI elements that reference <code>filteredInternshipApplications</code>
+will not be aware of the reference update to <code>filteredInternshipApplications</code>.
+Thus, <code>ModelManager</code> has to notify and update the UI elements as well.</p>
+</div>
+<div class="paragraph">
+<p>As an extension, our team also implemented enumeration for each property that is being observed.
+This modification ensures type safety and a way for us to track what properties are observed.
+This is especially important when many properties are being observed.</p>
+</div>
+<div class="paragraph">
+<p>Below is the updated class diagram with the implementation of <code>ListenerPropertyType</code> enumeration.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram.png" alt="InternshipDiaryAndModelManagerPropertyChangeEnumClassDiagram">
+</div>
+<div class="title">Figure 6. Updated class diagram of the two-tier observer-observable structure with <code>ListenerPropertyType</code></div>
+</div>
+<div class="paragraph">
+<p>As seen from the diagram above, each observable will implement two additional methods to use <code>ListenerPropertyType</code> enumeration as parameters:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>addPropertyChangeListener(ListenerPropertyType propertyType, PropertyChangeListener l)</code></p>
+</li>
+<li>
+<p><code>firePropertyChange(ListenerPropertyType propertyType, Object newValue)</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This forms a layer of abstraction as we would not be allowed to call the <code>addPropertyChangeListener</code> and <code>firePropertyChange</code> methods of
+<code>PropertyChangeSupport</code> directly.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:52:35 UTC</div></div></div></body></html>
