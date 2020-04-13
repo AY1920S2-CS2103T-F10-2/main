@@ -243,7 +243,7 @@ This required careful design considerations.</p>
 <div class="sect2">
 <h3 id="deleting-internship-application-code-delete-code"><a class="link" href="#deleting-internship-application-code-delete-code">Deleting internship application: <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Delete specific internship applications from the current list.<br></p>
+<p>Deletes internship application from the current list.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -303,18 +303,8 @@ This required careful design considerations.</p>
 <p>There must be at least one valid <code>STATUS</code>.</p>
 </li>
 <li>
-<p>There can be multiple <code>STATUS</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>e.g. the command will delete internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>delete s/applied wishlist</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>The command will execute as long as there is a valid <code>STATUS</code>&#8201;&#8212;&#8201;it will ignore other invalid inputs. If there is no internship application with the
-specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application acted upon).</p>
+specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application to act upon).</p>
 <div class="ulist">
 <ul>
 <li>
@@ -345,13 +335,18 @@ Deletes the 2nd internship application from the main list.</p>
 </li>
 <li>
 <p><code>list</code><br>
-<code>delete 2, 1, 3</code><br>
+<code>delete 1, 2, 3</code><br>
 Deletes the 1st, 2nd, and 3rd internship applications from the main list.</p>
 </li>
 <li>
 <p><code>archival</code><br>
 <code>delete s/applied</code><br>
-Deletes all the internship applications with the <code>applied</code> status from the archival list.</p>
+Deletes all the internship application(s) with the <code>applied</code> status from the archival list.</p>
+</li>
+<li>
+<p><code>archival</code><br>
+<code>delete s/applied rejected</code><br>
+Deletes all the internship application(s) with the <code>applied</code> or <code>rejected</code> status from the archival list.</p>
 </li>
 </ul>
 </div>
@@ -359,7 +354,7 @@ Deletes all the internship applications with the <code>applied</code> status fro
 <div class="sect2">
 <h3 id="archiving-internship-application-code-archive-code"><a class="link" href="#archiving-internship-application-code-archive-code">Archiving internship application: <code>archive</code></a></h3>
 <div class="paragraph">
-<p>Archive specific internship applications in the <strong>main list</strong>.<br></p>
+<p>Moves internship application from the <strong>main list</strong> to the <strong>archival list</strong>.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -419,18 +414,8 @@ Deletes all the internship applications with the <code>applied</code> status fro
 <p>There must be at least one valid <code>STATUS</code>.</p>
 </li>
 <li>
-<p>There can be multiple <code>STATUS</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>e.g. the command will archive internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>archive s/applied wishlist</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>The command will execute as long as there is a valid <code>STATUS</code>&#8201;&#8212;&#8201;it will ignore other invalid inputs. If there is no internship application with the
-specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application acted upon).</p>
+specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application to act upon).</p>
 <div class="ulist">
 <ul>
 <li>
@@ -461,13 +446,18 @@ Archives the 2nd internship application in the main list.</p>
 </li>
 <li>
 <p><code>list</code><br>
-<code>archive 2, 1, 3</code><br>
+<code>archive 1, 2, 3</code><br>
 Archives the 1st, 2nd, and 3rd internship application in the main list.</p>
 </li>
 <li>
 <p><code>list</code><br>
-<code>archive s/rejected</code><br>
-Archives all the internship applications with the <code>rejected</code> status in the main list.</p>
+<code>archive s/applied</code><br>
+Archives all the internship application(s) with the <code>applied</code> status in the main list.</p>
+</li>
+<li>
+<p><code>list</code><br>
+<code>archive s/applied rejected</code><br>
+Archives all the internship application(s) with the <code>applied</code> or <code>rejected</code> status in the main list.</p>
 </li>
 </ul>
 </div>
@@ -475,7 +465,7 @@ Archives all the internship applications with the <code>rejected</code> status i
 <div class="sect2">
 <h3 id="unarchiving-internship-application-code-unarchive-code"><a class="link" href="#unarchiving-internship-application-code-unarchive-code">Unarchiving internship application: <code>unarchive</code></a></h3>
 <div class="paragraph">
-<p>Unarchive specific internship applications in the <strong>archival list</strong>.<br></p>
+<p>Moves internship application from the <strong>archival list</strong> to the <strong>main list</strong>.<br></p>
 </div>
 <div class="paragraph">
 <p>Formats:</p>
@@ -535,18 +525,8 @@ Archives all the internship applications with the <code>rejected</code> status i
 <p>There must be at least one valid <code>STATUS</code>.</p>
 </li>
 <li>
-<p>There can be multiple <code>STATUS</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>e.g. the command will unarchive internship application(s) with status <code>applied</code> or <code>wishlist</code> for <code>unarchive s/applied wishlist</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>The command will execute as long as there is a valid <code>STATUS</code>&#8201;&#8212;&#8201;it will ignore other invalid inputs. If there is no internship application with the
-specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application acted upon).</p>
+specified <code>STATUS</code>, then the feedback box will not display any internship application information (as there is no internship application to act upon).</p>
 <div class="ulist">
 <ul>
 <li>
@@ -577,13 +557,18 @@ Unarchives the 2nd internship application in the archival list.</p>
 </li>
 <li>
 <p><code>archival</code><br>
-<code>unarchive 2, 1, 3</code><br>
+<code>unarchive 1, 2, 3</code><br>
 Unarchives the 1st, 2nd, and 3rd internship application in the archival list.</p>
 </li>
 <li>
 <p><code>archival</code><br>
-<code>unarchive s/rejected</code><br>
-Unarchives all the internship applications with the <code>rejected</code> status in the archival list.</p>
+<code>unarchive s/applied</code><br>
+Unarchives all the internship application(s) with the <code>applied</code> status in the archival list.</p>
+</li>
+<li>
+<p><code>archival</code><br>
+<code>unarchive s/applied rejected</code><br>
+Unarchives all the internship application(s) with the <code>applied</code> or <code>rejected</code> status in the archival list.</p>
 </li>
 </ul>
 </div>
@@ -1464,4 +1449,4 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 19:20:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:21:20 UTC</div></div></div></body></html>
