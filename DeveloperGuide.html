@@ -2061,6 +2061,9 @@ Regardless of any changes, this system can dynamically handle the addition, dele
 </ul>
 </div>
 <div class="paragraph">
+<p>The applications will be displayed in order of earliest application date or scheduled interview date followed by those with later dates.</p>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram shows how the command is executed:</p>
 </div>
 <div class="imageblock">
@@ -2102,7 +2105,7 @@ interviews</code> of an internship application that has a date of the current da
 <div class="paragraph">
 <p>Firstly, an <code>AND</code> operation on the <code>ApplicationDateDuePredicate</code> and <code>StatusIsWishlistPredicate</code> as well as another
 <code>AND</code> operation on the <code>InterviewDateDuePredicate</code> and  <code>StatusIsInterviewPredicate</code> are performed. Next, an <code>OR</code>
-operation is performed on the predicates from the previous two <code>AND</code> operations. An 'AND' operation is then performed on
+operation is performed on the predicates from the previous two <code>AND</code> operations. An <code>AND</code> operation is then performed on
 the predicate obtained from the previous <code>OR</code> operation and the <code>IsNotArchivedPredicate</code>. The <code>IsNotArchivedPredicate</code>
 is used to make sure that archived internship applications do not appear when <code>reminder</code> is used. The final predicate
 produced is then passed into the method <code>updateFilteredInternshipApplicationList()</code> of the <code>ModelManager</code> instance.</p>
@@ -4401,4 +4404,4 @@ not foresee). As this was our first time dealing with the observer pattern, we h
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:35:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:02:09 UTC</div></div></div></body></html>
